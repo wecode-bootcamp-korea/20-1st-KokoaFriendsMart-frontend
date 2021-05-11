@@ -51,14 +51,14 @@ export class Product extends Component {
                   <div className="FloatingOptionInnerbox">
                     {/* product floating header~~~~~~*/}
                     <header className="productOptionHeading">
-                      <p className="ProductCategory">굿즈 카테고리</p>
-                      <h1 className="productName">레디 미니 파우치 -어피치</h1>
-                      <p className="ProductPrice">가격</p>
+                      <p className="ProductCategory">(카테고리)</p>
+                      <h1 className="productName">(이름)</h1>
+                      <p className="ProductPrice">(가격)</p>
                       <ul>
                         <li className="saveCash">
                           <span className="title">적립캐시</span>
                           <span className="content">
-                            회원 구매 시 3%( 870c ) 최종 금액에 따라 변동 가능
+                            회원 구매 시 3% 최종 금액에 따라 변동 가능
                           </span>
                         </li>
                         <li className="deliveryFee">
@@ -107,10 +107,10 @@ export class Product extends Component {
                     <div className="payOutbox">
                       <div className="payInnerbox">
                         <div className="textLeft">
-                          <strong>__</strong>개 상품 금액
+                          <strong>(수량)</strong>개 상품 금액
                         </div>
                         <div className="textRight">
-                          <strong>__</strong>원
+                          <strong>(가격)</strong>원
                         </div>
                       </div>
                     </div>
@@ -118,23 +118,23 @@ export class Product extends Component {
                     {/* product floating bottomBtns  ~~~~ */}
                     <div className="optionButtonsOutbox">
                       <div className="optionButtons">
-                        <div>
-                          좋아요 버튼
-                          <a>
-                            <input className="likeCheckbox" type="checkbox" />
-                            <label htmlFor="likeButton">
-                              <span>하트 아이콘</span>
-                              좋아요
-                            </label>
-                          </a>
+                        <div className="optionButtonsRow1">
+                          <div>
+                            <button className="likeButton bottomBtn">
+                              <img alt="하트" />
+                              <span>좋아요</span>
+                            </button>
+                          </div>
+                          <div>
+                            <button className="cartButton bottomBtn">
+                              <span>장바구니</span>
+                            </button>
+                          </div>
                         </div>
-                        <div>
-                          장바구니 버튼
-                          <a>장바구니</a>
-                        </div>
-                        <div>
-                          구매하기 버튼
-                          <a>구매하기</a>
+                        <div className="optionButtonsRow2">
+                          <button className="buyButton bottomBtn">
+                            구매하기
+                          </button>
                         </div>
                       </div>
                     </div>

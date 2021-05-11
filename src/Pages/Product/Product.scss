@@ -23,7 +23,7 @@
 }
 
 .FloatingOptionOutbox {
-  border: 3px solid blue;
+  border: 3px solid $lightGrey;
   width: 350px;
   padding: 10px;
   .productOptionHeading {
@@ -39,14 +39,36 @@
       padding: 10px;
     }
     .saveCash {
-      padding: 10px;
+      padding-left: 20px;
+      .title {
+        font-weight: 600;
+        padding-right: 5px;
+        font-size: $product-subcontents-font-size;
+        letter-spacing: -1px;
+      }
+      .content {
+        font-size: $product-subcontents-font-size;
+        letter-spacing: -1px;
+      }
     }
     .deliveryFee {
-      padding: 10px;
+      padding-left: 20px;
+      .title {
+        font-weight: 600;
+        padding-right: 5px;
+        font-size: $product-subcontents-font-size;
+        letter-spacing: -1px;
+      }
+      .content {
+        font-size: $product-subcontents-font-size;
+        letter-spacing: -1px;
+      }
     }
   }
 
   .productQuantity {
+    padding: 10px;
+    border-bottom: 1px solid $lightGrey;
     .quantityText {
       padding: 5px;
     }
@@ -57,6 +79,10 @@
         border: 1px solid gray;
         border-radius: $quantity-button-border-radius;
       }
+      input.countNum {
+        width: 20px;
+        border: none;
+      }
     }
   }
 
@@ -65,6 +91,37 @@
     padding: 10px;
     .optionImg {
       padding: 10px;
+    }
+  }
+
+  .payOutbox .payInnerbox {
+    padding: 10px;
+    display: flex;
+    position: relative;
+    .textRight {
+      position: absolute;
+      right: 30px;
+    }
+  }
+  .optionButtonsOutbox .optionButtons {
+    .bottomBtn {
+      border-radius: 15px;
+    }
+    .optionButtonsRow1 {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+      .likeButton,
+      .cartButton {
+        border: 1px solid $lightGrey;
+        width: 150px;
+      }
+    }
+    .optionButtonsRow2 {
+      .buyButton {
+        width: 320px;
+        background-color: $yellow;
+      }
     }
   }
 }
