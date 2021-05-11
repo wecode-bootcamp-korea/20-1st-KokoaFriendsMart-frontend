@@ -1,3 +1,5 @@
+@import '../../Styles/variables.scss';
+
 .product {
   border: 10px solid gray;
   width: 100vw;
@@ -16,11 +18,53 @@
 
 .productDetailImagesOutbox {
   border: 3px solid blue;
-  width: 700px;
+  width: 100px;
   margin-right: 50px;
 }
 
 .FloatingOptionOutbox {
   border: 3px solid blue;
   width: 350px;
+  padding: 10px;
+  .productOptionHeading {
+    .ProductCategory {
+      padding: 10px;
+      font-size: $product-category-font-size;
+    }
+    .productName {
+      padding: 10px;
+      font-size: $product-title-font-size;
+    }
+    .ProductPrice {
+      padding: 10px;
+    }
+    .saveCash {
+      padding: 10px;
+    }
+    .deliveryFee {
+      padding: 10px;
+    }
+  }
+
+  .productQuantity {
+    .quantityText {
+      padding: 5px;
+    }
+    .quantityGroup {
+      padding: 10px;
+      button {
+        margin: 10px;
+        border: 1px solid gray;
+        border-radius: $quantity-button-border-radius;
+      }
+    }
+  }
+
+  .options ul {
+    display: flex;
+    padding: 10px;
+    .optionImg {
+      padding: 10px;
+    }
+  }
 }

@@ -3,7 +3,25 @@ import React, { Component } from 'react';
 import './Product.scss';
 
 export class Product extends Component {
+  constructor() {
+    super();
+    this.state = {
+      productDetailPage: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('/data/productDetailPage.json')
+      .then(res => res.json())
+      .then(productPageData => {
+        this.setState({
+          productDetailPage: productPageData,
+        });
+      });
+  }
+
   render() {
+    const { productDetailPage } = this.state;
     return (
       <div className="product">
         <nav></nav>
@@ -34,28 +52,25 @@ export class Product extends Component {
                     {/* product floating header~~~~~~*/}
                     <header className="productOptionHeading">
                       <p className="ProductCategory">굿즈 카테고리</p>
-                      <h1 className="productName">
-                        굿즈 이름(레디 미니 파우치 -어피치)
-                      </h1>
-                      <p className="ProductPrice">
-                        가격(discount 적용할 수 있는 태그들 숨겨져있음)
-                      </p>
+                      <h1 className="productName">레디 미니 파우치 -어피치</h1>
+                      <p className="ProductPrice">가격</p>
                       <ul>
-                        list들 css플랙스의 연속~~
                         <li className="saveCash">
-                          <span className="title">리스트 타이틀</span>
-                          <span className="content">리스트 콘텐츠</span>
+                          <span className="title">적립캐시</span>
+                          <span className="content">
+                            회원 구매 시 3%( 870c ) 최종 금액에 따라 변동 가능
+                          </span>
                         </li>
                         <li className="deliveryFee">
-                          <span className="title">리스트 타이틀</span>
-                          <span className="content">리스트 콘텐츠</span>
+                          <span className="title">배송비</span>
+                          <span className="content">5만원 이상 무료배송</span>
                         </li>
                       </ul>
                     </header>
                     {/* ~~~~~~product floating header*/}
                     {/* product floating Amount~~~~~*/}
                     <div className="productQuantity">
-                      <span>수량</span>
+                      <span className="quantityText">수량</span>
                       <span className="quantityGroup">
                         <button className="minus">-</button>
                         <input
@@ -71,8 +86,20 @@ export class Product extends Component {
                     {/* product floating options~~~~*/}
                     <div className="options">
                       <ul>
-                        <li>옵션1</li>
-                        <li>옵션2</li>
+                        <li>
+                          <img
+                            class="optionImg optionOne"
+                            alt="상품 옵션1"
+                            src=""
+                          />
+                        </li>
+                        <li>
+                          <img
+                            class="optionImg optionTwo"
+                            alt="상품 옵션2"
+                            src=""
+                          />
+                        </li>
                       </ul>
                     </div>
                     {/* ~~~~product floating options*/}
