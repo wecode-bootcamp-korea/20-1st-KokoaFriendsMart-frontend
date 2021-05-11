@@ -14,14 +14,32 @@
 
 .productDetailInnerbox {
   display: flex;
+  //왼쪽 오른쪽 다 들어감???
 }
 
+///////////왼쪽/////////
 .productDetailImagesOutbox {
-  border: 3px solid blue;
-  width: 100px;
+  width: 750px;
   margin-right: 50px;
+  border: 3px solid $lightGrey;
+  .productDetailImages {
+    width: inherit;
+    .productThumnail {
+      width: inherit;
+      .productThumnailImg {
+        width: inherit;
+        background-color: $lightGrey;
+      }
+    }
+    .descriptionList {
+      li {
+        margin-bottom: 50px;
+      }
+    }
+  }
 }
 
+///////// 오른쪽////////
 .FloatingOptionOutbox {
   border: 3px solid $lightGrey;
   width: 350px;
@@ -33,10 +51,12 @@
     }
     .productName {
       padding: 10px;
+      font-weight: 800;
       font-size: $product-title-font-size;
     }
     .ProductPrice {
       padding: 10px;
+      font-weight: 600;
     }
     .saveCash {
       padding-left: 20px;
@@ -95,7 +115,7 @@
   }
 
   .payOutbox .payInnerbox {
-    padding: 10px;
+    padding: 10px 10px 30px 10px;
     display: flex;
     position: relative;
     .textRight {
@@ -105,7 +125,7 @@
   }
   .optionButtonsOutbox .optionButtons {
     .bottomBtn {
-      border-radius: 15px;
+      border-radius: 40px;
     }
     .optionButtonsRow1 {
       display: flex;
@@ -115,12 +135,15 @@
       .cartButton {
         border: 1px solid $lightGrey;
         width: 150px;
+        height: 50px;
       }
     }
     .optionButtonsRow2 {
       .buyButton {
         width: 320px;
+        height: 50px;
         background-color: $yellow;
+        // vertical-align: middle;
       }
     }
   }

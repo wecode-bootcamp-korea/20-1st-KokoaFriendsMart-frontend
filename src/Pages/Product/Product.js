@@ -33,10 +33,10 @@ export class Product extends Component {
               이미지 콘텐츠 있는 부분만(마진값 있음) ::before
               <div className="productDetailInnerbox">
                 상위 태그 동일 ::before
+                {/* product detail Images */}
                 <div className="productDetailImagesOutbox">
-                  상세 정보 있는 부분만(오른쪽 sticky빼고 )(패딩 값 있음)
                   <div className="productDetailImages">
-                    {/* product thumbnail */}
+                    {/* product thumbnail~~ */}
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
@@ -44,6 +44,51 @@ export class Product extends Component {
                         src=""
                       ></img>
                     </div>
+                    {/* ~~~~product thumbnail*/}
+                    {/* product detail images~~~*/}
+                    <ul className="descriptionList">
+                      <li>
+                        <img
+                          className="desImg"
+                          alt="이미지1"
+                          src="http://localhost:3000/images/productDetail/waer/hat1.PNG"
+                        />
+                      </li>
+                      <li>
+                        <h2>(제품 이름)</h2>
+                        <p>
+                          어피치의 어드레스가 인상적인 레디시리즈의 미니 파우치
+                          <br />
+                          생활방수가 가능한 나일론 소재의 앙증맞은 매력이 있는
+                          <br />
+                          미니 파우치에요 더블지퍼로 2개의 수납공간이 있는
+                          <br />
+                          실용성 있는 파우치에요 힙한 레디 미니 파우치로 소중한
+                          <br />
+                          소지품들을 지켜주세요!{' '}
+                        </p>
+                      </li>
+                      <li>
+                        <img className="desImg" alt="이미지2" src="" />
+                      </li>
+                      <li>
+                        <img className="desImg" alt="이미지3" src="" />
+                      </li>
+                      <li>
+                        <p>
+                          어피치의 어드레스가 인상적인 레디시리즈의 미니 파우치
+                          <br />
+                          생활방수가 가능한 나일론 소재의 앙증맞은 매력이 있는
+                          <br />
+                          미니 파우치에요 더블지퍼로 2개의 수납공간이 있는
+                          <br />
+                          실용성 있는 파우치에요 힙한 레디 미니 파우치로 소중한
+                          <br />
+                          소지품들을 지켜주세요!{' '}
+                        </p>
+                      </li>
+                    </ul>
+                    {/* ~~product detail images*/}
                   </div>
                 </div>
                 {/* product floating */}
