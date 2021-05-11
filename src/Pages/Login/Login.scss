@@ -44,6 +44,7 @@
         padding: 15px 0px;
         border: none;
         border-bottom: 1px solid #ddd;
+        cursor: pointer;
 
         &:focus {
           outline: none;
@@ -145,6 +146,7 @@
     p {
       display: inline;
       margin-right: 10px;
+      font-size: 12px;
     }
     p:last-child {
       display: block;
