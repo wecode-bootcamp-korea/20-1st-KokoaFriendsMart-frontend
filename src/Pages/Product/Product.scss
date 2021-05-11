@@ -1,0 +1,26 @@
+.product {
+  border: 10px solid gray;
+  width: 100vw;
+  height: 100vh;
+  nav {
+    border: 3px solid blue;
+    height: 80px;
+    width: inherit;
+    // position: fixed;
+  }
+}
+
+.productDetailInnerbox {
+  display: flex;
+}
+
+.productDetailImagesOutbox {
+  border: 3px solid blue;
+  width: 700px;
+  margin-right: 50px;
+}
+
+.FloatingOptionOutbox {
+  border: 3px solid blue;
+  width: 350px;
+}
