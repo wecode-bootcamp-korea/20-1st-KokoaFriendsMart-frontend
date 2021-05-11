@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './Nav.scss';
 
 export class Nav extends Component {
   render() {
     return (
-      <div className="main">
+      <div className="Nav">
         <div className="mainContainer">
           <div className="subContainer">
             <div className="navBarLeftContainer">

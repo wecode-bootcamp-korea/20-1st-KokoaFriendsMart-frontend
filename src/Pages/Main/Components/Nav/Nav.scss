@@ -1,0 +1,71 @@
+@import '../../../../Styles/variables.scss';
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.Nav {
+  .mainContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 75px;
+    border-bottom: 1px solid $lightGrey;
+  }
+
+  .subContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .navBarLeftContainer {
+    display: flex;
+  }
+
+  .navBarLeft {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 0px 15px 0px 15px;
+    }
+  }
+
+  .navDropdown {
+    display: none;
+  }
+  .navBarHeader {
+    padding: 0px 300px 0px 300px;
+  }
+  .navBarRightContainer {
+    display: flex;
+  }
+
+  .navBarRight {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 0px 15px 0px 15px;
+    }
+  }
+
+  .searchContainer {
+    input {
+      margin: 0px 10px 0px 10px;
+      outline: 0px;
+      border: none;
+      border-bottom: $lightGrey solid 1px;
+    }
+  }
+
+  .searchTrend {
+    display: none;
+  }
+
+  .recentSearch {
+    display: none;
+  }
+
+  .navBarUserSubPage {
+    display: none;
+  }
+}
