@@ -1,8 +1,57 @@
 import React, { Component } from 'react';
+import './Login.scss';
 
 export class Login extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div className="login">
+        <main>
+          <div className="imgWrap">
+            <h1>코코아계정 하나로 충분합니다.</h1>
+            <p>
+              kokoa의 모든 서비스 뿐 아니라 Melon, Daum등
+              <br /> 다른 다양한 서비스까지 이제 코코아계정으로 이용해 보세요!
+            </p>
+            <img src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-cf2eb69e8c38343e3927cd9a0c9c26ee720b83440f818080f2508935dbc90660.png" />
+          </div>
+          <div className="loginWrap">
+            <h1>kokoa</h1>
+            <input
+              type="text"
+              placeholder="카카오메일 아이디, 이메일, 전화번호"
+            />
+            <input type="password" placeholder="비밀번호" />
+            <button className="loginBtn">로그인</button>
+            <span className="orWrap">
+              <span className="or">또는</span>
+            </span>
+            <button className="qrCode">
+              <span>
+                <i class="fas fa-qrcode"></i>
+              </span>
+              QR코드 로그인
+            </button>
+            <div className="infoUser">
+              <div className="linkJoin">
+                <a href="#">회원가입</a>
+              </div>
+              <div className="linkUser">
+                <a href="#">카카오계정</a>
+                <a href="#">비밀번호 찾기</a>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer className="infoLink">
+          <p>이용약관</p>
+          <p>개인정보 처리방침</p>
+          <p>운영정책</p>
+          <p>고객센터</p>
+          <p>공지사항</p>
+          <p>Copyright © kokoa Corp. All rights reserved.</p>
+        </footer>
+      </div>
+    );
   }
 }
 

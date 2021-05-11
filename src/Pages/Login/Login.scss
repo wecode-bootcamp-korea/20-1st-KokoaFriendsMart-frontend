@@ -1,0 +1,180 @@
+@import 'src/Styles/variables.scss';
+.login {
+  height: 100vh;
+
+  main {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+
+    .imgWrap {
+      width: 40%;
+
+      h1 {
+        font-size: 25px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        line-height: 20px;
+        font-size: 13px;
+        color: #7c7c7c;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .loginWrap {
+      width: 30%;
+      padding: 50px;
+      border: 1px solid #ddd;
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        padding: 15px 0px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+
+        &:focus {
+          outline: none;
+          border-bottom: 2px solid #4c4c4c;
+        }
+      }
+
+      input[type='password'] {
+        margin-bottom: 50px;
+      }
+
+      button {
+        display: block;
+      }
+
+      .loginBtn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: $yellow;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .orWrap {
+        display: block;
+        width: 100%;
+        margin: 15px 0px;
+      }
+
+      .orWrap::before {
+        display: inline-block;
+        width: calc(50% - 20px);
+        height: 1px;
+        margin: 8px 0;
+        background-color: rgba(0, 0, 0, 0.06);
+        vertical-align: top;
+        content: '';
+      }
+
+      .or {
+        display: inline-block;
+        width: 40px;
+        font-size: 12px;
+        color: #ccc;
+        text-align: center;
+      }
+
+      .orWrap::after {
+        display: inline-block;
+        width: calc(50% - 20px);
+        height: 1px;
+        margin: 8px 0;
+        background-color: rgba(0, 0, 0, 0.06);
+        vertical-align: top;
+        content: '';
+      }
+
+      .qrCode {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 50px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f6f6f6;
+        font-size: 16px;
+        cursor: pointer;
+
+        .fa-qrcode {
+          padding-right: 10px;
+        }
+      }
+
+      .infoUser {
+        display: flex;
+        justify-content: space-between;
+
+        a {
+          text-decoration: none;
+          font-size: 12px;
+          color: #4c4c4c;
+          cursor: pointer;
+        }
+        .linkUser {
+          a {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .infoLink {
+    padding-bottom: 50px !important;
+    padding-top: 50px !important;
+    border-top: 1px solid #ddd !important;
+    text-align: center;
+    p {
+      display: inline;
+      margin-right: 10px;
+    }
+    p:last-child {
+      display: block;
+      padding-top: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .imgWrap,
+  .infoLink {
+    display: none;
+  }
+  .login {
+    main {
+      .loginWrap {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 580px) {
+  .login {
+    main {
+      .loginWrap {
+        width: 80%;
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+}
