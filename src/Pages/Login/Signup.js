@@ -7,6 +7,7 @@ class Signup extends Component {
     this.state = {
       email: '',
       password: '',
+      passwordReCheck: '',
       name: '',
       phone_number: '',
     };
@@ -35,7 +36,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { email, password, name, phone_number } = this.state;
+    const { email, password, passwordReCheck, name, phone_number } = this.state;
     return (
       <div className="signupWrap">
         <div className="signup">
@@ -75,7 +76,21 @@ class Signup extends Component {
               >
                 8자리 이상 작성해 주세요.
               </p>
-              <input type="password" placeholder="비밀번호 재입력" />
+              <input
+                name="passwordReCheck"
+                type="password"
+                placeholder="비밀번호 재입력"
+                onChange={this.inputHandler}
+              />
+              <p
+                className={
+                  passwordReCheck.length > 1 && passwordReCheck === password
+                    ? 'isIncludesOk'
+                    : 'isIncludesNo'
+                }
+              >
+                위와 동일하게 입력해 주세요.
+              </p>
             </div>
             <div className="inputWrap">
               <h2>이름</h2>
@@ -107,6 +122,7 @@ class Signup extends Component {
                   email.includes('@') &&
                   email.includes('.') &&
                   password.length > 8 &&
+                  passwordReCheck === password &&
                   name.length > 1 &&
                   phone_number.length > 6
                 )
