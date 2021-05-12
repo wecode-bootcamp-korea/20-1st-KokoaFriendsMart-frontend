@@ -157,25 +157,22 @@
       padding-top: 30px;
     }
   }
-}
-
-@media screen and (max-width: 1120px) {
-  .login {
+  @media screen and (max-width: 1120px) {
     main {
+      .imgWrap {
+        display: none;
+      }
       .loginWrap {
         width: 50%;
       }
     }
   }
 
-  .imgWrap,
   .infoLink {
     display: none;
   }
-}
 
-@media screen and(max-width: 580px) {
-  .login {
+  @media screen and(max-width: 580px) {
     main {
       .loginWrap {
         width: 80%;
