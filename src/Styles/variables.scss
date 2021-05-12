@@ -19,11 +19,12 @@ $section-price-font-size: 20px;
 $category-banner-title-font-size: 55px;
 $category-banner-subtitle-font-size: 20px;
 $category-price-font-size: 20px;
-//상세페이지
+// 상세페이지
 $product-title-font-size: 28px;
-
-//내가 추가
 $product-category-font-size: 14px;
 $product-subcontents-font-size: 13px;
 $quantity-button-border-radius: 5px;
 $product-description-line-height: 1.63;
+// 미디어쿼리
+$breakpoint-mobile: 833px;
+$breakpoint-tablet: 1200px;

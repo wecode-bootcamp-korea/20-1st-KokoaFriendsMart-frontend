@@ -7,57 +7,54 @@ export class Product extends Component {
     super();
     this.state = {
       productDetailImages: [],
+      productInformation: {},
     };
   }
 
   componentDidMount() {
-    fetch('/data/productDetailImages.json')
+    fetch('/data/wearImagesData.json')
       .then(res => res.json())
       .then(productPageData => {
         this.setState({
           productDetailImages: productPageData,
         });
-        // console.log(this.state.productDetailPage);
+      });
+    fetch('/data/productInfoData.json')
+      .then(res => res.json())
+      .then(productInfoData => {
+        this.setState({
+          productInformation: productInfoData,
+        });
       });
   }
 
   render() {
-    // console.log(this.state.productDetailPage);
-    const { productDetailImages } = this.state;
+    const { productDetailImages, productInformation } = this.state;
     return (
       <div className="product">
         <nav></nav>
         <section className="productContents">
           전체 페이지(리뷰, 문의까지)
           <div className="productDetail">
-            디테일 페이지 (리뷰 위에까지만)
+            디테일 페이지 (리뷰 위에까지)
             <div className="productDetailOutbox">
-              이미지 콘텐츠 있는 부분만(마진값 있음) ::before
               <div className="productDetailInnerbox">
-                상위 태그 동일 ::before
                 {/* product detail Images */}
-                <div className="productDetailImagesOutbox">
-                  <div className="productDetailImages">
+                <div className="detailImagesOutbox">
+                  <div className="detailImagesInnerbox">
                     {/* product thumbnail~~ */}
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
-                        alt="(상품이름) 이미지"
-                        src=""
-                      ></img>
+                        alt="제품 썸네일"
+                        src="images/productDetail/wear/hat1_thumbnail.png"
+                      />
                     </div>
                     {/* ~~~~product thumbnail*/}
                     {/* product detail images~~~*/}
                     <ul className="descriptionList">
                       <li>
-                        <img
-                          className="desImg"
-                          alt="제품 썸네일"
-                          src="images/productDetail/wear/hat1_thumbnail.png"
-                        />
-                      </li>
-                      <li>
-                        <h2>(제품 이름)</h2>
+                        <h2>{productInformation.name}</h2>
                         <p className="productDescription">
                           이젠 골프모자도 일상에서 캐주얼하게 활용하세요.
                           <br />
@@ -79,14 +76,14 @@ export class Product extends Component {
                             <img
                               className="desImg"
                               alt={`상세이미지 ${imageData.alt}`}
-                              src={`images/productDetail/wear/${imageData.img}`}
+                              src={`images/productDetail/${imageData.img}`}
                               id={imageData.id}
                             />
                           </li>
                         );
                       })}
                       <li>
-                        <h2>(제품 이름)</h2>
+                        <h2>{productInformation.name}</h2>
                         <p className="productDescription">
                           이젠 골프모자도 일상에서 캐주얼하게 활용하세요.
                           <br />
@@ -111,9 +108,11 @@ export class Product extends Component {
                   <div className="FloatingOptionInnerbox">
                     {/* product floating header~~~~~~*/}
                     <header className="productOptionHeading">
-                      <p className="ProductCategory">(카테고리)</p>
-                      <h1 className="productName">(이름)</h1>
-                      <p className="ProductPrice">(가격)</p>
+                      <p className="ProductCategory">
+                        {productInformation.category}
+                      </p>
+                      <h1 className="productName">{productInformation.name}</h1>
+                      <p className="ProductPrice">{productInformation.price}</p>
                       <ul>
                         <li className="saveCash">
                           <span className="title">적립캐시</span>
@@ -211,74 +210,3 @@ export class Product extends Component {
 }
 
 export default Product;
-
-const STORY_DATA = [
-  {
-    img: 'hat1.png',
-    alt: '1',
-  },
-  {
-    img: 'hat2.png',
-    alt: '2',
-  },
-  {
-    img: 'hat3.png',
-    alt: '3',
-  },
-  {
-    img: 'hat4.png',
-    alt: '4',
-  },
-  {
-    img: 'hat5.png',
-    alt: '5',
-  },
-  {
-    img: 'hat6.png',
-    alt: '6',
-  },
-  {
-    img: 'hat7.png',
-    alt: '7',
-  },
-  {
-    img: 'hood1.png',
-    alt: '8',
-  },
-  {
-    img: 'hood2.png',
-    alt: '9',
-  },
-  {
-    img: 'hood3.png',
-    alt: '10',
-  },
-  {
-    img: 'hood4.png',
-    alt: '11',
-  },
-  {
-    img: 'hood5.png',
-    alt: '12',
-  },
-  {
-    img: 'hood6.png',
-    alt: '13',
-  },
-  {
-    img: 'tea1.png',
-    alt: '14',
-  },
-  {
-    img: 'tea2.png',
-    alt: '15',
-  },
-  {
-    img: 'tea3.png',
-    alt: '16',
-  },
-  {
-    img: 'tea4.png',
-    alt: '17',
-  },
-];
