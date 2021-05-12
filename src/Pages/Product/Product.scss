@@ -2,8 +2,8 @@
 
 .product {
   border: 10px solid gray;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  // height: 100%;
   nav {
     border: 3px solid blue;
     height: 80px;
@@ -14,26 +14,38 @@
 
 .productDetailInnerbox {
   display: flex;
-  //왼쪽 오른쪽 다 들어감???
+  //왼쪽 오른쪽 모두
 }
 
 ///////////왼쪽/////////
 .productDetailImagesOutbox {
   width: 750px;
   margin-right: 50px;
-  border: 3px solid $lightGrey;
+  // border: 3px solid $lightGrey;
   .productDetailImages {
     width: inherit;
     .productThumnail {
       width: inherit;
       .productThumnailImg {
-        width: inherit;
+        width: 100%;
         background-color: $lightGrey;
       }
     }
     .descriptionList {
+      width: inherit;
       li {
+        width: inherit;
+        .desImg {
+          width: inherit;
+        }
         margin-bottom: 50px;
+        h2 {
+          margin-bottom: 20px;
+          font-weight: 800;
+        }
+        .productDescription {
+          line-height: $product-description-line-height;
+        }
       }
     }
   }
@@ -41,7 +53,7 @@
 
 ///////// 오른쪽////////
 .FloatingOptionOutbox {
-  border: 3px solid $lightGrey;
+  // border: 3px solid $lightGrey;
   width: 350px;
   padding: 10px;
   .productOptionHeading {
@@ -110,7 +122,9 @@
     display: flex;
     padding: 10px;
     .optionImg {
-      padding: 10px;
+      padding: 5px;
+      width: 100px;
+      border-radius: 50px;
     }
   }
 
