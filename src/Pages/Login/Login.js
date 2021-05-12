@@ -13,7 +13,18 @@ class Login extends Component {
   requestLogin = e => {
     e.preventDefault();
 
-    fetch();
+    const { email, password } = this.state;
+    fetch('10.58.2.175:9000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => {
+        response.json();
+      })
+      .then(result => console.log(result));
   };
 
   inputHandler = e => {
@@ -22,6 +33,9 @@ class Login extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
+    const emailValid = email.includes('@') && email.includes('.');
+    const passwordValid = password.length > 6;
     return (
       <div className="login">
         <main>
@@ -35,7 +49,7 @@ class Login extends Component {
           </div>
           <div className="loginWrap">
             <h1>kokoa</h1>
-            <form>
+            <form onSubmit={this.requestLogin}>
               <input
                 type="text"
                 placeholder="카카오메일 아이디, 이메일, 전화번호"
@@ -48,7 +62,10 @@ class Login extends Component {
                 name="password"
                 onChange={this.inputHandler}
               />
-              <button className="loginBtn" disabled>
+              <button
+                className="loginBtn"
+                disabled={!(emailValid && passwordValid)}
+              >
                 로그인
               </button>
             </form>
