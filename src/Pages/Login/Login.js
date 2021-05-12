@@ -22,13 +22,11 @@ export class Login extends Component {
             />
             <input type="password" placeholder="비밀번호" />
             <button className="loginBtn">로그인</button>
-            <span className="orWrap">
+            <div className="orWrap">
               <span className="or">또는</span>
-            </span>
+            </div>
             <button className="qrCode">
-              <span>
-                <i class="fas fa-qrcode"></i>
-              </span>
+              <i class="fas fa-qrcode"></i>
               QR코드 로그인
             </button>
             <div className="infoUser">

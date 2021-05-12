@@ -4,7 +4,7 @@
 
   main {
     display: flex;
-    height: 80vh;
+    padding: 15% 0%;
     justify-content: center;
     align-items: center;
 
@@ -74,16 +74,26 @@
         display: block;
         width: 100%;
         margin: 15px 0px;
-      }
 
-      .orWrap::before {
-        display: inline-block;
-        width: calc(50% - 20px);
-        height: 1px;
-        margin: 8px 0;
-        background-color: rgba(0, 0, 0, 0.06);
-        vertical-align: top;
-        content: '';
+        &::before {
+          display: inline-block;
+          width: calc(50% - 20px);
+          height: 1px;
+          margin: 8px 0;
+          background-color: rgba(0, 0, 0, 0.06);
+          vertical-align: top;
+          content: '';
+        }
+
+        &::after {
+          display: inline-block;
+          width: calc(50% - 20px);
+          height: 1px;
+          margin: 8px 0;
+          background-color: rgba(0, 0, 0, 0.06);
+          vertical-align: top;
+          content: '';
+        }
       }
 
       .or {
@@ -92,16 +102,6 @@
         font-size: 12px;
         color: #ccc;
         text-align: center;
-      }
-
-      .orWrap::after {
-        display: inline-block;
-        width: calc(50% - 20px);
-        height: 1px;
-        margin: 8px 0;
-        background-color: rgba(0, 0, 0, 0.06);
-        vertical-align: top;
-        content: '';
       }
 
       .qrCode {
@@ -156,16 +156,17 @@
 }
 
 @media screen and (max-width: 1120px) {
-  .imgWrap,
-  .infoLink {
-    display: none;
-  }
   .login {
     main {
       .loginWrap {
         width: 50%;
       }
     }
+  }
+
+  .imgWrap,
+  .infoLink {
+    display: none;
   }
 }
 
