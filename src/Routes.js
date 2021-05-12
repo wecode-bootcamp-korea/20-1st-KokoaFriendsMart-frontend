@@ -5,6 +5,7 @@ import Category from './Pages/Category/Category';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Login/Signup';
 import Product from './Pages/Product/Product';
+
 class Routes extends React.Component {
   render() {
     return (

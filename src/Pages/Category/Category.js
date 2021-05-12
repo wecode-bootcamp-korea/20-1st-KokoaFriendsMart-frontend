@@ -12,7 +12,7 @@ export class Category extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/categoryData.json')
+    fetch('/data/categoryData.json')
       .then(result => result.json())
       .then(categoryData => {
         this.setState({ productList: categoryData.productList });
@@ -26,12 +26,13 @@ export class Category extends Component {
   };
 
   render() {
+    const { productList, isShow } = this.state;
     return (
       <div className="Category">
         <div className="banner">
           <div className="bannerControl">
-            <Link to="/" className="bannerArrow prevArrow"></Link>
-            <Link to="/" className="bannerArrow nextArrow"></Link>
+            <Link to="/" className="bannerArrow prevArrow" />
+            <Link to="/" className="bannerArrow nextArrow" />
           </div>
           <div className="caption">
             <div className="subtitle">CATEGORY</div>
@@ -60,11 +61,9 @@ export class Category extends Component {
               <div className="listSort" onClick={this.onClickListSort}>
                 최신순
                 <span
-                  className={`sortArrow ${
-                    this.state.isShow ? 'clicked' : 'unClicked'
-                  }`}
+                  className={`sortArrow ${isShow ? 'clicked' : 'unClicked'}`}
                 ></span>
-                <ul className={`sortPopup ${this.state.isShow ? '' : 'hide'}`}>
+                <ul className={`sortPopup ${isShow ? '' : 'hide'}`}>
                   <li>최신순</li>
                   <li>인기순</li>
                   <li>높은가격순</li>
@@ -74,43 +73,64 @@ export class Category extends Component {
             </button>
           </div>
           <div className="productLists">
-            {this.state.productList &&
-              this.state.productList.map(list => {
-                return (
-                  <div className="productItem">
-                    <div className="item">
-                      <Link to="/" className="thum">
-                        <div>
-                          <img
-                            src={list.imgSrc}
-                            alt="이미지 섬네일"
-                            className="productImg"
-                          />
-                        </div>
-                        <span className="label sale hide">SALE</span>
-                        <span className="label soldOut hide">
-                          SOLD
-                          <br />
-                          OUT
-                        </span>
-                        <span className="label set hide">SET</span>
-                        <span className="label new hide">NEW</span>
-                      </Link>
-                      <div className="itemDesc">
-                        <div className="itemTitle">{list.itemTitle}</div>
-                        <i
-                          className={`${
-                            list.isLiked
-                              ? 'fas fa-heart yellow'
-                              : 'far fa-heart'
-                          }`}
-                        ></i>
-                        <div className="itemPrice">{list.itemPrice}</div>
+            {productList.map(list => {
+              return (
+                <div className="productItem" key={list.id}>
+                  <div className="item">
+                    <Link to="/" className="thum">
+                      <div>
+                        <img
+                          src={list.imgSrc}
+                          alt="이미지 섬네일"
+                          className="productImg"
+                        />
+                      </div>
+                      <span
+                        className={`label ${
+                          list.status.isSaled ? 'sale' : 'hide'
+                        }`}
+                      >
+                        SALE
+                      </span>
+                      <span
+                        className={`label ${
+                          list.status.isSoldOut ? 'soldOut' : 'hide'
+                        }`}
+                      >
+                        SOLD
+                        <br />
+                        OUT
+                      </span>
+                      <span
+                        className={`label ${
+                          list.status.isSet ? 'set' : 'hide'
+                        }`}
+                      >
+                        SET
+                      </span>
+                      <span
+                        className={`label ${
+                          list.status.isNew ? 'new' : 'hide'
+                        }`}
+                      >
+                        NEW
+                      </span>
+                    </Link>
+                    <div className="itemDesc">
+                      <div className="itemTitle">{list.itemTitle}</div>
+                      <i
+                        className={`fa-heart ${
+                          list.status.isLiked ? 'fas yellow' : 'far'
+                        }`}
+                      ></i>
+                      <div className="itemPrice">
+                        {list.itemPrice.toLocaleString()}원
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

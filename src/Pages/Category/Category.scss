@@ -2,14 +2,12 @@
 
 .Category {
   color: #333;
+
   .banner {
     position: relative;
     height: 390px;
     background-color: #dbf4f9;
     z-index: -1;
-
-    .arrow {
-    }
 
     .caption {
       position: absolute;
@@ -119,8 +117,8 @@
         .sortPopup {
           position: absolute;
           top: 50px;
-          padding: 18px 0 20px;
           right: -15px;
+          padding: 18px 0 20px;
           width: 143px;
           height: 200px;
           background-color: #fff;
