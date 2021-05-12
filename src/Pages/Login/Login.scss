@@ -4,7 +4,7 @@
 
   main {
     display: flex;
-    padding: 15% 0%;
+    padding: 10% 0%;
     justify-content: center;
     align-items: center;
 
@@ -68,6 +68,10 @@
         background-color: $yellow;
         font-size: 16px;
         cursor: pointer;
+
+        &:disabled {
+          opacity: 0.3;
+        }
       }
 
       .orWrap {

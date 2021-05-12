@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import './Login.scss';
 
-export class Login extends Component {
+class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  requestLogin = e => {
+    e.preventDefault();
+
+    fetch();
+  };
+
+  inputHandler = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="login">
@@ -16,17 +35,28 @@ export class Login extends Component {
           </div>
           <div className="loginWrap">
             <h1>kokoa</h1>
-            <input
-              type="text"
-              placeholder="카카오메일 아이디, 이메일, 전화번호"
-            />
-            <input type="password" placeholder="비밀번호" />
-            <button className="loginBtn">로그인</button>
+            <form>
+              <input
+                type="text"
+                placeholder="카카오메일 아이디, 이메일, 전화번호"
+                name="email"
+                onChange={this.inputHandler}
+              />
+              <input
+                type="password"
+                placeholder="비밀번호"
+                name="password"
+                onChange={this.inputHandler}
+              />
+              <button className="loginBtn" disabled>
+                로그인
+              </button>
+            </form>
             <div className="orWrap">
               <span className="or">또는</span>
             </div>
             <button className="qrCode">
-              <i class="fas fa-qrcode"></i>
+              <i className="fas fa-qrcode"></i>
               QR코드 로그인
             </button>
             <div className="infoUser">
