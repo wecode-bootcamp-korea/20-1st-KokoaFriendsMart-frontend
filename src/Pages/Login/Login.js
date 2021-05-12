@@ -21,9 +21,7 @@ class Login extends Component {
         password: password,
       }),
     })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(result => console.log(result));
   };
 
