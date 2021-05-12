@@ -9,24 +9,24 @@ class Signup extends Component {
       password: '',
       passwordReCheck: '',
       name: '',
-      phone_number: '',
+      phoneNumber: '',
     };
   }
 
-  fetch = e => {
+  requestSignin = e => {
+    const { email, password, name, phoneNumber } = this.state;
     e.preventDefault();
-    fetch('http://10.58.2.175:9000/users/signup', {
+
+    fetch('http://10.58.6.150:9000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-        name: this.state.name,
-        phone_number: this.state.phone_number,
+        email: email,
+        password: password,
+        name: name,
+        phone_number: phoneNumber,
       }),
     })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(result => console.log(result));
   };
 
@@ -36,12 +36,16 @@ class Signup extends Component {
   };
 
   render() {
-    const { email, password, passwordReCheck, name, phone_number } = this.state;
+    const { email, password, passwordReCheck, name, phoneNumber } = this.state;
+    const isEmailValid = email.includes('@') && email.includes('.');
+    const isPasswordValid = password.length > 8;
+    const isPasswordReCheckValid =
+      passwordReCheck.length > 1 && passwordReCheck === password;
     return (
       <div className="signupWrap">
         <div className="signup">
           <h1 className="logo">kokoa</h1>
-          <form className="inputFrom" onSubmit={this.fetch}>
+          <form className="inputFrom" onSubmit={this.requestSignin}>
             <h1>코코아 계정 정보를 입력해 주세요.</h1>
             <div className="inputWrap">
               <h2>코코아 계정 이메일</h2>
@@ -51,13 +55,7 @@ class Signup extends Component {
                 placeholder="이메일 주소 입력"
                 onChange={this.inputHandler}
               />
-              <p
-                className={
-                  email.includes('@') && email.includes('.')
-                    ? 'isIncludesOk'
-                    : 'isIncludesNo'
-                }
-              >
+              <p className={isEmailValid ? 'isIncludesOk' : 'isIncludesNo'}>
                 이메일 형식에 맞게 작성해 주세요.
               </p>
             </div>
@@ -69,11 +67,7 @@ class Signup extends Component {
                 placeholder="비밀번호(8~32자리)"
                 onChange={this.inputHandler}
               />
-              <p
-                className={
-                  password.length > 8 ? 'isIncludesOk' : 'isIncludesNo'
-                }
-              >
+              <p className={isPasswordValid ? 'isIncludesOk' : 'isIncludesNo'}>
                 8자리 이상 작성해 주세요.
               </p>
               <input
@@ -84,9 +78,7 @@ class Signup extends Component {
               />
               <p
                 className={
-                  passwordReCheck.length > 1 && passwordReCheck === password
-                    ? 'isIncludesOk'
-                    : 'isIncludesNo'
+                  isPasswordReCheckValid ? 'isIncludesOk' : 'isIncludesNo'
                 }
               >
                 위와 동일하게 입력해 주세요.
@@ -108,7 +100,7 @@ class Signup extends Component {
                   <option>+82</option>
                 </select>
                 <input
-                  name="phone_number"
+                  name="phoneNumber"
                   type="tell"
                   placeholder="전화번호"
                   onChange={this.inputHandler}
@@ -119,12 +111,11 @@ class Signup extends Component {
             <button
               disabled={
                 !(
-                  email.includes('@') &&
-                  email.includes('.') &&
-                  password.length > 8 &&
-                  passwordReCheck === password &&
+                  isEmailValid &&
+                  isPasswordValid &&
+                  isPasswordReCheckValid &&
                   name.length > 1 &&
-                  phone_number.length > 6
+                  phoneNumber.length > 6
                 )
               }
               className="nextBtn"
