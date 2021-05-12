@@ -1,0 +1,70 @@
+{
+  "productList": [
+    {
+      "id": 1,
+      "itemTitle": "레디 니트 우드커버-라이언",
+      "itemPrice": "38,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": false,
+      "isNew": false
+    },
+    {
+      "id": 2,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": "48,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": false,
+      "isSaled": true,
+      "isSoldOut": false,
+      "isSet": false,
+      "isNew": false
+    },
+    {
+      "id": 3,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": "48,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": false,
+      "isSaled": true,
+      "isSoldOut": false,
+      "isSet": false,
+      "isNew": false
+    },
+    {
+      "id": 4,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": "48,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": false,
+      "isSaled": true,
+      "isSoldOut": true,
+      "isSet": false,
+      "isNew": false
+    },
+    {
+      "id": 5,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": "48,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": false,
+      "isSaled": true,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 6,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": "48,000원",
+      "imgSrc": "/images/sample.png",
+      "isLiked": false,
+      "isSaled": true,
+      "isSoldOut": false,
+      "isSet": false,
+      "isNew": true
+    }
+  ]
+}
