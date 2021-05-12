@@ -15,7 +15,7 @@ class Login extends Component {
     e.preventDefault();
 
     const { email, password } = this.state;
-    fetch(`${loginSignupApi}/users/signup`, {
+    fetch(`${loginSignupApi}/users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
