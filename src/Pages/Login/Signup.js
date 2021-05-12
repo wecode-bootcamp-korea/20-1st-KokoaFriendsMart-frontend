@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { loginSignupApi } from '../../config';
 import './Signup.scss';
 
 class Signup extends Component {
