@@ -14,7 +14,7 @@ class Login extends Component {
     e.preventDefault();
 
     const { email, password } = this.state;
-    fetch('10.58.2.175:9000/user/signin', {
+    fetch('http://10.58.6.150:9000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -22,7 +22,7 @@ class Login extends Component {
       }),
     })
       .then(response => {
-        response.json();
+        return response.json();
       })
       .then(result => console.log(result));
   };
