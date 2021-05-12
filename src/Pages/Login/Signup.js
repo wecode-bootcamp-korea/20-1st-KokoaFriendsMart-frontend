@@ -26,11 +26,12 @@ class Signup extends Component {
         name: name,
         phone_number: phoneNumber,
       }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        if()
-      });
+    }).then(response => response.json());
+    // .then(result => {
+    // if (result.status === 'SUCCESS') {
+    // this.props.history.push('/login');
+    // }
+    // });
   };
 
   inputHandler = e => {
@@ -58,7 +59,7 @@ class Signup extends Component {
                 placeholder="이메일 주소 입력"
                 onChange={this.inputHandler}
               />
-              <p className={isEmailValid ? 'isIncludesOk' : 'isIncludesNo'}>
+              <p className={`inValidmsg ${isEmailValid ? 'isIncludesOk' : ''}`}>
                 이메일 형식에 맞게 작성해 주세요.
               </p>
             </div>
@@ -70,7 +71,11 @@ class Signup extends Component {
                 placeholder="비밀번호(8~32자리)"
                 onChange={this.inputHandler}
               />
-              <p className={isPasswordValid ? 'isIncludesOk' : 'isIncludesNo'}>
+              <p
+                className={`inValidmsg ${
+                  isPasswordValid ? 'isIncludesOk' : ''
+                }`}
+              >
                 8자리 이상 작성해 주세요.
               </p>
               <input
@@ -80,9 +85,9 @@ class Signup extends Component {
                 onChange={this.inputHandler}
               />
               <p
-                className={
-                  isPasswordReCheckValid ? 'isIncludesOk' : 'isIncludesNo'
-                }
+                className={`inValidmsg ${
+                  isPasswordReCheckValid ? 'isIncludesOk' : ''
+                }`}
               >
                 위와 동일하게 입력해 주세요.
               </p>
