@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { loginSignupApi } from '../../config';
 import './Login.scss';
 
 class Login extends Component {
@@ -14,7 +15,7 @@ class Login extends Component {
     e.preventDefault();
 
     const { email, password } = this.state;
-    fetch('http://10.58.6.150:9000/users/signin', {
+    fetch(`${loginSignupApi}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -22,7 +23,12 @@ class Login extends Component {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log(result));
+      .then(result => {
+        if (result.status === 'SUCCESS') {
+          localStorage.setItem('accessToken', result.token);
+          // this.props.history.push('/main');
+        }
+      });
   };
 
   inputHandler = e => {
