@@ -14,9 +14,9 @@ class Signup extends Component {
   }
 
   requestSignin = e => {
-    const { email, password, name, phoneNumber } = this.state;
     e.preventDefault();
 
+    const { email, password, name, phoneNumber } = this.state;
     fetch('http://10.58.6.150:9000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
