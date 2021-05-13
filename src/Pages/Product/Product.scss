@@ -67,131 +67,136 @@
       width: 350px;
       padding: 10px;
 
-      .productOptionHeading {
-        .ProductCategory {
-          padding: 10px;
-          font-size: $product-category-font-size;
-          font-weight: 600;
-        }
-
-        .productName {
-          padding: 10px;
-          font-weight: 800;
-          font-size: $product-title-font-size;
-        }
-
-        .ProductPrice {
-          padding: 10px;
-          font-weight: 600;
-        }
-
-        .saveCash {
-          padding-left: 10px;
-
-          .title {
+      .FloatingOptionInnerbox {
+        position: sticky;
+        top: 10px;
+        .productOptionHeading {
+          .ProductCategory {
+            padding: 10px;
+            font-size: $product-category-font-size;
             font-weight: 600;
-            padding-right: 5px;
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
           }
 
-          .content {
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
+          .productName {
+            padding: 10px;
+            font-weight: 800;
+            font-size: $product-title-font-size;
           }
-        }
 
-        .deliveryFee {
-          padding-left: 10px;
-
-          .title {
+          .ProductPrice {
+            padding: 10px;
             font-weight: 600;
-            padding-right: 5px;
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
           }
 
-          .content {
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
+          .saveCash {
+            padding-left: 10px;
+
+            .title {
+              font-weight: 600;
+              padding-right: 5px;
+              font-size: $product-subcontents-font-size;
+              letter-spacing: -1px;
+            }
+
+            .content {
+              font-size: $product-subcontents-font-size;
+              letter-spacing: -1px;
+            }
+          }
+
+          .deliveryFee {
+            padding-left: 10px;
+
+            .title {
+              font-weight: 600;
+              padding-right: 5px;
+              font-size: $product-subcontents-font-size;
+              letter-spacing: -1px;
+            }
+
+            .content {
+              font-size: $product-subcontents-font-size;
+              letter-spacing: -1px;
+            }
           }
         }
-      }
 
-      .productQuantity {
-        padding: 10px;
-        border-bottom: 1px solid $lightGrey;
-
-        .quantityText {
-          padding: 5px;
-        }
-
-        .quantityGroup {
+        .productQuantity {
           padding: 10px;
+          border-bottom: 1px solid $lightGrey;
 
-          button {
-            margin: 10px;
-            border: 1px solid gray;
-            border-radius: $quantity-button-border-radius;
+          .quantityText {
+            padding: 5px;
           }
 
-          input.countNum {
-            width: 20px;
-            border: none;
+          .quantityGroup {
+            padding: 10px;
+
+            button {
+              margin: 10px;
+              border: 1px solid gray;
+              border-radius: $quantity-button-border-radius;
+            }
+
+            input.countNum {
+              width: 20px;
+              border: none;
+            }
           }
         }
-      }
 
-      .options ul {
-        display: flex;
-        padding: 10px;
-
-        .optionImg {
-          padding: 5px;
-          width: 90px;
-          border-radius: 50px;
-        }
-      }
-
-      .payOutbox .payInnerbox {
-        padding: 10px 10px 30px 10px;
-        display: flex;
-        position: relative;
-
-        .textRight {
-          position: absolute;
-          right: 30px;
-        }
-      }
-
-      .optionButtonsOutbox .optionButtons {
-        .bottomBtn {
-          border-radius: 40px;
-        }
-
-        .optionButtonsRow1 {
+        .options ul {
           display: flex;
-          justify-content: space-around;
-          margin-bottom: 10px;
+          padding: 10px;
 
-          .likeButton,
-          .cartButton {
-            border: 1px solid $lightGrey;
-            width: 150px;
-            height: 50px;
+          .optionImg {
+            padding: 5px;
+            width: 90px;
+            border-radius: 50px;
           }
         }
 
-        .optionButtonsRow2 {
-          .buyButton {
-            width: 320px;
-            height: 50px;
-            background-color: $yellow;
+        .payOutbox .payInnerbox {
+          padding: 10px 10px 30px 10px;
+          display: flex;
+          position: relative;
+
+          .textRight {
+            position: absolute;
+            right: 30px;
+          }
+        }
+
+        .optionButtonsOutbox .optionButtons {
+          .bottomBtn {
+            border-radius: 40px;
+          }
+
+          .optionButtonsRow1 {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+
+            .likeButton,
+            .cartButton {
+              border: 1px solid $lightGrey;
+              width: 150px;
+              height: 50px;
+            }
+          }
+
+          .optionButtonsRow2 {
+            .buyButton {
+              width: 320px;
+              height: 50px;
+              background-color: $yellow;
+            }
           }
         }
       }
     }
   }
+
   .bottomOutbox {
     display: flex;
     justify-content: center;
@@ -215,15 +220,81 @@
             font-weight: 600;
           }
         }
-        .starRateBox {
+        .reviewContentsOutbox {
           .starRate {
             display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 20px;
             width: 650px;
             height: 100px;
-            border: 1px solid $lightGrey;
-            border-radius: 20px;
+            // border: 1px solid $lightGrey;
+            border-radius: 30px;
+            box-shadow: 6px 2px 20px -6px $lightGrey;
+            .reviewPoint {
+              margin-left: 60px;
+            }
           }
+        }
+        .commentLists {
+          .commentContent {
+            border-bottom: 1px solid $lightGrey;
+            border-width: thin;
+            padding: 30px 0;
+            .commentHeading {
+              display: flex;
+              position: relative;
+              color: $lightGrey;
+              .starRaty {
+                display: flex;
+              }
+              .date {
+                position: absolute;
+                right: 20px;
+              }
+            }
+            .commentBody {
+              // position: relative;
+              display: flex;
+              margin-top: 20px;
+              .comment {
+                margin-right: 20px;
+              }
+
+              .rightPicture {
+                display: flex;
+                // position: absolute;
+                // right: 5px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-left: 10px;
+                  border: 1px solid $lightGrey;
+                  border-radius: 20%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .qnaOutbox {
+        margin-top: 200px;
+        .qnaTitle {
+          display: flex;
+          border-bottom: 1px solid $lightGrey;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+          .title {
+            margin-right: 10px;
+            font-weight: 800;
+          }
+          .countQna {
+            font-weight: 600;
+          }
+        }
+        .qnaContent {
+          height: 100px;
+          border-bottom: 1px solid $lightGrey;
         }
       }
     }

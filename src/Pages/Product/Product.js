@@ -8,6 +8,7 @@ export class Product extends Component {
     this.state = {
       productDetailImages: [],
       productInformation: {},
+      productReviewData: [],
     };
   }
 
@@ -26,10 +27,20 @@ export class Product extends Component {
           productInformation: productInfoData,
         });
       });
+    fetch('/data/reviewData.json')
+      .then(res => res.json())
+      .then(reviewData => {
+        this.setState({
+          productReviewData: reviewData,
+        });
+        console.log(reviewData);
+        console.log(this.state.productReviewData);
+      });
   }
 
   render() {
-    const { productDetailImages, productInformation } = this.state;
+    const { productDetailImages, productInformation, productReviewData } =
+      this.state;
     return (
       <div className="product">
         <nav></nav>
@@ -214,16 +225,17 @@ export class Product extends Component {
                     <span className="countReview">(리뷰개수)</span>건
                   </span>
                 </header>
-                {/* 별점 박스 */}
-                <section className="starRateBox">
+                {/* 리뷰 콘텐츠 감싸고 있는 박스 */}
+                <section className="reviewContentsOutbox">
+                  {/* 별점 박스 */}
                   <article className="starRate">
-                    <span className="starRateNum num">(별점 평균)</span>
+                    <span className="starRateNum num">(별점)</span>
                     <div className="stars">
-                      <img alt="" src="" />
-                      <img alt="" src="" />
-                      <img alt="" src="" />
-                      <img alt="" src="" />
-                      <img alt="" src="" />
+                      <img alt="별" src="" />
+                      <img alt="별" src="" />
+                      <img alt="별" src="" />
+                      <img alt="별" src="" />
+                      <img alt="별" src="" />
                     </div>
                     <div className="reviewPoint">
                       <p>상품 리뷰 작성시 포인트를 드립니다</p>
@@ -234,31 +246,53 @@ export class Product extends Component {
                   </article>
                   {/* 리뷰내용 -- 리뷰사진 */}
                   <article>
-                    <ul>
-                      <li className="commentContent">
-                        <div className="commentHeading">
-                          <div className="starRaty">
-                            <img />
-                            <img />
-                            <img />
-                            <img />
-                            <img />
-                          </div>
-                          <span className="id">(작성자 아이디)</span>
-                          <span className="date">(작성 날짜)</span>
-                        </div>
-                        <div className="commentBody">
-                          <div className="comment"></div>
-                          <div className="rightPicture"></div>
-                        </div>
-                      </li>
-                      <li className="commentContent"></li>
-                      <li className="commentContent"></li>
+                    <ul className="commentLists">
+                      {productReviewData.map((reviewData, index) => {
+                        return (
+                          <li
+                            className="commentContent"
+                            key={reviewData.id + index}
+                          >
+                            <div className="commentHeading">
+                              <div className="starRaty">
+                                <img alt="별" src="" />
+                                <img alt="별" src="" />
+                                <img alt="별" src="" />
+                                <img alt="별" src="" />
+                                <img alt="별" src="" />
+                              </div>
+                              <span className="id">{reviewData.idName}</span>
+                              <span className="date">
+                                {reviewData.uploadDate}
+                              </span>
+                            </div>
+                            <div className="commentBody">
+                              <div className="comment">
+                                {reviewData.reviewComment}
+                              </div>
+                              <div className="rightPicture">
+                                <img
+                                  alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
+                                  src={`images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                                />
+                                <img
+                                  alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
+                                  src={`images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                                />
+                                <img
+                                  alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
+                                  src={`images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                                />
+                              </div>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </article>
                 </section>
               </div>
-              <div className="QnaOutbox">
+              <div className="qnaOutbox">
                 <header className="qnaTitle">
                   <h3 className="title">문의</h3>
                   <span className="qnaNum num">

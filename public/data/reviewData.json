@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "star": 3.5,
+    "idName": "skdjkhsdkfsff",
+    "uploadDate": "2021.05.05",
+    "reviewComment": "아들 어린이날 선물로 주려고 튜브 막차 타려고 했는데 롯, 신, 카톡선, 11,등등 6번 시도 끝에 실패하고 어피치, 라도.. 캐릭터가 귀엽긴 합니다. 커버가 2개라 좋기도 하고, 가볍고, 스탠드형이라 좋아요. 선물로 온 폴리백, 정말 당황스럽네요. 접혀서 쓰기도 그렇고, 택배비면 차라리 사은품 네임택이나 캐시였음 더 좋았겠어요. 어디까지나 구매자 입장에서 생각이겠지만요ㅎㅎ",
+    "reviewImg": {
+      "imgSrc": "wear/hat4",
+      "imgAlt": "1"
+    }
+  },
+  {
+    "id": 2,
+    "star": 2,
+    "idName": "lskdjf",
+    "uploadDate": "2021.05.03",
+    "reviewComment": "너무 이뻐요 이제시작이라 언제 필드갈진몰지만 요놈델구 얼른가고싶어지네용",
+    "reviewImg": {
+      "imgSrc": "electronic/watch2",
+      "imgAlt": "2"
+    }
+  },
+  {
+    "id": 3,
+    "star": 4.5,
+    "idName": "llllllllll",
+    "uploadDate": "2021.05.01",
+    "reviewComment": "너무 귀여워요 배송도 빠르고 만족합니다! 핑크색이 넘 잘빠졌어요! 사이즈는 좀 작은 듯 하나 가진 채가 많지 않아서 저는 딱 맞아요!",
+    "reviewImg": {
+      "imgSrc": "living/cup3",
+      "imgAlt": "3"
+    }
+  }
+]
