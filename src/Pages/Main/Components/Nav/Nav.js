@@ -96,7 +96,7 @@ class Nav extends Component {
               </ul>
             </div>
             <div className="navBarHeader">
-              <a href="/#">Kakao Friends Mart</a>
+              <a href="/#">Kokoa Friends Mart</a>
             </div>
             <div className="navBarRightContainer">
               <ul className="navBarRight">
