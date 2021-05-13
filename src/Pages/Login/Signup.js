@@ -26,12 +26,13 @@ class Signup extends Component {
         name: name,
         phone_number: phoneNumber,
       }),
-    }).then(response => response.json());
-    // .then(result => {
-    // if (result.status === 'SUCCESS') {
-    // this.props.history.push('/login');
-    // }
-    // });
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === 'SUCCESS') {
+          this.props.history.push('./login');
+        }
+      });
   };
 
   inputHandler = e => {
@@ -59,9 +60,9 @@ class Signup extends Component {
                 placeholder="이메일 주소 입력"
                 onChange={this.inputHandler}
               />
-              <p className={`inValidmsg ${isEmailValid ? 'isIncludesOk' : ''}`}>
-                이메일 형식에 맞게 작성해 주세요.
-              </p>
+              {!isEmailValid && (
+                <p className="inValidmsg">이메일 형식에 맞게 작성해주세요.</p>
+              )}
             </div>
             <div className="inputWrap">
               <h2>비밀번호</h2>
@@ -71,26 +72,18 @@ class Signup extends Component {
                 placeholder="비밀번호(8~32자리)"
                 onChange={this.inputHandler}
               />
-              <p
-                className={`inValidmsg ${
-                  isPasswordValid ? 'isIncludesOk' : ''
-                }`}
-              >
-                8자리 이상 작성해 주세요.
-              </p>
+              {!isPasswordValid && (
+                <p className="inValidmsg">8자리 이상 작성해 주세요</p>
+              )}
               <input
                 name="passwordReCheck"
                 type="password"
                 placeholder="비밀번호 재입력"
                 onChange={this.inputHandler}
               />
-              <p
-                className={`inValidmsg ${
-                  isPasswordReCheckValid ? 'isIncludesOk' : ''
-                }`}
-              >
-                위와 동일하게 입력해 주세요.
-              </p>
+              {!isPasswordReCheckValid && (
+                <p className="inValidmsg">위와 동일하게 작성해 주세요 </p>
+              )}
             </div>
             <div className="inputWrap">
               <h2>이름</h2>
