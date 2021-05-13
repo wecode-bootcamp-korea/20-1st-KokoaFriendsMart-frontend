@@ -12,9 +12,9 @@ class Nav extends Component {
 
   // 데이터 로딩
   componentDidMount() {
-    fetch('/public/data/character.json')
+    fetch('/data/character.json')
       .then(res => res.json())
-      .then(res => this.state({ friends: res }));
+      .then(res => this.setState({ friends: res }));
   }
 
   render() {
@@ -37,30 +37,6 @@ class Nav extends Component {
                             프랜즈별
                           </div>
                           <CharacterList friends={this.state.friends} />
-                          {/* <ul>
-                            <li>
-                              <img
-                                className="friendsPic"
-                                src="http://localhost:3000/images/trunk.jpg"
-                                alt="/#"
-                                width="70"
-                                height="70"
-                              />
-                              <span className="tree">춘삼이</span>
-                            </li>
-                            <li>
-                              <span className="Peach">피치피치</span>
-                            </li>
-                            <li>
-                              <span className="Duck">덕이</span>
-                            </li>
-                            <li>
-                              <span className="Dino">콘콘</span>
-                            </li>
-                            <li>
-                              <span className="Bird">삐약이</span>
-                            </li>
-                          </ul> */}
                         </div>
                       </div>
                       <div className="elecItems">
@@ -125,41 +101,41 @@ class Nav extends Component {
             <div className="navBarRightContainer">
               <ul className="navBarRight">
                 <li className="navBarSearch">
-                  <div className="formGroup">
-                    <div className="searchContainer">
+                  <div className="searchContainer">
+                    <div className="formGroup">
                       <input className="searchInput" type="text" />
                       <a href="/#" className="searchButtonIcon">
                         <i class="fas fa-search" />
                       </a>
-                      <div className="searchAndRecentContainer">
-                        <div className="searchTrend">
-                          <div className="topSearch">
-                            <h4>인기검색어</h4>
-                            <ol>
-                              <li>
-                                <a href="/#">아이맥</a>
-                              </li>
-                              <li>
-                                <a href="/#">폰</a>
-                              </li>
-                              <li>
-                                <a href="/#">셔츠</a>
-                              </li>
-                              <li>
-                                <a href="/#">태블릿</a>
-                              </li>
-                              <li>
-                                <a href="/#">후드</a>
-                              </li>
-                            </ol>
-                          </div>
+                    </div>
+                    <div className="searchAndRecentContainer">
+                      <div className="searchTrend">
+                        <div className="topSearch">
+                          <h4 className="topSearchTitle">인기검색어</h4>
+                          <ol className="topSearchList">
+                            <li>
+                              <a href="/#">아이맥</a>
+                            </li>
+                            <li>
+                              <a href="/#">폰</a>
+                            </li>
+                            <li>
+                              <a href="/#">셔츠</a>
+                            </li>
+                            <li>
+                              <a href="/#">태블릿</a>
+                            </li>
+                            <li>
+                              <a href="/#">후드</a>
+                            </li>
+                          </ol>
                         </div>
-                        <div className="recentSearch">
-                          <div className="searchResults">
-                            <h4>최근 검색어</h4>
-                            <div className="searchList">
-                              최근 검색어가 없습니다
-                            </div>
+                      </div>
+                      <div className="recentSearch">
+                        <div className="searchResults">
+                          <h4 className="searchResultsTitle">최근 검색어</h4>
+                          <div className="searchList">
+                            최근 검색어가 없습니다
                           </div>
                         </div>
                       </div>

@@ -6,7 +6,7 @@ class CharactersList extends Component {
   render() {
     const { friends } = this.props;
     return (
-      <div className="CharacterList">
+      <div className="characterList">
         {friends.map(friends => {
           return <Characters img={friends.img} name={friends.name} />;
         })}
