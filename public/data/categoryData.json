@@ -5,78 +5,66 @@
       "itemTitle": "레디 니트 우드커버-라이언",
       "itemPrice": 38000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": true,
-        "isSaled": false,
-        "isSoldOut": false,
-        "isSet": true,
-        "isNew": false
-      }
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": false,
+      "isSet": true,
+      "isNew": false
     },
     {
       "id": 2,
       "itemTitle": "레디 니트 우드커버-피치",
       "itemPrice": 38000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": false,
-        "isSaled": false,
-        "isSoldOut": false,
-        "isSet": true,
-        "isNew": false
-      }
+      "isLiked": false,
+      "isSaled": false,
+      "isSoldOut": false,
+      "isSet": true,
+      "isNew": false
     },
     {
       "id": 3,
       "itemTitle": "레디 니트 우드커버-피치",
       "itemPrice": 48000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": true,
-        "isSaled": true,
-        "isSoldOut": false,
-        "isSet": false,
-        "isNew": true
-      }
+      "isLiked": true,
+      "isSaled": true,
+      "isSoldOut": false,
+      "isSet": false,
+      "isNew": true
     },
     {
       "id": 4,
       "itemTitle": "레디 니트 우드커버-피치",
       "itemPrice": 58000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": true,
-        "isSaled": false,
-        "isSoldOut": true,
-        "isSet": true,
-        "isNew": true
-      }
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": true
     },
     {
       "id": 5,
       "itemTitle": "레디 니트 우드커버-피치",
       "itemPrice": 28000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": true,
-        "isSaled": false,
-        "isSoldOut": true,
-        "isSet": true,
-        "isNew": false
-      }
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
     },
     {
       "id": 6,
       "itemTitle": "레디 니트 우드커버-피치",
       "itemPrice": 38000,
       "imgSrc": "/images/sample.png",
-      "status": {
-        "isLiked": true,
-        "isSaled": false,
-        "isSoldOut": true,
-        "isSet": true,
-        "isNew": false
-      }
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
     }
   ]
 }

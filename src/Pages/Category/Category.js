@@ -13,10 +13,14 @@ export class Category extends Component {
 
   componentDidMount() {
     fetch('/data/categoryData.json')
+      // fetch('http://10.58.2.117:9000/products/list?scid=20')
       .then(result => result.json())
       .then(categoryData => {
         this.setState({ productList: categoryData.productList });
       });
+    // .then(categoryData => {
+    //   console.log(categoryData);
+    // });
   }
 
   onClickListSort = () => {
@@ -86,33 +90,23 @@ export class Category extends Component {
                         />
                       </div>
                       <span
-                        className={`label ${
-                          list.status.isSaled ? 'sale' : 'hide'
-                        }`}
+                        className={`label ${list.isSaled ? 'sale' : 'hide'}`}
                       >
                         SALE
                       </span>
                       <span
                         className={`label ${
-                          list.status.isSoldOut ? 'soldOut' : 'hide'
+                          list.isSoldOut ? 'soldOut' : 'hide'
                         }`}
                       >
                         SOLD
                         <br />
                         OUT
                       </span>
-                      <span
-                        className={`label ${
-                          list.status.isSet ? 'set' : 'hide'
-                        }`}
-                      >
+                      <span className={`label ${list.isSet ? 'set' : 'hide'}`}>
                         SET
                       </span>
-                      <span
-                        className={`label ${
-                          list.status.isNew ? 'new' : 'hide'
-                        }`}
-                      >
+                      <span className={`label ${list.isNew ? 'new' : 'hide'}`}>
                         NEW
                       </span>
                     </Link>
@@ -120,7 +114,7 @@ export class Category extends Component {
                       <div className="itemTitle">{list.itemTitle}</div>
                       <i
                         className={`fa-heart ${
-                          list.status.isLiked ? 'fas yellow' : 'far'
+                          list.isLiked ? 'fas yellow' : 'far'
                         }`}
                       ></i>
                       <div className="itemPrice">
