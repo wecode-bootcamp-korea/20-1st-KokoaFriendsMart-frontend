@@ -1,0 +1,143 @@
+@import '../../../../Styles/variables';
+
+.productOption {
+  .FloatingOptionOutbox {
+    width: 350px;
+    padding: 10px;
+
+    .productOptionHeading {
+      .ProductCategory {
+        padding: 10px;
+        font-size: $product-category-font-size;
+        font-weight: 600;
+      }
+
+      .productName {
+        padding: 10px;
+        font-weight: 800;
+        font-size: $product-title-font-size;
+      }
+
+      .ProductPrice {
+        padding: 10px;
+        font-weight: 600;
+      }
+
+      .saveCash {
+        padding-left: 10px;
+
+        .title {
+          font-weight: 600;
+          padding-right: 5px;
+          font-size: $product-subcontents-font-size;
+          letter-spacing: -1px;
+        }
+
+        .content {
+          font-size: $product-subcontents-font-size;
+          letter-spacing: -1px;
+        }
+      }
+
+      .deliveryFee {
+        padding-left: 10px;
+
+        .title {
+          font-weight: 600;
+          padding-right: 5px;
+          font-size: $product-subcontents-font-size;
+          letter-spacing: -1px;
+        }
+
+        .content {
+          font-size: $product-subcontents-font-size;
+          letter-spacing: -1px;
+        }
+      }
+    }
+
+    .productQuantity {
+      padding: 10px;
+      border-bottom: 1px solid $lightGrey;
+
+      .quantityText {
+        padding: 5px;
+      }
+
+      .quantityGroup {
+        padding: 10px;
+
+        button {
+          margin: 10px;
+          border: 1px solid gray;
+          border-radius: $quantity-button-border-radius;
+        }
+
+        input.countNum {
+          width: 20px;
+          border: none;
+        }
+      }
+    }
+
+    .options ul {
+      display: flex;
+      padding: 10px;
+
+      .optionImg {
+        padding: 5px;
+        width: 90px;
+        border-radius: 50px;
+      }
+    }
+
+    .payOutbox .payInnerbox {
+      padding: 10px 10px 30px 10px;
+      display: flex;
+      position: relative;
+
+      .totalCost {
+        position: absolute;
+        right: 30px;
+      }
+    }
+
+    .optionButtonsOutbox .optionButtons {
+      .bottomBtn {
+        border-radius: 40px;
+      }
+
+      .optionButtonsRow1 {
+        display: flex;
+        justify-content: space-around;
+        margin: 10px;
+
+        .likeButton,
+        .cartButton {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid $lightGrey;
+          width: 150px;
+          height: 50px;
+        }
+
+        .likeIcon {
+          background: url('http://localhost:3000/images/sprite.png');
+          background-position: -644px -324px;
+          width: 70px;
+          height: 65px;
+          transform: scale(0.4);
+        }
+      }
+
+      .optionButtonsRow2 {
+        .buyButton {
+          width: 320px;
+          height: 50px;
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+}
