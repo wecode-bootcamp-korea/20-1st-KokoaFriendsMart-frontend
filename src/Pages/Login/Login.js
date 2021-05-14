@@ -50,7 +50,10 @@ class Login extends Component {
               kokoa의 모든 서비스 뿐 아니라 Melon, Daum등
               <br /> 다른 다양한 서비스까지 이제 코코아계정으로 이용해 보세요!
             </p>
-            <img src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-cf2eb69e8c38343e3927cd9a0c9c26ee720b83440f818080f2508935dbc90660.png" />
+            <img
+              alt="kokoa"
+              src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-cf2eb69e8c38343e3927cd9a0c9c26ee720b83440f818080f2508935dbc90660.png"
+            />
           </div>
           <div className="loginWrap">
             <h1>kokoa</h1>
