@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Mdpick from './Components/Mdpick/Mdpick';
 
 export class Main extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Mdpick></Mdpick>
+      </div>
+    );
   }
 }
 

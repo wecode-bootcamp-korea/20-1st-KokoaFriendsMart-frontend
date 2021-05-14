@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "img": "wecode",
+    "title": "베이직 볼라이너-라이언",
+    "price": "24,000"
+  },
+  {
+    "id": 2,
+    "name": "chachacha",
+    "text": "I wanna go for a walk!"
+  },
+  {
+    "id": 3,
+    "name": "wecode20",
+    "text": "We want to start the first project!"
+  }
+]
