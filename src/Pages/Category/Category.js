@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ProductItem from './ProductItem';
 import './Category.scss';
 
 export class Category extends Component {
@@ -33,10 +34,10 @@ export class Category extends Component {
           <div className="bannerContainer">
             <div className="bannerControl">
               <Link to="/" className="bannerArrow prevArrow">
-                <img src="/images/swipe-left-white.svg" />
+                <img alt="이전 버튼" src="/images/swipe-left-white.svg" />
               </Link>
               <Link to="/" className="bannerArrow nextArrow">
-                <img src="/images/swipe-right-white.svg" />
+                <img alt="다음 버튼" src="/images/swipe-right-white.svg" />
               </Link>
             </div>
             <div className="caption">
@@ -82,52 +83,7 @@ export class Category extends Component {
           </div>
           <div className="productLists">
             {productList.map(list => {
-              return (
-                <div className="productItem" key={list.id}>
-                  <div className="item">
-                    <Link to="/" className="thum">
-                      <div>
-                        <img
-                          src={list.imgSrc}
-                          alt="이미지 섬네일"
-                          className="productImg"
-                        />
-                      </div>
-                      <span
-                        className={`label ${list.isSaled ? 'sale' : 'hide'}`}
-                      >
-                        SALE
-                      </span>
-                      <span
-                        className={`label ${
-                          list.isSoldOut ? 'soldOut' : 'hide'
-                        }`}
-                      >
-                        SOLD
-                        <br />
-                        OUT
-                      </span>
-                      <span className={`label ${list.isSet ? 'set' : 'hide'}`}>
-                        SET
-                      </span>
-                      <span className={`label ${list.isNew ? 'new' : 'hide'}`}>
-                        NEW
-                      </span>
-                    </Link>
-                    <div className="itemDesc">
-                      <div className="itemTitle">{list.itemTitle}</div>
-                      <i
-                        className={`fa-heart ${
-                          list.isLiked ? 'fas yellow' : 'far'
-                        }`}
-                      ></i>
-                      <div className="itemPrice">
-                        {list.itemPrice.toLocaleString()}원
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
+              return <ProductItem list={list} link="/" />;
             })}
           </div>
         </div>
