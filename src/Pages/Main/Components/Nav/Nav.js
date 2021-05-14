@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CharactersList from './CharactersList/CharactersList';
+import Category from '../../../Category/Category';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -7,10 +9,11 @@ class Nav extends Component {
     super();
     this.state = {
       friends: [],
+      data: {},
     };
   }
 
-  // 데이터 로딩
+  // 프랜즈 캐릭터
   componentDidMount() {
     fetch('/data/character.json')
       .then(res => res.json())
@@ -18,6 +21,10 @@ class Nav extends Component {
   }
 
   render() {
+    const { history } = this.props;
+
+    // const { categoryName } = this.props.match.params;
+
     return (
       <div className="Nav">
         <div className="mainContainer">
@@ -25,7 +32,7 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <a href="/#">카테고리</a>
+                  <Link to="/category">카테고리</Link>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
@@ -41,11 +48,17 @@ class Nav extends Component {
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
-                          <a href="/#">일렉트로닉스</a>
+                          <a
+                            onClick={() => history.push('/category/electronic')}
+                          >
+                            일렉트로닉스
+                          </a>
                         </div>
                         <ul className="categoryItemsSubCategories">
                           <li>
-                            <a href="/#">아이맥</a>
+                            <a onClick={() => history.push('/category/imac')}>
+                              아이맥
+                            </a>
                           </li>
                           <li>
                             <a href="/#">태블릿</a>
@@ -96,7 +109,7 @@ class Nav extends Component {
               </ul>
             </div>
             <div className="navBarHeader">
-              <a href="/#">Kokoa Friends Mart</a>
+              <Link to="/main">Kokoa Friends Mart</Link>
             </div>
             <div className="searchUserBasketContainer">
               <ul className="searchUserBasket">
@@ -149,9 +162,9 @@ class Nav extends Component {
                   <div className="navBarUserSubPage">
                     <ul>
                       <li>
-                        <a href="/#" className="userSubPageLogin">
+                        <Link to="login" className="userSubPageLogin">
                           로그인
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <a href="/#" className="userSubPageOrder">

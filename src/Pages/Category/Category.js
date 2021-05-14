@@ -8,19 +8,18 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShow: false,
+      data: {},
     };
   }
 
   componentDidMount() {
-    fetch('/data/categoryData.json')
-      // fetch('http://10.58.2.117:9000/products/list?scid=20')
-      .then(result => result.json())
-      .then(categoryData => {
-        this.setState({ productList: categoryData.productList });
-      });
-    // .then(categoryData => {
-    //   console.log(categoryData);
-    // });
+    console.log(this.props);
+    const categoryName = this.props.match.params.categoryName;
+    // const categoryName = '농구공';
+    fetch(`http://10.58.6.106:9000/products?cid=${categoryName}`)
+      .then(res => res.json())
+      .then(res => this.setState({ data: res }));
+    // console.log('hi');
   }
 
   onClickListSort = () => {
@@ -30,6 +29,8 @@ export class Category extends Component {
   };
 
   render() {
+    console.log(this.props.match.params.categoryName);
+
     const { productList, isShow } = this.state;
     return (
       <div className="Category">
