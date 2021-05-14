@@ -7,44 +7,46 @@ export class Category extends Component {
     super();
     this.state = {
       productList: [],
-      isShow: false,
+      isShowSortBox: false,
     };
   }
 
   componentDidMount() {
     fetch('/data/categoryData.json')
-      // fetch('http://10.58.2.117:9000/products/list?scid=20')
       .then(result => result.json())
       .then(categoryData => {
         this.setState({ productList: categoryData.productList });
       });
-    // .then(categoryData => {
-    //   console.log(categoryData);
-    // });
   }
 
   onClickListSort = () => {
     this.setState({
-      isShow: !this.state.isShow,
+      isShowSortBox: !this.state.isShowSortBox,
     });
   };
 
   render() {
-    const { productList, isShow } = this.state;
+    const { productList, isShowSortBox } = this.state;
     return (
       <div className="Category">
         <div className="banner">
-          <div className="bannerControl">
-            <Link to="/" className="bannerArrow prevArrow" />
-            <Link to="/" className="bannerArrow nextArrow" />
-          </div>
-          <div className="caption">
-            <div className="subtitle">CATEGORY</div>
-            <div className="title">전체</div>
-            <div className="desc">
-              요즘 골퍼들의 잇템!
-              <br />
-              카카오프렌즈 골프 용품을 만나보세요.
+          <div className="bannerContainer">
+            <div className="bannerControl">
+              <Link to="/" className="bannerArrow prevArrow">
+                <img src="/images/swipe-left-white.svg" />
+              </Link>
+              <Link to="/" className="bannerArrow nextArrow">
+                <img src="/images/swipe-right-white.svg" />
+              </Link>
+            </div>
+            <div className="caption">
+              <div className="subtitle">CATEGORY</div>
+              <div className="title">전체</div>
+              <div className="desc">
+                요즘 골퍼들의 잇템!
+                <br />
+                카카오프렌즈 골프 용품을 만나보세요.
+              </div>
             </div>
           </div>
         </div>
@@ -65,9 +67,11 @@ export class Category extends Component {
               <div className="listSort" onClick={this.onClickListSort}>
                 최신순
                 <span
-                  className={`sortArrow ${isShow ? 'clicked' : 'unClicked'}`}
+                  className={`sortArrow ${
+                    isShowSortBox ? 'clicked' : 'unClicked'
+                  }`}
                 ></span>
-                <ul className={`sortPopup ${isShow ? '' : 'hide'}`}>
+                <ul className={`sortPopup ${isShowSortBox ? '' : 'hide'}`}>
                   <li>최신순</li>
                   <li>인기순</li>
                   <li>높은가격순</li>

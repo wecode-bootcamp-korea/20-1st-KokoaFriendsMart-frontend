@@ -6,6 +6,37 @@
   .banner {
     background-color: #dbf4f9;
 
+    .bannerContainer {
+      position: relative;
+      height: 100%;
+
+      .bannerControl {
+        position: relative;
+        top: 170px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1166px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        .bannerControl {
+          max-width: 859px;
+        }
+      }
+
+      @media screen and (max-width: 833px) {
+        .bannerControl {
+          max-width: 100%;
+
+          .bannerArrow {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
     .caption {
       position: relative;
       left: 25%;
