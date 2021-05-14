@@ -19,11 +19,11 @@ a {
   }
 
   // left
-  .navBarLeftContainer {
+  .categoryAndBestContainer {
     display: flex;
   }
 
-  .navBarLeft {
+  .categoryAndBest {
     display: flex;
     align-items: center;
 
@@ -65,38 +65,15 @@ a {
     }
   }
 
-  .elecItems {
-    .elecItemsTitle {
+  .categoryItems {
+    .categoryItemsTitle {
       font-weight: bold;
       padding-bottom: 15px;
     }
 
     li {
       padding: 15px 0px;
-      text-align: left;
-    }
-  }
-
-  .wearItems {
-    .wearItemsTitle {
-      font-weight: bold;
-      padding-bottom: 15px;
-    }
-
-    li {
-      padding: 15px 0px;
-      text-align: left;
-    }
-  }
-
-  .livingItems {
-    .livingItemsTitle {
-      font-weight: bold;
-      padding-bottom: 15px;
-    }
-
-    li {
-      padding: 15px 0px;
+      margin-left: 0px;
     }
   }
 
@@ -135,11 +112,11 @@ a {
   }
 
   // right
-  .navBarRightContainer {
+  .searchUserBasketContainer {
     display: flex;
   }
 
-  .navBarRight {
+  .searchUserBasket {
     display: flex;
     align-items: center;
 
@@ -159,15 +136,15 @@ a {
       border: none;
       border-bottom: $lightGrey solid 1px;
     }
-  }
 
-  .searchContainer:hover {
-    .searchTrend {
-      display: block;
-    }
+    &:hover {
+      .searchTrend {
+        display: block;
+      }
 
-    .recentSearch {
-      display: block;
+      .recentSearch {
+        display: block;
+      }
     }
   }
 
