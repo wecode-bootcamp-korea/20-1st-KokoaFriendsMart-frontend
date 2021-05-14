@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Mdpick.scss';
+import './MdPick.scss';
 
-class Mdpick extends Component {
+class MdPick extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,14 +10,14 @@ class Mdpick extends Component {
   }
 
   componentDidMount() {
-    fetch()
+    fetch('/data/mdItemData.json')
       .then(res => res.json())
       .then(res => this.setState({ mdPickItem: res }));
   }
 
   render() {
     return (
-      <div className="Mdpick">
+      <div className="MdPick">
         <div className="mdPickContainer">
           <div className="titleContainer">
             <h2 className="mdPickTitle">MD's Pick</h2>
@@ -35,7 +35,7 @@ class Mdpick extends Component {
                 골프 아이템!
               </p>
             </div>
-            {/* component */}
+            {/* <MdPickList   */}
           </div>
         </div>
       </div>
@@ -43,4 +43,4 @@ class Mdpick extends Component {
   }
 }
 
-export default Mdpick;
+export default MdPick;
