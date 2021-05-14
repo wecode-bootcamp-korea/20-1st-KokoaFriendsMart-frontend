@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharacterList from './CharactersList/CharactersList';
+import CharactersList from './CharactersList/CharactersList';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -22,8 +22,8 @@ class Nav extends Component {
       <div className="Nav">
         <div className="mainContainer">
           <div className="subContainer">
-            <div className="navBarLeftContainer">
-              <ul className="navBarLeft">
+            <div className="categoryAndBestContainer">
+              <ul className="categoryAndBest">
                 <li className="navBarHover">
                   <a href="/#">카테고리</a>
                   <div className="navDropdown">
@@ -36,14 +36,14 @@ class Nav extends Component {
                           <div className="dropdownCharactersTitle">
                             프랜즈별
                           </div>
-                          <CharacterList friends={this.state.friends} />
+                          <CharactersList friends={this.state.friends} />
                         </div>
                       </div>
-                      <div className="elecItems">
-                        <div className="elecItemsTitle">
+                      <div className="categoryItems">
+                        <div className="categoryItemTitle">
                           <a href="/#">일렉트로닉스</a>
                         </div>
-                        <ul className="elecItemsSubCategories">
+                        <ul className="categoryItemsSubCategories">
                           <li>
                             <a href="/#">아이맥</a>
                           </li>
@@ -58,11 +58,11 @@ class Nav extends Component {
                           </li>
                         </ul>
                       </div>
-                      <div className="wearItems">
-                        <div className="wearItemsTitle">
+                      <div className="categoryItems">
+                        <div className="categoryItemTitle">
                           <a href="/#">웨어</a>
                         </div>
-                        <ul className="wearItemsSubCategories">
+                        <ul className="categoryItemsSubCategories">
                           <li>
                             <a href="/#">셔츠</a>
                           </li>
@@ -74,11 +74,11 @@ class Nav extends Component {
                           </li>
                         </ul>
                       </div>
-                      <div className="livingItems">
-                        <div className="livingItemsTitle">
+                      <div className="categoryItems">
+                        <div className="categoryItemTitle">
                           <a href="/#">리빙</a>
                         </div>
-                        <ul className="livingItemsSubCategories">
+                        <ul className="categoryItemsSubCategories">
                           <li>
                             <a href="/#">컵</a>
                           </li>
@@ -98,8 +98,8 @@ class Nav extends Component {
             <div className="navBarHeader">
               <a href="/#">Kokoa Friends Mart</a>
             </div>
-            <div className="navBarRightContainer">
-              <ul className="navBarRight">
+            <div className="searchUserBasketContainer">
+              <ul className="searchUserBasket">
                 <li className="navBarSearch">
                   <div className="searchContainer">
                     <div className="formGroup">

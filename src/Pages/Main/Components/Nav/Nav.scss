@@ -21,21 +21,21 @@ a {
   }
 
   // left
-  .navBarLeftContainer {
+  .categoryAndBestContainer {
     display: flex;
   }
 
-  .navBarLeft {
+  .categoryAndBest {
     display: flex;
     align-items: center;
 
     li {
-      margin: 0px 15px 0px 15px;
+      margin: 0px 15px;
     }
   }
 
   .navBarHover:hover {
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     border-bottom: 2px solid $black;
     .navDropdown {
       display: block;
@@ -65,38 +65,15 @@ a {
     }
   }
 
-  .elecItems {
-    .elecItemsTitle {
+  .categoryItems {
+    .categoryItemTitle {
       font-weight: bold;
       padding-bottom: 15px;
     }
 
     li {
-      padding: 15px 0px 15px 0px;
-      text-align: left;
-    }
-  }
-
-  .wearItems {
-    .wearItemsTitle {
-      font-weight: bold;
-      padding-bottom: 15px;
-    }
-
-    li {
-      padding: 15px 0px 15px 0px;
-      text-align: left;
-    }
-  }
-
-  .livingItems {
-    .livingItemsTitle {
-      font-weight: bold;
-      padding-bottom: 15px;
-    }
-
-    li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
+      margin-left: 0px;
     }
   }
 
@@ -121,7 +98,7 @@ a {
   }
 
   .navBarBest:hover {
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     border-bottom: 2px solid $black;
   }
 
@@ -135,16 +112,16 @@ a {
   }
 
   // right
-  .navBarRightContainer {
+  .searchUserBasketContainer {
     display: flex;
   }
 
-  .navBarRight {
+  .searchUserBasket {
     display: flex;
     align-items: center;
 
     li {
-      margin: 0px 15px 0px 15px;
+      margin: 0px 15px;
     }
   }
 
@@ -155,6 +132,7 @@ a {
   .formGroup {
     padding-top: 5px;
     input {
+      margin: 0px 10px;
       outline: 0px;
       border: none;
       border-bottom: $lightGrey solid 1px;
@@ -178,12 +156,23 @@ a {
   .searchContainer:hover {
     position: relative;
     padding: 40px 0px 40px 0px;
+
     .searchTrend {
       display: block;
     }
 
     .recentSearch {
       display: block;
+
+      &:hover {
+        .searchTrend {
+          display: block;
+        }
+
+        .recentSearch {
+          display: block;
+        }
+      }
     }
   }
 
@@ -229,7 +218,7 @@ a {
 
   .navBarUserInfo:hover {
     position: relative;
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     .navBarUserSubPage {
       display: block;
     }
@@ -251,7 +240,7 @@ a {
       border-radius: 15px;
     }
     li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
       width: 100px;
       display: block;
     }
