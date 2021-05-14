@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import Nav from './Components/Nav/Nav';
 
 export class Main extends Component {
   render() {
-    console.log('asdfasdf');
-    return <div>jhgkjhgkh</div>;
+    return (
+      <div>
+        <Nav></Nav>
+      </div>
+    );
   }
 }
 
