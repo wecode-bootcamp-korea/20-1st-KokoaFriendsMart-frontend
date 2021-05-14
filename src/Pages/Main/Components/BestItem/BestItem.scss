@@ -1,0 +1,64 @@
+@import '/src/Styles/variables.scss';
+
+.BestItem {
+  display: flex;
+  padding-top: 700px;
+  color: #333;
+  font-size: $main-font-size;
+
+  .sectionInfo {
+    border: 1px solid red;
+
+    .title {
+      margin-bottom: 40px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      margin-bottom: 27px;
+      color: #838383;
+      cursor: pointer;
+    }
+
+    .more {
+      margin-bottom: 45px;
+      font-size: 14px;
+      color: #393939;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        position: relative;
+        margin-left: -7px;
+        top: 9px;
+        display: inline-block;
+        width: 40px;
+        height: 30px;
+        transform: rotate(270deg) scale(0.3);
+        background: url('http://localhost:3000/images/sprite.png') -735px -265px
+          no-repeat;
+      }
+    }
+    .active {
+      position: relative;
+      font-weight: bold;
+      color: #333;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: $yellow;
+      }
+    }
+  }
+
+  .sectionContents {
+    border: 1px solid blue;
+    flex: 1;
+  }
+}
