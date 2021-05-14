@@ -72,7 +72,7 @@ export class Product extends Component {
                       </li>
                       {productDetailImages.map((imageData, index) => {
                         return (
-                          <li key={imageData.id + index}>
+                          <li key={imageData.id}>
                             <img
                               className="desImg"
                               alt={`상세이미지 ${imageData.alt}`}
@@ -149,14 +149,14 @@ export class Product extends Component {
                           <img
                             class="optionImg optionOne"
                             alt="상품 옵션1"
-                            src="http://localhost:3000/images/productDetail/wear/hat1.png"
+                            src="/images/productDetail/wear/hat1.png"
                           />
                         </li>
                         <li>
                           <img
                             class="optionImg optionTwo"
                             alt="상품 옵션2"
-                            src="http://localhost:3000/images/productDetail/wear/hat1.png"
+                            src="/images/productDetail/wear/hat1.png"
                           />
                         </li>
                       </ul>
@@ -165,10 +165,10 @@ export class Product extends Component {
                     {/* product floating pay  ~~~~ */}
                     <div className="payOutbox">
                       <div className="payInnerbox">
-                        <div className="textLeft">
+                        <div>
                           <strong>(수량)</strong>개 상품 금액
                         </div>
-                        <div className="textRight">
+                        <div className="totalCost">
                           <strong>(가격)</strong>원
                         </div>
                       </div>
@@ -180,7 +180,7 @@ export class Product extends Component {
                         <div className="optionButtonsRow1">
                           <div>
                             <button className="likeButton bottomBtn">
-                              <img alt="하트" />
+                              <img alt="하트" src="" />
                               <span>좋아요</span>
                             </button>
                           </div>
