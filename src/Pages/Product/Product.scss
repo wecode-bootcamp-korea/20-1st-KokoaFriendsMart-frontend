@@ -1,19 +1,15 @@
 @import '../../Styles/variables.scss';
 
 .product {
-  width: 100%;
-  // height: 100%;
-
   nav {
     border: 3px solid blue;
-    height: 80px;
     width: inherit;
   }
 
   .productDetailInnerbox {
     display: flex;
     justify-content: center;
-    ///////////왼쪽/////////
+    //ProductDetail 컴포넌트 자리
 
     .detailImagesOutbox {
       width: 750px;
@@ -30,166 +26,9 @@
             width: inherit;
           }
         }
-
-        .descriptionList {
-          width: inherit;
-
-          li {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: inherit;
-            margin-bottom: 30px;
-
-            .desImg {
-              width: 550px;
-              border-radius: 20px;
-            }
-
-            h2 {
-              padding-top: 30px;
-              transform: translateX(-250px);
-              font-weight: 800;
-            }
-
-            .productDescription {
-              padding: 30px 0;
-              transform: translateX(-50px);
-              line-height: $product-description-line-height;
-            }
-          }
-        }
+        // productDtail 컴포넌트 scss 자리
       }
     }
-    ///////// 오른쪽////////
-    .FloatingOptionOutbox {
-      // border: 3px solid $lightGrey;
-      width: 350px;
-      padding: 10px;
-
-      .productOptionHeading {
-        .ProductCategory {
-          padding: 10px;
-          font-size: $product-category-font-size;
-          font-weight: 600;
-        }
-
-        .productName {
-          padding: 10px;
-          font-weight: 800;
-          font-size: $product-title-font-size;
-        }
-
-        .ProductPrice {
-          padding: 10px;
-          font-weight: 600;
-        }
-
-        .saveCash {
-          padding-left: 10px;
-
-          .title {
-            font-weight: 600;
-            padding-right: 5px;
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
-          }
-
-          .content {
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
-          }
-        }
-
-        .deliveryFee {
-          padding-left: 10px;
-
-          .title {
-            font-weight: 600;
-            padding-right: 5px;
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
-          }
-
-          .content {
-            font-size: $product-subcontents-font-size;
-            letter-spacing: -1px;
-          }
-        }
-      }
-
-      .productQuantity {
-        padding: 10px;
-        border-bottom: 1px solid $lightGrey;
-
-        .quantityText {
-          padding: 5px;
-        }
-
-        .quantityGroup {
-          padding: 10px;
-
-          button {
-            margin: 10px;
-            border: 1px solid gray;
-            border-radius: $quantity-button-border-radius;
-          }
-
-          input.countNum {
-            width: 20px;
-            border: none;
-          }
-        }
-      }
-
-      .options ul {
-        display: flex;
-        padding: 10px;
-
-        .optionImg {
-          padding: 5px;
-          width: 90px;
-          border-radius: 50px;
-        }
-      }
-
-      .payOutbox .payInnerbox {
-        padding: 10px 10px 30px 10px;
-        display: flex;
-        position: relative;
-
-        .totalCost {
-          position: absolute;
-          right: 30px;
-        }
-      }
-
-      .optionButtonsOutbox .optionButtons {
-        .bottomBtn {
-          border-radius: 40px;
-        }
-
-        .optionButtonsRow1 {
-          display: flex;
-          justify-content: space-around;
-          margin-bottom: 10px;
-
-          .likeButton,
-          .cartButton {
-            border: 1px solid $lightGrey;
-            width: 150px;
-            height: 50px;
-          }
-        }
-
-        .optionButtonsRow2 {
-          .buyButton {
-            width: 320px;
-            height: 50px;
-            background-color: $yellow;
-          }
-        }
-      }
-    }
+    // productOption 컴포넌트 scss자리
   }
 }

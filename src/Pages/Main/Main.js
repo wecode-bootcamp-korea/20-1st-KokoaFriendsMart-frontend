@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export class Main extends Component {
   render() {
-    return <div></div>;
+    console.log('asdfasdf');
+    return <div>jhgkjhgkh</div>;
   }
 }
 
