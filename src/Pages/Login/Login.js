@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { loginSignupApi } from '../../config';
 import './Login.scss';
 
@@ -82,11 +83,13 @@ class Login extends Component {
             </button>
             <div className="infoUser">
               <div className="linkJoin">
-                <a href="#">회원가입</a>
+                <p>
+                  <Link to="Signup">회원가입</Link>
+                </p>
               </div>
               <div className="linkUser">
-                <a href="#">카카오계정</a>
-                <a href="#">비밀번호 찾기</a>
+                <p>카카오계정</p>
+                <p>비밀번호 찾기</p>
               </div>
             </div>
           </div>
