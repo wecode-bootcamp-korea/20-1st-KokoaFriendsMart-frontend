@@ -14,7 +14,7 @@ class Nav extends Component {
   componentDidMount() {
     fetch('/public/data/character.json')
       .then(res => res.json())
-      .then(res => this.state({ friends: res }));
+      .then(res => this.setState({ friends: res }));
   }
 
   render() {
@@ -37,30 +37,6 @@ class Nav extends Component {
                             프랜즈별
                           </div>
                           <CharacterList friends={this.state.friends} />
-                          {/* <ul>
-                            <li>
-                              <img
-                                className="friendsPic"
-                                src="http://localhost:3000/images/trunk.jpg"
-                                alt="/#"
-                                width="70"
-                                height="70"
-                              />
-                              <span className="tree">춘삼이</span>
-                            </li>
-                            <li>
-                              <span className="Peach">피치피치</span>
-                            </li>
-                            <li>
-                              <span className="Duck">덕이</span>
-                            </li>
-                            <li>
-                              <span className="Dino">콘콘</span>
-                            </li>
-                            <li>
-                              <span className="Bird">삐약이</span>
-                            </li>
-                          </ul> */}
                         </div>
                       </div>
                       <div className="elecItems">

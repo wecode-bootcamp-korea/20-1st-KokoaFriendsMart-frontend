@@ -28,12 +28,12 @@ a {
     align-items: center;
 
     li {
-      margin: 0px 15px 0px 15px;
+      margin: 0px 15px;
     }
   }
 
   .navBarHover:hover {
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     border-bottom: 2px solid $black;
     .navDropdown {
       display: block;
@@ -72,7 +72,7 @@ a {
     }
 
     li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
       text-align: left;
     }
   }
@@ -84,7 +84,7 @@ a {
     }
 
     li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
       text-align: left;
     }
   }
@@ -96,7 +96,7 @@ a {
     }
 
     li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
     }
   }
 
@@ -121,7 +121,7 @@ a {
   }
 
   .navBarBest:hover {
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     border-bottom: 2px solid $black;
   }
 
@@ -144,7 +144,7 @@ a {
     align-items: center;
 
     li {
-      margin: 0px 15px 0px 15px;
+      margin: 0px 15px;
     }
   }
 
@@ -154,15 +154,11 @@ a {
 
   .searchContainer {
     input {
-      margin: 0px 10px 0px 10px;
+      margin: 0px 10px;
       outline: 0px;
       border: none;
       border-bottom: $lightGrey solid 1px;
     }
-  }
-
-  .searchAndRecentContainer {
-    background-color: $black;
   }
 
   .searchContainer:hover {
@@ -201,7 +197,7 @@ a {
 
   .navBarUserInfo:hover {
     position: relative;
-    padding: 28px 0px 28px 0px;
+    padding: 28px 0px;
     .navBarUserSubPage {
       display: block;
     }
@@ -225,7 +221,7 @@ a {
       border-radius: 15px;
     }
     li {
-      padding: 15px 0px 15px 0px;
+      padding: 15px 0px;
       width: 100px;
       display: block;
     }

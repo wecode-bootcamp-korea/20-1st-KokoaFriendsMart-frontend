@@ -7,8 +7,8 @@ class CharactersList extends Component {
     const { friends } = this.props;
     return (
       <div className="CharacterList">
-        {friends.map(friends => {
-          return <Characters img={friends.img} name={friends.name} />;
+        {friends.map((friends, id) => {
+          return <Characters key={id} img={friends.img} name={friends.name} />;
         })}
       </div>
     );
