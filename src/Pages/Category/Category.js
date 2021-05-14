@@ -13,14 +13,10 @@ export class Category extends Component {
 
   componentDidMount() {
     fetch('/data/categoryData.json')
-      // fetch('http://10.58.2.117:9000/products/list?scid=20')
       .then(result => result.json())
       .then(categoryData => {
         this.setState({ productList: categoryData.productList });
       });
-    // .then(categoryData => {
-    //   console.log(categoryData);
-    // });
   }
 
   onClickListSort = () => {
