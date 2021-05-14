@@ -139,8 +139,11 @@
             }
 
             input.countNum {
-              width: 20px;
+              width: 15px;
               border: none;
+              &:focus {
+                outline: none;
+              }
             }
           }
         }

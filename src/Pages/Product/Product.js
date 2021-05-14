@@ -9,6 +9,8 @@ export class Product extends Component {
       productDetailImages: [],
       productInformation: {},
       productReviewData: [],
+      quantitydefaultValue: 1,
+      // quntityInputValue: '',
     };
   }
 
@@ -37,6 +39,26 @@ export class Product extends Component {
         console.log(this.state.productReviewData);
       });
   }
+
+  plusQuantity = () => {
+    this.setState({
+      quantitydefaultValue: this.state.quantitydefaultValue + 1,
+    });
+  };
+
+  minusQuantity = () => {
+    if (this.state.quantitydefaultValue > 1) {
+      this.setState({
+        quantitydefaultValue: this.state.quantitydefaultValue - 1,
+      });
+    }
+  };
+
+  handleQuantityInput = e => {
+    this.setState({
+      quantitydefaultValue: e.target.value,
+    });
+  };
 
   render() {
     const { productDetailImages, productInformation, productReviewData } =
@@ -142,14 +164,19 @@ export class Product extends Component {
                     <div className="productQuantity">
                       <span className="quantityText">수량</span>
                       <span className="quantityGroup">
-                        <button className="minus">-</button>
+                        <button className="minus" onClick={this.minusQuantity}>
+                          -
+                        </button>
                         <input
                           className="countNum"
                           type="text"
-                          maxlength="2"
-                          value="1"
+                          // maxlength="2"
+                          value={this.state.quantitydefaultValue}
+                          onChange={this.handleQuantityInput}
                         />
-                        <button className="plus">+</button>
+                        <button className="plus" onClick={this.plusQuantity}>
+                          +
+                        </button>
                       </span>
                     </div>
                     {/* ~~~~product floating Amount*/}
