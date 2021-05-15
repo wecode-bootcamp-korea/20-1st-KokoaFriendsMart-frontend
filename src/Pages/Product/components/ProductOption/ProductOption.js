@@ -4,13 +4,14 @@ import './ProductOption.scss';
 
 class ProductOption extends React.Component {
   render() {
-    console.log(this.props);
+    console.log('옵션', this.props);
     const {
       productInformation,
       plusQuantity,
       minusQuantity,
       handleQuantityInput,
       quantitydefaultValue,
+      isLiked,
     } = this.props;
     return (
       <div className="productOption">
@@ -20,7 +21,9 @@ class ProductOption extends React.Component {
             <header className="productOptionHeading">
               <p className="ProductCategory">{productInformation.category}</p>
               <h1 className="productName">{productInformation.name}</h1>
-              <p className="ProductPrice">{productInformation.price}</p>
+              <p className="ProductPrice">
+                {Number(productInformation.price).toLocaleString()} 원
+              </p>
               <ul>
                 <li className="saveCash">
                   <span className="title">적립캐시</span>
@@ -79,10 +82,15 @@ class ProductOption extends React.Component {
             <div className="payOutbox">
               <div className="payInnerbox">
                 <div>
-                  <strong>(수량)</strong>개 상품 금액
+                  <strong>{quantitydefaultValue}</strong>개 상품 금액
                 </div>
                 <div className="totalCost">
-                  <strong>(가격)</strong>원
+                  <strong>
+                    {(
+                      quantitydefaultValue * productInformation.price
+                    ).toLocaleString()}
+                  </strong>
+                  원
                 </div>
               </div>
             </div>
@@ -92,8 +100,18 @@ class ProductOption extends React.Component {
               <div className="optionButtons">
                 <div className="optionButtonsRow1">
                   <div>
-                    <button className="likeButton bottomBtn">
-                      <div className="likeIcon"></div>
+                    <button
+                      className="likeButton bottomBtn"
+                      // onClick={() => {
+                      //   this.setState({productInformation.isLiked? false:true});
+                      // }}
+                    >
+                      <i
+                        className={`fa-heart ${
+                          productInformation.isLiked ? 'fas yellow' : 'far'
+                        }`}
+                      ></i>
+                      {/* <div className="likeIcon"></div> */}
                       <span>좋아요</span>
                     </button>
                   </div>

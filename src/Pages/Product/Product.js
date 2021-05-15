@@ -14,6 +14,7 @@ export class Product extends Component {
       productInformation: {},
       productReviewData: [],
       quantitydefaultValue: 1,
+      // isLiked: false,
     };
   }
 
@@ -25,13 +26,25 @@ export class Product extends Component {
           productDetailImages: productPageData,
         });
       });
+
+    // fetch('http://192.168.0.4:8000/products/440')
+    //   .then(res => res.json())
+    //   .then(productInfoData => {
+    //     console.log(productInfoData.data);
+    //     this.setState({
+    //       productInformation: productInfoData.data.product,
+    //     });
+    //   });
+
     fetch('/data/productInfoData.json')
       .then(res => res.json())
       .then(productInfoData => {
+        console.log(productInfoData.data);
         this.setState({
-          productInformation: productInfoData,
+          productInformation: productInfoData.data.product,
         });
       });
+
     fetch('/data/reviewData.json')
       .then(res => res.json())
       .then(reviewData => {
@@ -45,7 +58,7 @@ export class Product extends Component {
 
   plusQuantity = () => {
     this.setState({
-      quantitydefaultValue: this.state.quantitydefaultValue + 1,
+      quantitydefaultValue: Number(this.state.quantitydefaultValue) + 1,
     });
   };
 
@@ -86,8 +99,8 @@ export class Product extends Component {
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
-                        alt="제품 썸네일"
-                        src="images/productDetail/wear/hat1_thumbnail.png"
+                        alt={productDetailImages.name}
+                        src={productInformation.thumbnail_url}
                       />
                     </div>
                     {/* ~~~~product thumbnail*/}

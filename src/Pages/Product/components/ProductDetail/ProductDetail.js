@@ -5,8 +5,10 @@ import './ProductDetail.scss';
 class ProductDetail extends React.Component {
   render() {
     const { productDetailImages, productInformation } = this.props;
+    // const productDetail_HTMLCode = this.props.productInformation.contents;
     return (
       <div className="productDetailImages">
+        {/* <div dangerouslySetInnerHTML={{ __html: productDetail_HTMLCode }}></div> */}
         <ul className="descriptionList">
           <li>
             <h2>{productInformation.name}</h2>

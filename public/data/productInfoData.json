@@ -1,6 +1,23 @@
 {
-  "id": "1",
-  "category": "Wear",
-  "name": "콘콘 비니비니",
-  "price": "29000"
+  "status": "SUCCESS",
+  "data": {
+    "product": {
+      "id": 440,
+      "name": "고오급 아이맥-춘삼이",
+      "price": 2976000,
+      "thumbnail_url": "https://i.ibb.co/6JDgQZQ/Electronics-Imac-Chunsam-1.png",
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": false,
+      "contents": "\n<ul class=\"descriptionList\">\n  <li>\n    <h2>콘콘 스마트폰</h2>\n    <p class=\"productDescription\">\n      5G 스피드. 스마트폰 사상 가장 빠른 A14 Bionic 칩. 전면 화면 OLED 디스플레이.<br /> \n      4배 나은 낙하 성능을 선사하는 Ceramic Shield.<br /> \n      그리고 모든 카메라에서 지원되는 ‘야간 모드’까지.<br /> \n      이 모든 것을 담은 콘콘 스마트폰, 두 가지 완벽한 사이즈로 만날 수 있습니다.<br />\n    </p>\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 1\"\n      src=\"https://i.ibb.co/n7cYbbC/Electronics-Phone-Peepee-4.png\"\n      id=\"1\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 2\"\n      src=\"https://i.ibb.co/pbPjH20/Electronics-Phone-Chunsam-0.png\"\n      id=\"2\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 3\"\n      src=\"https://i.ibb.co/HDm5Wd7/Electronics-Watch-Duckee-2.png\"\n      id=\"3\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 4\"\n      src=\"https://i.ibb.co/p2D4zdc/Electronics-Watch-Concon-2.png\"\n      id=\"4\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 5\"\n      src=\"https://i.ibb.co/PDfLdWt/Electronics-Imac-Peepee-8.png\"\n      id=\"5\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 6\"\n      src=\"https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png\"\n      id=\"6\"\n    />\n  </li>\n  <li>\n    <img\n      class=\"desImg\"\n      alt=\"상세이미지 7\"\n      src=\"https://i.ibb.co/86S6tZv/group-Image.jpg\"\n      id=\"7\"\n    />\n  </li>\n  <li>\n    <h2>콘콘 스마트폰</h2>\n    <p class=\"productDescription\">\n      초고속 스피드를 자랑하는 iPhone의 5G.<br /> \n      영화 몇 편을 순식간에 다운로드하고, 고화질 동영상을 가뿐하게 스트리밍하고, 훨씬 적은 지연 시간으로 멀티플레이어 게임을 즐길 수 있게 해줍니다.<br /> \n      통신 환경이나 상황에 따라 5G와 LTE를 자동으로 오가는 스마트 데이터 모드 덕분에 배터리를 절약할 수 있는 것은 물론, 기기 자체에서 5G와 LTE 대역도 그 어느 때보다 다양하게 지원하기 때문에 그 모든 것을 세계 더 많은 곳에서 누릴 수 있죠.\n    </p>\n  </li>\n</ul>\n",
+      "subcategory": "아이맥",
+      "category": "일렉트로닉",
+      "character": "춘삼이",
+      "discount_ratio": 0,
+      "created_at": "2021-05-15 09:58:25",
+      "updated_at": "2021-05-15 09:58:25"
+    }
+  }
 }
