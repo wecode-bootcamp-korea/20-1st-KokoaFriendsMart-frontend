@@ -31,4 +31,18 @@
     }
     // productOption 컴포넌트 scss자리
   }
+
+  //.리뷰& Qna
+  .bottomOutbox {
+    display: flex;
+    justify-content: center;
+    .nothing {
+      width: 350px;
+    }
+
+    .bottomReviewQna {
+      width: 800px;
+      padding-left: 100px;
+    }
+  }
 }

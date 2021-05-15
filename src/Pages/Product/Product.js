@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import ProductOption from './components/ProductOption/ProductOption';
+import ProductReview from './components/ProductReview/ProductReview';
+import ProductQna from './components/ProductQna/ProductQna';
 import './Product.scss';
 
 export class Product extends Component {
@@ -9,6 +11,8 @@ export class Product extends Component {
     this.state = {
       productDetailImages: [],
       productInformation: {},
+      productReviewData: [],
+      quantitydefaultValue: 1,
     };
   }
 
@@ -27,10 +31,40 @@ export class Product extends Component {
           productInformation: productInfoData,
         });
       });
+    fetch('/data/reviewData.json')
+      .then(res => res.json())
+      .then(reviewData => {
+        this.setState({
+          productReviewData: reviewData,
+        });
+        console.log(reviewData);
+        console.log(this.state.productReviewData);
+      });
   }
 
+  plusQuantity = () => {
+    this.setState({
+      quantitydefaultValue: this.state.quantitydefaultValue + 1,
+    });
+  };
+
+  minusQuantity = () => {
+    if (this.state.quantitydefaultValue > 1) {
+      this.setState({
+        quantitydefaultValue: this.state.quantitydefaultValue - 1,
+      });
+    }
+  };
+
+  handleQuantityInput = e => {
+    this.setState({
+      quantitydefaultValue: e.target.value,
+    });
+  };
+
   render() {
-    const { productDetailImages, productInformation } = this.state;
+    const { productDetailImages, productInformation, productReviewData } =
+      this.state;
     return (
       <div className="product">
         <nav></nav>
@@ -64,6 +98,13 @@ export class Product extends Component {
                 <ProductOption productInformation={productInformation} />
               </div>
             </div>
+          </div>
+          <div className="bottomOutbox">
+            <div className="bottomReviewQna">
+              <ProductReview productReviewData={productReviewData} />
+              <ProductQna />
+            </div>
+            <aside className="nothing"></aside>
           </div>
         </section>
       </div>
