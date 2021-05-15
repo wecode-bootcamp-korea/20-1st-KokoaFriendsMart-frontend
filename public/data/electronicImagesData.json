@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "img": "electronic/phone1.png",
+    "alt": "1"
+  },
+  {
+    "id": "2",
+    "img": "electronic/phone2.png",
+    "alt": "2"
+  },
+  {
+    "id": "3",
+    "img": "electronic/watch1.png",
+    "alt": "3"
+  },
+  {
+    "id": "4",
+    "img": "electronic/watch2.png",
+    "alt": "4"
+  },
+  {
+    "id": "5",
+    "img": "electronic/imac1.png",
+    "alt": "5"
+  },
+  {
+    "id": "6",
+    "img": "electronic/imac2.png",
+    "alt": "6"
+  },
+  {
+    "id": "7",
+    "img": "electronic/groupImage.jpg",
+    "alt": "7"
+  }
+]

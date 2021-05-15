@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "img": "living/book1.png",
+    "alt": "1"
+  },
+  {
+    "id": "2",
+    "img": "living/book2.png",
+    "alt": "2"
+  },
+  {
+    "id": "3",
+    "img": "living/book3.png",
+    "alt": "3"
+  },
+  {
+    "id": "4",
+    "img": "living/book4.png",
+    "alt": "4"
+  },
+  {
+    "id": "5",
+    "img": "living/cup1.png",
+    "alt": "5"
+  },
+  {
+    "id": "6",
+    "img": "living/cup2.png",
+    "alt": "6"
+  },
+  {
+    "id": "7",
+    "img": "living/cup6.png",
+    "alt": "7"
+  },
+  {
+    "id": "8",
+    "img": "living/groupImage.jpg",
+    "alt": "8"
+  }
+]

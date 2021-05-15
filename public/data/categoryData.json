@@ -1,0 +1,70 @@
+{
+  "productList": [
+    {
+      "id": 1,
+      "itemTitle": "레디 니트 우드커버-라이언",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/VtMY3gh/Electronics-Imac-Chunsam-0.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": false,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 2,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/6JDgQZQ/Electronics-Imac-Chunsam-1.png",
+      "isLiked": false,
+      "isSaled": false,
+      "isSoldOut": false,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 3,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 48000,
+      "imgSrc": "https://i.ibb.co/2qMJ9kd/Electronics-Imac-Chunsam-2.png",
+      "isLiked": true,
+      "isSaled": true,
+      "isSoldOut": false,
+      "isSet": false,
+      "isNew": true
+    },
+    {
+      "id": 4,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 58000,
+      "imgSrc": "https://i.ibb.co/R2ZWqpZ/Electronics-Imac-Chunsam-3.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": true
+    },
+    {
+      "id": 5,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 28000,
+      "imgSrc": "https://i.ibb.co/MkyYDgF/Electronics-Imac-Chunsam-4.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 6,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
+    }
+  ]
+}
