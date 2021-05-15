@@ -25,6 +25,11 @@
         // border: 1px solid $lightGrey;
         border-radius: 30px;
         box-shadow: 6px 2px 20px -6px $lightGrey;
+        .stars {
+          img {
+            width: 20px;
+          }
+        }
         .reviewPoint {
           margin-left: 60px;
         }

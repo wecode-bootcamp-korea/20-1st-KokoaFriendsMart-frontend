@@ -3,6 +3,7 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import ProductOption from './components/ProductOption/ProductOption';
 import ProductReview from './components/ProductReview/ProductReview';
 import ProductQna from './components/ProductQna/ProductQna';
+import Nav from '../Main/Components/Nav/Nav';
 import './Product.scss';
 
 export class Product extends Component {
@@ -71,7 +72,7 @@ export class Product extends Component {
     } = this.state;
     return (
       <div className="product">
-        <nav></nav>
+        {/* <Nav /> */}
         <section className="productContents">
           전체 페이지(리뷰, 문의까지)
           <div className="productDetail">
