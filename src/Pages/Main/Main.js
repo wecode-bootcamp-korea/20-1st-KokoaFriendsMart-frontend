@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Carousel from './Component/Carousel/Carousel';
 
 export class Main extends Component {
   render() {
-    return <div></div>;
+    return <Carousel />;
   }
 }
 
