@@ -63,8 +63,12 @@ export class Product extends Component {
   };
 
   render() {
-    const { productDetailImages, productInformation, productReviewData } =
-      this.state;
+    const {
+      productDetailImages,
+      productInformation,
+      productReviewData,
+      quantitydefaultValue,
+    } = this.state;
     return (
       <div className="product">
         <nav></nav>
@@ -95,7 +99,13 @@ export class Product extends Component {
                   </div>
                 </div>
                 {/* product floating */}
-                <ProductOption productInformation={productInformation} />
+                <ProductOption
+                  productInformation={productInformation}
+                  quantitydefaultValue={quantitydefaultValue}
+                  plusQuantity={this.plusQuantity}
+                  minusQuantity={this.minusQuantity}
+                  handleQuantityInput={this.handleQuantityInput}
+                />
               </div>
             </div>
           </div>

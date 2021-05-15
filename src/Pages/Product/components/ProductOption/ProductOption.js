@@ -4,7 +4,14 @@ import './ProductOption.scss';
 
 class ProductOption extends React.Component {
   render() {
-    const { productInformation } = this.props;
+    console.log(this.props);
+    const {
+      productInformation,
+      plusQuantity,
+      minusQuantity,
+      handleQuantityInput,
+      quantitydefaultValue,
+    } = this.props;
     return (
       <div className="productOption">
         <aside className="FloatingOptionOutbox">
@@ -32,14 +39,19 @@ class ProductOption extends React.Component {
             <div className="productQuantity">
               <span className="quantityText">수량</span>
               <span className="quantityGroup">
-                <button className="minus">-</button>
+                <button className="minus" onClick={minusQuantity}>
+                  -
+                </button>
                 <input
                   className="countNum"
                   type="text"
-                  maxlength="2"
-                  value="1"
+                  // maxlength="2"
+                  value={quantitydefaultValue}
+                  onChange={handleQuantityInput}
                 />
-                <button className="plus">+</button>
+                <button className="plus" onClick={plusQuantity}>
+                  +
+                </button>
               </span>
             </div>
             {/* ~~~~product floating Amount*/}
