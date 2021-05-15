@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { categoryApi } from '../../config';
-import './Category.scss';
+import { subcategoryApi } from '../../config';
+import './Subcategory.scss';
 
-export class Category extends Component {
+export class Subcategory extends Component {
   constructor() {
     super();
     this.state = {
       productList: [],
       isShow: false,
-      categoryData: {},
+      subcategoryData: {},
     };
   }
 
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName;
-    fetch(`${categoryApi}${categoryName}`)
+    const subcategoryName = this.props.match.params.subcategoryName;
+    fetch(`${subcategoryApi}${subcategoryName}`)
       .then(res => res.json())
-      .then(res => this.setState({ categoryData: res }));
+      .then(res => this.setState({ data: res }));
   }
 
   onClickListSort = () => {
@@ -129,4 +129,4 @@ export class Category extends Component {
   }
 }
 
-export default Category;
+export default Subcategory;
