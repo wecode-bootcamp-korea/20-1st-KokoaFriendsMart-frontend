@@ -87,7 +87,7 @@ class Login extends Component {
             <div className="infoUser">
               <div className="linkJoin">
                 <p>
-                  <Link to="Signup">회원가입</Link>
+                  <Link to="/signup">회원가입</Link>
                 </p>
               </div>
               <div className="linkUser">
