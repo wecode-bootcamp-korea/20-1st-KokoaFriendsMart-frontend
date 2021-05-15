@@ -15,11 +15,9 @@ export class Category extends Component {
   componentDidMount() {
     console.log(this.props);
     const categoryName = this.props.match.params.categoryName;
-    // const categoryName = '농구공';
     fetch(`http://10.58.6.106:9000/products?cid=${categoryName}`)
       .then(res => res.json())
       .then(res => this.setState({ data: res }));
-    // console.log('hi');
   }
 
   onClickListSort = () => {
