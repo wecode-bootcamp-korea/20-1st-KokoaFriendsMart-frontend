@@ -1,0 +1,16 @@
+.LikePick {
+  .likePickContainer {
+    width: 100%;
+
+    .headerContainer {
+      display: flex;
+      height: 95px;
+      width: inherit;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 38px;
+      background-color: lawngreen;
+    }
+  }
+}
