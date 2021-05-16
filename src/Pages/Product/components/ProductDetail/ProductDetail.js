@@ -63,7 +63,7 @@ class ProductDetail extends React.Component {
         </ul>
         <div className="detailMore">
           <button
-            className="detailMoreButton"
+            className={moreView ? 'hiddenButton' : 'detailMoreButton'}
             onClick={() => handleMoreView(!moreView)}
           >
             상품 펼쳐보기 <i class="fas fa-chevron-down arrowDownIcon"></i>

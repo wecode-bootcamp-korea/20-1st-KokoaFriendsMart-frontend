@@ -72,8 +72,8 @@ export class Product extends Component {
     });
   };
 
-  handleMoreView = e => {
-    console.log('handleMoreView', e);
+  handleMoreView = () => {
+    // console.log('handleMoreView', e);
     this.setState({ moreView: !this.state.moreView });
   };
 
