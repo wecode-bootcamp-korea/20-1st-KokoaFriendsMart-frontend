@@ -4,13 +4,19 @@ import './ProductDetail.scss';
 
 class ProductDetail extends React.Component {
   render() {
-    const { productDetailImages, productInformation } = this.props;
+    console.log('디테일 페이지 props', this.props);
+    const {
+      productDetailImages,
+      productInformation,
+      moreView,
+      handleMoreView,
+    } = this.props;
     // const productDetail_HTMLCode = this.props.productInformation.contents;
     return (
-      <div className="productDetailImages">
+      <div className="productDetail">
         {/* <div dangerouslySetInnerHTML={{ __html: productDetail_HTMLCode }}></div> */}
-        <ul className="descriptionList">
-          <li>
+        <ul className={moreView ? 'moreView' : 'descriptionList'}>
+          <li className="detailContentsList">
             <h2>{productInformation.name}</h2>
             <p className="productDescription">
               이젠 골프모자도 일상에서 캐주얼하게 활용하세요.
@@ -55,6 +61,14 @@ class ProductDetail extends React.Component {
             </p>
           </li>
         </ul>
+        <div className="detailMore">
+          <button
+            className="detailMoreButton"
+            onClick={() => handleMoreView(!moreView)}
+          >
+            상품 펼쳐보기 <i class="fas fa-chevron-down arrowDownIcon"></i>
+          </button>
+        </div>
       </div>
     );
   }

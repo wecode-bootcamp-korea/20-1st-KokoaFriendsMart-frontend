@@ -4,7 +4,6 @@ import './ProductOption.scss';
 
 class ProductOption extends React.Component {
   render() {
-    console.log('옵션', this.props);
     const {
       productInformation,
       plusQuantity,

@@ -1,31 +1,50 @@
 @import '../../../../Styles/variables';
 
-.productDetailImages {
+.productDetail {
+  .moreView {
+    width: 750px;
+    height: auto;
+  }
   .descriptionList {
     width: 750px;
+    height: 2500px;
+    overflow-y: hidden;
+  }
 
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: inherit;
-      margin-bottom: 30px;
+  .productDetail li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+    margin-bottom: 30px;
 
-      .desImg {
-        width: 550px;
-        border-radius: 20px;
-      }
+    .desImg {
+      width: 550px;
+      border-radius: 20px;
+    }
 
-      h2 {
-        padding-top: 30px;
-        transform: translateX(-250px);
-        font-weight: 800;
-      }
+    h2 {
+      padding-top: 30px;
+      transform: translateX(-250px);
+      font-weight: 800;
+    }
 
-      .productDescription {
-        padding: 30px 0;
-        transform: translateX(-50px);
-        line-height: $product-description-line-height;
+    .productDescription {
+      padding: 30px 0;
+      transform: translateX(-50px);
+      line-height: $product-description-line-height;
+    }
+  }
+
+  .detailMore {
+    height: 100px;
+    .detailMoreButton {
+      display: block;
+      height: 50px;
+      margin: auto;
+      font-size: 16px;
+      transform: translateY(20px);
+      .arrowDownIcon {
       }
     }
   }

@@ -32,6 +32,7 @@
         }
         .reviewPoint {
           margin-left: 60px;
+          line-height: $product-description-line-height;
         }
       }
     }
@@ -58,6 +59,7 @@
           margin-top: 20px;
           .comment {
             margin-right: 20px;
+            line-height: $product-description-line-height;
           }
 
           .rightPicture {

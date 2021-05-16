@@ -14,12 +14,12 @@ export class Product extends Component {
       productInformation: {},
       productReviewData: [],
       quantitydefaultValue: 1,
-      // isLiked: false,
+      moreView: false,
     };
   }
 
   componentDidMount() {
-    fetch('/data/wearImagesData.json')
+    fetch('/data/electronicImagesData.json')
       .then(res => res.json())
       .then(productPageData => {
         this.setState({
@@ -30,7 +30,6 @@ export class Product extends Component {
     // fetch('http://192.168.0.4:8000/products/440')
     //   .then(res => res.json())
     //   .then(productInfoData => {
-    //     console.log(productInfoData.data);
     //     this.setState({
     //       productInformation: productInfoData.data.product,
     //     });
@@ -39,7 +38,6 @@ export class Product extends Component {
     fetch('/data/productInfoData.json')
       .then(res => res.json())
       .then(productInfoData => {
-        console.log(productInfoData.data);
         this.setState({
           productInformation: productInfoData.data.product,
         });
@@ -51,8 +49,6 @@ export class Product extends Component {
         this.setState({
           productReviewData: reviewData,
         });
-        console.log(reviewData);
-        console.log(this.state.productReviewData);
       });
   }
 
@@ -76,12 +72,18 @@ export class Product extends Component {
     });
   };
 
+  handleMoreView = e => {
+    console.log('handleMoreView', e);
+    this.setState({ moreView: !this.state.moreView });
+  };
+
   render() {
     const {
       productDetailImages,
       productInformation,
       productReviewData,
       quantitydefaultValue,
+      moreView,
     } = this.state;
     return (
       <div className="product">
@@ -89,7 +91,6 @@ export class Product extends Component {
         <section className="productContents">
           전체 페이지(리뷰, 문의까지)
           <div className="productDetail">
-            디테일 페이지 (리뷰 위에까지)
             <div className="productDetailOutbox">
               <div className="productDetailInnerbox">
                 {/* product detail Images */}
@@ -104,15 +105,14 @@ export class Product extends Component {
                       />
                     </div>
                     {/* ~~~~product thumbnail*/}
-                    {/* product detail images~~~*/}
                     <ProductDetail
                       productDetailImages={productDetailImages}
                       productInformation={productInformation}
+                      moreView={moreView}
+                      handleMoreView={this.handleMoreView}
                     />
-                    {/* ~~product detail images*/}
                   </div>
                 </div>
-                {/* product floating */}
                 <ProductOption
                   productInformation={productInformation}
                   quantitydefaultValue={quantitydefaultValue}
