@@ -31,9 +31,7 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <a href="#" onClick={() => history.push('products')}>
-                    카테고리
-                  </a>
+                  <a onClick={() => history.push('category')}>카테고리</a>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
@@ -50,54 +48,74 @@ class Nav extends Component {
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
                           <a
-                            onClick={() => history.push('/category/electronic')}
+                            onClick={() => history.push('/category/일렉트로닉')}
                           >
                             일렉트로닉
                           </a>
                         </div>
                         <ul className="categoryItemsSubCategories">
                           <li>
-                            <a onClick={() => history.push('/category/imac')}>
+                            <a onClick={() => history.push('/category/아이맥')}>
                               아이맥
                             </a>
                           </li>
                           <li>
-                            <a href="/#">태블릿</a>
+                            <a onClick={() => history.push('/category/태블릿')}>
+                              태블릿
+                            </a>
                           </li>
                           <li>
-                            <a href="/#">폰</a>
+                            <a onClick={() => history.push('/category/폰')}>
+                              폰
+                            </a>
                           </li>
                           <li>
-                            <a href="/#">워치</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="categoryItems">
-                        <div className="categoryItemTitle">
-                          <a href="/#">웨어</a>
-                        </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <a href="/#">셔츠</a>
-                          </li>
-                          <li>
-                            <a href="/#">모자</a>
-                          </li>
-                          <li>
-                            <a href="/#">후드</a>
+                            <a onClick={() => history.push('/category/워치')}>
+                              워치
+                            </a>
                           </li>
                         </ul>
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
-                          <a href="/#">리빙</a>
+                          <a onClick={() => history.push('/category/웨어')}>
+                            웨어
+                          </a>
                         </div>
                         <ul className="categoryItemsSubCategories">
                           <li>
-                            <a href="/#">컵</a>
+                            <a onClick={() => history.push('/category/셔츠')}>
+                              셔츠
+                            </a>
                           </li>
                           <li>
-                            <a href="/#">책</a>
+                            <a onClick={() => history.push('/category/모자')}>
+                              모자
+                            </a>
+                          </li>
+                          <li>
+                            <a onClick={() => history.push('/category/후드')}>
+                              후드
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="categoryItems">
+                        <div className="categoryItemTitle">
+                          <a onClick={() => history.push('/category/리빙')}>
+                            리빙
+                          </a>
+                        </div>
+                        <ul className="categoryItemsSubCategories">
+                          <li>
+                            <a onClick={() => history.push('/category/컵')}>
+                              컵
+                            </a>
+                          </li>
+                          <li>
+                            <a onClick={() => history.push('/category/책')}>
+                              책
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -105,7 +123,7 @@ class Nav extends Component {
                   </div>
                 </li>
                 <li className="navBarBest">
-                  <a href="/#">베스트</a>
+                  <a onClick={() => history.push('/category/베스트')}>베스트</a>
                 </li>
               </ul>
             </div>
@@ -128,19 +146,33 @@ class Nav extends Component {
                           <h4 className="topSearchTitle">인기검색어</h4>
                           <ol className="topSearchList">
                             <li>
-                              <a href="/#">아이맥</a>
+                              <a
+                                onClick={() => history.push('/category/아이맥')}
+                              >
+                                아이맥
+                              </a>
                             </li>
                             <li>
-                              <a href="/#">폰</a>
+                              <a onClick={() => history.push('/category/폰')}>
+                                폰
+                              </a>
                             </li>
                             <li>
-                              <a href="/#">셔츠</a>
+                              <a onClick={() => history.push('/category/셔츠')}>
+                                셔츠
+                              </a>
                             </li>
                             <li>
-                              <a href="/#">태블릿</a>
+                              <a
+                                onClick={() => history.push('/category/태블릿')}
+                              >
+                                태블릿
+                              </a>
                             </li>
                             <li>
-                              <a href="/#">후드</a>
+                              <a onClick={() => history.push('/category/후드')}>
+                                후드
+                              </a>
                             </li>
                           </ol>
                         </div>

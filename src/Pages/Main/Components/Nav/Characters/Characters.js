@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { categoryApi } from '../../../../../config';
 import './Characters.scss';
 
 class Characters extends Component {
   render() {
-    const { img, name } = this.props;
+    const { img, name, history } = this.props;
     return (
       <div className="friendsContainer">
-        <img src={img} alt="characters" />
-        <div className="characterNames">{name}</div>
+        <img
+          onClick={() => history.push(`category/${name}`)}
+          src={img}
+          alt="characters"
+        />
+        <div
+          onClick={() => history.push(`category/${name}`)}
+          className="characterNames"
+        >
+          {name}
+        </div>
       </div>
     );
   }
 }
 
-export default Characters;
+export default withRouter(Characters);
