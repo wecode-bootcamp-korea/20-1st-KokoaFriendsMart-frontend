@@ -35,7 +35,6 @@ class LikePick extends Component {
             {productList.map(list => {
               return <ProductItem list={list} link="/" />;
             })}
-            ;
           </div>
         </div>
       </div>

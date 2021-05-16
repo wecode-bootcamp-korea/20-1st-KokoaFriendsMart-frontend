@@ -21,9 +21,11 @@
 
     .itemContainer {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       column-count: 4;
-      width: 1120px;
+      width: 1300px;
+      margin: 0 auto;
     }
   }
 }
