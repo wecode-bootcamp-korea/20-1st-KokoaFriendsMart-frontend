@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import './ProductDetail.scss';
 
 class ProductDetail extends React.Component {
   render() {
-    console.log('디테일 페이지 props', this.props);
     const {
       productDetailImages,
       productInformation,

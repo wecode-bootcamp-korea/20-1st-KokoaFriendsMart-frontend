@@ -113,11 +113,13 @@
       .countLiked {
         margin-top: 20px;
         padding: 0 10px;
+
         p {
           font-size: $product-subcontents-font-size;
           .heartIcon {
             color: $yellow;
           }
+
           span {
             padding: 5px;
           }
@@ -155,14 +157,6 @@
           .far {
             color: $lightGrey;
           }
-
-          // .likeIcon {
-          //   background: url('http://localhost:3000/images/sprite.png');
-          //   background-position: -644px -324px;
-          //   width: 70px;
-          //   height: 65px;
-          //   transform: scale(0.4);
-          // }
         }
 
         .optionButtonsRow2 {

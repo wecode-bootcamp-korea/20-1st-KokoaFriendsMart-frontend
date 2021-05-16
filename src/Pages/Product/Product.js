@@ -73,7 +73,6 @@ export class Product extends Component {
   };
 
   handleMoreView = () => {
-    // console.log('handleMoreView', e);
     this.setState({ moreView: !this.state.moreView });
   };
 
