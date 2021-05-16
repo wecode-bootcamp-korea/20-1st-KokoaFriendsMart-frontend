@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import ProductItem from '../../../../../src/Components/ProductItem/ProductItem';
+import BestProductItem from './BestProductItem';
 import './BestItem.scss';
 
 class BestItem extends Component {
   state = {
-    productList: [],
+    productData: [],
   };
 
   componentDidMount() {
     fetch('/data/categoryData.json')
       .then(result => result.json())
-      .then(productList => {
-        this.setState({ productList: productList.products_list });
+      .then(productData => {
+        productData.products_list.map((data, i) => {
+          return (data['bestCount'] = i + 1);
+        });
+        this.setState({ productData: productData.products_list });
       });
   }
+
   render() {
-    const { productList } = this.state;
+    const { productData } = this.state;
     return (
       <div className="BestItem">
         <div className="sectionInfo">
@@ -28,8 +32,15 @@ class BestItem extends Component {
           <div className="more">베스트 상품 더 보기</div>
         </div>
         <div className="sectionContents">
-          {productList.map(list => {
-            return <ProductItem key={list.id} list={list} link="/" />;
+          {productData.map(list => {
+            return (
+              <BestProductItem
+                key={list.id}
+                list={list}
+                link="/"
+                bestCount={list.bestCount}
+              />
+            );
           })}
         </div>
       </div>

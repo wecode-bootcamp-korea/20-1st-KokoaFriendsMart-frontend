@@ -2,12 +2,15 @@
 
 .BestItem {
   display: flex;
+  // padding-top 은 nav 머지 후 해제하겠습니다.
   padding-top: 700px;
+  max-width: 1127px;
+  margin: 0 auto;
   color: #333;
   font-size: $main-font-size;
 
   .sectionInfo {
-    border: 1px solid red;
+    min-width: 228px;
 
     .title {
       margin-bottom: 40px;
@@ -58,7 +61,8 @@
   }
 
   .sectionContents {
-    border: 1px solid blue;
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
