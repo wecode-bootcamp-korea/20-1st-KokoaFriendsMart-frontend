@@ -13,7 +13,7 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/main" component={Main} />
-          <Route exact path="/category/:categoryName" component={Category} />
+          <Route exact path="/Category/:categoryName" component={Category} />
           <Route
             exact
             path="/subcategory/:subcategoryName"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CharactersList from './CharactersList/CharactersList';
 import Category from '../../../Category/Category';
 import './Nav.scss';
@@ -9,7 +9,6 @@ class Nav extends Component {
     super();
     this.state = {
       friends: [],
-      data: {},
     };
   }
 
@@ -32,7 +31,9 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <Link to="/category">카테고리</Link>
+                  <a href="#" onClick={() => history.push('products')}>
+                    카테고리
+                  </a>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
@@ -51,7 +52,7 @@ class Nav extends Component {
                           <a
                             onClick={() => history.push('/category/electronic')}
                           >
-                            일렉트로닉스
+                            일렉트로닉
                           </a>
                         </div>
                         <ul className="categoryItemsSubCategories">
@@ -96,7 +97,7 @@ class Nav extends Component {
                             <a href="/#">컵</a>
                           </li>
                           <li>
-                            <a href="/#">북</a>
+                            <a href="/#">책</a>
                           </li>
                         </ul>
                       </div>
@@ -193,4 +194,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

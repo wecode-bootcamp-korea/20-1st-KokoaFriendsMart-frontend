@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { categoryApi } from '../../config';
+import { mainCategoryApi } from '../../config';
 import './Category.scss';
 
 export class Category extends Component {
@@ -9,15 +9,16 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShow: false,
-      categoryData: {},
+      mainCategoryData: {},
     };
   }
 
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName;
-    fetch(`${categoryApi}${categoryName}`)
+    const mainCategoryName = this.props.match.params.categoryName;
+    fetch(`${mainCategoryApi}${mainCategoryName}`)
       .then(res => res.json())
-      .then(res => this.setState({ categoryData: res }));
+      .then(res => console.log(res));
+    // .then(res => this.setState({ mainCategoryData: res }));
   }
 
   onClickListSort = () => {
