@@ -9,7 +9,6 @@
     position: relative;
     max-width: 210px;
     height: 280px;
-    transition: all 0.2s;
 
     &:hover .productImg {
       height: 200px;
@@ -17,7 +16,12 @@
 
     &:hover .itemDesc {
       display: block;
-      bottom: 4px;
+      bottom: -200px;
+      height: 100%;
+    }
+
+    &:hover .productImg {
+      border-radius: 10px 10px 0 0;
     }
   }
 
@@ -39,6 +43,7 @@
       width: 100%;
       height: 280px;
       border-radius: 10px;
+      transition: all 0.3s;
     }
 
     .label {
@@ -85,11 +90,12 @@
   }
 
   .itemDesc {
-    display: none;
     position: absolute;
     padding: 5px;
     bottom: -75px;
     width: 100%;
+    height: 0;
+    transition: all 0.3s;
 
     .itemTitle {
       padding-right: 20px;
