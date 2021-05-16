@@ -4,27 +4,36 @@ import './ProductReview.scss';
 class ProductReview extends React.Component {
   render() {
     const { productReviewData } = this.props;
+    const starAverage =
+      productReviewData.reduce((acc, value) => acc + value.star, 0) /
+      (productReviewData.length + 1);
     return (
       <div className="productReview">
         <div className="reviewOutbox">
-          {/* 별점 아이디 -- 날짜 */}
           <header className="reviewTitle">
             <h3 className="title">리뷰</h3>
             <span className="reviewNum">
-              <span className="countReview">(리뷰개수)</span>건
+              <span className="countReview">{productReviewData.length}</span>건
             </span>
           </header>
-          {/* 리뷰 콘텐츠 감싸고 있는 박스 */}
           <section className="reviewContentsOutbox">
-            {/* 별점 박스 */}
             <article className="starRate">
-              <span className="starRateNum num">(별점)</span>
+              <span className="starRateNum num">{starAverage}</span>
               <div className="stars">
-                <img alt="별" src="/images/stars/star-on-line-sm.svg" />
-                <img alt="별" src="/images/stars/star-on-line-sm.svg" />
-                <img alt="별" src="/images/stars/star-on-line-sm.svg" />
-                <img alt="별" src="/images/stars/star-on-line-sm.svg" />
-                <img alt="별" src="/images/stars/star-on-line-sm.svg" />
+                {Array(Math.ceil(starAverage))
+                  .fill(1)
+                  .map(() => {
+                    return (
+                      <img alt="별" src="/images/stars/star-on-line-sm.svg" />
+                    );
+                  })}
+                {Array(5 - Math.ceil(starAverage))
+                  .fill(1)
+                  .map(() => {
+                    return (
+                      <img alt="별" src="/images/stars/star-off-line-sm.svg" />
+                    );
+                  })}
               </div>
               <div className="reviewPoint">
                 <p>상품 리뷰 작성시 포인트를 드립니다</p>
@@ -33,34 +42,34 @@ class ProductReview extends React.Component {
                 </p>
               </div>
             </article>
-            {/* 리뷰내용 -- 리뷰사진 */}
+            {/* 리뷰내용 */}
             <article>
               <ul className="commentLists">
                 {productReviewData.map((reviewData, index) => {
                   return (
-                    <li className="commentContent" key={reviewData.id + index}>
+                    <li className="commentContent" key={reviewData.id}>
                       <div className="commentHeading">
                         <div className="starRaty">
-                          <img
-                            alt="별"
-                            src="/images/stars/star-on-line-sm-gray.svg"
-                          />
-                          <img
-                            alt="별"
-                            src="/images/stars/star-on-line-sm-gray.svg"
-                          />
-                          <img
-                            alt="별"
-                            src="/images/stars/star-on-line-sm-gray.svg"
-                          />
-                          <img
-                            alt="별"
-                            src="/images/stars/star-on-line-sm-gray.svg"
-                          />
-                          <img
-                            alt="별"
-                            src="/images/stars/star-on-line-sm-gray.svg"
-                          />
+                          {Array(reviewData.star)
+                            .fill(1)
+                            .map(() => {
+                              return (
+                                <img
+                                  alt="별"
+                                  src="/images/stars/star-on-line-sm-gray.svg"
+                                />
+                              );
+                            })}
+                          {Array(5 - reviewData.star)
+                            .fill(1)
+                            .map(() => {
+                              return (
+                                <img
+                                  alt="별"
+                                  src="/images/stars/star-off-line-sm-gray.svg"
+                                />
+                              );
+                            })}
                         </div>
                         <span className="id">{reviewData.idName}</span>
                         <span className="date">{reviewData.uploadDate}</span>

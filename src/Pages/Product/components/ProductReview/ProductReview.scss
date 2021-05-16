@@ -25,29 +25,40 @@
         // border: 1px solid $lightGrey;
         border-radius: 30px;
         box-shadow: 6px 2px 20px -6px $lightGrey;
+        .starRateNum {
+          padding-right: 20px;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
         .stars {
           img {
             width: 20px;
           }
         }
+
         .reviewPoint {
           margin-left: 60px;
           line-height: $product-description-line-height;
         }
       }
     }
+
     .commentLists {
       .commentContent {
         border-bottom: 1px solid $lightGrey;
         border-width: thin;
         padding: 30px 0;
+
         .commentHeading {
           display: flex;
           position: relative;
           color: $lightGrey;
+
           .starRaty {
             display: flex;
           }
+
           .date {
             position: absolute;
             right: 20px;
@@ -57,6 +68,7 @@
           // position: relative;
           display: flex;
           margin-top: 20px;
+
           .comment {
             margin-right: 20px;
             line-height: $product-description-line-height;
@@ -66,6 +78,7 @@
             display: flex;
             // position: absolute;
             // right: 5px;
+
             img {
               width: 50px;
               height: 50px;

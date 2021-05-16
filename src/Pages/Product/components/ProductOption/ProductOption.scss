@@ -102,11 +102,13 @@
       .payOutbox .payInnerbox {
         padding: 10px 10px 30px 10px;
         display: flex;
+        align-items: center;
         position: relative;
 
         .totalCost {
           position: absolute;
           right: 30px;
+          font-size: 23px;
         }
       }
 
