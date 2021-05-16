@@ -1,20 +1,23 @@
 import reactDom from 'react-dom';
 import React, { Component } from 'react';
-import CharactersList from '../../Components/Nav/CharactersList/CharactersList';
+// import CharactersList from '../../Components/Nav/CharactersList/CharactersList';
+import ProductItem from '../../../../Components/ProductItem/ProductItem';
 import './LikePick.scss';
 
 class LikePick extends Component {
   constructor() {
     super();
     this.state = {
-      friends: [],
+      productList: [],
     };
   }
 
   componentDidMount() {
-    fetch('/data/character.json')
-      .then(res => res.json())
-      .then(res => this.setState({ friends: res }));
+    fetch('/data/categoryData.json')
+      .then(result => result.json())
+      .then(categoryData => {
+        this.setState({ productList: categoryData.productList });
+      });
   }
 
   render() {
@@ -25,9 +28,14 @@ class LikePick extends Component {
             <h2 className="title">Like Pick!</h2>
           </div>
           <div className="characterContainer">
-            <CharactersList friends={this.state.friends} />
+            {/* <CharactersList friends={this.state.friends} /> */}
           </div>
-          <div className="itemContainer">{/* component mapping */}</div>
+          <div className="itemContainer">
+            {productList.map(list => {
+              return <ProductItem list={list} link="/" />;
+            })}
+            ;
+          </div>
         </div>
       </div>
     );
