@@ -16,7 +16,7 @@ class ProductOption extends React.Component {
       <div className="productOption">
         <aside className="FloatingOptionOutbox">
           <div className="FloatingOptionInnerbox">
-            {/* product floating header~~~~~~*/}
+            {/* product floating header~*/}
             <header className="productOptionHeading">
               <p className="ProductCategory">{productInformation.category}</p>
               <h1 className="productName">{productInformation.name}</h1>
@@ -36,8 +36,8 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </header>
-            {/* ~~~~~~product floating header*/}
-            {/* product floating Amount~~~~~*/}
+
+            {/* product floating Amount~*/}
             <div className="productQuantity">
               <span className="quantityText">수량</span>
               <span className="quantityGroup">
@@ -56,8 +56,8 @@ class ProductOption extends React.Component {
                 </button>
               </span>
             </div>
-            {/* ~~~~product floating Amount*/}
-            {/* product floating options~~~~*/}
+
+            {/* product floating options*/}
             <div className="options">
               <ul>
                 <li>
@@ -76,8 +76,8 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </div>
-            {/* ~~~~product floating options*/}
-            {/* product floating pay  ~~~~ */}
+
+            {/* product floating pay  */}
             <div className="payOutbox">
               <div className="payInnerbox">
                 <div>
@@ -93,7 +93,13 @@ class ProductOption extends React.Component {
                 </div>
               </div>
             </div>
-            {/* ~~~~~product floating pay */}
+            <div className="countLiked">
+              <p>
+                <i class="fas fa-heart heartIcon"></i>
+                <span>{productInformation.counts_liked}</span>명이 이 상품을
+                좋아하고 있어요~
+              </p>
+            </div>
             {/* product floating bottomBtns  ~~~~ */}
             <div className="optionButtonsOutbox">
               <div className="optionButtons">
@@ -110,7 +116,6 @@ class ProductOption extends React.Component {
                           productInformation.isLiked ? 'fas yellow' : 'far'
                         }`}
                       ></i>
-                      {/* <div className="likeIcon"></div> */}
                       <span>좋아요</span>
                     </button>
                   </div>

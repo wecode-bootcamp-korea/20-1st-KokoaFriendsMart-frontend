@@ -7,7 +7,7 @@
   }
   .descriptionList {
     width: 750px;
-    height: 2500px;
+    height: 2000px;
     overflow-y: hidden;
   }
 
@@ -40,10 +40,11 @@
     height: 100px;
     .detailMoreButton {
       display: block;
-      height: 50px;
+      height: 30px;
       margin: auto;
       font-size: 16px;
-      transform: translateY(20px);
+      transform: translateY(40px);
+
       .arrowDownIcon {
       }
     }

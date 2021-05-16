@@ -110,6 +110,20 @@
         }
       }
 
+      .countLiked {
+        margin-top: 20px;
+        padding: 0 10px;
+        p {
+          font-size: $product-subcontents-font-size;
+          .heartIcon {
+            color: $yellow;
+          }
+          span {
+            padding: 5px;
+          }
+        }
+      }
+
       .optionButtonsOutbox .optionButtons {
         .bottomBtn {
           border-radius: 40px;
