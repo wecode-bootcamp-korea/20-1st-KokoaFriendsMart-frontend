@@ -21,6 +21,7 @@ class LikePick extends Component {
   }
 
   render() {
+    const { productList } = this.state;
     return (
       <div className="LikePick">
         <div className="likePickContainer">

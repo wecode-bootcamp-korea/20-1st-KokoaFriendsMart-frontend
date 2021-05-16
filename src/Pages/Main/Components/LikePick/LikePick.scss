@@ -18,5 +18,12 @@
       background-color: lightBlue;
       height: 100px;
     }
+
+    .itemContainer {
+      display: flex;
+      flex-wrap: wrap;
+      column-count: 4;
+      width: 1120px;
+    }
   }
 }
