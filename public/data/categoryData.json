@@ -65,6 +65,39 @@
       "isSoldOut": true,
       "isSet": true,
       "isNew": false
+    },
+    {
+      "id": 7,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 8,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
+    },
+    {
+      "id": 9,
+      "itemTitle": "레디 니트 우드커버-피치",
+      "itemPrice": 38000,
+      "imgSrc": "https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png",
+      "isLiked": true,
+      "isSaled": false,
+      "isSoldOut": true,
+      "isSet": true,
+      "isNew": false
     }
   ]
 }

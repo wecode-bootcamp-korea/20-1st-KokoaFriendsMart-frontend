@@ -1,4 +1,36 @@
-.mdpick {
-  .titleContainer {
+.MdPick {
+  .mdPickContainer {
+    width: 100%;
+
+    .titleContainer {
+      display: flex;
+      width: inherit;
+      height: 95px;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 38px;
+    }
+
+    .mdItemList {
+      display: flex;
+      width: 1120px;
+      flex-wrap: wrap;
+      column-count: 5;
+      margin: 0 auto;
+
+      .mdItemTitleContainer {
+        width: 224px;
+        height: 210px;
+        padding: 0 7px;
+        margin-bottom: 25px;
+
+        .mdItemTitle {
+          padding: 80px 0px 20px 0px;
+          font-weight: bold;
+          font-size: 30px;
+        }
+      }
+    }
   }
 }

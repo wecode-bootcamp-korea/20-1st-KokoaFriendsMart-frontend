@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Mdpick from './Components/Mdpick/MdPick';
 import Nav from './Components/Nav/Nav';
+import MdPick from './Components/MdPick/MdPick';
 
 export class Main extends Component {
   render() {
     return (
       <div>
-        <Nav></Nav>
-        <MdPick></MdPick>
+        <Nav />
+        <MdPick />
       </div>
     );
   }
