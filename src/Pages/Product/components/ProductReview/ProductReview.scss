@@ -6,14 +6,17 @@
       display: flex;
       border-bottom: 1px solid $lightGrey;
       padding-bottom: 10px;
+
       .title {
         margin-right: 10px;
         font-weight: 800;
       }
+
       .countReview {
         font-weight: 600;
       }
     }
+
     .reviewContentsOutbox {
       .starRate {
         display: flex;
@@ -22,7 +25,6 @@
         margin: 20px;
         width: 650px;
         height: 100px;
-        // border: 1px solid $lightGrey;
         border-radius: 30px;
         box-shadow: 6px 2px 20px -6px $lightGrey;
         .starRateNum {
@@ -64,8 +66,8 @@
             right: 20px;
           }
         }
+
         .commentBody {
-          // position: relative;
           display: flex;
           margin-top: 20px;
 
@@ -76,8 +78,6 @@
 
           .rightPicture {
             display: flex;
-            // position: absolute;
-            // right: 5px;
 
             img {
               width: 50px;

@@ -9,14 +9,13 @@ class ProductOption extends React.Component {
       plusQuantity,
       minusQuantity,
       handleQuantityInput,
-      quantitydefaultValue,
+      quantity,
       isLiked,
     } = this.props;
     return (
       <div className="productOption">
         <aside className="FloatingOptionOutbox">
           <div className="FloatingOptionInnerbox">
-            {/* product floating header~*/}
             <header className="productOptionHeading">
               <p className="ProductCategory">{productInformation.category}</p>
               <h1 className="productName">{productInformation.name}</h1>
@@ -36,8 +35,6 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </header>
-
-            {/* product floating Amount~*/}
             <div className="productQuantity">
               <span className="quantityText">수량</span>
               <span className="quantityGroup">
@@ -47,8 +44,7 @@ class ProductOption extends React.Component {
                 <input
                   className="countNum"
                   type="text"
-                  // maxlength="2"
-                  value={quantitydefaultValue}
+                  value={quantity}
                   onChange={handleQuantityInput}
                 />
                 <button className="plus" onClick={plusQuantity}>
@@ -56,8 +52,6 @@ class ProductOption extends React.Component {
                 </button>
               </span>
             </div>
-
-            {/* product floating options*/}
             <div className="options">
               <ul>
                 <li>
@@ -76,18 +70,14 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </div>
-
-            {/* product floating pay  */}
             <div className="payOutbox">
               <div className="payInnerbox">
                 <div>
-                  <strong>{quantitydefaultValue}</strong>개 상품 금액
+                  <strong>{quantity}</strong>개 상품 금액
                 </div>
                 <div className="totalCost">
                   <strong>
-                    {(
-                      quantitydefaultValue * productInformation.price
-                    ).toLocaleString()}
+                    {(quantity * productInformation.price).toLocaleString()}
                   </strong>
                   원
                 </div>
@@ -100,17 +90,11 @@ class ProductOption extends React.Component {
                 좋아하고 있어요~
               </p>
             </div>
-            {/* product floating bottomBtns  ~~~~ */}
             <div className="optionButtonsOutbox">
               <div className="optionButtons">
                 <div className="optionButtonsRow1">
                   <div>
-                    <button
-                      className="likeButton bottomBtn"
-                      // onClick={() => {
-                      //   this.setState({productInformation.isLiked? false:true});
-                      // }}
-                    >
+                    <button className="likeButton bottomBtn">
                       <i
                         className={`fa-heart ${
                           productInformation.isLiked ? 'fas yellow' : 'far'
@@ -130,7 +114,6 @@ class ProductOption extends React.Component {
                 </div>
               </div>
             </div>
-            {/* ~~~~~ product floating bottomBtns*/}
           </div>
         </aside>
       </div>

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import './ProductQna.scss';
 
 class ProductQna extends React.Component {
   render() {
-    const {} = this.props;
     return (
       <div className="productQna">
         <div className="qnaOutbox">

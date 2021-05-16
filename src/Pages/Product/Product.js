@@ -13,7 +13,7 @@ export class Product extends Component {
       productDetailImages: [],
       productInformation: {},
       productReviewData: [],
-      quantitydefaultValue: 1,
+      quantity: 1,
       moreView: false,
     };
   }
@@ -54,25 +54,25 @@ export class Product extends Component {
 
   plusQuantity = () => {
     this.setState({
-      quantitydefaultValue: Number(this.state.quantitydefaultValue) + 1,
+      quantity: Number(this.state.quantity) + 1,
     });
   };
 
   minusQuantity = () => {
-    if (this.state.quantitydefaultValue > 1) {
+    if (this.state.quantity > 1) {
       this.setState({
-        quantitydefaultValue: this.state.quantitydefaultValue - 1,
+        quantity: this.state.quantity - 1,
       });
     }
   };
 
   handleQuantityInput = e => {
     this.setState({
-      quantitydefaultValue: e.target.value,
+      quantity: e.target.value,
     });
   };
 
-  handleMoreView = () => {
+  toggleMoreView = () => {
     this.setState({ moreView: !this.state.moreView });
   };
 
@@ -81,7 +81,7 @@ export class Product extends Component {
       productDetailImages,
       productInformation,
       productReviewData,
-      quantitydefaultValue,
+      quantity,
       moreView,
     } = this.state;
     return (
@@ -92,10 +92,8 @@ export class Product extends Component {
           <div className="productDetail">
             <div className="productDetailOutbox">
               <div className="productDetailInnerbox">
-                {/* product detail Images */}
                 <div className="detailImagesOutbox">
                   <div className="detailImagesInnerbox">
-                    {/* product thumbnail~~ */}
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
@@ -103,18 +101,17 @@ export class Product extends Component {
                         src={productInformation.thumbnail_url}
                       />
                     </div>
-                    {/* ~~~~product thumbnail*/}
                     <ProductDetail
                       productDetailImages={productDetailImages}
                       productInformation={productInformation}
                       moreView={moreView}
-                      handleMoreView={this.handleMoreView}
+                      toggleMoreView={this.toggleMoreView}
                     />
                   </div>
                 </div>
                 <ProductOption
                   productInformation={productInformation}
-                  quantitydefaultValue={quantitydefaultValue}
+                  quantity={quantity}
                   plusQuantity={this.plusQuantity}
                   minusQuantity={this.minusQuantity}
                   handleQuantityInput={this.handleQuantityInput}

@@ -7,7 +7,7 @@ class ProductDetail extends React.Component {
       productDetailImages,
       productInformation,
       moreView,
-      handleMoreView,
+      toggleMoreView,
     } = this.props;
     // const productDetail_HTMLCode = this.props.productInformation.contents;
     return (
@@ -62,7 +62,7 @@ class ProductDetail extends React.Component {
         <div className="detailMore">
           <button
             className={moreView ? 'hiddenButton' : 'detailMoreButton'}
-            onClick={() => handleMoreView(!moreView)}
+            onClick={() => toggleMoreView(!moreView)}
           >
             상품 펼쳐보기 <i class="fas fa-chevron-down arrowDownIcon"></i>
           </button>
