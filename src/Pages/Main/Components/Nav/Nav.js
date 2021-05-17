@@ -9,7 +9,6 @@ class Nav extends Component {
     super();
     this.state = {
       friends: [],
-      // search: '',
     };
   }
 
@@ -20,13 +19,8 @@ class Nav extends Component {
       .then(res => this.setState({ friends: res }));
   }
 
-  // updateSearch(event) {
-  //   this.setState({ search: event.target.value.substr(0, 20) });
-  // }
-
   render() {
     const { history } = this.props;
-    // let filteredSearch = this.props.productList.filter();
 
     return (
       <div className="Nav">
@@ -40,7 +34,7 @@ class Nav extends Component {
                     <div className="dropdownContainer">
                       <div className="allItems">
                         <div className="allItemsTitle">
-                          <a href="/#">전체</a>
+                          <a onClick={() => history.push('category')}>전체</a>
                         </div>
                         <div className="dropdownCharacters">
                           <div className="dropdownCharactersTitle">
