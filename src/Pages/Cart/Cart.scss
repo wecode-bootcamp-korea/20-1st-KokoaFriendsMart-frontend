@@ -1,12 +1,40 @@
 @import '../../Styles/variables';
 
 .cart {
+  .topBanner {
+    position: relative;
+    background-color: $lightGrey;
+    width: 100%;
+    height: 350px;
+
+    .cartDescription {
+      position: absolute;
+      line-height: 1.5;
+      letter-spacing: 3px;
+      top: 40%;
+      left: 5%;
+
+      .cart {
+        font-size: 60px;
+        font-weight: 600;
+      }
+    }
+
+    img {
+      position: absolute;
+      left: 80%;
+      top: 30%;
+      width: 150px;
+    }
+  }
+
   .cartPageOutbox {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto 200px auto;
+    padding-top: 100px;
 
     .freeDeliveryBar {
       display: flex;
@@ -14,87 +42,87 @@
       align-items: center;
       position: relative;
       width: 80%;
-      padding: 50px 0;
+      padding: 100px 0;
       border-bottom: 1px solid grey;
       font-size: 16px;
+      font-weight: 700;
 
-      .percentageBar {
-        background-color: $yellow;
-        margin: 20px 40px;
-        width: 70%;
-        height: 10px;
-      }
+      .totalBar {
+        position: relative;
+        width: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      .character {
-        width: 30px;
+        .movingCharacter {
+          position: absolute;
+          left: 60px;
+          width: 70px;
+        }
+
+        .movingPrice {
+          position: absolute;
+          bottom: -70px;
+          left: 60px;
+          padding: 10px 15px;
+          border-radius: 5px;
+          background-color: grey;
+          color: $white;
+        }
+
+        .percentageBarLeft {
+          position: relative;
+          background-color: $yellow;
+          border-radius: 10px;
+          width: 5%;
+          height: 20px;
+        }
+
+        .percentageBarRight {
+          background-color: $lightGrey;
+          width: 80%;
+          height: 20px;
+          border-radius: 10px;
+        }
       }
     }
+
     .checkBox {
       width: 80%;
+
       .checkBoxHeader {
         display: flex;
         align-items: center;
         padding: 50px 0;
-        border-bottom: 1px solid $lightGrey;
+
         font-size: 16px;
+
+        .check {
+          margin-right: 10px;
+        }
+
+        .choiceNum {
+          margin-right: 30%;
+        }
+
+        .choiceOption {
+          margin-right: 15%;
+        }
+
+        .choiceQuantity {
+          margin-right: 15%;
+        }
+
+        .productTotal {
+          margin-right: 5%;
+        }
+
         span {
-          padding: 0 6%;
           font-size: 16px;
-        }
-        // .check {
-        //   border-radius: 50%;
-        // }
-      }
-      .cartProductBox {
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding: 50px 0;
-
-        img {
-          width: 200px;
-          margin: 20px;
-        }
-        .productNamePrice {
-          display: flex;
-          flex-direction: column;
-
-          width: 200px;
-        }
-        .productOption {
-          position: absolute;
-          left: 70%;
-          display: flex;
-          align-items: center;
-
-          .productQuantity {
-            .quantityGroup {
-              padding: 10px;
-
-              button {
-                width: 30px;
-                height: 30px;
-                margin: 10px;
-                border: 1px solid $lightGrey;
-                border-radius: 12px;
-              }
-
-              input.countNum {
-                width: 20px;
-                border: none;
-                &:focus {
-                  outline: none;
-                }
-              }
-            }
-          }
-          .fa-trash {
-            margin-left: 20px;
-            color: $lightGrey;
-          }
         }
       }
     }
+
     .totalPriceText {
       display: flex;
       align-items: center;
@@ -106,6 +134,7 @@
         font-size: 20px;
       }
     }
+
     .totalPriceNum {
       position: relative;
       display: flex;
@@ -114,16 +143,19 @@
       width: 80%;
       border-top: 1px solid $lightGrey;
       border-bottom: 1px solid $lightGrey;
+
       div {
         padding: 0 9%;
         font-size: 20px;
         font-weight: 300;
       }
+
       .equal {
         position: absolute;
         left: 75%;
       }
     }
+
     .orderButton {
       position: fixed;
       bottom: 0;
