@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProductItem from './ProductItem';
+import { categoryApi } from '../../config';
 import './Category.scss';
 
 export class Category extends Component {
@@ -9,15 +10,16 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShowSortBox: false,
+      categoryData: {},
     };
   }
 
   componentDidMount() {
-    fetch('/data/categoryData.json')
-      .then(result => result.json())
-      .then(categoryData => {
-        this.setState({ productList: categoryData.productList });
-      });
+    const categoryName = this.props.match.params.categoryName || '';
+    console.log(categoryName);
+    fetch(`${categoryApi}?cid=${categoryName}`)
+      .then(res => res.json())
+      .then(res => this.setState({ categoryData: res }));
   }
 
   onClickListSort = () => {
