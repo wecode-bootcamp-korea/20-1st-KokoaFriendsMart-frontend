@@ -2,6 +2,7 @@
 
 .cart {
   .cartPageOutbox {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,15 +37,104 @@
         padding: 50px 0;
         border-bottom: 1px solid $lightGrey;
         font-size: 16px;
+        span {
+          padding: 0 6%;
+          font-size: 16px;
+        }
         // .check {
         //   border-radius: 50%;
         // }
       }
       .cartProductBox {
+        position: relative;
         display: flex;
         align-items: center;
         padding: 50px 0;
+
+        img {
+          width: 200px;
+          margin: 20px;
+        }
+        .productNamePrice {
+          display: flex;
+          flex-direction: column;
+
+          width: 200px;
+        }
+        .productOption {
+          position: absolute;
+          left: 70%;
+          display: flex;
+          align-items: center;
+
+          .productQuantity {
+            .quantityGroup {
+              padding: 10px;
+
+              button {
+                width: 30px;
+                height: 30px;
+                margin: 10px;
+                border: 1px solid $lightGrey;
+                border-radius: 12px;
+              }
+
+              input.countNum {
+                width: 20px;
+                border: none;
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+          }
+          .fa-trash {
+            margin-left: 20px;
+            color: $lightGrey;
+          }
+        }
       }
+    }
+    .totalPriceText {
+      display: flex;
+      align-items: center;
+      padding: 50px 0;
+      width: 80%;
+      border-top: 1px solid grey;
+      div {
+        padding: 0 9%;
+        font-size: 20px;
+      }
+    }
+    .totalPriceNum {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 50px 0;
+      width: 80%;
+      border-top: 1px solid $lightGrey;
+      border-bottom: 1px solid $lightGrey;
+      div {
+        padding: 0 9%;
+        font-size: 20px;
+        font-weight: 300;
+      }
+      .equal {
+        position: absolute;
+        left: 75%;
+      }
+    }
+    .orderButton {
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100px;
+      background-color: $yellow;
+      font-size: 30px;
+      font-weight: 500;
     }
   }
 }

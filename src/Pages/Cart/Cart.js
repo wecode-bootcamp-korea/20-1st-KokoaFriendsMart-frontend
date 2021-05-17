@@ -35,14 +35,17 @@ class Cart extends React.Component {
             </div>
             {/* 아래 맵 돌릴 부분 */}
             <div className="cartProductBox">
-              <div className="productHead">
-                <input type="checkBox" />
-                <span>{'상품 이름'}</span>
-                <span>{'상품가격(고정)'}</span>
-                <i>쓰레기통</i>
+              <input type="checkBox" />
+              <img
+                alt="상품 이미지"
+                src="https://i.ibb.co/zrrbfgW/Electronics-Imac-Concon-1.png"
+              />
+              <div className="productNamePrice">
+                <p>(상품 이름)</p>
+                <p>(상품가격(고정))</p>
               </div>
-              <div className="ProductOption">
-                <img alt="상품 이미지" src="" />
+
+              <div className="productOption">
                 <div className="productQuantity">
                   <span className="quantityGroup">
                     <button className="minus">-</button>
@@ -56,15 +59,28 @@ class Cart extends React.Component {
                   </span>
                 </div>
                 <span>{'상품 가격'}원</span>
+                <i class="fas fa-trash"></i>
               </div>
             </div>
             {/* 위까지 맵 돌릴 부분 */}
           </article>
-          <article className="totalPrice">
+          <article className="totalPriceText">
             <div>상품금액</div>
             <div>즉시할인</div>
             <div>배송비</div>
             <div>주문예정 금액</div>
+          </article>
+          <article className="totalPriceNum">
+            <div>상품 총가격</div>
+            <div>0원</div>
+            <div>3,000원</div>
+            <div>
+              <span className="equal">=</span>
+              <span>(총 금액)</span>원
+            </div>
+          </article>
+          <article className="orderButton">
+            <span>(총금액)</span>원 주문하기
           </article>
         </section>
       </div>
