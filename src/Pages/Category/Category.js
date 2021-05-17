@@ -9,14 +9,24 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShow: false,
+      // categoryData: {},
     };
   }
 
+  // componentDidMount() {
+  //   const categoryName = this.props.match.params.categoryName || '';
+  //   fetch(`${categoryApi}?cname=${categoryName}`)
+  //     .then(res => res.json())
+  //     .then(res => this.setState({ productList: res.data }));
+  //   // .then(res => this.setState({ categoryData: res }));
+  // }
+
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${categoryApi}?cid=${categoryName}`)
+    const categoryName = this.props.match.params.categoryName;
+    fetch(`${categoryApi}?cname=${categoryName}`)
       .then(res => res.json())
-      .then(res => this.setState({ productList: res.products_list }));
+      .then(res => this.setState({ productList: res.data }));
+    // .then(res => this.setState({ categoryData: res }));
   }
 
   onClickListSort = () => {
@@ -80,7 +90,7 @@ export class Category extends Component {
                     <Link to="/" className="thum">
                       <div>
                         <img
-                          src={list.imgSrc}
+                          src={list.thumbnail_url}
                           alt="이미지 섬네일"
                           className="productImg"
                         />
@@ -114,7 +124,7 @@ export class Category extends Component {
                         }`}
                       ></i>
                       <div className="itemPrice">
-                        {list.itemPrice.toLocaleString()}원
+                        {list.Price.toLocaleString()}원
                       </div>
                     </div>
                   </div>
