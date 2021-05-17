@@ -1,20 +1,19 @@
 @import '../../Styles/variables.scss';
 
 .product {
-  nav {
-    border: 3px solid blue;
-    width: inherit;
+  .productContents {
+    transform: translateY(150px);
   }
 
   .productDetailInnerbox {
     display: flex;
     justify-content: center;
-    //ProductDetail 컴포넌트 자리
+
+    //ProductDetail 컴포넌트 scss
 
     .detailImagesOutbox {
       width: 750px;
       margin-right: 50px;
-      // border: 3px solid $lightGrey;
 
       .detailImagesInnerbox {
         width: inherit;

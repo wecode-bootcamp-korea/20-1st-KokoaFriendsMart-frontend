@@ -86,9 +86,8 @@ export class Product extends Component {
     } = this.state;
     return (
       <div className="product">
-        {/* <Nav /> */}
+        <Nav />
         <section className="productContents">
-          전체 페이지(리뷰, 문의까지)
           <div className="productDetail">
             <div className="productDetailOutbox">
               <div className="productDetailInnerbox">
