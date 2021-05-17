@@ -1,0 +1,50 @@
+@import '../../Styles/variables';
+
+.cart {
+  .cartPageOutbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    .freeDeliveryBar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      width: 80%;
+      padding: 50px 0;
+      border-bottom: 1px solid grey;
+      font-size: 16px;
+
+      .percentageBar {
+        background-color: $yellow;
+        margin: 20px 40px;
+        width: 70%;
+        height: 10px;
+      }
+
+      .character {
+        width: 30px;
+      }
+    }
+    .checkBox {
+      width: 80%;
+      .checkBoxHeader {
+        display: flex;
+        align-items: center;
+        padding: 50px 0;
+        border-bottom: 1px solid $lightGrey;
+        font-size: 16px;
+        // .check {
+        //   border-radius: 50%;
+        // }
+      }
+      .cartProductBox {
+        display: flex;
+        align-items: center;
+        padding: 50px 0;
+      }
+    }
+  }
+}
