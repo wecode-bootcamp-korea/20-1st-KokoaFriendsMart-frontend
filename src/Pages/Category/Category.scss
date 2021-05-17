@@ -19,21 +19,10 @@
         max-width: 1166px;
       }
 
-      @media screen and (max-width: 1200px) {
-        .bannerControl {
-          max-width: 859px;
-        }
-      }
-
-      @media screen and (max-width: 833px) {
-        .bannerControl {
-          max-width: 100%;
-
-          .bannerArrow {
-            width: 30px;
-            height: 30px;
-          }
-        }
+      .bannerArrow {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
       }
     }
 
@@ -176,5 +165,17 @@
   }
   .hide {
     display: none;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .banner .bannerContainer .bannerControl {
+      max-width: 859px;
+    }
+  }
+
+  @media screen and (max-width: 833px) {
+    .banner .bannerContainer .bannerControl {
+      max-width: 100%;
+    }
   }
 }
