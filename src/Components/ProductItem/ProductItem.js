@@ -4,10 +4,9 @@ import './ProductItem.scss';
 
 class ProductItem extends Component {
   render() {
-    console.log(this.props);
     const { list, link, width, height, fontSize } = this.props;
     return (
-      <div className="ProductItem" key="1">
+      <div className="ProductItem">
         <div className="item" style={{ width: `${width[0]}` }}>
           <Link to={link} className="thum">
             <div>

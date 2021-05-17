@@ -21,7 +21,6 @@ class MdPick extends Component {
 
   render() {
     const { productList } = this.state;
-    console.log(productList);
     return (
       <div className="MdPick">
         <div className="mdPickContainer">
@@ -49,6 +48,7 @@ class MdPick extends Component {
                   width={['210px']}
                   height={['210px']}
                   fontSize={['16px', '17px']}
+                  key={list.id}
                 />
               );
             })}

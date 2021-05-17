@@ -15,7 +15,6 @@ export class Category extends Component {
 
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
-    console.log(categoryName);
     fetch(`${categoryApi}?cid=${categoryName}`)
       .then(res => res.json())
       .then(res => this.setState({ categoryData: res }));
