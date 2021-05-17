@@ -51,7 +51,8 @@ export class Product extends Component {
       });
   }
 
-  plusQuantity = () => {
+  plusQuantity = e => {
+    console.log(e);
     this.setState({
       quantity: Number(this.state.quantity) + 1,
     });
