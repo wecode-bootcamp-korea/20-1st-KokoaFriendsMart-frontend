@@ -14,6 +14,8 @@ a {
     width: 100%;
     border-bottom: 1px solid $lightGrey;
     position: fixed;
+    background-color: #fff;
+    z-index: 1;
   }
 
   .subContainer {

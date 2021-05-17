@@ -2,7 +2,9 @@
 
 .product {
   .productContents {
-    transform: translateY(150px);
+    // transform: translateY(150px);
+    padding-top: 100px;
+    z-index: -1;
   }
 
   .productDetailInnerbox {

@@ -5,7 +5,8 @@
     width: 350px;
     padding: 10px;
     position: sticky;
-    top: 10px;
+    z-index: -1;
+    top: 100px;
 
     .FloatingOptionInnerbox {
       .productOptionHeading {

@@ -78,7 +78,7 @@ class ProductReview extends React.Component {
                         <div className="comment">
                           {reviewData.reviewComment}
                         </div>
-                        <div className="rightPicture">
+                        <div className="reviewPicture">
                           <img
                             alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
                             src={`/images/productDetail/${reviewData.reviewImg.imgSrc}`}

@@ -36,7 +36,7 @@ class ProductDetail extends React.Component {
                 <img
                   className="desImg"
                   alt={`상세이미지 ${imageData.alt}`}
-                  src={`images/productDetail/${imageData.img}`}
+                  src={imageData.img}
                   id={imageData.id}
                 />
               </li>

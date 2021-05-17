@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import ProductOption from './components/ProductOption/ProductOption';
 import ProductReview from './components/ProductReview/ProductReview';
-import ProductQna from './components/ProductQna/ProductQna';
 import Nav from '../Main/Components/Nav/Nav';
 import './Product.scss';
 
@@ -121,7 +120,6 @@ export class Product extends Component {
           <div className="bottomOutbox">
             <div className="bottomReviewQna">
               <ProductReview productReviewData={productReviewData} />
-              <ProductQna />
             </div>
             <aside className="nothing"></aside>
           </div>
