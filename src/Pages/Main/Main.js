@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './Components/Nav/Nav';
-import MdPick from './Components/MdPick/MdPick';
+import MdPick from './Components/Mdpick/MdPick';
 
 export class Main extends Component {
   render() {
