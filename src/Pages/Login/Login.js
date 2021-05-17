@@ -25,8 +25,8 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.token) {
-          localStorage.setItem('accessToken', result.token);
+        if (result.data.token) {
+          localStorage.setItem('accessToken', result.data.token);
           this.props.history.push('./main');
         }
       });
