@@ -11,28 +11,28 @@ class ProductItem extends Component {
           <Link to={link} className="thum">
             <div>
               <img
-                src={list.imgSrc}
+                src={list.thumbnail_url}
                 alt="이미지 섬네일"
                 className="productImg"
               />
             </div>
-            <span className={`label ${list.isSaled ? 'sale' : 'hide'}`}>
+            <span className={`label ${list.is_sale ? 'sale' : 'hide'}`}>
               SALE
             </span>
-            <span className={`label ${list.isSoldOut ? 'soldOut' : 'hide'}`}>
+            <span className={`label ${list.is_soldout ? 'soldOut' : 'hide'}`}>
               SOLD
               <br />
               OUT
             </span>
-            <span className={`label ${list.isSet ? 'set' : 'hide'}`}>SET</span>
-            <span className={`label ${list.isNew ? 'new' : 'hide'}`}>NEW</span>
+            <span className={`label ${list.is_set ? 'set' : 'hide'}`}>SET</span>
+            <span className={`label ${list.is_new ? 'new' : 'hide'}`}>NEW</span>
           </Link>
           <div className="itemDesc">
-            <div className="itemTitle">{list.itemTitle}</div>
+            <div className="itemTitle">{list.name}</div>
             <i
-              className={`fa-heart ${list.isLiked ? 'fas yellow' : 'far'}`}
+              className={`fa-heart ${list.is_liked ? 'fas yellow' : 'far'}`}
             ></i>
-            <div className="itemPrice">{list.itemPrice.toLocaleString()}원</div>
+            <div className="itemPrice">{list.price}원</div>
           </div>
         </div>
       </div>
