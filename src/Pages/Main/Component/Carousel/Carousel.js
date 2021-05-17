@@ -22,11 +22,11 @@ class Carousel extends Component {
   }
 
   goToRight = () => {
-    const { index, translateXWidth, width } = this.state;
+    const { index, translateXWidth, width, carouselDataArr } = this.state;
     if (index === 2) {
       this.setState({
         index: 0,
-        carouselDataArr: this.state.carouselDataArr.concat(CAROUSEL_DATA),
+        carouselDataArr: carouselDataArr.concat(CAROUSEL_DATA),
         width: width + 300,
       });
     }
@@ -47,7 +47,7 @@ class Carousel extends Component {
   };
 
   render() {
-    console.log(this.state.index);
+    console.log(this.state.translateXWidth);
     const { translateXWidth, carouselDataArr, width } = this.state;
     return (
       <div className="carouselContainer">
@@ -61,7 +61,7 @@ class Carousel extends Component {
           {carouselDataArr.map(el => (
             <CarouselCard
               src={el.src}
-              key={el.id * 10}
+              // key={el.id * carouselDataArr.length}
               caption={el.caption}
               title={el.title}
               description={el.description}
