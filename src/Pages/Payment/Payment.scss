@@ -1,0 +1,66 @@
+@import 'src/Styles/_variables.scss';
+
+.payment {
+  .bgImg {
+    width: 100%;
+    padding: 70px 0;
+    background-color: #eee;
+    margin-bottom: 80px;
+
+    .bgText {
+      max-width: 1000px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: $category-banner-title-font-size;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .productInfo {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .orderProductCount {
+      padding: 40px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    .orderProductItem {
+      display: flex;
+      align-items: center;
+      padding: 40px;
+      border-bottom: 1px solid #eee;
+
+      div:nth-child(1) {
+        width: 15%;
+        height: 150px;
+        background-color: red;
+      }
+      div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        width: 65%;
+        height: 50px;
+        background-color: grey;
+      }
+      div:nth-child(3) {
+        display: flex;
+        align-items: center;
+        width: 10%;
+        height: 50px;
+        background-color: red;
+      }
+      div:nth-child(4) {
+        display: flex;
+        align-items: center;
+        width: 10%;
+        height: 50px;
+        background-color: grey;
+      }
+    }
+  }
+}

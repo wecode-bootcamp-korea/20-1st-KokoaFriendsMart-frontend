@@ -1,1 +1,1 @@
-export const loginSignupApi = 'http://10.58.2.100:9000';
+export const loginSignupApi = 'http://api.kokoafriendsmart.com';
