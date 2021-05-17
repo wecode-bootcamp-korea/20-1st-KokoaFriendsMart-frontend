@@ -6,43 +6,42 @@
 
   .carouselWrap {
     display: flex;
-    width: 300vw;
-    height: 55vh;
     border-bottom-right-radius: 20px;
     transition: 0.5s;
 
     .carouselItem {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 100%;
-      padding-left: 80px;
-      transition: 0.5s ease-out;
+      width: 100vw;
+
+      .bgImg {
+        width: 100%;
+      }
 
       .caption {
+        position: absolute;
+        top: 80px;
+        left: 80px;
         font-size: $main-font-size;
       }
 
       .title {
+        position: absolute;
+        top: 120px;
+        left: 80px;
+        width: 36%;
         font-size: $slider-title;
         font-weight: bold;
         margin: 12px 0px;
       }
 
       .description {
+        position: absolute;
+        top: 260px;
+        left: 80px;
         font-size: $main-font-size;
-      }
-
-      &:nth-child(1) {
-        background-color: #ffebcd;
-      }
-
-      &:nth-child(2) {
-        background-color: #9acd32;
-      }
-
-      &:nth-child(3) {
-        background-color: #edacb1;
       }
     }
   }
