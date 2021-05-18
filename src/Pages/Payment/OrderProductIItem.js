@@ -4,7 +4,7 @@ import CART_DATA from './cartData';
 
 class OrderProductItem extends Component {
   render() {
-    const { id, itemTitle, itemPrice, itemQuantity, imgSrc } = this.props;
+    const { itemTitle, itemPrice, itemQuantity, imgSrc } = this.props;
     return (
       <div className="orderProductItem">
         <div>
@@ -12,12 +12,13 @@ class OrderProductItem extends Component {
         </div>
         <div>
           <p>{itemTitle}</p>
+          <p>{Number(itemPrice).toLocaleString()}원</p>
         </div>
         <div>
-          <p>{itemQuantity}</p>
+          <p>[수량] {itemQuantity}</p>
         </div>
         <div>
-          <p>{itemPrice}</p>
+          <p>{Number(itemPrice * itemQuantity).toLocaleString()}원</p>
         </div>
       </div>
     );
