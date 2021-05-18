@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import OrderItem from './OrderItem';
 import ORDER_DATA from './OrderListData';
 import './Orderlist.scss';
 
@@ -69,17 +70,14 @@ export class Orderlist extends Component {
                 <div className="orderDetailHeader">
                   <p>주문내역상세</p>
                 </div>
-                <div className="orderItemList">
-                  <div className="date">2021.05.21</div>
-                  <div className="product">
-                    <img
-                      alt="img"
-                      src="https://i.ibb.co/k3qCkXx/Wear-Hoodie-Peach-1.png"
-                    />
-                    <p>모찌 클러치</p>
-                    <p>17400원</p>
-                  </div>
-                </div>
+                {ORDER_DATA.map(el => (
+                  <OrderItem
+                    key={el.id}
+                    itemTitle={el.itemTitle}
+                    itemPrice={el.itemPrice}
+                    imgSrc={el.imgSrc}
+                  />
+                ))}
               </div>
               <div className="paymentDetail"></div>
             </div>

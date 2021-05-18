@@ -90,7 +90,7 @@
 
       .orderDetail {
         width: 100%;
-        padding: 100px 0px 0px 30px;
+        padding: 100px 30px 0px 30px;
 
         .orderDetailHeader {
           padding-bottom: 10px;
@@ -100,19 +100,35 @@
         .orderItemList {
           display: flex;
           align-items: center;
+          border-bottom: 1px solid #333;
 
           .date {
             width: 15%;
             padding: 30px 0px;
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: bold;
           }
 
           .product {
+            display: flex;
+            align-items: center;
             width: 85%;
+            padding: 30px 30px;
+            border-left: 1px solid #ddd;
+
+            .productInfo {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              padding-left: 25px;
+            }
 
             img {
-              width: 75px;
+              width: 130px;
+              height: 130px;
+              object-fit: cover;
+              border-radius: 12px;
             }
           }
         }
