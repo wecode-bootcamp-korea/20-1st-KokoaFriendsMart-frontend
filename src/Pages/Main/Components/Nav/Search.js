@@ -17,7 +17,7 @@ export class Search extends Component {
     const categoryName = this.props.match.params.categoryName || '';
     fetch(`${productApi}?search=${categoryName}`)
       .then(res => res.json())
-      .then(res => this.setState({ productList: res.data }));
+      .then(res => this.setState({ productList: res.data.product_list }));
   }
 
   onClickListSort = () => {
