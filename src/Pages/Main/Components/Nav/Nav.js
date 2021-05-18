@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CharactersList from './CharactersList/CharactersList';
 import Category from '../../../Category/Category';
+import { productApi } from '../../../../config';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -9,6 +10,7 @@ class Nav extends Component {
     super();
     this.state = {
       friends: [],
+      inputValue: '',
     };
   }
 
@@ -22,6 +24,7 @@ class Nav extends Component {
   render() {
     const { history } = this.props;
 
+    console.log(this.state.inputValue);
     return (
       <div className="Nav">
         <div className="mainContainer">
@@ -29,12 +32,14 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <Link onClick={() => history.push('category')}>카테고리</Link>
+                  <Link onClick={() => history.push('/category')}>
+                    카테고리
+                  </Link>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
                         <div className="allItemsTitle">
-                          <Link onClick={() => history.push('category')}>
+                          <Link onClick={() => history.push('/category')}>
                             전체
                           </Link>
                         </div>
@@ -149,7 +154,19 @@ class Nav extends Component {
                 <li className="navBarSearch">
                   <div className="searchContainer">
                     <div className="formGroup">
-                      <input className="searchInput" type="text" />
+                      <input
+                        className="searchInput"
+                        type="text"
+                        onChange={e =>
+                          this.setState({ inputValue: e.target.value })
+                        }
+                        value={this.state.inputValue}
+                        onKeyUp={e => {
+                          if (e.key === 'Enter') {
+                            history.push(`/search/${this.state.inputValue}`);
+                          }
+                        }}
+                      />
                       <a href="/#" className="searchButtonIcon">
                         <i class="fas fa-search" />
                       </a>

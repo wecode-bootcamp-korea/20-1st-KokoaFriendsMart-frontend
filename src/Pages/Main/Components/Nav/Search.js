@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import ProductItem from '../../Components/ProductItem/ProductItem';
-import { productApi } from '../../config';
-import './Category.scss';
+import ProductItem from '../../../../Components/ProductItem/ProductItem';
+import { productApi } from '../../../../config';
+import './Search.scss';
 
-export class Category extends Component {
+export class Search extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,7 +30,7 @@ export class Category extends Component {
 
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${productApi}?cname=${categoryName}`)
+    fetch(`${productApi}?search=${categoryName}`)
       .then(res => res.json())
       .then(res => this.setState({ productList: res.data }));
   }
@@ -107,4 +107,4 @@ export class Category extends Component {
   }
 }
 
-export default withRouter(Category);
+export default withRouter(Search);

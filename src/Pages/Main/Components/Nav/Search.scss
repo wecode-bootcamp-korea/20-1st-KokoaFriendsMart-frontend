@@ -1,0 +1,180 @@
+@import '../../../../Styles/_variables.scss';
+
+.Category {
+  color: #333;
+
+  .banner {
+    background-color: #dbf4f9;
+
+    .bannerContainer {
+      position: relative;
+      height: 100%;
+
+      .bannerControl {
+        position: relative;
+        top: 170px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1166px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        .bannerControl {
+          max-width: 859px;
+        }
+      }
+
+      @media screen and (max-width: 833px) {
+        .bannerControl {
+          max-width: 100%;
+
+          .bannerArrow {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .caption {
+      position: relative;
+      left: 25%;
+      display: inline-block;
+      padding: 95px 0;
+
+      .subtitle {
+        font-size: 20px;
+        margin-bottom: 3px;
+      }
+
+      .title {
+        position: relative;
+        font-size: 55px;
+        font-weight: bold;
+        margin-bottom: 45px;
+
+        &::after {
+          content: '';
+          position: relative;
+          top: 30px;
+          display: block;
+          width: 26px;
+          height: 3px;
+          background-color: #333;
+        }
+      }
+
+      .desc {
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 25px;
+      }
+    }
+  }
+  .categoryBody {
+    .productFilter {
+      margin: 55px 0;
+
+      ul {
+        text-align: center;
+      }
+
+      li {
+        display: inline-block;
+        padding: 15px 30px;
+        margin: 0 7px;
+        border-radius: 2rem;
+        font-size: $main-font-size;
+        color: #c9c9c9;
+        background-color: $category-background-color;
+
+        &:hover {
+          color: #333;
+          background-color: $yellow;
+          cursor: pointer;
+        }
+      }
+
+      .active {
+        color: #333;
+        background-color: $yellow;
+      }
+    }
+
+    .productLnb {
+      display: flex;
+      justify-content: space-between;
+      width: 1166px;
+      margin: 0 auto;
+      margin-bottom: 45px;
+      font-size: $main-font-size;
+
+      .productNum {
+        color: #333;
+      }
+
+      .listSort {
+        position: relative;
+        padding-right: 20px;
+        font-size: 16px;
+        color: #6a6666;
+
+        .sortArrow {
+          position: absolute;
+          right: 0;
+          content: '';
+          display: block;
+          width: 8px;
+          height: 8px;
+          transform: rotate(-45deg);
+        }
+
+        .unClicked {
+          top: 6px;
+          border-left: 1px solid #827487;
+          border-bottom: 1px solid #827487;
+        }
+
+        .clicked {
+          top: 11px;
+          border-top: 1px solid #827487;
+          border-right: 1px solid #827487;
+        }
+
+        .sortPopup {
+          position: absolute;
+          top: 50px;
+          right: -15px;
+          padding: 18px 0 20px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 5px 0;
+          z-index: 100;
+
+          li {
+            min-width: 141px;
+            padding: 10px 10px;
+            padding-right: 20px;
+            text-align: end;
+
+            &:hover {
+              color: #ff9e36;
+            }
+          }
+        }
+      }
+    }
+
+    .productLists {
+      display: flex;
+      max-width: 1197px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      column-count: 4;
+    }
+  }
+  .hide {
+    display: none;
+  }
+}
