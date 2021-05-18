@@ -11,7 +11,6 @@ class Carousel extends Component {
       index: 0,
       translateXWidth: 0,
       transitionSec: 0,
-      width: 300,
     };
   }
 
@@ -22,12 +21,12 @@ class Carousel extends Component {
   }
 
   goToRight = () => {
-    const { index, translateXWidth, width, carouselDataArr } = this.state;
-    if (index === 2) {
+    const { index, translateXWidth, carouselDataArr } = this.state;
+    if (index % (CAROUSEL_DATA.length - 1) === 0) {
       this.setState({
         index: 0,
         carouselDataArr: carouselDataArr.concat(CAROUSEL_DATA),
-        width: width + 300,
+        translateXWidth: translateXWidth - 100,
       });
     }
     if (index < 2) {
@@ -47,21 +46,20 @@ class Carousel extends Component {
   };
 
   render() {
-    console.log(this.state.translateXWidth);
-    const { translateXWidth, carouselDataArr, width } = this.state;
+    console.log(this.state.carouselDataArr);
+    const { translateXWidth, carouselDataArr } = this.state;
     return (
       <div className="carouselContainer">
         <div
           className="carouselWrap"
           style={{
             transform: `translateX(${translateXWidth}vw)`,
-            width: `${width}vw`,
+            width: '100vw',
           }}
         >
           {carouselDataArr.map(el => (
             <CarouselCard
               src={el.src}
-              // key={el.id * carouselDataArr.length}
               caption={el.caption}
               title={el.title}
               description={el.description}

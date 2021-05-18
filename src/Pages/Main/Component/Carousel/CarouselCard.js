@@ -4,7 +4,7 @@ import './Carousel.scss';
 class CarouselCard extends React.Component {
   render() {
     return (
-      <div className="carouselItem">
+      <div className="carouselItem" style={{ minWidth: '100vw' }}>
         <img className="bgImg" alt={this.props.title} src={this.props.src} />
         <p className="caption">{this.props.caption}</p>
         <h3 className="title">{this.props.title}</h3>
