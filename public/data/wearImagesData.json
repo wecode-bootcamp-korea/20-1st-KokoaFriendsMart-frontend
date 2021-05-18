@@ -1,42 +1,42 @@
 [
   {
     "id": "1",
-    "img": "wear/hat1.png",
+    "img": "https://i.ibb.co/hMvCBVY/Wear-Caps-Concon-3.png",
     "alt": "1"
   },
   {
     "id": "2",
-    "img": "wear/hat2.png",
+    "img": "https://i.ibb.co/mS3Xq66/Wear-Caps-Peach-1.png",
     "alt": "2"
   },
   {
     "id": "3",
-    "img": "wear/hat3.png",
+    "img": "https://i.ibb.co/mc0mjc8/Wear-Caps-Chunsam-3.png",
     "alt": "3"
   },
   {
     "id": "4",
-    "img": "wear/hat4.png",
+    "img": "https://i.ibb.co/SrwCV4R/Wear-Caps-Duckee-3.png",
     "alt": "4"
   },
   {
     "id": "5",
-    "img": "wear/hat5.png",
+    "img": "https://i.ibb.co/bJKTL28/Wear-Caps-Chunsam-0.png",
     "alt": "5"
   },
   {
     "id": "6",
-    "img": "wear/hat6.png",
+    "img": "https://i.ibb.co/PFnqhy7/Wear-Caps-Peach-2.png",
     "alt": "6"
   },
   {
     "id": "7",
-    "img": "wear/hat7.png",
+    "img": "https://i.ibb.co/ZYZ1wSq/Wear-Caps-Duckee-2.png",
     "alt": "7"
   },
   {
     "id": "8",
-    "img": "wear/groupImage.jpg",
+    "img": "https://i.ibb.co/k22qjwb/group-Image.jpg",
     "alt": "8"
   }
 ]
