@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Login/Signup';
 import Product from './Pages/Product/Product';
 import Footer from './Pages/Footer/Footer';
+import Cart from './Pages/Cart/Cart';
 
 class Routes extends React.Component {
   render() {
