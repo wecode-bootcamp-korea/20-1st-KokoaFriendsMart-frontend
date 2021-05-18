@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom';
 import './ProductOption.scss';
 
 class ProductOption extends React.Component {
+  goToCart = () => {
+    this.props.history.push('/cart');
+  };
+
+  goToPayment = () => {
+    this.props.history.push('/payment');
+  };
+
   render() {
     const {
       productInformation,
@@ -94,7 +102,7 @@ class ProductOption extends React.Component {
               <div className="optionButtons">
                 <div className="optionButtonsRow1">
                   <div>
-                    <button className="likeButton bottomBtn">
+                    <button type="button" className="likeButton bottomBtn">
                       <i
                         className={`fa-heart ${
                           productInformation.isLiked ? 'fas yellow' : 'far'
@@ -104,13 +112,25 @@ class ProductOption extends React.Component {
                     </button>
                   </div>
                   <div>
-                    <button className="cartButton bottomBtn">
+                    <button
+                      type="button"
+                      className="cartButton bottomBtn"
+                      onClick={this.goToCart}
+                      disabled={productInformation.is_soldout ? true : false}
+                    >
                       <span>장바구니</span>
                     </button>
                   </div>
                 </div>
                 <div className="optionButtonsRow2">
-                  <button className="buyButton bottomBtn">구매하기</button>
+                  <button
+                    type="button"
+                    className="buyButton bottomBtn"
+                    onClick={this.goToPayment}
+                    disabled={productInformation.is_soldout ? true : false}
+                  >
+                    구매하기
+                  </button>
                 </div>
               </div>
             </div>
@@ -121,4 +141,4 @@ class ProductOption extends React.Component {
   }
 }
 
-export default ProductOption;
+export default withRouter(ProductOption);

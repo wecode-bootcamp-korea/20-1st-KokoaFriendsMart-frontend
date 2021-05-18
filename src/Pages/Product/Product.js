@@ -18,23 +18,7 @@ export class Product extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/electronicImagesData.json')
-      .then(res => res.json())
-      .then(productPageData => {
-        this.setState({
-          productDetailImages: productPageData,
-        });
-      });
-
-    // fetch('http://192.168.0.4:8000/products/440')
-    //   .then(res => res.json())
-    //   .then(productInfoData => {
-    //     this.setState({
-    //       productInformation: productInfoData.data.product,
-    //     });
-    //   });
-
-    fetch('/data/productInfoData.json')
+    fetch('http://api.kokoafriendsmart.com/products/445')
       .then(res => res.json())
       .then(productInfoData => {
         this.setState({
@@ -73,13 +57,8 @@ export class Product extends Component {
   };
 
   render() {
-    const {
-      productDetailImages,
-      productInformation,
-      productReviewData,
-      quantity,
-      moreView,
-    } = this.state;
+    const { productInformation, productReviewData, quantity, moreView } =
+      this.state;
     return (
       <div className="product">
         <Nav />
@@ -92,12 +71,11 @@ export class Product extends Component {
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
-                        alt={productDetailImages.name}
+                        alt={productInformation.name}
                         src={productInformation.thumbnail_url}
                       />
                     </div>
                     <ProductDetail
-                      productDetailImages={productDetailImages}
                       productInformation={productInformation}
                       moreView={moreView}
                       toggleMoreView={this.toggleMoreView}

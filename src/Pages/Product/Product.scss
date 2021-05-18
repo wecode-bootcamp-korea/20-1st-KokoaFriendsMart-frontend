@@ -25,6 +25,8 @@
 
           .productThumnailImg {
             width: 600px;
+            height: 600px;
+            object-fit: cover;
             display: block;
             margin: 0 auto;
             border-radius: $product-border-radius;
