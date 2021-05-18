@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import CharactersList from '../../Components/Nav/CharactersList/CharactersList';
+import CharactersList from './../Nav/CharactersList/CharactersList';
 import ProductItem from '../../../../Components/ProductItem/ProductItem';
 import { productApi } from '../../../../config';
 import './LikePick.scss';
@@ -10,6 +10,7 @@ export class LikePick extends Component {
     super();
     this.state = {
       productList: [],
+      friends: [],
     };
   }
 
@@ -18,6 +19,10 @@ export class LikePick extends Component {
     fetch(`${productApi}?cid=${categoryName}`)
       .then(res => res.json())
       .then(res => this.setState({ productList: res.data.product_list }));
+
+    fetch('/public/data/character.json')
+      .then(res => res.json())
+      .then(res => this.setState({ friends: res }));
   }
 
   render() {
@@ -29,7 +34,7 @@ export class LikePick extends Component {
             <h2 className="title">Like Pick!</h2>
           </div>
           <div className="characterContainer">
-            {/* <CharactersList friends={this.state.friends} /> */}
+            <CharactersList friends={this.state.friends} />
           </div>
           <div className="itemContainer">
             {productList.slice(0, 4).map(list => {
