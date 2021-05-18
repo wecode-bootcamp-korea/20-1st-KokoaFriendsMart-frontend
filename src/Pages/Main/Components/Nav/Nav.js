@@ -137,11 +137,6 @@ class Nav extends Component {
                     </div>
                   </div>
                 </li>
-                <li className="navBarBest">
-                  <Link onClick={() => history.push('/category/베스트')}>
-                    베스트
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="navBarHeader">
