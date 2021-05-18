@@ -2,11 +2,33 @@
 .ProductItem {
   padding: 0 7px;
   margin-bottom: 25px;
+
+  .item {
+    &.mdpickItem {
+      width: 210px;
+
+      .productImg {
+        width: 210px;
+        height: 210px;
+      }
+    }
+
+    &.likepickItem {
+      width: 282px;
+
+      .productImg {
+        width: 282px;
+        height: 282px;
+      }
+    }
+  }
+
   .thum {
     position: relative;
     display: inline-block;
     margin-bottom: 16px;
     background-color: $category-background-color;
+
     .productImg {
       border-radius: 10px;
       width: 282px;
@@ -58,10 +80,12 @@
 
   .itemDesc {
     position: relative;
-
     .itemTitle {
       font-size: 18px;
       margin-bottom: 16px;
+      &.mdpickItem {
+        font-size: 15px;
+      }
     }
     .fa-heart {
       position: absolute;
@@ -71,18 +95,21 @@
       color: #e1e1e1;
       cursor: pointer;
     }
+
     .yellow {
       color: #ffdf00;
     }
+
     .itemPrice {
       font-size: 20px;
+
+      &.mdpickItem {
+        font-size: 17px;
+      }
     }
   }
 }
 
-.hide {
-  display: none;
-}
 .hide {
   display: none;
 }
