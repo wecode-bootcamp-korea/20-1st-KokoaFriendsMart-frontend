@@ -1,0 +1,92 @@
+@import 'src/Styles/_variables.scss';
+
+.orderlist {
+  .header {
+    background-color: #333;
+
+    .mypageHeader {
+      display: flex;
+      align-items: flex-end;
+      padding: 50px 0px;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #fff;
+
+      .basicInfo {
+        width: 50px;
+
+        .imgWrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+          margin-bottom: 25px;
+          padding: 15px;
+          background-color: rgb(135, 217, 228);
+          border-radius: 50%;
+        }
+
+        img {
+          width: 40px;
+        }
+      }
+
+      .userInfo {
+        width: 25%;
+        border-left: 2px solid grey;
+        padding: 30px 30px 0px;
+
+        .name {
+          color: $yellow;
+          margin-bottom: 15px;
+        }
+
+        &:first-child {
+          border-left: none;
+        }
+
+        .smallText {
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+
+        .largeText {
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .orderInfo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+
+    .myInfo {
+      width: 25%;
+      padding-top: 100px;
+      padding-left: 30px;
+      border-right: 2px solid #ddd;
+
+      div {
+        margin-bottom: 65px;
+      }
+
+      .boldText {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .lightText {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #999;
+      }
+    }
+
+    .detail {
+      width: 75%;
+    }
+  }
+}
