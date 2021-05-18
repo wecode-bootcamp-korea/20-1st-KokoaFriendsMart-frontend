@@ -51,19 +51,15 @@ export class Product extends Component {
       });
   }
 
-  plusQuantity = e => {
-    console.log(e);
+  plusQuantity = () => {
     this.setState({
       quantity: Number(this.state.quantity) + 1,
     });
   };
 
   minusQuantity = () => {
-    if (this.state.quantity > 1) {
-      this.setState({
-        quantity: this.state.quantity - 1,
-      });
-    }
+    if (this.state.quantity === 1) return;
+    this.setState({ quantity: this.state.quantity - 1 });
   };
 
   handleQuantityInput = e => {

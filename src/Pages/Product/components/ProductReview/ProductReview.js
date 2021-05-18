@@ -20,20 +20,12 @@ class ProductReview extends React.Component {
             <article className="starRate">
               <span className="starRateNum num">{starAverage}</span>
               <div className="stars">
-                {Array(Math.ceil(starAverage))
-                  .fill(1)
-                  .map(() => {
-                    return (
-                      <img alt="별" src="/images/stars/star-on-line-sm.svg" />
-                    );
-                  })}
-                {Array(5 - Math.ceil(starAverage))
-                  .fill(1)
-                  .map(() => {
-                    return (
-                      <img alt="별" src="/images/stars/star-off-line-sm.svg" />
-                    );
-                  })}
+                {[...Array(Math.ceil(starAverage))].map(() => (
+                  <img alt="별" src="/images/stars/star-on-line-sm.svg" />
+                ))}
+                {[...Array(5 - Math.ceil(starAverage))].map(() => (
+                  <img alt="별" src="/images/stars/star-off-line-sm.svg" />
+                ))}
               </div>
               <div className="reviewPoint">
                 <p>상품 리뷰 작성시 포인트를 드립니다</p>
@@ -50,26 +42,19 @@ class ProductReview extends React.Component {
                     <li className="commentContent" key={reviewData.id}>
                       <div className="commentHeading">
                         <div className="starRaty">
-                          {Array(reviewData.star)
-                            .fill(1)
-                            .map(() => {
-                              return (
-                                <img
-                                  alt="별"
-                                  src="/images/stars/star-on-line-sm-gray.svg"
-                                />
-                              );
-                            })}
-                          {Array(5 - reviewData.star)
-                            .fill(1)
-                            .map(() => {
-                              return (
-                                <img
-                                  alt="별"
-                                  src="/images/stars/star-off-line-sm-gray.svg"
-                                />
-                              );
-                            })}
+                          {/* eviewData.star props로 넘겨주고 컴퐆넌트 !!!!!!!*/}
+                          {[...Array(reviewData.star)].map(() => (
+                            <img
+                              alt="별"
+                              src="/images/stars/star-on-line-sm-gray.svg"
+                            />
+                          ))}
+                          {[...Array(5 - reviewData.star)].map(() => (
+                            <img
+                              alt="별"
+                              src="/images/stars/star-off-line-sm-gray.svg"
+                            />
+                          ))}
                         </div>
                         <span className="id">{reviewData.idName}</span>
                         <span className="date">{reviewData.uploadDate}</span>
