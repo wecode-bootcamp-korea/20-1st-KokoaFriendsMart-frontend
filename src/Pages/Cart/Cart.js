@@ -12,6 +12,7 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
+      quantity: 1,
     };
   }
 
@@ -25,8 +26,29 @@ class Cart extends React.Component {
       });
   }
 
+  handleInputQuantity = e => {
+    this.setState({ quantity: e.target.value });
+  };
+
+  plus = () => {
+    this.setState({ quantity: Number(this.state.quantity) + 1 });
+  };
+
+  minus = () => {
+    if (this.state.quantity === 1) return;
+    this.setState({ quantity: this.state.quantity - 1 });
+  };
+
+  deleteProduct = list => {
+    this.setState({ cartProductData: [...list] });
+  };
+
+  deleteAll = emptyList => {
+    this.setState({ cartProductData: [...emptyList] });
+  };
+
   render() {
-    const { cartProductData } = this.state;
+    const { cartProductData, quantity } = this.state;
     return (
       <div className="cart">
         <Nav />
@@ -46,10 +68,23 @@ class Cart extends React.Component {
           <FreeDeliveryBar />
 
           <section className="checkBox">
-            <CheckBoxHeader />
+            <CheckBoxHeader
+              cartProductData={cartProductData}
+              deleteAll={this.deleteAll}
+            />
             {cartProductData.map((cartProduct, index) => {
               return (
-                <ProductInCart key={cartProduct.id} cartProduct={cartProduct} />
+                <ProductInCart
+                  index={index}
+                  key={cartProduct.id}
+                  cartProductData={cartProductData}
+                  cartProduct={cartProduct}
+                  quantity={quantity}
+                  plus={this.plus}
+                  minus={this.minus}
+                  handleInputQuantity={this.handleInputQuantity}
+                  deleteProduct={this.deleteProduct}
+                />
               );
             })}
           </section>

@@ -3,7 +3,16 @@ import './ProductInCart.scss';
 
 class ProductInCart extends React.Component {
   render() {
-    const { cartProduct } = this.props;
+    const {
+      index,
+      cartProduct,
+      quantity,
+      plus,
+      minus,
+      handleInputQuantity,
+      deleteProduct,
+      cartProductData,
+    } = this.props;
     return (
       <div className="productInCart">
         <div className="cartProductBox">
@@ -19,18 +28,36 @@ class ProductInCart extends React.Component {
           <div className="productOption">
             <div className="productQuantity">
               <span className="quantityGroup">
-                <button className="minus">-</button>
+                <button className="minus" type="button" onClick={minus}>
+                  -
+                </button>
                 <input
                   className="countNum"
                   type="text"
                   maxlength="2"
-                  value="1"
+                  value={quantity}
+                  onChange={handleInputQuantity}
                 />
-                <button className="plus">+</button>
+                <button className="plus" type="button" onClick={plus}>
+                  +
+                </button>
               </span>
             </div>
             <span>{'상품 가격'}원</span>
-            <i class="fas fa-trash"></i>
+            <button
+              type="button"
+              onClick={e => {
+                if (window.confirm('장바구니 목록에서 삭제하시겠습니까?')) {
+                  const newProductList = [...cartProductData];
+                  newProductList.splice(index, 1);
+                  deleteProduct(newProductList);
+                } else {
+                  e.preventDefault();
+                }
+              }}
+            >
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
