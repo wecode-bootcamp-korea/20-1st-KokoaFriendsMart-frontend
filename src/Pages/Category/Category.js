@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ProductItem from './ProductItem';
+import ProductItem from '../../Components/ProductItem/ProductItem';
 import { categoryApi } from '../../config';
 import './Category.scss';
 

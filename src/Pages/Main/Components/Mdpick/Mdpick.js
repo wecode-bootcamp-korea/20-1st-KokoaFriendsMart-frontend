@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ProductItem from '../../../../Components/ProductItem/ProductItem';
-import './MdPick.scss';
+import './Mdpick.scss';
 import '../../../../Components/ProductItem/ProductItem.scss';
 
-class MdPick extends Component {
+class Mdpick extends Component {
   constructor() {
     super();
     this.state = {
-      productList: [],
+      products_list: [],
     };
   }
 
@@ -15,7 +15,7 @@ class MdPick extends Component {
     fetch('/data/categoryData.json')
       .then(result => result.json())
       .then(categoryData => {
-        this.setState({ productList: categoryData.productList });
+        this.setState({ products_list: categoryData.products_list });
       });
   }
 
@@ -59,4 +59,4 @@ class MdPick extends Component {
   }
 }
 
-export default MdPick;
+export default Mdpick;
