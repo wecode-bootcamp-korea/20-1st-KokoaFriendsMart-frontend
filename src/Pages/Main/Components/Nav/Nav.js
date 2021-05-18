@@ -23,8 +23,6 @@ class Nav extends Component {
 
   render() {
     const { history } = this.props;
-
-    console.log(this.state.inputValue);
     return (
       <div className="Nav">
         <div className="mainContainer">

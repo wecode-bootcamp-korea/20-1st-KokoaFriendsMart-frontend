@@ -9,32 +9,6 @@
     .bannerContainer {
       position: relative;
       height: 100%;
-
-      .bannerControl {
-        position: relative;
-        top: 170px;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 auto;
-        max-width: 1166px;
-      }
-
-      @media screen and (max-width: 1200px) {
-        .bannerControl {
-          max-width: 859px;
-        }
-      }
-
-      @media screen and (max-width: 833px) {
-        .bannerControl {
-          max-width: 100%;
-
-          .bannerArrow {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      }
     }
 
     .caption {
@@ -57,57 +31,27 @@
         &::after {
           content: '';
           position: relative;
-          top: 30px;
+          top: 15px;
           display: block;
-          width: 26px;
+          width: 185px;
           height: 3px;
           background-color: #333;
         }
       }
 
-      .desc {
-        font-size: 18px;
-        margin-bottom: 15px;
-        line-height: 25px;
-      }
+      // .desc {
+      //   font-size: 18px;
+      //   margin-bottom: 15px;
+      //   line-height: 25px;
+      // }
     }
   }
   .categoryBody {
-    .productFilter {
-      margin: 55px 0;
-
-      ul {
-        text-align: center;
-      }
-
-      li {
-        display: inline-block;
-        padding: 15px 30px;
-        margin: 0 7px;
-        border-radius: 2rem;
-        font-size: $main-font-size;
-        color: #c9c9c9;
-        background-color: $category-background-color;
-
-        &:hover {
-          color: #333;
-          background-color: $yellow;
-          cursor: pointer;
-        }
-      }
-
-      .active {
-        color: #333;
-        background-color: $yellow;
-      }
-    }
-
     .productLnb {
       display: flex;
       justify-content: space-between;
       width: 1166px;
-      margin: 0 auto;
-      margin-bottom: 45px;
+      margin: 45px auto 45px auto;
       font-size: $main-font-size;
 
       .productNum {

@@ -13,21 +13,6 @@ export class Category extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   const categoryName = this.props.match.params.categoryName;
-  //   const api = `${productApi}?cname=${categoryName}`;
-  //   const { history } = this.props;
-  //   fetch(api).then(response => {
-  //     if (response.status === 404) {
-  //       history.push('main');
-  //     } else if (response.status === 200) {
-  //       fetch(api)
-  //         .then(response => response.json())
-  //         .then(result => this.setState({ productList: result.data }));
-  //     }
-  //   });
-  // }
-
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
     fetch(`${productApi}?cname=${categoryName}`)

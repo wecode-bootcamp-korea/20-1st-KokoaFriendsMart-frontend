@@ -13,21 +13,6 @@ export class Search extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   const categoryName = this.props.match.params.categoryName;
-  //   const api = `${productApi}?cname=${categoryName}`;
-  //   const { history } = this.props;
-  //   fetch(api).then(response => {
-  //     if (response.status === 404) {
-  //       history.push('main');
-  //     } else if (response.status === 200) {
-  //       fetch(api)
-  //         .then(response => response.json())
-  //         .then(result => this.setState({ productList: result.data }));
-  //     }
-  //   });
-  // }
-
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
     fetch(`${productApi}?search=${categoryName}`)
@@ -47,34 +32,18 @@ export class Search extends Component {
       <div className="Category">
         <div className="banner">
           <div className="bannerContainer">
-            <div className="bannerControl">
-              <div className="bannerArrow prevArrow">
-                <img alt="이전 버튼" src="/images/swipe-left-white.svg" />
-              </div>
-              <div className="bannerArrow nextArrow">
-                <img alt="다음 버튼" src="/images/swipe-right-white.svg" />
-              </div>
-            </div>
             <div className="caption">
-              <div className="subtitle">CATEGORY</div>
-              <div className="title">전체</div>
-              <div className="desc">
-                요즘 골퍼들의 잇템!
+              <div className="subtitle">SEARCH</div>
+              <div className="title">검색결과</div>
+              {/* <div className="desc">
+                코코아마트에만 있는 커스텀 아이템들!
                 <br />
                 카카오프렌즈 골프 용품을 만나보세요.
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="categoryBody">
-          <div className="productFilter">
-            <ul>
-              <li className="active">전체</li>
-              <li>일렉</li>
-              <li>웨어</li>
-              <li>리빙</li>
-            </ul>
-          </div>
           <div className="productLnb">
             <div className="productNum">
               총 <span>000</span>개의 상품이 조회 되었습니다.
