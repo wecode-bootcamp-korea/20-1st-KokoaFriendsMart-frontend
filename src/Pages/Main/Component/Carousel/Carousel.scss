@@ -1,0 +1,69 @@
+@import 'src/Styles/_variables.scss';
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  border-bottom-right-radius: 50px;
+
+  .carouselWrap {
+    display: flex;
+    width: 300vw;
+    height: 55vh;
+    border-bottom-right-radius: 20px;
+    transform: translate(-100vw);
+
+    .carouselItem {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      padding-left: 80px;
+
+      .caption {
+        font-size: $main-font-size;
+      }
+
+      .title {
+        font-size: $slider-title;
+        font-weight: bold;
+        margin: 12px 0px;
+      }
+
+      .description {
+        font-size: $main-font-size;
+      }
+
+      &:nth-child(1) {
+        background-color: #ffebcd;
+      }
+
+      &:nth-child(2) {
+        background-color: #9acd32;
+      }
+
+      &:nth-child(3) {
+        background-color: #edacb1;
+      }
+    }
+  }
+  .prevBtn {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    padding: 10px 13px;
+    border-radius: 50%;
+    background-color: $white;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .nextBtn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    padding: 10px 13px;
+    border-radius: 50%;
+    background-color: $white;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
