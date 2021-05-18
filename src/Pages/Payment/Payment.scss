@@ -107,6 +107,7 @@
     }
 
     .orderInfoRight {
+      position: relative;
       width: 35%;
       height: 100%;
       margin-top: 55px;
@@ -149,6 +150,18 @@
 
       .thirdRow {
         padding: 25px 25px 0px;
+      }
+
+      .orderBtn {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        background-color: #ffdf00;
+        border-radius: 10px;
       }
     }
   }

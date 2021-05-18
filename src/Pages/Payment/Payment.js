@@ -99,80 +99,85 @@ class Payment extends Component {
             </div>
           </div>
           <div className="orderInfoRight">
-            <div className="firstRow">
-              <h2>최종 결제 금액</h2>
+            <div>
+              <div className="firstRow">
+                <h2>최종 결제 금액</h2>
+              </div>
+              <div className="secondRow">
+                <div className="row boldText">
+                  <div>
+                    <p>주문금액</p>
+                  </div>
+                  <div>
+                    <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
+                  </div>
+                </div>
+                <div className="row lightText">
+                  <div>
+                    <p>상품금액</p>
+                  </div>
+                  <div>
+                    <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
+                  </div>
+                </div>
+                <div className="row lightText">
+                  <div>
+                    <p>즉시할인</p>
+                  </div>
+                  <div>
+                    <p>0 원</p>
+                  </div>
+                </div>
+                <div className="row boldText">
+                  <div>
+                    <p>쿠폰할인</p>
+                  </div>
+                  <div>
+                    <p>0 원</p>
+                  </div>
+                </div>
+                <div className="row lightText">
+                  <div>
+                    <p>상품</p>
+                  </div>
+                  <div>
+                    <p>0 원</p>
+                  </div>
+                </div>
+                <div className="row lightText">
+                  <div>
+                    <p>배송비</p>
+                  </div>
+                  <div>
+                    <p>0 원</p>
+                  </div>
+                </div>
+                <div className="row boldText">
+                  <div>
+                    <p>캐시사용</p>
+                  </div>
+                  <div>
+                    <p>0 원</p>
+                  </div>
+                </div>
+              </div>
+              <div className="thirdRow">
+                <div className="row boldText">
+                  <div>
+                    <p>합계</p>
+                  </div>
+                  <div>
+                    <p>
+                      <mark>
+                        {Number(CART_DATA[0].itemPrice).toLocaleString()} 원
+                      </mark>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="secondRow">
-              <div className="row boldText">
-                <div>
-                  <p>주문금액</p>
-                </div>
-                <div>
-                  <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
-                </div>
-              </div>
-              <div className="row lightText">
-                <div>
-                  <p>상품금액</p>
-                </div>
-                <div>
-                  <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
-                </div>
-              </div>
-              <div className="row lightText">
-                <div>
-                  <p>즉시할인</p>
-                </div>
-                <div>
-                  <p>0 원</p>
-                </div>
-              </div>
-              <div className="row boldText">
-                <div>
-                  <p>쿠폰할인</p>
-                </div>
-                <div>
-                  <p>0 원</p>
-                </div>
-              </div>
-              <div className="row lightText">
-                <div>
-                  <p>상품</p>
-                </div>
-                <div>
-                  <p>0 원</p>
-                </div>
-              </div>
-              <div className="row lightText">
-                <div>
-                  <p>배송비</p>
-                </div>
-                <div>
-                  <p>0 원</p>
-                </div>
-              </div>
-              <div className="row boldText">
-                <div>
-                  <p>캐시사용</p>
-                </div>
-                <div>
-                  <p>0 원</p>
-                </div>
-              </div>
-            </div>
-            <div className="thirdRow">
-              <div className="row boldText">
-                <div>
-                  <p>합계</p>
-                </div>
-                <div>
-                  <p>
-                    <mark>
-                      {Number(CART_DATA[0].itemPrice).toLocaleString()} 원
-                    </mark>
-                  </p>
-                </div>
-              </div>
+            <div>
+              <button className="orderBtn">주문하기</button>
             </div>
           </div>
         </div>
