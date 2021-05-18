@@ -7,9 +7,8 @@ export class Main extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <LikePick />
-        <BestItem />
+        {/* <BestItem /> */}
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import ProductItem from '../../Components/ProductItem/ProductItem';
-import { categoryApi } from '../../config';
+import { productApi } from '../../config';
 import './Category.scss';
 
 export class Category extends Component {
@@ -10,16 +10,14 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShowSortBox: false,
-      categoryData: {},
     };
   }
 
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
-    console.log(categoryName);
-    fetch(`${categoryApi}?cid=${categoryName}`)
+    fetch(`${productApi}?cid=${categoryName}`)
       .then(res => res.json())
-      .then(res => this.setState({ categoryData: res }));
+      .then(res => this.setState({ productList: res.product_list }));
   }
 
   onClickListSort = () => {
@@ -85,7 +83,7 @@ export class Category extends Component {
           </div>
           <div className="productLists">
             {productList.map(list => {
-              return <ProductItem list={list} link="/" />;
+              return <ProductItem key={list.id} list={list} link="/" />;
             })}
           </div>
         </div>
@@ -94,4 +92,4 @@ export class Category extends Component {
   }
 }
 
-export default Category;
+export default withRouter(Category);

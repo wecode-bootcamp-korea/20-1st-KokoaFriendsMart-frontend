@@ -1,10 +1,11 @@
-import reactDom from 'react-dom';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 // import CharactersList from '../../Components/Nav/CharactersList/CharactersList';
 import ProductItem from '../../../../Components/ProductItem/ProductItem';
+import { productApi } from '../../../../config';
 import './LikePick.scss';
 
-class LikePick extends Component {
+export class LikePick extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,11 +14,10 @@ class LikePick extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/categoryData.json')
-      .then(result => result.json())
-      .then(categoryData => {
-        this.setState({ productList: categoryData.productList });
-      });
+    const categoryName = this.props.match.params.categoryName || '';
+    fetch(`${productApi}?cid=${categoryName}`)
+      .then(res => res.json())
+      .then(res => this.setState({ productList: res.data.product_list }));
   }
 
   render() {
@@ -33,7 +33,7 @@ class LikePick extends Component {
           </div>
           <div className="itemContainer">
             {productList.map(list => {
-              return <ProductItem list={list} link="/" />;
+              return <ProductItem key={list.id} list={list} link="/" />;
             })}
           </div>
         </div>
@@ -42,4 +42,4 @@ class LikePick extends Component {
   }
 }
 
-export default LikePick;
+export default withRouter(LikePick);

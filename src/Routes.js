@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Nav from './Pages/Main/Components/Nav/Nav';
 import Main from './Pages/Main/Main';
 import Category from './Pages/Category/Category';
 import Login from './Pages/Login/Login';
@@ -11,6 +12,7 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/main" component={Main} />
           <Route exact path="/category" component={Category} />
