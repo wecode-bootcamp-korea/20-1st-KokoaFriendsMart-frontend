@@ -7,7 +7,7 @@ class Mdpick extends Component {
   constructor() {
     super();
     this.state = {
-      products_list: [],
+      productList: [],
     };
   }
 
@@ -15,15 +15,15 @@ class Mdpick extends Component {
     fetch('/data/categoryData.json')
       .then(result => result.json())
       .then(categoryData => {
-        this.setState({ products_list: categoryData.products_list });
+        this.setState({ productList: categoryData.products_list });
       });
   }
 
   render() {
     const { productList } = this.state;
     return (
-      <div className="MdPick">
-        <div className="mdPickContainer">
+      <div className="Mdpick">
+        <div className="mdpickContainer">
           <div className="titleContainer">
             <h2 className="mdPickTitle">MD's Pick</h2>
           </div>
