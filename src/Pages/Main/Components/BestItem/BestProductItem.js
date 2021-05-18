@@ -6,7 +6,7 @@ class ProductItem extends Component {
   render() {
     const { list, link, bestCount } = this.props;
     return (
-      <div className="ProductItem" key={list.id}>
+      <div className="ProductItem">
         <div className="item">
           <Link to={link} className="thum">
             <span className="count">{bestCount}</span>

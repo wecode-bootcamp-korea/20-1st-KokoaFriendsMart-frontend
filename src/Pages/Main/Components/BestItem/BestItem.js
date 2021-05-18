@@ -8,15 +8,20 @@ class BestItem extends Component {
   };
 
   componentDidMount() {
+    this.onFetchApi();
+  }
+
+  onFetchApi = () => {
     fetch('/data/categoryData.json')
       .then(result => result.json())
-      .then(productData => {
-        productData.products_list.map((data, i) => {
-          return (data['bestCount'] = i + 1);
-        });
-        this.setState({ productData: productData.products_list });
+      .then(({ products_list }) => {
+        const productData = products_list.map((data, i) => ({
+          ...data,
+          bestCount: i + 1,
+        }));
+        this.setState({ productData });
       });
-  }
+  };
 
   render() {
     const { productData } = this.state;

@@ -1,4 +1,4 @@
-@import '/src/Styles/variables.scss';
+@import '/src/Styles/_variables.scss';
 
 .BestItem {
   display: flex;
@@ -39,8 +39,7 @@
         width: 40px;
         height: 30px;
         transform: rotate(270deg) scale(0.3);
-        background: url('http://localhost:3000/images/sprite.png') -735px -265px
-          no-repeat;
+        background: url('./sprite.png') -735px -265px no-repeat;
       }
     }
     .active {
