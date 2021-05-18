@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ProductItem.scss';
+import './BestProductItem.scss';
 
 class ProductItem extends Component {
   render() {
-    const { list, link } = this.props;
+    const { list, link, bestCount } = this.props;
     return (
-      <div className="ProductItem" key={list.id}>
+      <div className="ProductItem">
         <div className="item">
           <Link to={link} className="thum">
-            <div>
+            <span className="count">{bestCount}</span>
+            <div className="imgContainer">
               <img
                 src={list.thumbnail_url}
                 alt="이미지 섬네일"
@@ -32,7 +33,7 @@ class ProductItem extends Component {
             <i
               className={`fa-heart ${list.is_liked ? 'fas yellow' : 'far'}`}
             ></i>
-            <div className="itemPrice">{list.price}원</div>
+            <div className="itemPrice">{list.price.toLocaleString()}원</div>
           </div>
         </div>
       </div>

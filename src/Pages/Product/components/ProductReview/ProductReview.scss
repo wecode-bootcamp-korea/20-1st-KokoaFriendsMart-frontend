@@ -1,0 +1,100 @@
+@import '../../../../Styles/variables';
+
+.productReview {
+  .reviewOutbox {
+    margin-bottom: 200px;
+    .reviewTitle {
+      display: flex;
+      border-bottom: 1px solid $lightGrey;
+      padding-bottom: 10px;
+
+      .title {
+        margin-right: 10px;
+        font-weight: 800;
+      }
+
+      .countReview {
+        font-weight: 600;
+      }
+    }
+
+    .reviewContentsOutbox {
+      .starRate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        width: 650px;
+        height: 100px;
+        border-radius: 30px;
+        box-shadow: 6px 2px 20px -6px $lightGrey;
+        .starRateNum {
+          padding-right: 20px;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .stars {
+          img {
+            width: 20px;
+          }
+        }
+
+        .reviewPoint {
+          margin-left: 60px;
+          line-height: $product-description-line-height;
+        }
+      }
+    }
+
+    .commentLists {
+      .commentContent {
+        position: relative;
+        border-bottom: 1px solid $lightGrey;
+        border-width: thin;
+        padding: 30px 0;
+
+        .commentHeading {
+          display: flex;
+          position: relative;
+          color: $lightGrey;
+
+          .starRaty {
+            display: flex;
+          }
+
+          .date {
+            position: absolute;
+            right: 20px;
+          }
+        }
+
+        .commentBody {
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+
+          .comment {
+            width: 70%;
+            margin-right: 20px;
+            line-height: $product-description-line-height;
+          }
+
+          .reviewPicture {
+            display: flex;
+            position: absolute;
+            right: 20px;
+
+            img {
+              width: 50px;
+              height: 50px;
+              margin-left: 10px;
+              border: 1px solid $lightGrey;
+              border-radius: 20%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
