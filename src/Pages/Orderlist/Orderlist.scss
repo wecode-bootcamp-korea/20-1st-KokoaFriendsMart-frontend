@@ -87,6 +87,36 @@
 
     .detail {
       width: 75%;
+
+      .orderDetail {
+        width: 100%;
+        padding: 100px 0px 0px 30px;
+
+        .orderDetailHeader {
+          padding-bottom: 10px;
+          border-bottom: 1px solid #333;
+        }
+
+        .orderItemList {
+          display: flex;
+          align-items: center;
+
+          .date {
+            width: 15%;
+            padding: 30px 0px;
+            text-align: center;
+            font-size: 12px;
+          }
+
+          .product {
+            width: 85%;
+
+            img {
+              width: 75px;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
+import ORDER_DATA from './OrderListData';
 import './Orderlist.scss';
 
 export class Orderlist extends Component {
+  constructor() {
+    super();
+    this.state = {
+      orderData: [],
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      cartData: ORDER_DATA,
+    });
+  }
+
   render() {
     return (
       <div className="orderlist">
@@ -52,12 +66,19 @@ export class Orderlist extends Component {
             </div>
             <div className="detail">
               <div className="orderDetail">
-                <div>
+                <div className="orderDetailHeader">
                   <p>주문내역상세</p>
                 </div>
-                <div className="orderList">
+                <div className="orderItemList">
                   <div className="date">2021.05.21</div>
-                  <div className="product"></div>
+                  <div className="product">
+                    <img
+                      alt="img"
+                      src="https://i.ibb.co/k3qCkXx/Wear-Hoodie-Peach-1.png"
+                    />
+                    <p>모찌 클러치</p>
+                    <p>17400원</p>
+                  </div>
                 </div>
               </div>
               <div className="paymentDetail"></div>
