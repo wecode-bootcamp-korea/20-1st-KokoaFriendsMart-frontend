@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import ProductOption from './components/ProductOption/ProductOption';
+import ProductReview from './components/ProductReview/ProductReview';
+import Nav from '../Main/Components/Nav/Nav';
 import './Product.scss';
 
 export class Product extends Component {
@@ -9,61 +11,114 @@ export class Product extends Component {
     this.state = {
       productDetailImages: [],
       productInformation: {},
+      productReviewData: [],
+      quantity: 1,
+      moreView: false,
     };
   }
 
   componentDidMount() {
-    fetch('/data/wearImagesData.json')
+    fetch('/data/electronicImagesData.json')
       .then(res => res.json())
       .then(productPageData => {
         this.setState({
           productDetailImages: productPageData,
         });
       });
+
+    // fetch('http://192.168.0.4:8000/products/440')
+    //   .then(res => res.json())
+    //   .then(productInfoData => {
+    //     this.setState({
+    //       productInformation: productInfoData.data.product,
+    //     });
+    //   });
+
     fetch('/data/productInfoData.json')
       .then(res => res.json())
       .then(productInfoData => {
         this.setState({
-          productInformation: productInfoData,
+          productInformation: productInfoData.data.product,
+        });
+      });
+
+    fetch('/data/reviewData.json')
+      .then(res => res.json())
+      .then(reviewData => {
+        this.setState({
+          productReviewData: reviewData,
         });
       });
   }
 
+  plusQuantity = () => {
+    this.setState({
+      quantity: Number(this.state.quantity) + 1,
+    });
+  };
+
+  minusQuantity = () => {
+    if (this.state.quantity === 1) return;
+    this.setState({ quantity: this.state.quantity - 1 });
+  };
+
+  handleQuantityInput = e => {
+    this.setState({
+      quantity: e.target.value,
+    });
+  };
+
+  toggleMoreView = () => {
+    this.setState({ moreView: !this.state.moreView });
+  };
+
   render() {
-    const { productDetailImages, productInformation } = this.state;
+    const {
+      productDetailImages,
+      productInformation,
+      productReviewData,
+      quantity,
+      moreView,
+    } = this.state;
     return (
       <div className="product">
-        <nav></nav>
+        <Nav />
         <section className="productContents">
-          전체 페이지(리뷰, 문의까지)
           <div className="productDetail">
-            디테일 페이지 (리뷰 위에까지)
             <div className="productDetailOutbox">
               <div className="productDetailInnerbox">
-                {/* product detail Images */}
                 <div className="detailImagesOutbox">
                   <div className="detailImagesInnerbox">
-                    {/* product thumbnail~~ */}
                     <div className="productThumnail">
                       <img
                         className="productThumnailImg"
-                        alt="제품 썸네일"
-                        src="images/productDetail/wear/hat1_thumbnail.png"
+                        alt={productDetailImages.name}
+                        src={productInformation.thumbnail_url}
                       />
                     </div>
-                    {/* ~~~~product thumbnail*/}
-                    {/* product detail images~~~*/}
                     <ProductDetail
                       productDetailImages={productDetailImages}
                       productInformation={productInformation}
+                      moreView={moreView}
+                      toggleMoreView={this.toggleMoreView}
                     />
-                    {/* ~~product detail images*/}
                   </div>
                 </div>
-                {/* product floating */}
-                <ProductOption productInformation={productInformation} />
+                <ProductOption
+                  productInformation={productInformation}
+                  quantity={quantity}
+                  plusQuantity={this.plusQuantity}
+                  minusQuantity={this.minusQuantity}
+                  handleQuantityInput={this.handleQuantityInput}
+                />
               </div>
             </div>
+          </div>
+          <div className="bottomOutbox">
+            <div className="bottomReviewQna">
+              <ProductReview productReviewData={productReviewData} />
+            </div>
+            <aside className="nothing"></aside>
           </div>
         </section>
       </div>

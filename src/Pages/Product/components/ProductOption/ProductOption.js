@@ -4,16 +4,24 @@ import './ProductOption.scss';
 
 class ProductOption extends React.Component {
   render() {
-    const { productInformation } = this.props;
+    const {
+      productInformation,
+      plusQuantity,
+      minusQuantity,
+      handleQuantityInput,
+      quantity,
+      isLiked,
+    } = this.props;
     return (
       <div className="productOption">
         <aside className="FloatingOptionOutbox">
           <div className="FloatingOptionInnerbox">
-            {/* product floating header~~~~~~*/}
             <header className="productOptionHeading">
               <p className="ProductCategory">{productInformation.category}</p>
               <h1 className="productName">{productInformation.name}</h1>
-              <p className="ProductPrice">{productInformation.price}</p>
+              <p className="ProductPrice">
+                {Number(productInformation.price).toLocaleString()} 원
+              </p>
               <ul>
                 <li className="saveCash">
                   <span className="title">적립캐시</span>
@@ -27,23 +35,23 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </header>
-            {/* ~~~~~~product floating header*/}
-            {/* product floating Amount~~~~~*/}
             <div className="productQuantity">
               <span className="quantityText">수량</span>
               <span className="quantityGroup">
-                <button className="minus">-</button>
+                <button className="minus" onClick={minusQuantity}>
+                  -
+                </button>
                 <input
                   className="countNum"
                   type="text"
-                  maxlength="2"
-                  value="1"
+                  value={quantity}
+                  onChange={handleQuantityInput}
                 />
-                <button className="plus">+</button>
+                <button className="plus" onClick={plusQuantity}>
+                  +
+                </button>
               </span>
             </div>
-            {/* ~~~~product floating Amount*/}
-            {/* product floating options~~~~*/}
             <div className="options">
               <ul>
                 <li>
@@ -62,26 +70,36 @@ class ProductOption extends React.Component {
                 </li>
               </ul>
             </div>
-            {/* ~~~~product floating options*/}
-            {/* product floating pay  ~~~~ */}
             <div className="payOutbox">
               <div className="payInnerbox">
                 <div>
-                  <strong>(수량)</strong>개 상품 금액
+                  <strong>{quantity}</strong>개 상품 금액
                 </div>
                 <div className="totalCost">
-                  <strong>(가격)</strong>원
+                  <strong>
+                    {(quantity * productInformation.price).toLocaleString()}
+                  </strong>
+                  원
                 </div>
               </div>
             </div>
-            {/* ~~~~~product floating pay */}
-            {/* product floating bottomBtns  ~~~~ */}
+            <div className="countLiked">
+              <p>
+                <i class="fas fa-heart heartIcon"></i>
+                <span>{productInformation.counts_liked}</span>명이 이 상품을
+                좋아하고 있어요~
+              </p>
+            </div>
             <div className="optionButtonsOutbox">
               <div className="optionButtons">
                 <div className="optionButtonsRow1">
                   <div>
                     <button className="likeButton bottomBtn">
-                      <div className="likeIcon"></div>
+                      <i
+                        className={`fa-heart ${
+                          productInformation.isLiked ? 'fas yellow' : 'far'
+                        }`}
+                      ></i>
                       <span>좋아요</span>
                     </button>
                   </div>
@@ -96,7 +114,6 @@ class ProductOption extends React.Component {
                 </div>
               </div>
             </div>
-            {/* ~~~~~ product floating bottomBtns*/}
           </div>
         </aside>
       </div>
