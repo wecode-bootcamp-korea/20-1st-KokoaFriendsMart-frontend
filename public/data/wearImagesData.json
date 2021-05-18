@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "img": "wear/hat1.png",
+    "alt": "1"
+  },
+  {
+    "id": "2",
+    "img": "wear/hat2.png",
+    "alt": "2"
+  },
+  {
+    "id": "3",
+    "img": "wear/hat3.png",
+    "alt": "3"
+  },
+  {
+    "id": "4",
+    "img": "wear/hat4.png",
+    "alt": "4"
+  },
+  {
+    "id": "5",
+    "img": "wear/hat5.png",
+    "alt": "5"
+  },
+  {
+    "id": "6",
+    "img": "wear/hat6.png",
+    "alt": "6"
+  },
+  {
+    "id": "7",
+    "img": "wear/hat7.png",
+    "alt": "7"
+  },
+  {
+    "id": "8",
+    "img": "wear/groupImage.jpg",
+    "alt": "8"
+  }
+]
