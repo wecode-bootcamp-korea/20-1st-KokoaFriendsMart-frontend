@@ -30,14 +30,13 @@ class Mdpick extends Component {
           <div className="mdItemList">
             <div className="mdItemTitleContainer">
               <h3 className="mdItemTitle">
-                라이언의
+                춘삼이의
                 <br />
-                골프 생활
+                Must Pick!
               </h3>
               <p>
-                쉿! 나만 소장하고 싶은
-                <br />
-                골프 아이템!
+                프랜즈 마켓에서 가장 핫한
+                <br />잇 아이템들!
               </p>
             </div>
             {productList.map(list => {
@@ -45,9 +44,7 @@ class Mdpick extends Component {
                 <ProductItem
                   list={list}
                   link="/"
-                  width={['210px']}
-                  height={['210px']}
-                  fontSize={['16px', '17px']}
+                  size={'mdpickItem'}
                   key={list.id}
                 />
               );

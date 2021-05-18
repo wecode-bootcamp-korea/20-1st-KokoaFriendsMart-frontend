@@ -1,13 +1,10 @@
 .Mdpick {
   .mdpickContainer {
-    width: 100%;
-
     .titleContainer {
       display: flex;
-      width: inherit;
-      height: 95px;
       align-items: center;
       justify-content: center;
+      margin: 30px 0px;
       font-weight: bold;
       font-size: 38px;
     }
@@ -20,10 +17,8 @@
       margin: 0 auto;
 
       .mdItemTitleContainer {
-        width: 224px;
-        height: 210px;
-        padding: 0 7px;
-        margin-bottom: 25px;
+        padding: 0px 21px;
+        margin: 0px 7px 25px 7px;
 
         .mdItemTitle {
           padding: 80px 0px 20px 0px;

@@ -4,6 +4,17 @@
   padding: 0 7px;
   margin-bottom: 25px;
 
+  .item {
+    &.mdpickItem {
+      width: 210px;
+
+      .productImg {
+        width: 210px;
+        height: 210px;
+      }
+    }
+  }
+
   .thum {
     position: relative;
     display: inline-block;
@@ -65,6 +76,10 @@
     .itemTitle {
       font-size: 18px;
       margin-bottom: 16px;
+
+      &.mdpickItem {
+        font-size: 15px;
+      }
     }
     .fa-heart {
       position: absolute;
@@ -79,6 +94,10 @@
     }
     .itemPrice {
       font-size: 20px;
+
+      &.mdpickItem {
+        font-size: 17px;
+      }
     }
   }
 }
