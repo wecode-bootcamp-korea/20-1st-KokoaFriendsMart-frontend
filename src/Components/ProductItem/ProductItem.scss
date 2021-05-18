@@ -80,13 +80,20 @@
 
   .itemDesc {
     position: relative;
+
     .itemTitle {
       font-size: 18px;
       margin-bottom: 16px;
+
       &.mdpickItem {
         font-size: 15px;
       }
+
+      &.likepickItem {
+        font-size: 18px;
+      }
     }
+
     .fa-heart {
       position: absolute;
       right: 0;
@@ -105,6 +112,10 @@
 
       &.mdpickItem {
         font-size: 17px;
+      }
+
+      &.likepickItem {
+        font-size: 20px;
       }
     }
   }

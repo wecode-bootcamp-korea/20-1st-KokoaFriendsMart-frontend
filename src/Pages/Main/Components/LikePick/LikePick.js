@@ -32,8 +32,15 @@ export class LikePick extends Component {
             {/* <CharactersList friends={this.state.friends} /> */}
           </div>
           <div className="itemContainer">
-            {productList.map(list => {
-              return <ProductItem key={list.id} list={list} link="/" />;
+            {productList.slice(0, 4).map(list => {
+              return (
+                <ProductItem
+                  key={list.id}
+                  list={list}
+                  size={'likepickItem'}
+                  link="/"
+                />
+              );
             })}
           </div>
         </div>
