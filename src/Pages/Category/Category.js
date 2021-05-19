@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import ProductItem from '../../Components/ProductItem/ProductItem';
-import { categoryApi } from '../../config';
+import { productApi } from '../../config';
 import './Category.scss';
 
 const mapper = categoryName => {
@@ -65,7 +65,7 @@ class Category extends Component {
 
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${categoryApi}?cname=${categoryName}&limit=16&offset=0`)
+    fetch(`${productApi}?cname=${categoryName}&limit=16&offset=0`)
       .then(result => result.json())
       .then(categoryData => {
         this.setState({
@@ -82,7 +82,7 @@ class Category extends Component {
       if (this.props.location.search.includes('order')) {
         const query =
           this.props.match.params.categoryName || this.props.location.search;
-        fetch(`${categoryApi}${query}`)
+        fetch(`${productApi}${query}`)
           .then(result => result.json())
           .then(categoryData => {
             this.setState({
@@ -95,7 +95,7 @@ class Category extends Component {
           this.props.match.params.categoryName || this.props.location.search;
         const categoryName =
           query.split('=')[query.split('=').length - 1] || '';
-        fetch(`${categoryApi}${query}`)
+        fetch(`${productApi}${query}`)
           .then(result => result.json())
           .then(categoryData => {
             this.setState({

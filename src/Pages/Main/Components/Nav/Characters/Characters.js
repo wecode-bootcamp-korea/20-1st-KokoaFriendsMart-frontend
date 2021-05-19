@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { categoryApi } from '../../../../../config';
+import { productApi } from '../../../../../config';
 import './Characters.scss';
 
 class Characters extends Component {
