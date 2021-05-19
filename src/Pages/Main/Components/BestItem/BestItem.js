@@ -12,7 +12,7 @@ class BestItem extends Component {
   }
 
   onFetchApi = () => {
-    fetch('/data/categoryData.json')
+    fetch('/public/data/categoryData.json')
       .then(result => result.json())
       .then(({ products_list }) => {
         const productData = products_list.map((data, i) => ({

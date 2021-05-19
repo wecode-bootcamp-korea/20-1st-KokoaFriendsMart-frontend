@@ -1,0 +1,245 @@
+{
+  "products_list": {
+    "실시간": [
+    {
+      "id": 1,
+      "name": "시즌한정 아이맥-춘삼이",
+      "price": 2952200,
+      "thumbnail_url": "https://i.ibb.co/VtMY3gh/Electronics-Imac-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": false,
+      "contents": "컨텐츠입니다",
+      "sub_category": "아이맥",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 2,
+      "name": "리미티드 폰-춘삼이",
+      "price": 1028000,
+      "thumbnail_url": "https://i.ibb.co/pbPjH20/Electronics-Phone-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": true,
+      "is_sale": false,
+      "is_soldout": true,
+      "is_set": false,
+      "is_picked": false,
+      "contents": "컨텐츠입니다",
+      "sub_category": "워치",
+      "character": "콘콘",
+      "discount_ratio": 0.15,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 3,
+      "name": "썸머 씨즌 워치-춘삼이",
+      "price": 508600,
+      "thumbnail_url": "https://i.ibb.co/rx1mC8Q/Electronics-Watch-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": true,
+      "is_picked": false,
+      "contents": "컨텐츠입니다",
+      "sub_category": "셔츠",
+      "character": "콘콘",
+      "discount_ratio": 0.2,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 4,
+      "name": "스테디셀러 셔츠-춘삼이",
+      "price": 50600,
+      "thumbnail_url": "https://i.ibb.co/YB1Qzzg/Wear-Shirts-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": true,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": false,
+      "contents": "컨텐츠입니다",
+      "sub_category": "모자",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 5,
+      "name": "2021 NEW 책-춘삼이",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/g785DDF/Living-Books-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": true,
+      "is_set": true,
+      "is_picked": false,
+      "contents": "컨텐츠입니다",
+      "sub_category": "후드",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 6,
+      "name": "20대 추천 상품 컵-춘삼이",
+      "price": 9800,
+      "thumbnail_url": "https://i.ibb.co/805KwsP/Living-Cup-Chunsam-0.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": true,
+      "contents": "컨텐츠입니다",
+      "sub_category": "컵",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 7,
+      "name": "20대 생일선물용 태블릿-삐약이",
+      "price": 1483000,
+      "thumbnail_url": "https://i.ibb.co/3YfVx91/Electronics-Tablet-Peepee-2.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": true,
+      "contents": "컨텐츠입니다",
+      "sub_category": "컵",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    },
+    {
+      "id": 8,
+      "name": "고오급 책-콘콘",
+      "price": 14800,
+      "thumbnail_url": "https://i.ibb.co/KGn42Jn/Living-Books-Concon-2.png",
+      "is_liked": true,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "is_picked": true,
+      "contents": "컨텐츠입니다",
+      "sub_category": "컵",
+      "character": "콘콘",
+      "discount_ratio": 0,
+      "created_at": "2020-04-04",
+      "updated_at": "2020-05-05"
+    }
+  ],
+  "주간": {
+    [
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      },
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      },
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      }
+    ]
+  },
+  "스테디셀러": {
+     [
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      },
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      },
+      {
+      "id": 1,
+      "name": "아이가 너무 좋아하는 책-콘콘",
+      "price": 15300,
+      "thumbnail_url": "https://i.ibb.co/2WyjXRW/Living-Books-Concon-3.png",
+      "is_liked": false,
+      "is_new": false,
+      "is_sale": false,
+      "is_soldout": false,
+      "is_set": false,
+      "discount_ratio": 0
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
