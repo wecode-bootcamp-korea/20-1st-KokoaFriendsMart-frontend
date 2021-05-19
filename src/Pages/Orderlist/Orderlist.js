@@ -79,7 +79,98 @@ export class Orderlist extends Component {
                   />
                 ))}
               </div>
-              <div className="paymentDetail"></div>
+              <div className="paymentDetail">
+                <div className="paymentDetailHeader">
+                  <p>결제정보</p>
+                </div>
+                <div className="paymentDetailbody">
+                  <div className="totalInfo">
+                    <p>최종 결제금액</p>
+                  </div>
+                  <div className="paymentDetailInfo">
+                    <div className="outside">
+                      <div className="inside">
+                        <div>
+                          <p className="boldText">주문금액</p>
+                        </div>
+                        <div>
+                          <p className="boldText">17400원</p>
+                        </div>
+                      </div>
+                      <div className="inside">
+                        <div>
+                          <p className="lightText">상품금액</p>
+                        </div>
+                        <div>
+                          <p className="lightText">17400원</p>
+                        </div>
+                      </div>
+                      <div className="inside">
+                        <div>
+                          <p className="lightText">즉시할인</p>
+                        </div>
+                        <div>
+                          <p className="lightText">0원</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="outside">
+                      <div className="inside">
+                        <div>
+                          <p className="boldText">쿠폰할인</p>
+                        </div>
+                        <div>
+                          <p className="boldText">0원</p>
+                        </div>
+                      </div>
+                      <div className="inside">
+                        <div>
+                          <p className="lightText">상품</p>
+                        </div>
+                        <div>
+                          <p className="lightText">0원</p>
+                        </div>
+                      </div>
+                      <div className="inside">
+                        <div>
+                          <p className="lightText">배송비</p>
+                        </div>
+                        <div>
+                          <p className="lightText">0원</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="outside">
+                      <div className="inside">
+                        <div>
+                          <p className="boldText">배송비</p>
+                        </div>
+                        <div>
+                          <p className="boldText">3000원</p>
+                        </div>
+                      </div>
+                      <div className="inside">
+                        <div>
+                          <p className="boldText">캐시사용</p>
+                        </div>
+                        <div>
+                          <p className="boldText">0원</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="outside">
+                      <div className="inside">
+                        <div>
+                          <p className="boldText lastText">합계</p>
+                        </div>
+                        <div>
+                          <p className="boldText lastText">20400원</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </main>
         </div>

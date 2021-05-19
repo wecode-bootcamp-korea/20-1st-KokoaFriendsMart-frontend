@@ -133,6 +133,64 @@
           }
         }
       }
+      .paymentDetail {
+        width: 100%;
+        padding: 50px 30px 0px 30px;
+        margin-bottom: 100px;
+
+        .paymentDetailHeader {
+          padding-bottom: 10px;
+          border-bottom: 1px solid #333;
+        }
+
+        .paymentDetailbody {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #333;
+
+          .totalInfo {
+            width: 15%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .paymentDetailInfo {
+            width: 85%;
+            padding: 30px;
+            border-left: 1px solid #ddd;
+
+            .outside {
+              margin-bottom: 20px;
+
+              &:last-child {
+                margin: 0;
+              }
+            }
+
+            .inside {
+              display: flex;
+              justify-content: space-between;
+
+              .boldText {
+                font-size: 16px;
+                margin-bottom: 10px;
+              }
+
+              .lightText {
+                margin-bottom: 10px;
+                font-size: 14px;
+                color: #999;
+              }
+
+              .lastText {
+                margin: 0;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
