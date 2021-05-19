@@ -31,12 +31,12 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <a onClick={() => history.push('category')}>카테고리</a>
+                  <a onClick={() => history.push('/category')}>카테고리</a>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
                         <div className="allItemsTitle">
-                          <a href="/#">전체</a>
+                          <a onClick={() => history.push('/category')}>전체</a>
                         </div>
                         <div className="dropdownCharacters">
                           <div className="dropdownCharactersTitle">

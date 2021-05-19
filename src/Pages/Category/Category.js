@@ -4,114 +4,109 @@ import ProductItem from '../../Components/ProductItem/ProductItem';
 import { categoryApi } from '../../config';
 import './Category.scss';
 
+const mapper = categoryName => {
+  const table = {
+    [['리빙', '컵', '책'].includes(categoryName)]: {
+      id: 0,
+      nextCategoryName: '전체',
+      prevCategoryName: '웨어',
+      backColor: '#F6CBC2',
+      title: '리빙',
+      desc1: '트렌디한 개발자의 필수템',
+      desc2: '코코아 리빙용품을 만나보세요!',
+      mainCategory: '리빙',
+    },
+    [['일렉트로닉', '아이맥', '태블릿', '폰', '워치'].includes(categoryName)]: {
+      id: 1,
+      nextCategoryName: '웨어',
+      prevCategoryName: '전체',
+      backColor: '#E8CBAF',
+      title: '일렉트로닉',
+      desc1: '요즘 개발자들의 잇템!',
+      desc2: '코코아 일렉용품을 만나보세요!',
+      mainCategory: '일렉트로닉',
+    },
+    [['웨어', '셔츠', '모자', '후드'].includes(categoryName)]: {
+      id: 2,
+      nextCategoryName: '리빙',
+      prevCategoryName: '일렉트로닉',
+      backColor: '#F4DC70',
+      title: '웨어',
+      desc1: '몸에 착착 맞는',
+      desc2: '코코아 웨어용품을 만나보세요!',
+      mainCategory: '웨어',
+    },
+    [['전체'].includes(categoryName)]: {
+      id: 3,
+      nextCategoryName: '일렉트로닉',
+      prevCategoryName: '리빙',
+      backColor: '#DBF4F9',
+      title: '전체',
+      desc1: '코코아 상품들을',
+      desc2: '만나보세요!',
+      mainCategory: '전체',
+    },
+  };
+  return table.true;
+};
+
 class Category extends Component {
   constructor() {
     super();
-    this._isMounted = false;
     this.state = {
       productList: [],
       isShowSortBox: false,
-      backColor: '',
-      desc1: '',
-      desc2: '',
       categoryName: '',
       productCount: 0,
       sortName: '최신순',
+      bannerData: '',
     };
   }
 
-  fetchAPI = (API, categoryName, sortName, e) => {
-    if (categoryName) {
-      fetch(API)
-        .then(res => res.json())
-        .then(res =>
-          this.setState({
-            productList: res.data,
-            productCount: res.data.length,
-            categoryName: categoryName,
-          })
-        );
-    } else if (sortName) {
-      fetch(API)
-        .then(result => result.json())
-        .then(categoryData => {
-          this.setState({
-            productList: categoryData.data,
-            productCount: categoryData.data.length,
-            sortName: e.target.textContent,
-          });
-        });
-    } else {
-      fetch(API)
-        .then(result => result.json())
-        .then(categoryData => {
-          this.setState({
-            productList: categoryData.data,
-            productCount: categoryData.data.length,
-          });
-        });
-    }
-  };
-
   componentDidMount() {
-    this._isMounted = true;
-    if (this._isMounted) {
-      const categoryName = this.props.match.params.categoryName || '아이맥';
-      // const categoryName = '아이맥';
-      this.onChangeBannerCaption(categoryName);
-      this.fetchAPI(`${categoryApi}?cname=${categoryName}`, categoryName);
-    }
+    const categoryName = this.props.match.params.categoryName || '';
+    fetch(`${categoryApi}?cname=${categoryName}`)
+      .then(result => result.json())
+      .then(categoryData => {
+        this.setState({
+          productList: categoryData.data.product_list,
+          productCount: categoryData.data.product_list.length,
+          categoryName: categoryName,
+          bannerData: mapper(categoryName || '전체'),
+        });
+      });
   }
 
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  componentDidUpdate(prevProps, prevStates) {
-    if (prevStates.categoryName !== this.state.categoryName) {
-      if (this.state.categoryName === '전체') {
-        this.fetchAPI(`${categoryApi}`);
-        this.onChangeBannerCaption(this.state.categoryName);
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      if (this.props.location.search.includes('order')) {
+        const query =
+          this.props.match.params.categoryName || this.props.location.search;
+        fetch(`${categoryApi}${query}`)
+          .then(result => result.json())
+          .then(categoryData => {
+            this.setState({
+              productList: categoryData.data.product_list,
+              productCount: categoryData.data.product_list.length,
+            });
+          });
       } else {
-        this.fetchAPI(`${categoryApi}?cname=${this.state.categoryName}`);
-        this.onChangeBannerCaption(this.state.categoryName);
+        const query =
+          this.props.match.params.categoryName || this.props.location.search;
+        const categoryName = query.split('=')[1] || '';
+        fetch(`${categoryApi}${query}`)
+          .then(result => result.json())
+          .then(categoryData => {
+            this.setState({
+              productList: categoryData.data.product_list,
+              productCount: categoryData.data.product_list.length,
+              categoryName: categoryName || '전체',
+              bannerData: mapper(categoryName || '전체'),
+            });
+          });
       }
     }
   }
-
-  onChangeBannerCaption = categoryName => {
-    if (['리빙', '컵', '책'].includes(categoryName)) {
-      this.setState({
-        backColor: '#F6CBC2',
-        title: '리빙',
-        desc1: '트렌디한 개발자의 필수템',
-        desc2: '코코아 리빙용품을 만나보세요!',
-      });
-    } else if (['웨어', '셔츠', '모자', '후드'].includes(categoryName)) {
-      this.setState({
-        backColor: '#F4DC70',
-        title: '웨어',
-        desc1: '몸에 착착 맞는',
-        desc2: '코코아 웨어용품을 만나보세요!',
-      });
-    } else if (
-      ['일렉트로닉', '아이맥', '태블릿', '폰', '워치'].includes(categoryName)
-    ) {
-      this.setState({
-        backColor: '#E8CBAF',
-        title: '일렉트로닉',
-        desc1: '요즘 개발자들의 잇템!',
-        desc2: '코코아 일렉용품을 만나보세요!',
-      });
-    } else if (['전체'].includes(categoryName)) {
-      this.setState({
-        backColor: '#DBF4F9',
-        title: '전체',
-        desc1: '코코아 상품들을',
-        desc2: '만나보세요!',
-      });
-    }
-  };
 
   onClickSortToggle = () => {
     this.setState({
@@ -120,85 +115,57 @@ class Category extends Component {
   };
 
   onClickPrevArrow = () => {
-    this.onClickArrow(['전체'], '리빙');
-    this.onClickArrow(['일렉트로닉', '아이맥', '태블릿', '폰', '워치'], '전체');
-    this.onClickArrow(['웨어', '셔츠', '모자', '후드'], '일렉트로닉');
-    this.onClickArrow(['리빙', '컵', '책'], '웨어');
+    this.props.history.push(
+      `/category?cname=${this.state.bannerData.prevCategoryName}`
+    );
   };
 
   onClickNextArrow = () => {
-    this.onClickArrow(['전체'], '일렉트로닉');
-    this.onClickArrow(['일렉트로닉', '아이맥', '태블릿', '폰', '워치'], '웨어');
-    this.onClickArrow(['웨어', '셔츠', '모자', '후드'], '리빙');
-    this.onClickArrow(['리빙', '컵', '책'], '전체');
-  };
-
-  onClickArrow = (currentCategoryName, willChangedName) => {
-    if (currentCategoryName.includes(this.state.categoryName)) {
-      this.setState({
-        categoryName: willChangedName,
-      });
-    }
+    this.props.history.push(
+      `/category?cname=${this.state.bannerData.nextCategoryName}`
+    );
   };
 
   onClickFilter = e => {
-    this.setState({
-      categoryName: e.target.textContent,
-    });
+    if (e.target.textContent === '전체') {
+      this.props.history.push(`/category`);
+    } else {
+      this.props.history.push(`/category?cname=${e.target.textContent}`);
+    }
   };
 
   onClickSort = e => {
+    this.setState({
+      sortName: e.target.textContent,
+    });
     if (e.target.textContent === '최신순') {
-      this.fetchAPI(
-        `${categoryApi}?cname=${this.state.categoryName}&orderBy=RECENT`,
-        false,
-        true,
-        e
+      this.props.history.push(
+        `/category?cname=${this.state.categoryName}&orderBy=RECENT`
       );
     } else if (e.target.textContent === '인기순') {
-      this.fetchAPI(
-        `${categoryApi}?cname=${this.state.categoryName}&orderBy=LIKE`,
-        false,
-        true,
-        e
+      this.props.history.push(
+        `/category?cname=${this.state.categoryName}&orderBy=LIKE`
       );
     } else if (e.target.textContent === '높은가격순') {
-      this.fetchAPI(
-        `${categoryApi}?cname=${this.state.categoryName}&orderBy=PRICE`,
-        false,
-        true,
-        e
+      this.props.history.push(
+        `/category?cname=${this.state.categoryName}&orderBy=PRICE`
       );
     } else if (e.target.textContent === '낮은가격순') {
-      this.fetchAPI(
-        `${categoryApi}?cname=${this.state.categoryName}&orderBy=-PRICE`,
-        false,
-        true,
-        e
+      this.props.history.push(
+        `/category?cname=${this.state.categoryName}&orderBy=-PRICE`
       );
     }
   };
+
   render() {
-    const { productList, isShowSortBox, categoryName } = this.state;
-    let categoryFromSub;
-    if (
-      ['일렉트로닉', '아이맥', '태블릿', '폰', '워치'].includes(categoryName)
-    ) {
-      categoryFromSub = '일렉트로닉';
-    } else if (['웨어', '셔츠', '모자', '후드'].includes(categoryName)) {
-      categoryFromSub = '웨어';
-    } else if (['리빙', '컵', '책'].includes(categoryName)) {
-      categoryFromSub = '리빙';
-    } else if (['전체'].includes(categoryName)) {
-      categoryFromSub = '전체';
-    }
+    const { productList, isShowSortBox, bannerData } = this.state;
 
     return (
       <div className="Category">
         <div className="banner">
           <div
             className="bannerContainer"
-            style={{ backgroundColor: `${this.state.backColor}` }}
+            style={{ backgroundColor: `${bannerData.backColor}` }}
           >
             <div className="bannerControl">
               <div
@@ -216,11 +183,11 @@ class Category extends Component {
             </div>
             <div className="caption">
               <div className="subtitle">CATEGORY</div>
-              <div className="title">{this.state.title}</div>
+              <div className="title">{bannerData.title}</div>
               <div className="desc">
-                {this.state.desc1}
+                {bannerData.desc1}
                 <br />
-                {this.state.desc2}
+                {bannerData.desc2}
               </div>
             </div>
           </div>
@@ -229,7 +196,7 @@ class Category extends Component {
           <div className="productFilter">
             <ul>
               {['전체', '일렉트로닉', '웨어', '리빙'].map((category, i) => {
-                return category === categoryFromSub ? (
+                return category === this.state.bannerData.mainCategory ? (
                   <li key={i} className="active" onClick={this.onClickFilter}>
                     {category}
                   </li>
