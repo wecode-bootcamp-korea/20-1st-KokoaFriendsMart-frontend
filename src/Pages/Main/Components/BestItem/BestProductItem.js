@@ -9,7 +9,7 @@ class BestProductItem extends Component {
       <div className="BestProductItem">
         <div className="item">
           <Link to={link} className="thum">
-            <span className="count">{bestCount}</span>
+            {/* <span className="count">{bestCount}</span> */}
             <div className="imgContainer">
               <img
                 src={list.thumbnail_url}
