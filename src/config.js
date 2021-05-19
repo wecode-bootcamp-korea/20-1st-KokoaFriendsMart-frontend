@@ -1,3 +1,2 @@
-export const loginSignupApi = 'http://10.58.2.100:9000';
-// export const categoryApi = 'http://192.168.0.19:9000/products?cid=';
-export const categoryApi = 'http://192.168.0.19:9000/products';
+export const loginSignupApi = 'http://api.kokoafriendsmart.com/';
+export const categoryApi = 'http://api.kokoafriendsmart.com/products';
