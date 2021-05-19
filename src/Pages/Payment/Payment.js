@@ -21,6 +21,15 @@ class Payment extends Component {
       });
   }
 
+  postToken = () => {
+    fetch('http://api.kokoafriendsmart.com/', {
+      method: 'POST  ',
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    });
+  };
+
   render() {
     const { cartData } = this.state;
     return (
@@ -212,7 +221,11 @@ class Payment extends Component {
             </div>
             <div>
               <Link to="../Orderlist/Orderlist.js">
-                <button type="button" className="orderBtn">
+                <button
+                  onClick={this.postToken}
+                  type="button"
+                  className="orderBtn"
+                >
                   주문하기
                 </button>
               </Link>
