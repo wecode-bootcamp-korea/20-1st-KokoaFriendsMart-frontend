@@ -3,12 +3,13 @@ import './Carousel.scss';
 
 class CarouselCard extends React.Component {
   render() {
+    const { title, caption, description, src } = this.props;
     return (
-      <div className="carouselItem" style={{ minWidth: '100vw' }}>
-        <img className="bgImg" alt={this.props.title} src={this.props.src} />
-        <p className="caption">{this.props.caption}</p>
-        <h3 className="title">{this.props.title}</h3>
-        <p className="description">{this.props.description}</p>
+      <div className="carouselItem">
+        <img className="bgImg" alt={title} src={src} />
+        <p className="caption">{caption}</p>
+        <h3 className="title">{title}</h3>
+        <p className="description">{description}</p>
       </div>
     );
   }

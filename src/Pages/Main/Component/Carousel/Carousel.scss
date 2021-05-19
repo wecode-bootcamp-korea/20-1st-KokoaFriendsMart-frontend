@@ -1,4 +1,5 @@
 @import 'src/Styles/_variables.scss';
+
 .carouselContainer {
   position: relative;
   overflow: hidden;
@@ -6,11 +7,13 @@
 
   .carouselWrap {
     display: flex;
+    width: 100vw;
     border-bottom-right-radius: 20px;
     transition: 0.5s;
 
     .carouselItem {
       position: relative;
+      min-width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -46,10 +49,9 @@
     }
   }
 
-  .prevBtn {
+  .btn {
     position: absolute;
     top: 50%;
-    left: 10px;
     padding: 10px 13px;
     border-radius: 50%;
     background-color: $white;
@@ -57,14 +59,11 @@
     cursor: pointer;
   }
 
+  .prevBtn {
+    left: 10px;
+  }
+
   .nextBtn {
-    position: absolute;
-    top: 50%;
     right: 10px;
-    padding: 10px 13px;
-    border-radius: 50%;
-    background-color: $white;
-    opacity: 0.7;
-    cursor: pointer;
   }
 }

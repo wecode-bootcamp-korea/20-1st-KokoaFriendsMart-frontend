@@ -28,13 +28,11 @@ class Carousel extends Component {
         carouselDataArr: carouselDataArr.concat(CAROUSEL_DATA),
         translateXWidth: translateXWidth - 100,
       });
-    }
-    if (index < 2) {
+    } else
       this.setState({
         index: index + 1,
         translateXWidth: translateXWidth - 100,
       });
-    }
   };
 
   goToLeft = () => {
@@ -46,7 +44,6 @@ class Carousel extends Component {
   };
 
   render() {
-    console.log(this.state.carouselDataArr);
     const { translateXWidth, carouselDataArr } = this.state;
     return (
       <div className="carouselContainer">
@@ -54,11 +51,11 @@ class Carousel extends Component {
           className="carouselWrap"
           style={{
             transform: `translateX(${translateXWidth}vw)`,
-            width: '100vw',
           }}
         >
           {carouselDataArr.map(el => (
             <CarouselCard
+              key={el.id * Math.random()}
               src={el.src}
               caption={el.caption}
               title={el.title}
@@ -66,10 +63,10 @@ class Carousel extends Component {
             />
           ))}
         </div>
-        <button className="prevBtn" onClick={this.goToLeft}>
+        <button className="prevBtn btn" onClick={this.goToLeft}>
           <i className="fas fa-chevron-left"></i>
         </button>
-        <button className="nextBtn" onClick={this.goToRight}>
+        <button className="nextBtn btn" onClick={this.goToRight}>
           <i className="fas fa-chevron-right"></i>
         </button>
       </div>
