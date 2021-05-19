@@ -4,6 +4,24 @@ import ProductItem from '../../Components/ProductItem/ProductItem';
 import { productApi } from '../../config';
 import './Category.scss';
 
+const gotomapper = (e, sortName, history, categoryName) => {
+  const table = {
+    [e.target.textCotent === sortName]: history.push(
+      `/category?cname=${categoryName}&orderBy=RECENT&limit=16&offset=0`
+    ),
+    [e.target.textCotent === sortName]: history.push(
+      `/category?cname=${categoryName}&orderBy=LIKE&limit=16&offset=0`
+    ),
+    [e.target.textCotent === sortName]: history.push(
+      `/category?cname=${categoryName}&orderBy=PRICE&limit=16&offset=0`
+    ),
+    [e.target.textCotent === sortName]: history.push(
+      `/category?cname=${categoryName}&orderBy=-PRICE&limit=16&offset=0`
+    ),
+  };
+  return table.true;
+};
+
 const mapper = categoryName => {
   const table = {
     [['리빙', '컵', '책'].includes(categoryName)]: {
@@ -157,23 +175,10 @@ class Category extends Component {
       lastPage: false,
       offset: 0,
     });
-    if (e.target.textContent === '최신순') {
-      this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=RECENT&limit=16&offset=0`
-      );
-    } else if (e.target.textContent === '인기순') {
-      this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=LIKE&limit=16&offset=0`
-      );
-    } else if (e.target.textContent === '높은가격순') {
-      this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=PRICE&limit=16&offset=0`
-      );
-    } else if (e.target.textContent === '낮은가격순') {
-      this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=-PRICE&limit=16&offset=0`
-      );
-    }
+    gotomapper(e, '최신순', this.props.history, this.state.categoryName);
+    gotomapper(e, '인기순', this.props.history, this.state.categoryName);
+    gotomapper(e, '높은가격순', this.props.history, this.state.categoryName);
+    gotomapper(e, '낮은가격순', this.props.history, this.state.categoryName);
   };
 
   onClickPagination = () => {
