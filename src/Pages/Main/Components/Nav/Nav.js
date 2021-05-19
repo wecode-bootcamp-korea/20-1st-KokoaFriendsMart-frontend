@@ -33,14 +33,14 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <Link onClick={() => history.push('/category/전체')}>
+                  <Link onClick={() => history.push('/category')}>
                     카테고리
                   </Link>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
                         <div className="allItemsTitle">
-                          <Link onClick={() => history.push('/category/전체')}>
+                          <Link onClick={() => history.push('/category')}>
                             전체
                           </Link>
                         </div>
