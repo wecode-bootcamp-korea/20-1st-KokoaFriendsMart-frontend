@@ -7,8 +7,8 @@ export class Main extends Component {
   render() {
     return (
       <div>
+        <BestItem />
         <LikePick />
-        {/* <BestItem /> */}
       </div>
     );
   }

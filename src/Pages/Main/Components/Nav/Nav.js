@@ -22,8 +22,6 @@ class Nav extends Component {
   render() {
     const { history } = this.props;
 
-    // const { categoryName } = this.props.match.params;
-
     return (
       <div className="Nav">
         <div className="mainContainer">
