@@ -23,6 +23,7 @@ class Nav extends Component {
 
   render() {
     const { history } = this.props;
+    const elecItems = ['아이맥', '태블릿', '폰', '워치'];
     return (
       <div className="Nav">
         <div className="mainContainer">
@@ -57,7 +58,10 @@ class Nav extends Component {
                           </Link>
                         </div>
                         <ul className="categoryItemsSubCategories">
-                          <li>
+                          {elecItems.map(item => {
+                            return <li>{item}</li>;
+                          })}
+                          {/* <li>
                             <Link
                               onClick={() => history.push('/category/아이맥')}
                             >
@@ -82,7 +86,7 @@ class Nav extends Component {
                             >
                               워치
                             </Link>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                       <div className="categoryItems">
