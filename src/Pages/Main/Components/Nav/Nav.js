@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import CharactersList from './CharactersList/CharactersList';
-import Category from '../../../Category/Category';
 import { productApi } from '../../../../config';
+import Category from '../../../Category/Category';
+import CharactersList from './CharactersList/CharactersList';
+import ElecItems from './NavItems/ElecItems/ElecItems';
+import LivingItems from './NavItems/LivingItems/LivingItems';
+import WearItems from './NavItems/WearItems/WearItems';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -21,13 +24,8 @@ class Nav extends Component {
       .then(res => this.setState({ friends: res }));
   }
 
-  onClickItem = itemName => {
-    this.props.history.push(`/category/${itemName}`);
-  };
-
   render() {
-    const { history } = this.props;
-    const elecItems = ['아이맥', '태블릿', '폰', '워치'];
+    const { history, itemName } = this.props;
     return (
       <div className="Nav">
         <div className="mainContainer">
@@ -61,39 +59,7 @@ class Nav extends Component {
                             일렉트로닉
                           </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          {elecItems.map(item => {
-                            return (
-                              <li onClickItem={this.onClickItem}>{item}</li>
-                            );
-                          })}
-                          {/* <li>
-                            <Link
-                              onClick={() => history.push('/category/아이맥')}
-                            >
-                              아이맥
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              onClick={() => history.push('/category/태블릿')}
-                            >
-                              태블릿
-                            </Link>
-                          </li>
-                          <li>
-                            <Link onClick={() => history.push('/category/폰')}>
-                              폰
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              onClick={() => history.push('/category/워치')}
-                            >
-                              워치
-                            </Link>
-                          </li> */}
-                        </ul>
+                        <ElecItems />
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
@@ -101,29 +67,7 @@ class Nav extends Component {
                             웨어
                           </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <Link
-                              onClick={() => history.push('/category/셔츠')}
-                            >
-                              셔츠
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              onClick={() => history.push('/category/모자')}
-                            >
-                              모자
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              onClick={() => history.push('/category/후드')}
-                            >
-                              후드
-                            </Link>
-                          </li>
-                        </ul>
+                        <WearItems />
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
@@ -131,18 +75,7 @@ class Nav extends Component {
                             리빙
                           </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <Link onClick={() => history.push('/category/컵')}>
-                              컵
-                            </Link>
-                          </li>
-                          <li>
-                            <Link onClick={() => history.push('/category/책')}>
-                              책
-                            </Link>
-                          </li>
-                        </ul>
+                        <LivingItems />
                       </div>
                     </div>
                   </div>
