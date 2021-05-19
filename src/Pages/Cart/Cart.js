@@ -91,12 +91,30 @@ class Cart extends React.Component {
   // }
   // arr.reduce((acc, cur) => {return acc + cur })
 
+  // //카트에서 주문하기 버튼
   // onClickOderBtn = () => {
   //   fetch(API, {
   //     method: 'POST',
   //     headers: {
   //       Authorization: localStorage.getItem('accessToken'),
   //     },
+  //     body: JSON.stringify({
+  //       order_list: [
+  //         {
+  //           product_id: 123,
+  //           quantity: 2,
+  //         },
+  //         {
+  //           product_id: 13,
+  //           quantity: 1,
+  //         },
+  //         {
+  //           product_id: 23,
+  //           quantity: 5,
+  //         },
+  //       ],
+  //       order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+  //     }),
   //   });
   // };
 
