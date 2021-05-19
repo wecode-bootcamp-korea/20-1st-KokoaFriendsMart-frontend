@@ -1,0 +1,31 @@
+.Mdpick {
+  .mdpickContainer {
+    .titleContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px 0px;
+      font-weight: bold;
+      font-size: 38px;
+    }
+
+    .mdItemList {
+      display: flex;
+      width: 1120px;
+      flex-wrap: wrap;
+      column-count: 5;
+      margin: 0 auto;
+
+      .mdItemTitleContainer {
+        padding: 0px 21px;
+        margin: 0px 7px 25px 7px;
+
+        .mdItemTitle {
+          padding: 80px 0px 20px 0px;
+          font-weight: bold;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
