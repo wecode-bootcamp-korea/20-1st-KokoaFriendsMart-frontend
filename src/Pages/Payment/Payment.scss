@@ -68,7 +68,7 @@
     margin: 0 auto 200px;
     padding: 0 30px;
 
-    .orderInfoLeft {
+    .ordererWrap {
       width: 60%;
 
       .orderer {
@@ -84,13 +84,13 @@
         justify-content: center;
         border-bottom: 1px solid #eee;
 
-        .ordererInfoLeft {
+        .ordererInfoPlaceholder {
           width: 30%;
           padding: 30px;
           background-color: #f9f9f9;
         }
 
-        .ordererInfoRight {
+        .ordererInfoInput {
           width: 70%;
           padding: 10px;
 
@@ -107,7 +107,7 @@
       }
     }
 
-    .orderInfoRight {
+    .paymentWrap {
       position: relative;
       width: 35%;
       height: 100%;
@@ -163,6 +163,7 @@
         font-size: 18px;
         background-color: #ffdf00;
         border-radius: 10px;
+        cursor: pointer;
       }
     }
   }
