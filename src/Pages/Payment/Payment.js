@@ -22,10 +22,13 @@ class Payment extends Component {
   }
 
   postToken = () => {
-    fetch('http://api.kokoafriendsmart.com/', {
-      method: 'POST  ',
+    fetch('http://api.kokoafriendsmart.com/orders', {
+      method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('accessToken'),
+      },
+      body: {
+        order_type: 'PURCHASED',
       },
     });
   };
