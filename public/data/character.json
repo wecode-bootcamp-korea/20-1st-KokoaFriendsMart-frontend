@@ -6,22 +6,22 @@
   },
   {
     "id": 2,
-    "img": "http://localhost:3000/images/trunk.jpg",
+    "img": "http://localhost:3000/images/peach.jpg",
     "name": "피치피치"
   },
   {
     "id": 3,
-    "img": "http://localhost:3000/images/trunk.jpg",
+    "img": "http://localhost:3000/images/ducky.jpg",
     "name": "덕이"
   },
   {
     "id": 4,
-    "img": "http://localhost:3000/images/trunk.jpg",
+    "img": "http://localhost:3000/images/dinosaur.jpg",
     "name": "콘콘"
   },
   {
     "id": 5,
-    "img": "http://localhost:3000/images/trunk.jpg",
+    "img": "http://localhost:3000/images/bird.jpg",
     "name": "삐약이"
   }
 ]

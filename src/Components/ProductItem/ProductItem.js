@@ -31,7 +31,9 @@ class ProductItem extends Component {
             <i
               className={`fa-heart ${list.is_liked ? 'fas yellow' : 'far'}`}
             ></i>
-            <div className={`itemPrice ${size}`}>{list.price}원</div>
+            <div className={`itemPrice ${size}`}>
+              {list.price.toLocaleString()}원
+            </div>
           </div>
         </div>
       </div>

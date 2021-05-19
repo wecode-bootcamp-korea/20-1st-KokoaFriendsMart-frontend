@@ -15,8 +15,13 @@
 
     .characterContainer {
       display: flex;
+      position: relative;
       background-color: lightBlue;
-      height: 100px;
+      height: 130px;
+
+      .characters {
+        position: absolute;
+      }
     }
 
     .itemContainer {
@@ -26,6 +31,7 @@
       column-count: 4;
       width: 1200px;
       margin: 0 auto;
+      padding: 30px 0px;
     }
   }
 }

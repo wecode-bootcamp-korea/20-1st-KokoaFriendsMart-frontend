@@ -9,24 +9,36 @@ export class LikePick extends Component {
   constructor() {
     super();
     this.state = {
-      productList: [],
+      likePickproductList: [],
       friends: [],
     };
   }
 
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${productApi}?cid=${categoryName}`)
-      .then(res => res.json())
-      .then(res => this.setState({ productList: res.data.product_list }));
+    const categoryName = '춘삼이';
 
-    fetch('/public/data/character.json')
+    console.log(`categoryName`, categoryName);
+    fetch(`${productApi}?cname=${categoryName}&limit=4&offset=1`)
+      .then(res => res.json())
+      .then(res =>
+        this.setState({ likePickproductList: res.data.product_list })
+      );
+
+    fetch('/data/character.json')
       .then(res => res.json())
       .then(res => this.setState({ friends: res }));
   }
 
+  onClickLikePick = characterName => {
+    fetch(`${productApi}?cname=${characterName}&limit=4&offset=1`)
+      .then(res => res.json())
+      .then(res =>
+        this.setState({ likePickproductList: res.data.product_list })
+      );
+  };
+
   render() {
-    const { productList } = this.state;
+    const { likePickproductList, location, size, friends } = this.state;
     return (
       <div className="LikePick">
         <div className="likePickContainer">
@@ -34,10 +46,16 @@ export class LikePick extends Component {
             <h2 className="title">Like Pick!</h2>
           </div>
           <div className="characterContainer">
-            <CharactersList friends={this.state.friends} />
+            <div className="characters">
+              <CharactersList
+                friends={this.state.friends}
+                location={'likepickItem'}
+                onClickLikePick={this.onClickLikePick}
+              />
+            </div>
           </div>
           <div className="itemContainer">
-            {productList.slice(0, 4).map(list => {
+            {likePickproductList.map(list => {
               return (
                 <ProductItem
                   key={list.id}
