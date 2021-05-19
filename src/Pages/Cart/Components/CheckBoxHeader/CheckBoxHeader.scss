@@ -1,0 +1,33 @@
+@import '../../../../Styles/variables';
+
+.checkBoxHeader {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+
+  font-size: 16px;
+
+  .check {
+    margin-right: 10px;
+  }
+
+  .choiceNum {
+    margin-right: 30%;
+  }
+
+  .choiceOption {
+    margin-right: 15%;
+  }
+
+  .choiceQuantity {
+    margin-right: 15%;
+  }
+
+  .productTotal {
+    margin-right: 5%;
+  }
+
+  span {
+    font-size: 16px;
+  }
+}

@@ -1,42 +1,42 @@
 [
   {
     "id": "1",
-    "img": "living/book1.png",
+    "img": "https://i.ibb.co/KDSfn38/Living-Books-Chunsam-1.png",
     "alt": "1"
   },
   {
     "id": "2",
-    "img": "living/book2.png",
+    "img": "https://i.ibb.co/KGn42Jn/Living-Books-Concon-2.png",
     "alt": "2"
   },
   {
     "id": "3",
-    "img": "living/book3.png",
+    "img": "https://i.ibb.co/TrbD93j/Living-Books-Duckee-1.png",
     "alt": "3"
   },
   {
     "id": "4",
-    "img": "living/book4.png",
+    "img": "https://i.ibb.co/W6jnkjW/Living-Books-Peach-3.png",
     "alt": "4"
   },
   {
     "id": "5",
-    "img": "living/cup1.png",
+    "img": "https://i.ibb.co/tD02SvN/Living-Cup-Duckee-1.png",
     "alt": "5"
   },
   {
     "id": "6",
-    "img": "living/cup2.png",
+    "img": "https://i.ibb.co/BCnv7tX/Living-Cup-Duckee-2.png",
     "alt": "6"
   },
   {
     "id": "7",
-    "img": "living/cup6.png",
+    "img": "https://i.ibb.co/4gsyXbQ/Living-Cup-Duckee-3.png",
     "alt": "7"
   },
   {
     "id": "8",
-    "img": "living/groupImage.jpg",
+    "img": "https://i.ibb.co/XFkWXNs/group-Image.jpg",
     "alt": "8"
   }
 ]

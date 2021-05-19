@@ -5,6 +5,9 @@ import Category from './Pages/Category/Category';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Login/Signup';
 import Product from './Pages/Product/Product';
+import Footer from './Pages/Footer/Footer';
+import Cart from './Pages/Cart/Cart';
+import Orderlist from './Pages/Orderlist/Orderlist';
 
 class Routes extends React.Component {
   render() {
@@ -20,7 +23,10 @@ class Routes extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/product" component={Product} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/orderlist" component={Orderlist} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
+        <Footer />
       </Router>
     );
   }

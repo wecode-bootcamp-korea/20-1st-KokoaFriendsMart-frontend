@@ -1,0 +1,35 @@
+@import '../../../../Styles/variables';
+
+.totalPriceBox {
+  width: 80%;
+  .totalPriceText {
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+    border-top: 1px solid grey;
+    div {
+      padding: 0 9%;
+      font-size: 20px;
+    }
+  }
+
+  .totalPriceNum {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+    border-top: 1px solid $lightGrey;
+    border-bottom: 1px solid $lightGrey;
+
+    div {
+      padding: 0 9%;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .equal {
+      position: absolute;
+      left: 75%;
+    }
+  }
+}
