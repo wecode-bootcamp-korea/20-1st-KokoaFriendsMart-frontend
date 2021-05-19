@@ -1,0 +1,23 @@
+@import '../../../../Styles/variables';
+
+.productQna {
+  .qnaOutbox {
+    margin-top: 200px;
+    .qnaTitle {
+      display: flex;
+      border-bottom: 1px solid $lightGrey;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      .title {
+        margin-right: 10px;
+        font-weight: 800;
+      }
+      .countQna {
+        font-weight: 600;
+      }
+    }
+    .qnaContent {
+      border-bottom: 1px solid $lightGrey;
+    }
+  }
+}
