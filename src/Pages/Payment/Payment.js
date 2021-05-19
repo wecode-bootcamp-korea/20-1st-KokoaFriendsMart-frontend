@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import OrderProductItem from './OrderProductIItem';
 import './Payment.scss';
-import CART_DATA from './cartData';
 
 class Payment extends Component {
   constructor() {
@@ -12,13 +11,18 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      cartData: CART_DATA,
-    });
+    fetch('/data/cartdata.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartData: data,
+        });
+      });
   }
 
   render() {
-    console.log(CART_DATA);
+    const { cartData } = this.state;
+    console.log(cartData.data && cartData.data);
     return (
       <div className="payment">
         <div className="bgImg">
@@ -29,9 +33,9 @@ class Payment extends Component {
         </div>
         <div className="productInfo">
           <div className="orderProductCount">
-            <p>주문 상품 ( {CART_DATA.length} )</p>
+            {/* <p>주문 상품 ( {CART_DATA.length} )</p> */}
           </div>
-          {CART_DATA.map(el => (
+          {/* {CART_DATA.map(el => (
             <OrderProductItem
               key={el.id}
               itemTitle={el.itemTitle}
@@ -39,7 +43,7 @@ class Payment extends Component {
               itemQuantity={el.itemQuantity}
               imgSrc={el.imgSrc}
             />
-          ))}
+          ))} */}
         </div>
         <div className="orderInfo">
           <div className="orderInfoLeft">
@@ -109,7 +113,7 @@ class Payment extends Component {
                     <p>주문금액</p>
                   </div>
                   <div>
-                    <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
+                    {/* <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p> */}
                   </div>
                 </div>
                 <div className="row lightText">
@@ -117,7 +121,7 @@ class Payment extends Component {
                     <p>상품금액</p>
                   </div>
                   <div>
-                    <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p>
+                    {/* <p>{Number(CART_DATA[0].itemPrice).toLocaleString()} 원</p> */}
                   </div>
                 </div>
                 <div className="row lightText">
@@ -169,7 +173,7 @@ class Payment extends Component {
                   <div>
                     <p>
                       <mark>
-                        {Number(CART_DATA[0].itemPrice).toLocaleString()} 원
+                        {/* {Number(CART_DATA[0].itemPrice).toLocaleString()} 원 */}
                       </mark>
                     </p>
                   </div>
