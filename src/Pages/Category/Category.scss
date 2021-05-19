@@ -155,14 +155,28 @@
         }
       }
     }
+    .productListsContainer {
+      position: relative;
 
-    .productLists {
-      display: flex;
-      flex-wrap: wrap;
-      column-count: 4;
-      justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      .productLists {
+        display: flex;
+        flex-wrap: wrap;
+        column-count: 4;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 80px;
+      }
+
+      .paginationBtn {
+        position: absolute;
+        bottom: -47px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 150px;
+        border: 1px solid #eaeaea;
+        border-radius: 20px;
+        cursor: pointer;
+      }
     }
   }
   .hide {

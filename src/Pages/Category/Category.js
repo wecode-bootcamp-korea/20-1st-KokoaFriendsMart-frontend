@@ -8,7 +8,7 @@ const mapper = categoryName => {
   const table = {
     [['리빙', '컵', '책'].includes(categoryName)]: {
       id: 0,
-      nextCategoryName: '전체',
+      nextCategoryName: '',
       prevCategoryName: '웨어',
       backColor: '#F6CBC2',
       title: '리빙',
@@ -19,7 +19,7 @@ const mapper = categoryName => {
     [['일렉트로닉', '아이맥', '태블릿', '폰', '워치'].includes(categoryName)]: {
       id: 1,
       nextCategoryName: '웨어',
-      prevCategoryName: '전체',
+      prevCategoryName: '',
       backColor: '#E8CBAF',
       title: '일렉트로닉',
       desc1: '요즘 개발자들의 잇템!',
@@ -65,7 +65,7 @@ class Category extends Component {
 
   componentDidMount() {
     const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${categoryApi}?cname=${categoryName}`)
+    fetch(`${categoryApi}?cname=${categoryName}&limit=16&offset=0`)
       .then(result => result.json())
       .then(categoryData => {
         this.setState({
@@ -93,7 +93,8 @@ class Category extends Component {
       } else {
         const query =
           this.props.match.params.categoryName || this.props.location.search;
-        const categoryName = query.split('=')[1] || '';
+        const categoryName =
+          query.split('=')[query.split('=').length - 1] || '';
         fetch(`${categoryApi}${query}`)
           .then(result => result.json())
           .then(categoryData => {
@@ -116,21 +117,23 @@ class Category extends Component {
 
   onClickPrevArrow = () => {
     this.props.history.push(
-      `/category?cname=${this.state.bannerData.prevCategoryName}`
+      `/category?&limit=16&offset=0&cname=${this.state.bannerData.prevCategoryName}`
     );
   };
 
   onClickNextArrow = () => {
     this.props.history.push(
-      `/category?cname=${this.state.bannerData.nextCategoryName}`
+      `/category?&limit=16&offset=0&cname=${this.state.bannerData.nextCategoryName}`
     );
   };
 
   onClickFilter = e => {
     if (e.target.textContent === '전체') {
-      this.props.history.push(`/category`);
+      this.props.history.push(`/category?&limit=16&offset=0&cname=`);
     } else {
-      this.props.history.push(`/category?cname=${e.target.textContent}`);
+      this.props.history.push(
+        `/category?&limit=16&offset=0&cname=${e.target.textContent}`
+      );
     }
   };
 
@@ -140,21 +143,25 @@ class Category extends Component {
     });
     if (e.target.textContent === '최신순') {
       this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=RECENT`
+        `/category?cname=${this.state.categoryName}&orderBy=RECENT&limit=16&offset=0`
       );
     } else if (e.target.textContent === '인기순') {
       this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=LIKE`
+        `/category?cname=${this.state.categoryName}&orderBy=LIKE&limit=16&offset=0`
       );
     } else if (e.target.textContent === '높은가격순') {
       this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=PRICE`
+        `/category?cname=${this.state.categoryName}&orderBy=PRICE&limit=16&offset=0`
       );
     } else if (e.target.textContent === '낮은가격순') {
       this.props.history.push(
-        `/category?cname=${this.state.categoryName}&orderBy=-PRICE`
+        `/category?cname=${this.state.categoryName}&orderBy=-PRICE&limit=16&offset=0`
       );
     }
+  };
+
+  onClickPagination = () => {
+    this.props.history.push(`/category?cname=${this.state.categoryName}&`);
   };
 
   render() {
@@ -229,10 +236,15 @@ class Category extends Component {
               </div>
             </button>
           </div>
-          <div className="productLists">
-            {productList.map(list => {
-              return <ProductItem key={list.id} list={list} link="/" />;
-            })}
+          <div className="productListsContainer">
+            <div className="productLists">
+              {productList.map(list => {
+                return <ProductItem key={list.id} list={list} link="/" />;
+              })}
+            </div>
+            <div className="paginationBtn" onClick={this.onClickPagination}>
+              더보기
+            </div>
           </div>
         </div>
       </div>
