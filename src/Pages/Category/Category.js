@@ -84,8 +84,13 @@ class Category extends Component {
   }
 
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName || '';
-    fetch(`${productApi}?cname=${categoryName}&limit=16&offset=0`)
+    const categoryName = this.props.match.params.categoryName;
+    const fetchDestination =
+      categoryName === undefined
+        ? `${productApi}?limit=16&offset=0`
+        : `${productApi}?cname=${categoryName}&limit=16&offset=0`;
+
+    fetch(fetchDestination)
       .then(result => result.json())
       .then(categoryData => {
         this.setState({

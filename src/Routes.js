@@ -6,6 +6,7 @@ import Category from './Pages/Category/Category';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Login/Signup';
 import Product from './Pages/Product/Product';
+import Search from './Pages/Main/Components/Nav/Search';
 import Footer from './Pages/Footer/Footer';
 import Cart from './Pages/Cart/Cart';
 import Orderlist from './Pages/Orderlist/Orderlist';
@@ -19,6 +20,7 @@ class Routes extends React.Component {
           <Route exact path="/main" component={Main} />
           <Route exact path="/category" component={Category} />
           <Route exact path="/category/:categoryName" component={Category} />
+          <Route exact path="/search/:categoryName" component={Search} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/product" component={Product} />
           <Route exact path="/product/:id" component={Product} />
