@@ -6,7 +6,7 @@ class ProductInCart extends React.Component {
     const {
       index,
       cartProduct,
-      quantity,
+      // quantity,
       plus,
       minus,
       handleInputQuantity,
@@ -16,7 +16,7 @@ class ProductInCart extends React.Component {
     return (
       <div className="productInCart">
         <div className="cartProductBox">
-          <input type="checkBox" />
+          <input type="checkBox" checked />
           <img
             alt={`장바구니 상품 ${cartProduct.id}`}
             src={cartProduct.thumbnail_url}
@@ -28,17 +28,24 @@ class ProductInCart extends React.Component {
           <div className="productOption">
             <div className="productQuantity">
               <span className="quantityGroup">
-                <button className="minus" type="button" onClick={minus}>
+                <button
+                  className="minus"
+                  type="button"
+                  onClick={() => minus(index, cartProduct.quantity)}
+                >
                   -
                 </button>
                 <input
                   className="countNum"
                   type="text"
-                  maxlength="2"
-                  value={quantity}
+                  value={cartProduct.quantity}
                   onChange={handleInputQuantity}
                 />
-                <button className="plus" type="button" onClick={plus}>
+                <button
+                  className="plus"
+                  type="button"
+                  onClick={() => plus(index, cartProduct.quantity)}
+                >
                   +
                 </button>
               </span>

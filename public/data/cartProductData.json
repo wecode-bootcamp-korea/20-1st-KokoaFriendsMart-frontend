@@ -2,18 +2,21 @@
   {
     "id": 1,
     "name": "어쩌구저쩌구",
+    "quantity": 2,
     "price": 30000,
     "thumbnail_url": "https://i.ibb.co/mS3Xq66/Wear-Caps-Peach-1.png"
   },
   {
     "id": 2,
     "name": "어쩌구저쩌구",
+    "quantity": 1,
     "price": 54878,
     "thumbnail_url": "https://i.ibb.co/ZWPsXDw/Electronics-Imac-Duckee-6.png"
   },
   {
     "id": 3,
     "name": "어쩌구저쩌구",
+    "quantity": 3,
     "price": 23324,
     "thumbnail_url": "https://i.ibb.co/7ghRSXB/Electronics-Imac-Peach-6.png"
   }

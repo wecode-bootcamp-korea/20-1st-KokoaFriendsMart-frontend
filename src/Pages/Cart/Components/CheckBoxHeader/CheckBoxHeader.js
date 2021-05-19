@@ -9,7 +9,7 @@ class CheckBoxHeader extends React.Component {
       <div className="checkBoxHeader">
         <input className="check" type="checkBox" />
         <span className="totalChoice">전체선택</span>
-        <span className="choiceNum">(선택개수/총개수)</span>
+        <span className="choiceNum">{`선택개수/${cartProductData.length}`}</span>
         <span className="choiceOption">옵션</span>
         <span className="choiceQuantity">수량</span>
         <span className="productTotal">상품금액</span>

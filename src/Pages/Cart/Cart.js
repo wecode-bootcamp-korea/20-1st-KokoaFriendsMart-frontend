@@ -12,7 +12,7 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
-      quantity: 1,
+      // quantity: 1,
     };
   }
 
@@ -30,13 +30,26 @@ class Cart extends React.Component {
     this.setState({ quantity: e.target.value });
   };
 
-  plus = () => {
-    this.setState({ quantity: Number(this.state.quantity) + 1 });
+  // plus = () => {
+  //   this.setState({ quantity: Number(this.state.quantity) + 1 });
+  // };
+
+  plus = (index, quantity) => {
+    if (quantity === 10) return;
+    this.setState({
+      cartProductData: this.state.cartProductData.map((data, i) =>
+        index === i ? { ...data, quantity: quantity + 1 } : data
+      ),
+    });
   };
 
-  minus = () => {
-    if (this.state.quantity === 1) return;
-    this.setState({ quantity: this.state.quantity - 1 });
+  minus = (index, quantity) => {
+    if (quantity === 1) return;
+    this.setState({
+      cartProductData: this.state.cartProductData.map((data, i) =>
+        i === index ? { ...data, quantity: quantity - 1 } : data
+      ),
+    });
   };
 
   deleteProduct = list => {
@@ -79,7 +92,7 @@ class Cart extends React.Component {
                   key={cartProduct.id}
                   cartProductData={cartProductData}
                   cartProduct={cartProduct}
-                  quantity={quantity}
+                  // quantity={quantity}
                   plus={this.plus}
                   minus={this.minus}
                   handleInputQuantity={this.handleInputQuantity}
