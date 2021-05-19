@@ -17,7 +17,6 @@ export class LikePick extends Component {
   componentDidMount() {
     const categoryName = '춘삼이';
 
-    console.log(`categoryName`, categoryName);
     fetch(`${productApi}?cname=${categoryName}&limit=4&offset=1`)
       .then(res => res.json())
       .then(res =>
