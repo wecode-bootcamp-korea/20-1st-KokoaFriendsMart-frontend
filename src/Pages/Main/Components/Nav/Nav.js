@@ -21,6 +21,10 @@ class Nav extends Component {
       .then(res => this.setState({ friends: res }));
   }
 
+  onClickItem = itemName => {
+    this.props.history.push(`/category/${itemName}`);
+  };
+
   render() {
     const { history } = this.props;
     const elecItems = ['아이맥', '태블릿', '폰', '워치'];
@@ -59,7 +63,9 @@ class Nav extends Component {
                         </div>
                         <ul className="categoryItemsSubCategories">
                           {elecItems.map(item => {
-                            return <li>{item}</li>;
+                            return (
+                              <li onClickItem={this.onClickItem}>{item}</li>
+                            );
                           })}
                           {/* <li>
                             <Link
