@@ -1,0 +1,60 @@
+@import '../../../../Styles/variables';
+
+.productInCart {
+  .cartProductBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+    border-top: 1px solid $lightGrey;
+
+    img {
+      margin: 20px;
+      border-radius: 10px;
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .productNamePrice {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .productOption {
+      position: absolute;
+      left: 60%;
+      display: flex;
+      align-items: center;
+
+      .productQuantity {
+        .quantityGroup {
+          padding: 10px;
+          margin-right: 100px;
+
+          button {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            border: 1px solid $lightGrey;
+            border-radius: 12px;
+          }
+
+          input.countNum {
+            width: 20px;
+            border: none;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .fa-trash {
+        color: $lightGrey;
+        font-size: 30px;
+        margin-left: 70px;
+      }
+    }
+  }
+}

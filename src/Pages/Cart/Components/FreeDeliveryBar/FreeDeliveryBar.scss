@@ -1,0 +1,52 @@
+@import '../../../../Styles/variables';
+
+.freeDeliveryBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  padding: 100px 0;
+  border-bottom: 1px solid grey;
+  font-size: 16px;
+  font-weight: 700;
+
+  .totalBar {
+    position: relative;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .movingCharacter {
+      position: absolute;
+      left: 60px;
+      width: 70px;
+    }
+
+    .movingPrice {
+      position: absolute;
+      bottom: -70px;
+      left: 60px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      background-color: grey;
+      color: $white;
+    }
+
+    .percentageBarLeft {
+      position: relative;
+      background-color: $yellow;
+      border-radius: 10px;
+      width: 5%;
+      height: 20px;
+    }
+
+    .percentageBarRight {
+      background-color: $lightGrey;
+      width: 80%;
+      height: 20px;
+      border-radius: 10px;
+    }
+  }
+}
