@@ -1,4 +1,5 @@
 @import '../../Styles/_variables.scss';
+
 .ProductItem {
   padding: 0 7px;
   margin-bottom: 25px;
@@ -10,15 +11,6 @@
       .productImg {
         width: 210px;
         height: 210px;
-      }
-    }
-
-    &.likepickItem {
-      width: 282px;
-
-      .productImg {
-        width: 282px;
-        height: 282px;
       }
     }
   }
@@ -88,12 +80,7 @@
       &.mdpickItem {
         font-size: 15px;
       }
-
-      &.likepickItem {
-        font-size: 18px;
-      }
     }
-
     .fa-heart {
       position: absolute;
       right: 0;
@@ -102,20 +89,14 @@
       color: #e1e1e1;
       cursor: pointer;
     }
-
     .yellow {
       color: #ffdf00;
     }
-
     .itemPrice {
       font-size: 20px;
 
       &.mdpickItem {
         font-size: 17px;
-      }
-
-      &.likepickItem {
-        font-size: 20px;
       }
     }
   }
