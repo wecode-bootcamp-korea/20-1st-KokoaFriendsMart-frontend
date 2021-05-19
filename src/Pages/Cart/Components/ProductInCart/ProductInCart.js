@@ -6,24 +6,30 @@ class ProductInCart extends React.Component {
     const {
       index,
       cartProduct,
-      // quantity,
       plus,
       minus,
       handleInputQuantity,
       deleteProduct,
       cartProductData,
+      isChecked,
+      toggleCheckBox,
     } = this.props;
+    console.log(isChecked);
     return (
       <div className="productInCart">
         <div className="cartProductBox">
-          <input type="checkBox" checked />
+          <input
+            type="checkBox"
+            checked={isChecked[index]}
+            onClick={() => toggleCheckBox(index)}
+          />
           <img
             alt={`장바구니 상품 ${cartProduct.id}`}
             src={cartProduct.thumbnail_url}
           />
           <div className="productNamePrice">
             <p>{cartProduct.name}</p>
-            <p>{cartProduct.price}</p>
+            <p>{cartProduct.price.toLocaleString()}원</p>
           </div>
           <div className="productOption">
             <div className="productQuantity">
@@ -50,7 +56,9 @@ class ProductInCart extends React.Component {
                 </button>
               </span>
             </div>
-            <span>{'상품 가격'}원</span>
+            <span>
+              {(cartProduct.price * cartProduct.quantity).toLocaleString()}원
+            </span>
             <button
               type="button"
               onClick={e => {

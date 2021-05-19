@@ -12,7 +12,9 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
-      // quantity: 1,
+      isChecked: [],
+      productPrice: 0,
+      totalProductPrice: 0,
     };
   }
 
@@ -22,7 +24,12 @@ class Cart extends React.Component {
       .then(cartProductData => {
         this.setState({
           cartProductData,
+          // isChecked: Array(this.state.cartProductData.length).fill(true),
         });
+        this.setState(previousState => ({
+          isChecked: Array(previousState.cartProductData.length).fill(true),
+        }));
+        console.log(cartProductData);
       });
   }
 
@@ -30,15 +37,11 @@ class Cart extends React.Component {
     this.setState({ quantity: e.target.value });
   };
 
-  // plus = () => {
-  //   this.setState({ quantity: Number(this.state.quantity) + 1 });
-  // };
-
   plus = (index, quantity) => {
     if (quantity === 10) return;
     this.setState({
-      cartProductData: this.state.cartProductData.map((data, i) =>
-        index === i ? { ...data, quantity: quantity + 1 } : data
+      cartProductData: this.state.cartProductData.map((productdata, i) =>
+        index === i ? { ...productdata, quantity: quantity + 1 } : productdata
       ),
     });
   };
@@ -46,8 +49,8 @@ class Cart extends React.Component {
   minus = (index, quantity) => {
     if (quantity === 1) return;
     this.setState({
-      cartProductData: this.state.cartProductData.map((data, i) =>
-        i === index ? { ...data, quantity: quantity - 1 } : data
+      cartProductData: this.state.cartProductData.map((productdata, i) =>
+        i === index ? { ...productdata, quantity: quantity - 1 } : productdata
       ),
     });
   };
@@ -60,8 +63,19 @@ class Cart extends React.Component {
     this.setState({ cartProductData: [...emptyList] });
   };
 
+  toggleCheckBox = index => {
+    console.log(index);
+    const isChecked = this.state.isChecked;
+    isChecked[index] = !isChecked[index];
+    this.setState({
+      isChecked: isChecked,
+    });
+  };
+
   render() {
-    const { cartProductData, quantity } = this.state;
+    const { cartProductData, isChecked, productPrice, totalProductPrice } =
+      this.state;
+    console.log(isChecked);
     return (
       <div className="cart">
         <Nav />
@@ -91,19 +105,24 @@ class Cart extends React.Component {
                   index={index}
                   key={cartProduct.id}
                   cartProductData={cartProductData}
+                  isChecked={isChecked}
                   cartProduct={cartProduct}
                   // quantity={quantity}
                   plus={this.plus}
                   minus={this.minus}
                   handleInputQuantity={this.handleInputQuantity}
                   deleteProduct={this.deleteProduct}
+                  toggleCheckBox={this.toggleCheckBox}
                 />
               );
             })}
           </section>
-          <TotalPriceBox />
+          <TotalPriceBox
+            productPrice={productPrice}
+            totalProductPrice={totalProductPrice}
+          />
           <button tupe="button" className="orderButton">
-            <span>(총금액)</span>원 주문하기
+            <span>{this.state.totalProductPrice}</span>원 주문하기
           </button>
         </section>
       </div>
