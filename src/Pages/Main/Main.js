@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './Components/Nav/Nav';
 import Mdpick from './Components/Mdpick/Mdpick';
+import BestItem from './Components/BestItem/BestItem';
 
 export class Main extends Component {
   render() {
@@ -8,6 +9,8 @@ export class Main extends Component {
       <div>
         <Nav />
         <Mdpick />
+        <Nav></Nav>
+        <BestItem />
       </div>
     );
   }

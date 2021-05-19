@@ -60,7 +60,7 @@
       "price": 1507900.0,
       "thumbnail_url": "https://i.ibb.co/mRM48Bs/Electronics-Tablet-Peach-0.png",
       "is_new": false,
-      "is_sale": false,
+      "is_sale": true,
       "is_soldout": false,
       "is_set": false,
       "is_picked": false,
