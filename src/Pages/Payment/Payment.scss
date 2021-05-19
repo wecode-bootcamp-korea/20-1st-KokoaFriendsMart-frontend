@@ -3,12 +3,12 @@
 .payment {
   .bgImg {
     width: 100%;
-    padding: 70px 0;
+    padding: 70px 30px;
     background-color: #eee;
     margin-bottom: 80px;
 
     .bgText {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
 
       h1 {
@@ -20,7 +20,7 @@
   }
 
   .productInfo {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto 50px;
 
     .orderProductCount {
@@ -36,7 +36,7 @@
       border-bottom: 1px solid #eee;
 
       img {
-        width: 100%;
+        width: 130px;
         height: 130px;
         object-fit: cover;
         border-radius: 12px;
@@ -64,8 +64,9 @@
   .orderInfo {
     display: flex;
     justify-content: space-between;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto 200px;
+    padding: 0 30px;
 
     .orderInfoLeft {
       width: 60%;
