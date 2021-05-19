@@ -7,9 +7,7 @@ export class Main extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <Mdpick />
-        <Nav></Nav>
         <BestItem />
       </div>
     );
