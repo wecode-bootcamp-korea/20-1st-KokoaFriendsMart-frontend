@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ProductItem from '../../Components/ProductItem/ProductItem';
 import { productApi } from '../../config';
 import './Category.scss';
@@ -33,12 +33,12 @@ export class Category extends Component {
         <div className="banner">
           <div className="bannerContainer">
             <div className="bannerControl">
-              <Link to="/" className="bannerArrow prevArrow">
+              <div className="bannerArrow prevArrow">
                 <img alt="이전 버튼" src="/images/swipe-left-white.svg" />
-              </Link>
-              <Link to="/" className="bannerArrow nextArrow">
+              </div>
+              <div className="bannerArrow nextArrow">
                 <img alt="다음 버튼" src="/images/swipe-right-white.svg" />
-              </Link>
+              </div>
             </div>
             <div className="caption">
               <div className="subtitle">CATEGORY</div>

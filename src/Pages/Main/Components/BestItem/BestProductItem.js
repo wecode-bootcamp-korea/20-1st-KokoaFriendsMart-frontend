@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './BestProductItem.scss';
 
-class ProductItem extends Component {
+class BestProductItem extends Component {
   render() {
     const { list, link, bestCount } = this.props;
     return (
@@ -41,4 +41,4 @@ class ProductItem extends Component {
   }
 }
 
-export default ProductItem;
+export default BestProductItem;
