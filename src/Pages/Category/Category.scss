@@ -1,4 +1,5 @@
 @import '../../Styles/_variables.scss';
+@import '../../Styles/mixin.scss';
 
 .Category {
   color: #333;
@@ -94,7 +95,7 @@
     .productLnb {
       display: flex;
       justify-content: space-between;
-      width: 1166px;
+      max-width: 1165px;
       margin: 0 auto;
       margin-bottom: 45px;
       font-size: $main-font-size;
@@ -157,25 +158,26 @@
 
     .productLists {
       display: flex;
-      max-width: 1197px;
-      margin: 0 auto;
       flex-wrap: wrap;
       column-count: 4;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
   }
   .hide {
     display: none;
   }
 
-  @media screen and (max-width: 1200px) {
+  @include tablet {
     .banner .bannerContainer .bannerControl {
       max-width: 859px;
     }
-  }
-
-  @media screen and (max-width: 833px) {
-    .banner .bannerContainer .bannerControl {
-      max-width: 100%;
+    .categoryBody .productLnb {
+      max-width: 859px;
+    }
+    .productLists {
+      max-width: 859px;
     }
   }
 }
