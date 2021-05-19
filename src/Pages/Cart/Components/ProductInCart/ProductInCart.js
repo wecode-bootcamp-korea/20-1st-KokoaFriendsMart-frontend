@@ -15,6 +15,7 @@ class ProductInCart extends React.Component {
       toggleCheckBox,
     } = this.props;
     console.log(isChecked);
+
     return (
       <div className="productInCart">
         <div className="cartProductBox">

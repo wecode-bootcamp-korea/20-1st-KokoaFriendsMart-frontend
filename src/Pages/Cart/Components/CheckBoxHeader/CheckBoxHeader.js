@@ -4,10 +4,15 @@ import './CheckBoxHeader.scss';
 
 class CheckBoxHeader extends React.Component {
   render() {
-    const { cartProductData, deleteAll } = this.props;
+    const { cartProductData, deleteAll, allChecked, isChecked } = this.props;
+    console.log(isChecked);
     return (
       <div className="checkBoxHeader">
-        <input className="check" type="checkBox" />
+        <input
+          className="check"
+          type="checkBox"
+          // checked={isChecked === [true, true, true] ? allChecked : !allChecked}
+        />
         <span className="totalChoice">전체선택</span>
         <span className="choiceNum">{`선택개수/${cartProductData.length}`}</span>
         <span className="choiceOption">옵션</span>

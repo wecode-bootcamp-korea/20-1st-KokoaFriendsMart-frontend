@@ -13,6 +13,7 @@ class Cart extends React.Component {
     this.state = {
       cartProductData: [],
       isChecked: [],
+      allChecked: true,
       productPrice: 0,
       totalProductPrice: 0,
     };
@@ -72,10 +73,44 @@ class Cart extends React.Component {
     });
   };
 
+  checkIndexArrFunction = isChecked => {
+    const checkIndexArr = [];
+    for (let i = 0; i < isChecked.length; i++) {
+      if (isChecked[i]) {
+        checkIndexArr.push(i);
+      }
+    }
+    return checkIndexArr;
+  };
+
+  // arr =[];
+  // checkIndexArr=checkIndexArrFunction(isChecked)
+  // for (let i=0; i<checkIndexArr.length; i++) {
+
+  // arr.push(cartProductData[i].price)
+  // }
+  // arr.reduce((acc, cur) => {return acc + cur })
+
+  // onClickOderBtn = () => {
+  //   fetch(API, {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: localStorage.getItem('accessToken'),
+  //     },
+  //   });
+  // };
+
   render() {
-    const { cartProductData, isChecked, productPrice, totalProductPrice } =
-      this.state;
+    const {
+      cartProductData,
+      isChecked,
+      productPrice,
+      totalProductPrice,
+      allChecked,
+    } = this.state;
     console.log(isChecked);
+
+    // console.log(price);
     return (
       <div className="cart">
         <Nav />
@@ -98,6 +133,8 @@ class Cart extends React.Component {
             <CheckBoxHeader
               cartProductData={cartProductData}
               deleteAll={this.deleteAll}
+              allChecked={allChecked}
+              isChecked={isChecked}
             />
             {cartProductData.map((cartProduct, index) => {
               return (
@@ -118,10 +155,16 @@ class Cart extends React.Component {
             })}
           </section>
           <TotalPriceBox
+            cartProductData={cartProductData}
+            isChecked={isChecked}
             productPrice={productPrice}
             totalProductPrice={totalProductPrice}
           />
-          <button tupe="button" className="orderButton">
+          <button
+            tupe="button"
+            className="orderButton"
+            onClick={this.onClickOderBtn}
+          >
             <span>{this.state.totalProductPrice}</span>원 주문하기
           </button>
         </section>
