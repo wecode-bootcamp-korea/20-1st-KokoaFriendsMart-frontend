@@ -60,6 +60,8 @@ class Category extends Component {
       productCount: 0,
       sortName: '최신순',
       bannerData: '',
+      offset: 0,
+      lastPage: false,
     };
   }
 
@@ -116,18 +118,30 @@ class Category extends Component {
   };
 
   onClickPrevArrow = () => {
+    this.setState({
+      lastPage: false,
+      offset: 0,
+    });
     this.props.history.push(
       `/category?&limit=16&offset=0&cname=${this.state.bannerData.prevCategoryName}`
     );
   };
 
   onClickNextArrow = () => {
+    this.setState({
+      lastPage: false,
+      offset: 0,
+    });
     this.props.history.push(
       `/category?&limit=16&offset=0&cname=${this.state.bannerData.nextCategoryName}`
     );
   };
 
   onClickFilter = e => {
+    this.setState({
+      lastPage: false,
+      offset: 0,
+    });
     if (e.target.textContent === '전체') {
       this.props.history.push(`/category?&limit=16&offset=0&cname=`);
     } else {
@@ -140,6 +154,8 @@ class Category extends Component {
   onClickSort = e => {
     this.setState({
       sortName: e.target.textContent,
+      lastPage: false,
+      offset: 0,
     });
     if (e.target.textContent === '최신순') {
       this.props.history.push(
@@ -161,11 +177,29 @@ class Category extends Component {
   };
 
   onClickPagination = () => {
-    this.props.history.push(`/category?cname=${this.state.categoryName}&`);
+    const nextOffset = 16 + this.state.offset;
+    fetch(
+      `${productApi}?cname=${this.state.categoryName}&limit=16&offset=${nextOffset}`
+    )
+      .then(result => result.json())
+      .then(categoryData => {
+        if (categoryData.data.is_last_page) {
+          this.setState({
+            lastPage: true,
+          });
+        }
+        this.setState({
+          productList: this.state.productList.concat([
+            ...categoryData.data.product_list,
+          ]),
+          productCount: categoryData.data.product_list.length,
+          offset: nextOffset,
+        });
+      });
   };
 
   render() {
-    const { productList, isShowSortBox, bannerData } = this.state;
+    const { productList, isShowSortBox, bannerData, lastPage } = this.state;
 
     return (
       <div className="Category">
@@ -238,11 +272,15 @@ class Category extends Component {
           </div>
           <div className="productListsContainer">
             <div className="productLists">
-              {productList.map(list => {
-                return <ProductItem key={list.id} list={list} link="/" />;
-              })}
+              {productList &&
+                productList.map(list => {
+                  return <ProductItem key={list.id} list={list} />;
+                })}
             </div>
-            <div className="paginationBtn" onClick={this.onClickPagination}>
+            <div
+              className={`paginationBtn ${lastPage && 'hide'}`}
+              onClick={this.onClickPagination}
+            >
               더보기
             </div>
           </div>
