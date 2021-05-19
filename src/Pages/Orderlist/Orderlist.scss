@@ -1,0 +1,196 @@
+@import 'src/Styles/_variables.scss';
+
+.orderlist {
+  .header {
+    background-color: #333;
+
+    .mypageHeader {
+      display: flex;
+      align-items: flex-end;
+      padding: 50px 0px;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #fff;
+
+      .basicInfo {
+        width: 50px;
+
+        .imgWrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+          margin-bottom: 25px;
+          padding: 15px;
+          background-color: rgb(135, 217, 228);
+          border-radius: 50%;
+        }
+
+        img {
+          width: 40px;
+        }
+      }
+
+      .userInfo {
+        width: 25%;
+        border-left: 2px solid grey;
+        padding: 30px 30px 0px;
+
+        .name {
+          color: $yellow;
+          margin-bottom: 15px;
+        }
+
+        &:first-child {
+          border-left: none;
+        }
+
+        .smallText {
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+
+        .largeText {
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .orderInfo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+
+    .myInfo {
+      width: 25%;
+      padding-top: 100px;
+      padding-left: 30px;
+      border-right: 2px solid #ddd;
+
+      div {
+        margin-bottom: 65px;
+      }
+
+      .boldText {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .lightText {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #999;
+      }
+    }
+
+    .detail {
+      width: 75%;
+
+      .orderDetail {
+        width: 100%;
+        padding: 100px 30px 0px 30px;
+
+        .orderDetailHeader {
+          padding-bottom: 10px;
+          border-bottom: 1px solid #333;
+        }
+
+        .orderItemList {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #333;
+
+          .date {
+            width: 15%;
+            padding: 30px 0px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .product {
+            display: flex;
+            align-items: center;
+            width: 85%;
+            padding: 30px 30px;
+            border-left: 1px solid #ddd;
+
+            .productInfo {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              padding-left: 25px;
+            }
+
+            img {
+              width: 130px;
+              height: 130px;
+              object-fit: cover;
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+      .paymentDetail {
+        width: 100%;
+        padding: 50px 30px 0px 30px;
+        margin-bottom: 100px;
+
+        .paymentDetailHeader {
+          padding-bottom: 10px;
+          border-bottom: 1px solid #333;
+        }
+
+        .paymentDetailbody {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #333;
+
+          .totalInfo {
+            width: 15%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .paymentDetailInfo {
+            width: 85%;
+            padding: 30px;
+            border-left: 1px solid #ddd;
+
+            .outside {
+              margin-bottom: 20px;
+
+              &:last-child {
+                margin: 0;
+              }
+            }
+
+            .inside {
+              display: flex;
+              justify-content: space-between;
+
+              .boldText {
+                font-size: 16px;
+                margin-bottom: 10px;
+              }
+
+              .lightText {
+                margin-bottom: 10px;
+                font-size: 14px;
+                color: #999;
+              }
+
+              .lastText {
+                margin: 0;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
