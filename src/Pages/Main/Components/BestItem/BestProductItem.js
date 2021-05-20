@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './BestProductItem.scss';
 
 class BestProductItem extends Component {
+  gotoProduct = () => {
+    this.props.history.push(`/product/${this.props.list.id}`);
+  };
+
   render() {
-    const { list, link, bestCount } = this.props;
+    const { list, bestCount } = this.props;
     return (
       <div className="BestProductItem">
         <div className="item">
-          <Link to={link} className="thum">
+          <div onClick={this.gotoProduct} className="thum">
             <span className="count">{bestCount}</span>
             <div className="imgContainer">
               <img
@@ -27,7 +31,7 @@ class BestProductItem extends Component {
             </span>
             <span className={`label ${list.is_set ? 'set' : 'hide'}`}>SET</span>
             <span className={`label ${list.is_new ? 'new' : 'hide'}`}>NEW</span>
-          </Link>
+          </div>
           <div className="itemDesc">
             <div className="itemTitle">{list.name}</div>
             <i
@@ -41,4 +45,4 @@ class BestProductItem extends Component {
   }
 }
 
-export default BestProductItem;
+export default withRouter(BestProductItem);
