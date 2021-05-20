@@ -14,6 +14,7 @@ class Nav extends Component {
     this.state = {
       friends: [],
       inputValue: '',
+      currentLogin: '',
     };
   }
 
@@ -22,7 +23,25 @@ class Nav extends Component {
     fetch('/data/character.json')
       .then(res => res.json())
       .then(res => this.setState({ friends: res }));
+    if (localStorage.getItem('accessToken')) {
+      this.setState({
+        currentLogin: '로그아웃',
+      });
+    } else {
+      this.setState({
+        currentLogin: '로그인',
+      });
+    }
   }
+
+  loginOutBtn = () => {
+    if (localStorage.getItem('accessToken')) {
+      this.setState({
+        currentLogin: '로그인',
+      });
+      localStorage.clear();
+    }
+  };
 
   render() {
     const { history, itemName } = this.props;
@@ -168,8 +187,12 @@ class Nav extends Component {
                   <div className="navBarUserSubPage">
                     <ul>
                       <li>
-                        <Link to="login" className="userSubPageLogin">
-                          로그인
+                        <Link
+                          to="login"
+                          className="userSubPageLogin"
+                          onClick={this.loginOutBtn}
+                        >
+                          {this.state.currentLogin}
                         </Link>
                       </li>
                       <li>
