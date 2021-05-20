@@ -70,8 +70,6 @@ class ProductInCart extends React.Component {
                   const newProductList = [...cartProductData];
                   newProductList.splice(index, 1);
                   deleteProduct(newProductList);
-                } else {
-                  e.preventDefault();
                 }
               }}
             >

@@ -12,10 +12,7 @@ class CheckBoxHeader extends React.Component {
         <input
           className="check"
           type="checkBox"
-          // onClick ={}
-          checked={
-            checkedNum(isChecked) === cartProductData.length ? true : false
-          }
+          checked={checkedNum(isChecked) === cartProductData.length}
         />
         <span className="totalChoice">전체선택</span>
         <span className="choiceNum">{` (${checkedNum(isChecked)}/${
@@ -36,9 +33,6 @@ class CheckBoxHeader extends React.Component {
               const newList = [...cartProductData];
               newList.splice(0, newList.length); //빈배열 만들기 위해
               deleteAll(newList);
-              console.log(newList);
-            } else {
-              e.preventDefault();
             }
           }}
         >

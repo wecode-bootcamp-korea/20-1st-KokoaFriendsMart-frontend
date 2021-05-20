@@ -13,7 +13,6 @@ class Cart extends React.Component {
     this.state = {
       cartProductData: [],
       isChecked: [],
-      allChecked: true,
     };
   }
 
@@ -27,7 +26,6 @@ class Cart extends React.Component {
         this.setState(previousState => ({
           isChecked: Array(previousState.cartProductData.length).fill(true),
         }));
-        console.log(cartProductData);
       });
   }
 
@@ -62,7 +60,6 @@ class Cart extends React.Component {
   };
 
   toggleCheckBox = index => {
-    console.log(index);
     const isChecked = this.state.isChecked;
     isChecked[index] = !isChecked[index];
     this.setState({
@@ -122,10 +119,6 @@ class Cart extends React.Component {
 
   render() {
     const { cartProductData, isChecked, allChecked } = this.state;
-    console.log(isChecked);
-    console.log(cartProductData);
-
-    // console.log(price);
     return (
       <div className="cart">
         <Nav />
@@ -142,7 +135,6 @@ class Cart extends React.Component {
               src="/images/characterImages/concon.png"
             />
           </section>
-          {/* <FreeDeliveryBar /> */}
 
           <section className="checkBox">
             <CheckBoxHeader
