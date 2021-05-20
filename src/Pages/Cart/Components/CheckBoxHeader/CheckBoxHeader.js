@@ -9,15 +9,15 @@ class CheckBoxHeader extends React.Component {
 
     return (
       <div className="checkBoxHeader">
-        <input
+        {/* <input
           className="check"
           type="checkBox"
-          checked={checkedNum(isChecked) === cartProductData.length}
-        />
+          // checked={checkedNum(isChecked) === cartProductData.length}
+        /> */}
         <span className="totalChoice">전체선택</span>
-        <span className="choiceNum">{` (${checkedNum(isChecked)}/${
+        {/* <span className="choiceNum">{` (${checkedNum(isChecked)}/${
           cartProductData.length
-        }) `}</span>
+        }) `}</span> */}
         <span className="choiceOption">옵션</span>
         <span className="choiceQuantity">수량</span>
         <span className="productTotal">상품금액</span>
