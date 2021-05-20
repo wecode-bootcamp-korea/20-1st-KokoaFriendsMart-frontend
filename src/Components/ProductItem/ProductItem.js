@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './ProductItem.scss';
 class ProductItem extends Component {
+  gotoProduct = () => {
+    this.props.history.push(`/product/${this.props.list.id}`);
+  };
+
   render() {
-    const { list, link, size } = this.props;
+    const { list, size } = this.props;
     return (
       <div className="ProductItem">
         <div className={`item ${size}`}>
-          <Link to={link} className="thum">
+          <div onClick={this.gotoProduct} className="thum">
             <div>
               <img
                 src={list.thumbnail_url}
@@ -25,7 +29,7 @@ class ProductItem extends Component {
             </span>
             <span className={`label ${list.is_set ? 'set' : 'hide'}`}>SET</span>
             <span className={`label ${list.is_new ? 'new' : 'hide'}`}>NEW</span>
-          </Link>
+          </div>
           <div className="itemDesc">
             <div className={`itemTitle ${size}`}>{list.name}</div>
             <i
@@ -40,4 +44,5 @@ class ProductItem extends Component {
     );
   }
 }
-export default ProductItem;
+
+export default withRouter(ProductItem);

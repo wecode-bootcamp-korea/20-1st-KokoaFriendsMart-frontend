@@ -1,4 +1,5 @@
 @import '../../Styles/_variables.scss';
+@import '../../Styles/mixin.scss';
 
 .Category {
   color: #333;
@@ -19,21 +20,10 @@
         max-width: 1166px;
       }
 
-      @media screen and (max-width: 1200px) {
-        .bannerControl {
-          max-width: 859px;
-        }
-      }
-
-      @media screen and (max-width: 833px) {
-        .bannerControl {
-          max-width: 100%;
-
-          .bannerArrow {
-            width: 30px;
-            height: 30px;
-          }
-        }
+      .bannerArrow {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
       }
     }
 
@@ -105,7 +95,7 @@
     .productLnb {
       display: flex;
       justify-content: space-between;
-      width: 1166px;
+      max-width: 1165px;
       margin: 0 auto;
       margin-bottom: 45px;
       font-size: $main-font-size;
@@ -165,16 +155,43 @@
         }
       }
     }
+    .productListsContainer {
+      position: relative;
 
-    .productLists {
-      display: flex;
-      max-width: 1197px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      column-count: 4;
+      .productLists {
+        display: flex;
+        flex-wrap: wrap;
+        column-count: 4;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 80px;
+      }
+
+      .paginationBtn {
+        position: absolute;
+        bottom: -47px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 150px;
+        border: 1px solid #eaeaea;
+        border-radius: 20px;
+        cursor: pointer;
+      }
     }
   }
   .hide {
     display: none;
+  }
+
+  @include tablet {
+    .banner .bannerContainer .bannerControl {
+      max-width: 859px;
+    }
+    .categoryBody .productLnb {
+      max-width: 859px;
+    }
+    .productLists {
+      max-width: 859px;
+    }
   }
 }
