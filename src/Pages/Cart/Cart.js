@@ -13,25 +13,26 @@ class Cart extends React.Component {
     this.state = {
       cartProductData: [],
       // isChecked: [],
+      totalPrice: 0,
     };
   }
 
   componentDidMount() {
-    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART', {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(res => res.json())
       .then(cartProductData => {
-        console.log(cartProductData);
-        if (cartProductData.status === 'UNAUTHORIZED_ERROR') {
+        if (!cartProductData.status === 'UNAUTHORIZED_ERROR') {
           this.setState({
-            cartProductData: [],
+            cartProductData: cartProductData.data.product_list,
           });
         } else {
           this.setState({
-            cartProductData: cartProductData.data.order_list,
+            cartProductData: [],
           });
-          // this.setState(previousState => ({
-          //   isChecked: Array(previousState.cartProductData.length).fill(true),
-          // }));
         }
       });
   }
@@ -65,6 +66,10 @@ class Cart extends React.Component {
   deleteAll = emptyList => {
     this.setState({ cartProductData: [...emptyList] });
   };
+
+  // totalprice = this.state.cartProductData.reduce((pre, cur) => {
+  //   return pre + cur.price;
+  // }, 0);
 
   // toggleCheckBox = index => {
   //   const isChecked = this.state.isChecked;
@@ -160,10 +165,8 @@ class Cart extends React.Component {
   //
 
   render() {
-    const { cartProductData, isChecked, allChecked } = this.state;
-    {
-      cartProductData && console.log(cartProductData);
-    }
+    const { cartProductData, isChecked, allChecked, totalPrice } = this.state;
+    // console.log(cartProductData);
     return (
       <div className="cart">
         <Nav />
@@ -182,13 +185,13 @@ class Cart extends React.Component {
           </section>
 
           <section className="checkBox">
-            <CheckBoxHeader
-              cartProductData={cartProductData}
-              deleteAll={this.deleteAll}
+            {/* <CheckBoxHeader
+              cartProductData={cartProductData && cartProductData}
+              // deleteAll={this.deleteAll}
               // allChecked={allChecked}
               // isChecked={isChecked}
               // checkedNum={this.checkedNum}
-            />
+            /> */}
             {cartProductData.map((cartProduct, index) => {
               return (
                 <ProductInCart
@@ -206,8 +209,15 @@ class Cart extends React.Component {
               );
             })}
           </section>
+
           <TotalPriceBox
             cartProductData={cartProductData}
+            totalPrice={
+              cartProductData.price &&
+              cartProductData.reduce((pre, cur) => {
+                return pre + cur.price;
+              }, 0)
+            }
             // isChecked={isChecked}
             // checkedProductTotalPrice={this.checkedProductTotalPrice}
           />

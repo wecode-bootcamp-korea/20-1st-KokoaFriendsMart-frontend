@@ -63,6 +63,52 @@ export class Product extends Component {
     this.setState({ moreView: !this.state.moreView });
   };
 
+  //상세페이지 장바구니 추가 버튼
+  onClickAddCartBtn = e => {
+    if (window.confirm('이 상품을 장바구니 추가하시겠습니까?')) {
+      fetch('http://api.kokoafriendsmart.com/orders', {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('accessToken'),
+        },
+        body: JSON.stringify({
+          order_list: [
+            {
+              product_id: this.props.match.params.id,
+              quantity: this.state.quantity,
+            },
+          ],
+          order_type: 'IN_CART', //상세페이지 장바구니 추가 버튼
+        }),
+      });
+    } else {
+      e.preventDefault();
+    }
+  };
+
+  // //상세페이지 바로 구매 버튼
+  // onClickPurchaseInstantBtn = e => {
+  //   if (window.confirm('구매페이지로 이동하시겠습니까?')) {
+  //     fetch(http://api.kokoafriendsmart.com/orders, {
+  //       method: 'POST',
+  //       headers: {
+  //         Authorization: localStorage.getItem('accessToken'),
+  //       },
+  //       body: JSON.stringify({
+  //         order_list: [
+  //           {
+  //             product_id: 123,
+  //             quantity: 2,
+  //           },
+  //         ],
+  //         order_type: 'PURCHASE_INSTANT', //세페이지 바로 구매 버튼
+  //       }),
+  //     });
+  //   } else {
+  //     e.preventDefault();
+  //   }
+  // };
+
   render() {
     const { productInformation, productReviewData, quantity, moreView } =
       this.state;
@@ -96,6 +142,7 @@ export class Product extends Component {
                   plusQuantity={this.plusQuantity}
                   minusQuantity={this.minusQuantity}
                   handleQuantityInput={this.handleQuantityInput}
+                  onClickAddCartBtn={this.onClickAddCartBtn}
                 />
               </div>
             </div>
