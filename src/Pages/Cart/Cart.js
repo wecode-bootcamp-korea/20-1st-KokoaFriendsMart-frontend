@@ -20,12 +20,19 @@ class Cart extends React.Component {
     fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART')
       .then(res => res.json())
       .then(cartProductData => {
-        this.setState({
-          cartProductData: cartProductData.data.order_list,
-        });
-        this.setState(previousState => ({
-          isChecked: Array(previousState.cartProductData.length).fill(true),
-        }));
+        console.log(cartProductData);
+        if (cartProductData.status === 'UNAUTHORIZED_ERROR') {
+          this.setState({
+            cartProductData: [],
+          });
+        } else {
+          this.setState({
+            cartProductData: cartProductData.data.order_list,
+          });
+          this.setState(previousState => ({
+            isChecked: Array(previousState.cartProductData.length).fill(true),
+          }));
+        }
       });
   }
 
