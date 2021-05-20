@@ -37,6 +37,8 @@ export class Product extends Component {
           productReviewData: reviewData,
         });
       });
+
+    window.scrollTo(0, 0);
   }
 
   plusQuantity = () => {

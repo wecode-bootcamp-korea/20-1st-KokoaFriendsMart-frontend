@@ -1,6 +1,7 @@
 .LikePick {
   .likePickContainer {
     width: 100%;
+    margin: 50px 0;
 
     .headerContainer {
       display: flex;
@@ -16,7 +17,8 @@
       display: flex;
       position: relative;
       height: 130px;
-
+      max-width: 1200px;
+      margin: 0 auto;
       .characters {
         position: absolute;
       }
