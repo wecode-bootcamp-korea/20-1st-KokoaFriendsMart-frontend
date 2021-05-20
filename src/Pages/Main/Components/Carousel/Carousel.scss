@@ -24,16 +24,16 @@
 
       .caption {
         position: absolute;
-        top: 200px;
-        left: 120px;
+        top: 250px;
+        left: 270px;
         font-size: $main-font-size;
       }
 
       .title {
         position: absolute;
-        top: 230px;
-        left: 120px;
-        width: 36%;
+        top: 280px;
+        left: 270px;
+        width: 25%;
         font-size: $slider-title;
         font-weight: bold;
         margin: 12px 0px;
@@ -41,8 +41,8 @@
 
       .description {
         position: absolute;
-        top: 360px;
-        left: 120px;
+        top: 410px;
+        left: 270px;
         font-size: $main-font-size;
       }
     }
@@ -60,10 +60,10 @@
   }
 
   .prevBtn {
-    left: 50px;
+    left: 100px;
   }
 
   .nextBtn {
-    right: 50px;
+    right: 100px;
   }
 }
