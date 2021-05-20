@@ -25,12 +25,12 @@ class ProductInCart extends React.Component {
             onClick={() => toggleCheckBox(index)}
           />
           <img
-            alt={`장바구니 상품 ${cartProduct.id}`}
+            alt={`장바구니 상품 ${cartProduct.order_id}`}
             src={cartProduct.thumbnail_url}
           />
           <div className="productNamePrice">
             <p>{cartProduct.name}</p>
-            <p>{cartProduct.price.toLocaleString()}원</p>
+            <p>{cartProduct.origin_price.toLocaleString()}원</p>
           </div>
           <div className="productOption">
             <div className="productQuantity">
@@ -58,7 +58,10 @@ class ProductInCart extends React.Component {
               </span>
             </div>
             <span>
-              {(cartProduct.price * cartProduct.quantity).toLocaleString()}원
+              {(
+                cartProduct.origin_price * cartProduct.quantity
+              ).toLocaleString()}
+              원
             </span>
             <button
               type="button"

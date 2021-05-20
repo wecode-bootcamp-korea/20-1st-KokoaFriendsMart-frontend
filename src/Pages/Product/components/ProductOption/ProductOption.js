@@ -20,6 +20,7 @@ class ProductOption extends React.Component {
       quantity,
       isLiked,
     } = this.props;
+    // const randomRelativeOption =
     return (
       <div className="productOption">
         <aside className="FloatingOptionOutbox">

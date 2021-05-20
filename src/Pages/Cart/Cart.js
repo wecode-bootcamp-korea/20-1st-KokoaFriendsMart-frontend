@@ -14,17 +14,15 @@ class Cart extends React.Component {
       cartProductData: [],
       isChecked: [],
       allChecked: true,
-      orderList: [],
     };
   }
 
   componentDidMount() {
-    fetch('/data/cartProductData.json')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART')
       .then(res => res.json())
       .then(cartProductData => {
         this.setState({
-          cartProductData,
-          // isChecked: Array(this.state.cartProductData.length).fill(true),
+          cartProductData: cartProductData.data.order_list,
         });
         this.setState(previousState => ({
           isChecked: Array(previousState.cartProductData.length).fill(true),
@@ -72,8 +70,6 @@ class Cart extends React.Component {
     });
   };
 
-  //불리언 값이 담긴 arr를 받아서 최종 가격 합을 반환한다??
-
   checkedProductTotalPrice = isChecked => {
     const checkedProductIndexArr = [];
     for (let i = 0; i < isChecked.length; i++) {
@@ -84,8 +80,9 @@ class Cart extends React.Component {
     const checkedProductPriceArr = checkedProductIndexArr.map(
       (checkindex, index) => {
         return (
-          this.state.cartProductData[checkindex].price *
-          this.state.cartProductData[checkindex].quantity
+          this.state.cartProductData[checkindex] &&
+          this.state.cartProductData[checkindex].origin_price *
+            this.state.cartProductData[checkindex].quantity
         );
       }
     );
@@ -98,36 +95,35 @@ class Cart extends React.Component {
     return checkedProductTotalPrice;
   };
 
-  // //카트에서 주문하기 버튼
-  // onClickOderBtn = () => {
-  //   fetch(API, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: localStorage.getItem('accessToken'),
-  //     },
-  //     body: JSON.stringify({
-  //       order_list: [
-  //         {
-  //           product_id: 123,
-  //           quantity: 2,
-  //         },
-  //         {
-  //           product_id: 13,
-  //           quantity: 1,
-  //         },
-  //         {
-  //           product_id: 23,
-  //           quantity: 5,
-  //         },
-  //       ],
-  //       order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
-  //     }),
-  //   });
-  // };
+  checkedNum = isChecked => {
+    const checkedProductIndexArr = [];
+    for (let i = 0; i < isChecked.length; i++) {
+      if (isChecked[i]) {
+        checkedProductIndexArr.push(i);
+      }
+    }
+    return checkedProductIndexArr.length;
+  };
+
+  //카트에서 주문하기 버튼
+  onClickOderBtn = () => {
+    fetch('http://api.kokoafriendsmart.com/orders', {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        order_list: this.state.cartProductData.map((el, i) => el.order_id),
+        // order_id_list: [3, 4],
+        order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+      }),
+    });
+  };
 
   render() {
     const { cartProductData, isChecked, allChecked } = this.state;
     console.log(isChecked);
+    console.log(cartProductData);
 
     // console.log(price);
     return (
@@ -146,7 +142,7 @@ class Cart extends React.Component {
               src="/images/characterImages/concon.png"
             />
           </section>
-          <FreeDeliveryBar />
+          {/* <FreeDeliveryBar /> */}
 
           <section className="checkBox">
             <CheckBoxHeader
@@ -154,12 +150,13 @@ class Cart extends React.Component {
               deleteAll={this.deleteAll}
               allChecked={allChecked}
               isChecked={isChecked}
+              checkedNum={this.checkedNum}
             />
             {cartProductData.map((cartProduct, index) => {
               return (
                 <ProductInCart
                   index={index}
-                  key={cartProduct.id}
+                  key={cartProduct.order_id}
                   cartProductData={cartProductData}
                   isChecked={isChecked}
                   cartProduct={cartProduct}
