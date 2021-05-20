@@ -59,14 +59,7 @@ class BestItem extends Component {
         <div className="sectionContents">
           {this.state.productData[period] &&
             this.state.productData[period].map(list => {
-              return (
-                <BestProductItem
-                  key={list.id}
-                  list={list}
-                  link="/"
-                  bestCount={list.bestCount}
-                />
-              );
+              return <BestProductItem key={list.id} list={list} link="/" />;
             })}
         </div>
       </div>

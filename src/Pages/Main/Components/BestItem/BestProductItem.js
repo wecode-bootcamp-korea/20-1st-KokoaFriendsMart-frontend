@@ -4,12 +4,11 @@ import './BestProductItem.scss';
 
 class BestProductItem extends Component {
   render() {
-    const { list, link, bestCount } = this.props;
+    const { list, link } = this.props;
     return (
       <div className="BestProductItem">
         <div className="item">
           <Link to={link} className="thum">
-            {/* <span className="count">{bestCount}</span> */}
             <div className="imgContainer">
               <img
                 src={list.thumbnail_url}
