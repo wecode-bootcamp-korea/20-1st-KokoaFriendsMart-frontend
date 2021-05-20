@@ -163,7 +163,6 @@ class Cart extends React.Component {
                   cartProductData={cartProductData}
                   isChecked={isChecked}
                   cartProduct={cartProduct}
-                  // quantity={quantity}
                   plus={this.plus}
                   minus={this.minus}
                   handleInputQuantity={this.handleInputQuantity}
