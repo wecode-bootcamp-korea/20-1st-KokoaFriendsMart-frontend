@@ -11,11 +11,11 @@ class Orderlist extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/orderlistdata.json')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASED')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          orderData: data.ORDER_DATA,
+          orderData: data,
         });
       });
   }
