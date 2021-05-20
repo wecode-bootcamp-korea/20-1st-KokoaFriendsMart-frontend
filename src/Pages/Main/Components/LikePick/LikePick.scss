@@ -1,0 +1,35 @@
+.LikePick {
+  .likePickContainer {
+    width: 100%;
+
+    .headerContainer {
+      display: flex;
+      height: 95px;
+      width: inherit;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 38px;
+    }
+
+    .characterContainer {
+      display: flex;
+      position: relative;
+      height: 130px;
+
+      .characters {
+        position: absolute;
+      }
+    }
+
+    .itemContainer {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-count: 4;
+      width: 1200px;
+      margin: 0 auto;
+      padding: 30px 0px;
+    }
+  }
+}

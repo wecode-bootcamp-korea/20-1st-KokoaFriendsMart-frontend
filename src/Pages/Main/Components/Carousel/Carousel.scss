@@ -6,49 +6,52 @@
 
   .carouselWrap {
     display: flex;
-    width: 300vw;
-    height: 55vh;
+    width: 100vw;
     border-bottom-right-radius: 20px;
-    transform: translate(-100vw);
+    transition: 0.5s;
 
     .carouselItem {
+      position: relative;
+      min-width: 100vw;
+      height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 100%;
-      padding-left: 80px;
+
+      .bgImg {
+        width: 100%;
+      }
 
       .caption {
+        position: absolute;
+        top: 200px;
+        left: 120px;
         font-size: $main-font-size;
       }
 
       .title {
+        position: absolute;
+        top: 230px;
+        left: 120px;
+        width: 36%;
         font-size: $slider-title;
         font-weight: bold;
         margin: 12px 0px;
       }
 
       .description {
+        position: absolute;
+        top: 360px;
+        left: 120px;
         font-size: $main-font-size;
-      }
-
-      &:nth-child(1) {
-        background-color: #ffebcd;
-      }
-
-      &:nth-child(2) {
-        background-color: #9acd32;
-      }
-
-      &:nth-child(3) {
-        background-color: #edacb1;
       }
     }
   }
-  .prevBtn {
+
+  .btn {
     position: absolute;
     top: 50%;
-    left: 10px;
+    transform: translateY(50%);
     padding: 10px 13px;
     border-radius: 50%;
     background-color: $white;
@@ -56,14 +59,11 @@
     cursor: pointer;
   }
 
+  .prevBtn {
+    left: 50px;
+  }
+
   .nextBtn {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    padding: 10px 13px;
-    border-radius: 50%;
-    background-color: $white;
-    opacity: 0.7;
-    cursor: pointer;
+    right: 50px;
   }
 }

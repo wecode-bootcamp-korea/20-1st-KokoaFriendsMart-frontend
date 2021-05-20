@@ -30,19 +30,25 @@ class BestItem extends Component {
           <h2 className="title">Best Item</h2>
           <ol className="subtitleContainer">
             <li
-              className={`subtitle ${period === '실시간' && 'active'}`}
+              className={`${
+                period === '실시간' ? 'subtitle active' : 'subtitle'
+              }`}
               onClick={this.onClickBtn}
             >
               실시간
             </li>
             <li
-              className={`subtitle ${period === '주간' && 'active'}`}
+              className={`${
+                period === '주간' ? 'subtitle active' : 'subtitle'
+              }`}
               onClick={this.onClickBtn}
             >
               주간
             </li>
             <li
-              className={`subtitle ${period === '스테디' && 'active'}`}
+              className={`${
+                period === '스테디' ? 'subtitle active' : 'subtitle'
+              }`}
               onClick={this.onClickBtn}
             >
               스테디

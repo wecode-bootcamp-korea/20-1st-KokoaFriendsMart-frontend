@@ -18,7 +18,9 @@ export class Product extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.kokoafriendsmart.com/products/445')
+    const productId = this.props.match.params.id;
+    console.log(productId);
+    fetch(`http://api.kokoafriendsmart.com/products/${productId}`)
       .then(res => res.json())
       .then(productInfoData => {
         this.setState({

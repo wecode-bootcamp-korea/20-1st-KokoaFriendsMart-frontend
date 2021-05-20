@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import CharactersList from './CharactersList/CharactersList';
+import { productApi } from '../../../../config';
 import Category from '../../../Category/Category';
+import CharactersList from './CharactersList/CharactersList';
+import ElecItems from './NavItems/ElecItems/ElecItems';
+import LivingItems from './NavItems/LivingItems/LivingItems';
+import WearItems from './NavItems/WearItems/WearItems';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -9,6 +13,7 @@ class Nav extends Component {
     super();
     this.state = {
       friends: [],
+      inputValue: '',
     };
   }
 
@@ -22,8 +27,6 @@ class Nav extends Component {
   render() {
     const { history } = this.props;
 
-    // const { categoryName } = this.props.match.params;
-
     return (
       <div className="Nav">
         <div className="mainContainer">
@@ -31,12 +34,16 @@ class Nav extends Component {
             <div className="categoryAndBestContainer">
               <ul className="categoryAndBest">
                 <li className="navBarHover">
-                  <a onClick={() => history.push('category')}>카테고리</a>
+                  <Link onClick={() => history.push('/category')}>
+                    카테고리
+                  </Link>
                   <div className="navDropdown">
                     <div className="dropdownContainer">
                       <div className="allItems">
                         <div className="allItemsTitle">
-                          <a href="/#">전체</a>
+                          <Link onClick={() => history.push('/category')}>
+                            전체
+                          </Link>
                         </div>
                         <div className="dropdownCharacters">
                           <div className="dropdownCharactersTitle">
@@ -47,83 +54,32 @@ class Nav extends Component {
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
-                          <a
+                          <Link
                             onClick={() => history.push('/category/일렉트로닉')}
                           >
                             일렉트로닉
-                          </a>
+                          </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <a onClick={() => history.push('/category/아이맥')}>
-                              아이맥
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/태블릿')}>
-                              태블릿
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/폰')}>
-                              폰
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/워치')}>
-                              워치
-                            </a>
-                          </li>
-                        </ul>
+                        <ElecItems />
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
-                          <a onClick={() => history.push('/category/웨어')}>
+                          <Link onClick={() => history.push('/category/웨어')}>
                             웨어
-                          </a>
+                          </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <a onClick={() => history.push('/category/셔츠')}>
-                              셔츠
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/모자')}>
-                              모자
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/후드')}>
-                              후드
-                            </a>
-                          </li>
-                        </ul>
+                        <WearItems />
                       </div>
                       <div className="categoryItems">
                         <div className="categoryItemTitle">
-                          <a onClick={() => history.push('/category/리빙')}>
+                          <Link onClick={() => history.push('/category/리빙')}>
                             리빙
-                          </a>
+                          </Link>
                         </div>
-                        <ul className="categoryItemsSubCategories">
-                          <li>
-                            <a onClick={() => history.push('/category/컵')}>
-                              컵
-                            </a>
-                          </li>
-                          <li>
-                            <a onClick={() => history.push('/category/책')}>
-                              책
-                            </a>
-                          </li>
-                        </ul>
+                        <LivingItems />
                       </div>
                     </div>
                   </div>
-                </li>
-                <li className="navBarBest">
-                  <a onClick={() => history.push('/category/베스트')}>베스트</a>
                 </li>
               </ul>
             </div>
@@ -135,7 +91,19 @@ class Nav extends Component {
                 <li className="navBarSearch">
                   <div className="searchContainer">
                     <div className="formGroup">
-                      <input className="searchInput" type="text" />
+                      <input
+                        className="searchInput"
+                        type="text"
+                        onChange={e =>
+                          this.setState({ inputValue: e.target.value })
+                        }
+                        value={this.state.inputValue}
+                        onKeyUp={e => {
+                          if (e.key === 'Enter') {
+                            history.push(`/search/${this.state.inputValue}`);
+                          }
+                        }}
+                      />
                       <a href="/#" className="searchButtonIcon">
                         <i class="fas fa-search" />
                       </a>
@@ -146,33 +114,39 @@ class Nav extends Component {
                           <h4 className="topSearchTitle">인기검색어</h4>
                           <ol className="topSearchList">
                             <li>
-                              <a
+                              <Link
                                 onClick={() => history.push('/category/아이맥')}
                               >
                                 아이맥
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a onClick={() => history.push('/category/폰')}>
+                              <Link
+                                onClick={() => history.push('/category/폰')}
+                              >
                                 폰
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a onClick={() => history.push('/category/셔츠')}>
+                              <Link
+                                onClick={() => history.push('/category/셔츠')}
+                              >
                                 셔츠
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
                                 onClick={() => history.push('/category/태블릿')}
                               >
                                 태블릿
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a onClick={() => history.push('/category/후드')}>
+                              <Link
+                                onClick={() => history.push('/category/후드')}
+                              >
                                 후드
-                              </a>
+                              </Link>
                             </li>
                           </ol>
                         </div>

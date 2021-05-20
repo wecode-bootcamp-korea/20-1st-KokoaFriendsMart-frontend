@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Payment.scss';
-import CART_DATA from './cartData';
 
 class OrderProductItem extends Component {
   render() {

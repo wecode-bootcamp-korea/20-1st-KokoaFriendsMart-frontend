@@ -1,5 +1,4 @@
-@import '../../Styles/_variables.scss';
-@import '../../Styles/mixin.scss';
+@import '../../../../Styles/_variables.scss';
 
 .Category {
   color: #333;
@@ -9,22 +8,8 @@
 
     .bannerContainer {
       position: relative;
+      padding-top: 80px;
       height: 100%;
-
-      .bannerControl {
-        position: relative;
-        top: 170px;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 auto;
-        max-width: 1166px;
-      }
-
-      .bannerArrow {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
     }
 
     .caption {
@@ -47,57 +32,21 @@
         &::after {
           content: '';
           position: relative;
-          top: 30px;
+          top: 15px;
           display: block;
-          width: 26px;
+          width: 185px;
           height: 3px;
           background-color: #333;
         }
       }
-
-      .desc {
-        font-size: 18px;
-        margin-bottom: 15px;
-        line-height: 25px;
-      }
     }
   }
   .categoryBody {
-    .productFilter {
-      margin: 55px 0;
-
-      ul {
-        text-align: center;
-      }
-
-      li {
-        display: inline-block;
-        padding: 15px 30px;
-        margin: 0 7px;
-        border-radius: 2rem;
-        font-size: $main-font-size;
-        color: #c9c9c9;
-        background-color: $category-background-color;
-
-        &:hover {
-          color: #333;
-          background-color: $yellow;
-          cursor: pointer;
-        }
-      }
-
-      .active {
-        color: #333;
-        background-color: $yellow;
-      }
-    }
-
     .productLnb {
       display: flex;
       justify-content: space-between;
-      max-width: 1165px;
-      margin: 0 auto;
-      margin-bottom: 45px;
+      width: 1166px;
+      margin: 45px auto 45px auto;
       font-size: $main-font-size;
 
       .productNum {
@@ -155,43 +104,16 @@
         }
       }
     }
-    .productListsContainer {
-      position: relative;
 
-      .productLists {
-        display: flex;
-        flex-wrap: wrap;
-        column-count: 4;
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-bottom: 80px;
-      }
-
-      .paginationBtn {
-        position: absolute;
-        bottom: -47px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 14px 150px;
-        border: 1px solid #eaeaea;
-        border-radius: 20px;
-        cursor: pointer;
-      }
+    .productLists {
+      display: flex;
+      max-width: 1197px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      column-count: 4;
     }
   }
   .hide {
     display: none;
-  }
-
-  @include tablet {
-    .banner .bannerContainer .bannerControl {
-      max-width: 859px;
-    }
-    .categoryBody .productLnb {
-      max-width: 859px;
-    }
-    .productLists {
-      max-width: 859px;
-    }
   }
 }
