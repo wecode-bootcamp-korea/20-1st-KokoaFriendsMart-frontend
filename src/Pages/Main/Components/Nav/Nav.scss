@@ -50,15 +50,20 @@ a {
     justify-content: space-evenly;
     position: absolute;
     left: 0px;
-    padding-top: 50px;
+    padding: 60px 60px;
     margin-top: 30px;
     width: 100%;
     height: 500px;
     background-color: $white;
+
+    a {
+      font-size: 18px;
+    }
   }
 
   .navDropdown {
     display: none;
+    // display: block;
   }
 
   .allItems {
@@ -104,6 +109,7 @@ a {
     padding: 0px 250px 0px 350px;
 
     a {
+      font-size: 20px;
       font-weight: bold;
     }
   }
