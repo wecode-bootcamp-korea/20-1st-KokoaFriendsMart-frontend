@@ -210,9 +210,9 @@ class Nav extends Component {
                   </div>
                 </li>
                 <li className="navBarMyCart">
-                  <a href="/#">
+                  <Link to="/cart">
                     <i class="fas fa-shopping-basket" />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

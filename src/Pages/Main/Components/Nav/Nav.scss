@@ -40,6 +40,7 @@ a {
   .navBarHover:hover {
     padding: 28px 0px;
     border-bottom: 4px solid $black;
+
     .navDropdown {
       display: block;
     }
@@ -55,6 +56,7 @@ a {
     width: 100%;
     height: 500px;
     background-color: $white;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
 
     a {
       font-size: 18px;
@@ -155,6 +157,7 @@ a {
     display: flex;
     border-radius: 15px;
     background-color: $white;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
   }
 
   .searchContainer:hover {
@@ -213,6 +216,7 @@ a {
   .navBarUserInfo:hover {
     position: relative;
     padding: 28px 0px;
+
     .navBarUserSubPage {
       display: block;
     }
@@ -220,7 +224,7 @@ a {
 
   .navBarUserInfo {
     i {
-      margin: 10px;
+      padding: 15px;
     }
   }
 
@@ -232,6 +236,7 @@ a {
       margin-top: 30px;
       background-color: $white;
       border-radius: 15px;
+      box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
     }
     li {
       padding: 15px 0px;
