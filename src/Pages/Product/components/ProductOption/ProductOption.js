@@ -67,14 +67,14 @@ class ProductOption extends React.Component {
                   <img
                     class="optionImg optionOne"
                     alt="상품 옵션1"
-                    src="/images/productDetail/wear/hat1.png"
+                    src="https://i.ibb.co/n7cYbbC/Electronics-Phone-Peepee-4.png"
                   />
                 </li>
                 <li>
                   <img
                     class="optionImg optionTwo"
                     alt="상품 옵션2"
-                    src="/images/productDetail/wear/hat1.png"
+                    src="https://i.ibb.co/s2Mg3gB/Electronics-Phone-Peepee-1.png"
                   />
                 </li>
               </ul>
