@@ -1,2 +1,2 @@
 export const loginSignupApi = 'http://api.kokoafriendsmart.com/';
-export const categoryApi = 'http://api.kokoafriendsmart.com/products';
+export const productApi = 'http://api.kokoafriendsmart.com/products';

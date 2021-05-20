@@ -1,20 +1,21 @@
 @import '../../Styles/variables.scss';
 
 .product {
-  nav {
-    border: 3px solid blue;
-    width: inherit;
+  .productContents {
+    // transform: translateY(150px);
+    padding-top: 100px;
+    z-index: -1;
   }
 
   .productDetailInnerbox {
     display: flex;
     justify-content: center;
-    //ProductDetail 컴포넌트 자리
+
+    //ProductDetail 컴포넌트 scss
 
     .detailImagesOutbox {
       width: 750px;
       margin-right: 50px;
-      // border: 3px solid $lightGrey;
 
       .detailImagesInnerbox {
         width: inherit;
@@ -23,12 +24,31 @@
           width: inherit;
 
           .productThumnailImg {
-            width: inherit;
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            border-radius: $product-border-radius;
           }
         }
-        // productDtail 컴포넌트 scss 자리
+        // productDtail 컴포넌트 scss
       }
     }
-    // productOption 컴포넌트 scss자리
+    // productOption 컴포넌트 scss
+  }
+
+  //.리뷰& Qna
+  .bottomOutbox {
+    display: flex;
+    justify-content: center;
+    .nothing {
+      width: 350px;
+    }
+
+    .bottomReviewQna {
+      width: 800px;
+      padding-left: 100px;
+    }
   }
 }

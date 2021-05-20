@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import ProductItem from './ProductItem';
-import { categoryApi } from '../../config';
+import { withRouter } from 'react-router-dom';
+import ProductItem from '../../Components/ProductItem/ProductItem';
+import { productApi } from '../../config';
 import './Category.scss';
 
 export class Category extends Component {
@@ -10,16 +10,18 @@ export class Category extends Component {
     this.state = {
       productList: [],
       isShowSortBox: false,
-      categoryData: {},
     };
   }
 
   componentDidMount() {
-    const categoryName = this.props.match.params.categoryName || '';
-    console.log(categoryName);
-    fetch(`${categoryApi}?cid=${categoryName}`)
+    const categoryName = this.props.match.params.categoryName;
+    const fetchDestination =
+      categoryName === undefined
+        ? `${productApi}`
+        : `${productApi}?cname=${categoryName}`;
+    fetch(fetchDestination)
       .then(res => res.json())
-      .then(res => this.setState({ categoryData: res }));
+      .then(res => this.setState({ productList: res.data.product_list }));
   }
 
   onClickListSort = () => {
@@ -35,12 +37,12 @@ export class Category extends Component {
         <div className="banner">
           <div className="bannerContainer">
             <div className="bannerControl">
-              <Link to="/" className="bannerArrow prevArrow">
+              <div className="bannerArrow prevArrow">
                 <img alt="이전 버튼" src="/images/swipe-left-white.svg" />
-              </Link>
-              <Link to="/" className="bannerArrow nextArrow">
+              </div>
+              <div className="bannerArrow nextArrow">
                 <img alt="다음 버튼" src="/images/swipe-right-white.svg" />
-              </Link>
+              </div>
             </div>
             <div className="caption">
               <div className="subtitle">CATEGORY</div>
@@ -85,7 +87,7 @@ export class Category extends Component {
           </div>
           <div className="productLists">
             {productList.map(list => {
-              return <ProductItem list={list} link="/" />;
+              return <ProductItem key={list.id} list={list} link="/" />;
             })}
           </div>
         </div>
@@ -94,4 +96,4 @@ export class Category extends Component {
   }
 }
 
-export default Category;
+export default withRouter(Category);

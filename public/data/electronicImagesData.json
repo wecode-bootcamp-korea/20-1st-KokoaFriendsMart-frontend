@@ -1,37 +1,37 @@
 [
   {
     "id": "1",
-    "img": "electronic/phone1.png",
+    "img": "https://i.ibb.co/n7cYbbC/Electronics-Phone-Peepee-4.png",
     "alt": "1"
   },
   {
     "id": "2",
-    "img": "electronic/phone2.png",
+    "img": "https://i.ibb.co/pbPjH20/Electronics-Phone-Chunsam-0.png",
     "alt": "2"
   },
   {
     "id": "3",
-    "img": "electronic/watch1.png",
+    "img": "https://i.ibb.co/HDm5Wd7/Electronics-Watch-Duckee-2.png",
     "alt": "3"
   },
   {
     "id": "4",
-    "img": "electronic/watch2.png",
+    "img": "https://i.ibb.co/p2D4zdc/Electronics-Watch-Concon-2.png",
     "alt": "4"
   },
   {
     "id": "5",
-    "img": "electronic/imac1.png",
+    "img": "https://i.ibb.co/PDfLdWt/Electronics-Imac-Peepee-8.png",
     "alt": "5"
   },
   {
     "id": "6",
-    "img": "electronic/imac2.png",
+    "img": "https://i.ibb.co/fnhppMJ/Electronics-Imac-Concon-0.png",
     "alt": "6"
   },
   {
     "id": "7",
-    "img": "electronic/groupImage.jpg",
+    "img": "https://i.ibb.co/86S6tZv/group-Image.jpg",
     "alt": "7"
   }
 ]
