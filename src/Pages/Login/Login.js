@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { loginSignupApi } from '../../config';
 import './Login.scss';
 
@@ -24,8 +25,8 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.token) {
-          localStorage.setItem('accessToken', result.token);
+        if (result.data.token) {
+          localStorage.setItem('accessToken', result.data.token);
           this.props.history.push('./main');
         }
       });
@@ -49,7 +50,10 @@ class Login extends Component {
               kokoa의 모든 서비스 뿐 아니라 Melon, Daum등
               <br /> 다른 다양한 서비스까지 이제 코코아계정으로 이용해 보세요!
             </p>
-            <img src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-cf2eb69e8c38343e3927cd9a0c9c26ee720b83440f818080f2508935dbc90660.png" />
+            <img
+              alt="kokoa"
+              src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-cf2eb69e8c38343e3927cd9a0c9c26ee720b83440f818080f2508935dbc90660.png"
+            />
           </div>
           <div className="loginWrap">
             <h1>kokoa</h1>
@@ -82,11 +86,13 @@ class Login extends Component {
             </button>
             <div className="infoUser">
               <div className="linkJoin">
-                <a href="#">회원가입</a>
+                <p>
+                  <Link to="/signup">회원가입</Link>
+                </p>
               </div>
               <div className="linkUser">
-                <a href="#">카카오계정</a>
-                <a href="#">비밀번호 찾기</a>
+                <p>카카오계정</p>
+                <p>비밀번호 찾기</p>
               </div>
             </div>
           </div>

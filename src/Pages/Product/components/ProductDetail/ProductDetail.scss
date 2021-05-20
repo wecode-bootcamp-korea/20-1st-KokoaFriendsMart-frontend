@@ -1,32 +1,47 @@
 @import '../../../../Styles/variables';
 
-.productDetailImages {
+.productDetail {
+  .moreView {
+    height: auto;
+  }
   .descriptionList {
-    width: 750px;
+    height: 2000px;
+    overflow-y: hidden;
+  }
 
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: inherit;
-      margin-bottom: 30px;
+  .productDetail li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+    margin-bottom: 30px;
 
-      .desImg {
-        width: 550px;
-        border-radius: 20px;
-      }
+    .desImg {
+      width: 550px;
+      border-radius: 20px;
+    }
 
-      h2 {
-        padding-top: 30px;
-        transform: translateX(-250px);
-        font-weight: 800;
-      }
+    h2 {
+      padding-top: 30px;
+      transform: translateX(-250px);
+      font-weight: 800;
+    }
 
-      .productDescription {
-        padding: 30px 0;
-        transform: translateX(-50px);
-        line-height: $product-description-line-height;
-      }
+    .productDescription {
+      padding: 30px 0;
+      transform: translateX(-50px);
+      line-height: $product-description-line-height;
+    }
+  }
+
+  .detailMore {
+    .detailMoreButton {
+      display: block;
+      margin: 40px auto;
+      font-size: 16px;
+    }
+    .hiddenButton {
+      display: none;
     }
   }
 }
