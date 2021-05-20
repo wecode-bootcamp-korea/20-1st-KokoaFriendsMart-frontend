@@ -14,8 +14,7 @@ class Cart extends React.Component {
       cartProductData: [],
       isChecked: [],
       allChecked: true,
-      productPrice: 0,
-      totalProductPrice: 0,
+      orderList: [],
     };
   }
 
@@ -73,23 +72,31 @@ class Cart extends React.Component {
     });
   };
 
-  checkIndexArrFunction = isChecked => {
-    const checkIndexArr = [];
+  //불리언 값이 담긴 arr를 받아서 최종 가격 합을 반환한다??
+
+  checkedProductTotalPrice = isChecked => {
+    const checkedProductIndexArr = [];
     for (let i = 0; i < isChecked.length; i++) {
       if (isChecked[i]) {
-        checkIndexArr.push(i);
+        checkedProductIndexArr.push(i);
       }
     }
-    return checkIndexArr;
+    const checkedProductPriceArr = checkedProductIndexArr.map(
+      (checkindex, index) => {
+        return (
+          this.state.cartProductData[checkindex].price *
+          this.state.cartProductData[checkindex].quantity
+        );
+      }
+    );
+    const checkedProductTotalPrice = checkedProductPriceArr.reduce(
+      (acc, cur) => {
+        return acc + cur;
+      },
+      0
+    );
+    return checkedProductTotalPrice;
   };
-
-  // arr =[];
-  // checkIndexArr=checkIndexArrFunction(isChecked)
-  // for (let i=0; i<checkIndexArr.length; i++) {
-
-  // arr.push(cartProductData[i].price)
-  // }
-  // arr.reduce((acc, cur) => {return acc + cur })
 
   // //카트에서 주문하기 버튼
   // onClickOderBtn = () => {
@@ -119,13 +126,7 @@ class Cart extends React.Component {
   // };
 
   render() {
-    const {
-      cartProductData,
-      isChecked,
-      productPrice,
-      totalProductPrice,
-      allChecked,
-    } = this.state;
+    const { cartProductData, isChecked, allChecked } = this.state;
     console.log(isChecked);
 
     // console.log(price);
@@ -175,15 +176,17 @@ class Cart extends React.Component {
           <TotalPriceBox
             cartProductData={cartProductData}
             isChecked={isChecked}
-            productPrice={productPrice}
-            totalProductPrice={totalProductPrice}
+            checkedProductTotalPrice={this.checkedProductTotalPrice}
           />
           <button
             tupe="button"
             className="orderButton"
             onClick={this.onClickOderBtn}
           >
-            <span>{this.state.totalProductPrice}</span>원 주문하기
+            <span>
+              {this.checkedProductTotalPrice(isChecked).toLocaleString()}
+            </span>
+            원 주문하기
           </button>
         </section>
       </div>
