@@ -39,7 +39,7 @@ a {
 
   .navBarHover:hover {
     padding: 28px 0px;
-    border-bottom: 2px solid $black;
+    border-bottom: 4px solid $black;
     .navDropdown {
       display: block;
     }
@@ -54,11 +54,11 @@ a {
     margin-top: 30px;
     width: 100%;
     height: 500px;
+    background-color: $white;
   }
 
   .navDropdown {
     display: none;
-    // display: block;
   }
 
   .allItems {
@@ -97,11 +97,6 @@ a {
       display: inline;
       top: 500px;
     }
-  }
-
-  .navBarBest:hover {
-    padding: 28px 0px;
-    border-bottom: 2px solid $black;
   }
 
   // header
@@ -153,6 +148,7 @@ a {
     margin-top: 37px;
     display: flex;
     border-radius: 15px;
+    background-color: $white;
   }
 
   .searchContainer:hover {
@@ -172,7 +168,6 @@ a {
 
   .searchTrend {
     display: none;
-    // display: block;
     padding-left: 30px;
     z-index: 1;
     .topSearch {
@@ -194,7 +189,6 @@ a {
 
   .recentSearch {
     display: none;
-    // display: block;
     z-index: 1;
     .searchResults {
       .searchResultsTitle {
@@ -241,7 +235,6 @@ a {
 
     & {
       display: none;
-      // display: block;
       z-index: 1;
     }
   }
