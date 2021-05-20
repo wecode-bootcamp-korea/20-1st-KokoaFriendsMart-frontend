@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import OrderItem from './OrderItem';
-import ORDER_DATA from './OrderListData';
 import './Orderlist.scss';
 
-export class Orderlist extends Component {
+class Orderlist extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,12 +11,18 @@ export class Orderlist extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      cartData: ORDER_DATA,
-    });
+    fetch('/data/orderlistdata.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          orderData: data.ORDER_DATA,
+        });
+      });
   }
 
   render() {
+    const { orderData } = this.state;
+    console.log(orderData.data && orderData.data.order_list[0].date);
     return (
       <div className="orderlist">
         <div className="wraper header">
@@ -26,8 +31,10 @@ export class Orderlist extends Component {
               <div className="imgWrap">
                 <img alt="profile" src="https://i.ibb.co/1mNL56P/ducky.png" />
               </div>
-              <p className="largeText name">박준모님</p>
-              <p>junmopark01@gmail.com</p>
+              <p className="largeText name">
+                {orderData.data && orderData.data.user_info.name}님
+              </p>
+              <p>{orderData.data && orderData.data.user_info.email}</p>
             </div>
             <div className="rank userInfo">
               <p className="smallText">등급</p>
@@ -70,14 +77,16 @@ export class Orderlist extends Component {
                 <div className="orderDetailHeader">
                   <p>주문내역상세</p>
                 </div>
-                {ORDER_DATA.map(el => (
-                  <OrderItem
-                    key={el.id}
-                    itemTitle={el.itemTitle}
-                    itemPrice={el.itemPrice}
-                    imgSrc={el.imgSrc}
-                  />
-                ))}
+                {orderData.data &&
+                  orderData.data.order_list.map(el => (
+                    <OrderItem
+                      key={el.order_id}
+                      itemTitle={el.name}
+                      itemPrice={el.total_discounted_price}
+                      imgSrc={el.thumbnail_url}
+                      date={el.date}
+                    />
+                  ))}
               </div>
               <div className="paymentDetail">
                 <div className="paymentDetailHeader">
@@ -94,7 +103,11 @@ export class Orderlist extends Component {
                           <p className="boldText">주문금액</p>
                         </div>
                         <div>
-                          <p className="boldText">17400원</p>
+                          <p className="boldText">
+                            {orderData.data &&
+                              orderData.data.sum_total_discounted_price.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                       <div className="inside">
@@ -102,7 +115,11 @@ export class Orderlist extends Component {
                           <p className="lightText">상품금액</p>
                         </div>
                         <div>
-                          <p className="lightText">17400원</p>
+                          <p className="lightText">
+                            {orderData.data &&
+                              orderData.data.sum_total_origin_price.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                       <div className="inside">
@@ -110,7 +127,12 @@ export class Orderlist extends Component {
                           <p className="lightText">즉시할인</p>
                         </div>
                         <div>
-                          <p className="lightText">0원</p>
+                          <p className="lightText">
+                            -
+                            {orderData.data &&
+                              orderData.data.sum_total_discount.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -136,7 +158,11 @@ export class Orderlist extends Component {
                           <p className="lightText">배송비</p>
                         </div>
                         <div>
-                          <p className="lightText">0원</p>
+                          <p className="lightText">
+                            {orderData.data &&
+                              orderData.data.shipping_fee.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -146,7 +172,11 @@ export class Orderlist extends Component {
                           <p className="boldText">배송비</p>
                         </div>
                         <div>
-                          <p className="boldText">3000원</p>
+                          <p className="boldText">
+                            {orderData.data &&
+                              orderData.data.shipping_fee.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                       <div className="inside">
@@ -164,7 +194,11 @@ export class Orderlist extends Component {
                           <p className="boldText lastText">합계</p>
                         </div>
                         <div>
-                          <p className="boldText lastText">20400원</p>
+                          <p className="boldText lastText">
+                            {orderData.data &&
+                              orderData.data.final_price.toLocaleString()}
+                            원
+                          </p>
                         </div>
                       </div>
                     </div>
