@@ -11,7 +11,11 @@ class Orderlist extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASED')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASED', {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
