@@ -19,9 +19,6 @@ class BestItem extends Component {
   onClickBtn = e => {
     this.setState({
       period: e.target.textContent,
-      if(period = e.target.textContent) {
-        className = 'active';
-      },
     });
   };
 
@@ -32,14 +29,23 @@ class BestItem extends Component {
         <div className="sectionInfo">
           <h2 className="title">Best Item</h2>
           <ol className="subtitleContainer">
-            <li className="subtitle update active" onClick={this.onClickBtn}>
+            <li
+              className={`subtitle ${period === '실시간' && 'active'}`}
+              onClick={this.onClickBtn}
+            >
               실시간
             </li>
-            <li className="subtitle week" onClick={this.onClickBtn}>
+            <li
+              className={`subtitle ${period === '주간' && 'active'}`}
+              onClick={this.onClickBtn}
+            >
               주간
             </li>
-            <li className="subtitle steady" onClick={this.onClickBtn}>
-              스테디셀러
+            <li
+              className={`subtitle ${period === '스테디' && 'active'}`}
+              onClick={this.onClickBtn}
+            >
+              스테디
             </li>
           </ol>
           <div className="more">베스트 상품 더 보기</div>

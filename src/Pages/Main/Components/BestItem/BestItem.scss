@@ -24,6 +24,21 @@
       cursor: pointer;
     }
 
+    .active {
+      position: relative;
+      font-weight: bold;
+      color: #333;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: $yellow;
+      }
+    }
+
     .more {
       margin-bottom: 45px;
       font-size: 14px;
@@ -40,22 +55,6 @@
         height: 30px;
         transform: rotate(270deg) scale(0.3);
         background: url('./sprite.png') -735px -265px no-repeat;
-      }
-    }
-
-    .active {
-      position: relative;
-      font-weight: bold;
-      color: #333;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -7px;
-        display: block;
-        width: 45px;
-        height: 3px;
-        background-color: $yellow;
       }
     }
   }
