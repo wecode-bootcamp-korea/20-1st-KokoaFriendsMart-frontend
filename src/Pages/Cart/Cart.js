@@ -30,7 +30,7 @@ class Cart extends React.Component {
           cartProductData.status === 'SUCCESS'
         ) {
           this.setState({
-            cartProductData: cartProductData.data.product_list,
+            cartProductData: cartProductData.data.order_list,
           });
         } else {
           this.setState({
