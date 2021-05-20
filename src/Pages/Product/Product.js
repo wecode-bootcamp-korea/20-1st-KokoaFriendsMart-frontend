@@ -20,8 +20,6 @@ export class Product extends Component {
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    // console.log(`this.props.match.params`, this.props.match.params.id);
-    // console.log(productId);
     fetch(
       `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`
     )
@@ -30,7 +28,6 @@ export class Product extends Component {
         this.setState({
           productInformation: productInfoData.data.product,
         });
-        // console.log(`productInfoData.data.product`, productInfoData);
       });
 
     fetch('/data/reviewData.json')
@@ -40,6 +37,8 @@ export class Product extends Component {
           productReviewData: reviewData,
         });
       });
+
+    window.scrollTo(0, 0);
   }
 
   plusQuantity = () => {
