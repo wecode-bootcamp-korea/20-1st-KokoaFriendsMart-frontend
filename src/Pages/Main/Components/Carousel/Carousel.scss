@@ -24,26 +24,27 @@
 
       .caption {
         position: absolute;
-        top: 250px;
+        top: 260px;
         left: 270px;
-        font-size: $main-font-size;
+        font-size: 25px;
       }
 
       .title {
         position: absolute;
-        top: 280px;
+        top: 290px;
         left: 270px;
-        width: 25%;
-        font-size: $slider-title;
+        width: 28%;
+        font-size: 50px;
         font-weight: bold;
+        line-height: 55px;
         margin: 12px 0px;
       }
 
       .description {
         position: absolute;
-        top: 410px;
+        top: 430px;
         left: 270px;
-        font-size: $main-font-size;
+        font-size: 25px;
       }
     }
   }
