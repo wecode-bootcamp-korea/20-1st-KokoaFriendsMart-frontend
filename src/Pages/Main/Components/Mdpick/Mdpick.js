@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import ProductItem from '../../../../Components/ProductItem/ProductItem';
 import './Mdpick.scss';
 import '../../../../Components/ProductItem/ProductItem.scss';
@@ -56,4 +57,4 @@ class Mdpick extends Component {
   }
 }
 
-export default Mdpick;
+export default withRouter(Mdpick);
