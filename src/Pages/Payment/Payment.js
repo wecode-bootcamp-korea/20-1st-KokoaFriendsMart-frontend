@@ -12,11 +12,15 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/cartdata.json')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASE_CART', {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          cartData: data.ORDER_DATA,
+          cartData: data,
         });
       });
   }
@@ -46,7 +50,7 @@ class Payment extends Component {
         <div className="productInfo">
           <div className="orderProductCount">
             <p>
-              주문 상품 ( {cartData.data && cartData.data.order_list.length} )
+              주문 상품 ({cartData.data && cartData.data.order_list.length} )
             </p>
           </div>
           {cartData.data &&
