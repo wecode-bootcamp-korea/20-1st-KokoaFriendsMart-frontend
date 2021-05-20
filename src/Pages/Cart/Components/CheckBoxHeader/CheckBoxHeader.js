@@ -4,8 +4,7 @@ import './CheckBoxHeader.scss';
 
 class CheckBoxHeader extends React.Component {
   render() {
-    const { cartProductData, deleteAll, allChecked, isChecked, checkedNum } =
-      this.props;
+    const { cartProductData, deleteAll } = this.props;
 
     return (
       <div className="checkBoxHeader">

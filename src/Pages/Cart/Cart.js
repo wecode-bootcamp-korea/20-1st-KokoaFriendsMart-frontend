@@ -12,7 +12,6 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
-      // isChecked: [],
       totalPrice: 0,
     };
   }
@@ -26,7 +25,7 @@ class Cart extends React.Component {
       .then(res => res.json())
       .then(cartProductData => {
         if (
-          cartProductData.status !== 'UNAUTHORIZED_ERROR' ||
+          !cartProductData.status == 'UNAUTHORIZED_ERROR' ||
           cartProductData.status === 'SUCCESS'
         ) {
           this.setState({
@@ -70,6 +69,15 @@ class Cart extends React.Component {
     this.setState({ cartProductData: [...emptyList] });
   };
 
+  totalPrice = cartProductData => {
+    const productPrice = cartProductData.map(
+      (el, i) => el.origin_price * el.quantity
+    );
+    return productPrice.reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+  };
+
   //카트에서 주문하기 버튼
   onClickOderBtn = () => {
     fetch('http://api.kokoafriendsmart.com/orders', {
@@ -82,47 +90,24 @@ class Cart extends React.Component {
         order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
       }),
     });
-    fetch('http://api.kokoafriendsmart.com/orders', {
-      method: 'PATCH',
-      headers: {
-        Authorization: localStorage.getItem('accessToken'),
-      },
-      body: JSON.stringify({
-        order_list: this.state.cartProductData.map((el, i) => el.order_id),
-        order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
-      }),
-    });
+    this.props.history.push('/payment');
   };
-
-  //
 
   render() {
     const { cartProductData, isChecked, allChecked, totalPrice } = this.state;
     return (
       <div className="cart">
-        <Nav />
-        {/* <Banner /> */}
-
         <section className="cartPageOutbox">
           <section className="topBanner">
             <div className="cartDescription">
               <p className="cart">장바구니</p>
               <p>주문하실 상품 및 수량을 한번 더 확인해 주세요.</p>
             </div>
-            <img
-              alt="코코아프랜즈들"
-              src="/images/characterImages/concon.png"
-            />
           </section>
-
           <section className="checkBox">
-            {/* <CheckBoxHeader
+            <CheckBoxHeader
               cartProductData={cartProductData && cartProductData}
-              // deleteAll={this.deleteAll}
-              // allChecked={allChecked}
-              // isChecked={isChecked}
-              // checkedNum={this.checkedNum}
-            /> */}
+            />
             {cartProductData.map((cartProduct, index) => {
               return (
                 <ProductInCart
@@ -143,12 +128,7 @@ class Cart extends React.Component {
 
           <TotalPriceBox
             cartProductData={cartProductData}
-            totalPrice={
-              cartProductData.price &&
-              cartProductData.reduce((pre, cur) => {
-                return pre + cur.price;
-              }, 0)
-            }
+            totalPrice={this.totalPrice}
           />
           <button
             tupe="button"
@@ -156,7 +136,7 @@ class Cart extends React.Component {
             onClick={this.onClickOderBtn}
           >
             <span>
-              {/* {this.checkedProductTotalPrice(isChecked).toLocaleString()} */}
+              {(this.totalPrice(cartProductData) + 3000).toLocaleString()}
             </span>
             원 주문하기
           </button>
