@@ -3,10 +3,10 @@ import './Orderlist.scss';
 
 class OrderItem extends Component {
   render() {
-    const { itemTitle, itemPrice, imgSrc } = this.props;
+    const { itemTitle, itemPrice, imgSrc, date } = this.props;
     return (
       <div className="orderItemList">
-        <div className="date">2021.05.21</div>
+        <div className="date">{date}</div>
         <div className="product">
           <div>
             <img alt={itemTitle} src={imgSrc} />

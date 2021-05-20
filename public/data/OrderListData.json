@@ -1,0 +1,45 @@
+{
+  "ORDER_DATA": {
+    "status": "SUCCESS",
+    "data": {
+      "sum_total_origin_price": 120000,
+      "sum_total_discounted_price": 102000,
+      "sum_total_discount": 18000,
+      "shipping_fee": 3000,
+      "final_price": 105000,
+      "order_list": [
+        {
+          "order_id": 1,
+          "date": "2021-05-21",
+          "name": "피치피치 후드티",
+          "quantity": 2,
+          "origin_price": 30000,
+          "discounted_price": 25500,
+          "total_price": 60000,
+          "total_discounted_price": 51000,
+          "thumbnail_url": "https://i.ibb.co/k3qCkXx/Wear-Hoodie-Peach-1.png",
+          "discount_ratio": 0.15
+        },
+        {
+          "order_id": 2,
+          "date": "2021-05-19",
+          "name": "피치피치 후드티",
+          "quantity": 2,
+          "origin_price": 30000,
+          "discounted_price": 25500,
+          "total_price": 60000,
+          "total_discounted_price": 51000,
+          "total_discount": 9000,
+          "thumbnail_url": "https://i.ibb.co/ng17h3P/Wear-Hoodie-Duckee-4.png",
+          "discount_ratio": 0.15
+        }
+      ],
+      "user_info": {
+        "id": 1,
+        "name": "박준모",
+        "email": "junmopark01@gmail.com",
+        "phone_number": "010-8547-6817"
+      }
+    }
+  }
+}
