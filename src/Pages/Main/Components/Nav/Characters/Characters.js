@@ -5,14 +5,22 @@ import './Characters.scss';
 
 class Characters extends Component {
   render() {
-    const { img, name, history } = this.props;
+    const { img, name, history, onClickLikePick } = this.props;
     return (
-      <div
-        className="friendsContainer"
-        onClick={() => history.push(`category/${name}`)}
-      >
-        <img src={img} alt="characters" />
-        <div className="characterNames">{name}</div>
+      <div className="friendsContainer">
+        <img
+          onClick={() => history.push(`category/${name}`)}
+          onClick={() => onClickLikePick(name)}
+          src={img}
+          alt="characters"
+        />
+        <div
+          onClick={() => history.push(`category/${name}`)}
+          onClick={() => onClickLikePick(name)}
+          className="characterNames"
+        >
+          {name}
+        </div>
       </div>
     );
   }

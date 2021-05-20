@@ -25,7 +25,8 @@ class Nav extends Component {
   }
 
   render() {
-    const { history, itemName } = this.props;
+    const { history } = this.props;
+
     return (
       <div className="Nav">
         <div className="mainContainer">

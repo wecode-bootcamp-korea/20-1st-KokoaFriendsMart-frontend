@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './ProductItem.scss';
-
 class ProductItem extends Component {
   gotoProduct = () => {
     this.props.history.push(`/product/${this.props.list.id}`);

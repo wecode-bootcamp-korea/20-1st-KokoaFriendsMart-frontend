@@ -4,11 +4,18 @@ import './CharactersList.scss';
 
 class CharactersList extends Component {
   render() {
-    const { friends } = this.props;
+    const { friends, location, onClickLikePick } = this.props;
     return (
-      <div className="charactersList">
+      <div className={`charactersList ${location}`}>
         {friends.map((friends, id) => {
-          return <Characters key={id} img={friends.img} name={friends.name} />;
+          return (
+            <Characters
+              onClickLikePick={onClickLikePick}
+              key={id}
+              img={friends.img}
+              name={friends.name}
+            />
+          );
         })}
       </div>
     );

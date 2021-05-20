@@ -2,4 +2,11 @@
   display: flex;
   position: absolute;
   top: 350px;
+
+  &.likepickItem {
+    display: flex;
+    position: absolute;
+    top: 13px;
+    left: 700px;
+  }
 }
