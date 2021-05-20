@@ -12,21 +12,113 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
+      isChecked: [],
     };
   }
 
   componentDidMount() {
-    fetch('/data/cartProductData.json')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART')
       .then(res => res.json())
       .then(cartProductData => {
         this.setState({
-          cartProductData,
+          cartProductData: cartProductData.data.order_list,
         });
+        this.setState(previousState => ({
+          isChecked: Array(previousState.cartProductData.length).fill(true),
+        }));
       });
   }
 
+  handleInputQuantity = e => {
+    this.setState({ quantity: e.target.value });
+  };
+
+  plus = (index, quantity) => {
+    if (quantity === 10) return;
+    this.setState({
+      cartProductData: this.state.cartProductData.map((productdata, i) =>
+        index === i ? { ...productdata, quantity: quantity + 1 } : productdata
+      ),
+    });
+  };
+
+  minus = (index, quantity) => {
+    if (quantity === 1) return;
+    this.setState({
+      cartProductData: this.state.cartProductData.map((productdata, i) =>
+        i === index ? { ...productdata, quantity: quantity - 1 } : productdata
+      ),
+    });
+  };
+
+  deleteProduct = list => {
+    this.setState({ cartProductData: [...list] });
+  };
+
+  deleteAll = emptyList => {
+    this.setState({ cartProductData: [...emptyList] });
+  };
+
+  toggleCheckBox = index => {
+    const isChecked = this.state.isChecked;
+    isChecked[index] = !isChecked[index];
+    this.setState({
+      isChecked: isChecked,
+    });
+  };
+
+  checkedProductTotalPrice = isChecked => {
+    const checkedProductIndexArr = [];
+    for (let i = 0; i < isChecked.length; i++) {
+      if (isChecked[i]) {
+        checkedProductIndexArr.push(i);
+      }
+    }
+    const checkedProductPriceArr = checkedProductIndexArr.map(
+      (checkindex, index) => {
+        return (
+          this.state.cartProductData[checkindex] &&
+          this.state.cartProductData[checkindex].origin_price *
+            this.state.cartProductData[checkindex].quantity
+        );
+      }
+    );
+    const checkedProductTotalPrice = checkedProductPriceArr.reduce(
+      (acc, cur) => {
+        return acc + cur;
+      },
+      0
+    );
+    return checkedProductTotalPrice;
+  };
+
+  checkedNum = isChecked => {
+    const checkedProductIndexArr = [];
+    for (let i = 0; i < isChecked.length; i++) {
+      if (isChecked[i]) {
+        checkedProductIndexArr.push(i);
+      }
+    }
+    return checkedProductIndexArr.length;
+  };
+
+  //카트에서 주문하기 버튼
+  onClickOderBtn = () => {
+    fetch('http://api.kokoafriendsmart.com/orders', {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        order_list: this.state.cartProductData.map((el, i) => el.order_id),
+        // order_id_list: [3, 4],
+        order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+      }),
+    });
+  };
+
   render() {
-    const { cartProductData } = this.state;
+    const { cartProductData, isChecked, allChecked } = this.state;
     return (
       <div className="cart">
         <Nav />
@@ -43,19 +135,46 @@ class Cart extends React.Component {
               src="/images/characterImages/concon.png"
             />
           </section>
-          <FreeDeliveryBar />
 
           <section className="checkBox">
-            <CheckBoxHeader />
+            <CheckBoxHeader
+              cartProductData={cartProductData}
+              deleteAll={this.deleteAll}
+              allChecked={allChecked}
+              isChecked={isChecked}
+              checkedNum={this.checkedNum}
+            />
             {cartProductData.map((cartProduct, index) => {
               return (
-                <ProductInCart key={cartProduct.id} cartProduct={cartProduct} />
+                <ProductInCart
+                  index={index}
+                  key={cartProduct.order_id}
+                  cartProductData={cartProductData}
+                  isChecked={isChecked}
+                  cartProduct={cartProduct}
+                  plus={this.plus}
+                  minus={this.minus}
+                  handleInputQuantity={this.handleInputQuantity}
+                  deleteProduct={this.deleteProduct}
+                  toggleCheckBox={this.toggleCheckBox}
+                />
               );
             })}
           </section>
-          <TotalPriceBox />
-          <button tupe="button" className="orderButton">
-            <span>(총금액)</span>원 주문하기
+          <TotalPriceBox
+            cartProductData={cartProductData}
+            isChecked={isChecked}
+            checkedProductTotalPrice={this.checkedProductTotalPrice}
+          />
+          <button
+            tupe="button"
+            className="orderButton"
+            onClick={this.onClickOderBtn}
+          >
+            <span>
+              {this.checkedProductTotalPrice(isChecked).toLocaleString()}
+            </span>
+            원 주문하기
           </button>
         </section>
       </div>
