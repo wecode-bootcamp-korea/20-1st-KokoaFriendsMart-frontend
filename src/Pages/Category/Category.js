@@ -64,6 +64,56 @@ const mapper = categoryName => {
       desc2: '만나보세요!',
       mainCategory: '전체',
     },
+    [['춘삼이'].includes(categoryName)]: {
+      id: 4,
+      nextCategoryName: '피치피치',
+      prevCategoryName: '삐약이',
+      backColor: '#FCCC6B',
+      title: '춘삼이',
+      desc1: '귀여운',
+      desc2: '춘삼이!',
+      mainCategory: '전체',
+    },
+    [['피치피치'].includes(categoryName)]: {
+      id: 5,
+      nextCategoryName: '덕이',
+      prevCategoryName: '콘콘',
+      backColor: '#F6C4BD',
+      title: '피치피치',
+      desc1: '피치피치',
+      desc2: '다비치!',
+      mainCategory: '전체',
+    },
+    [['덕이'].includes(categoryName)]: {
+      id: 6,
+      nextCategoryName: '콘콘',
+      prevCategoryName: '피치피치',
+      backColor: '#E4CFBC',
+      title: '덕이',
+      desc1: '덕이',
+      desc2: '꽥꽥!',
+      mainCategory: '전체',
+    },
+    [['콘콘'].includes(categoryName)]: {
+      id: 7,
+      nextCategoryName: '삐약이',
+      prevCategoryName: '덕이',
+      backColor: '#C5DDC6',
+      title: '콘콘',
+      desc1: '콘콘이는',
+      desc2: '귀여워!',
+      mainCategory: '전체',
+    },
+    [['삐약이'].includes(categoryName)]: {
+      id: 8,
+      nextCategoryName: '춘삼이',
+      prevCategoryName: '콘콘',
+      backColor: '#DCBEDD',
+      title: '삐약이',
+      desc1: '삐약삐약',
+      desc2: '병아리!',
+      mainCategory: '전체',
+    },
   };
   return table.true;
 };
@@ -102,7 +152,7 @@ class Category extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.location.search !== this.props.location.search) {
       if (this.props.location.search.includes('order')) {
         const query =
@@ -189,7 +239,9 @@ class Category extends Component {
   onClickPagination = () => {
     const nextOffset = 16 + this.state.offset;
     fetch(
-      `${productApi}?cname=${this.state.categoryName}&limit=16&offset=${nextOffset}`
+      `${productApi}?cname=${
+        this.state.categoryName || ''
+      }&limit=16&offset=${nextOffset}`
     )
       .then(result => result.json())
       .then(categoryData => {
@@ -280,7 +332,9 @@ class Category extends Component {
             <div className="productLists">
               {productList &&
                 productList.map(list => {
-                  return <ProductItem key={list.id} list={list} />;
+                  return (
+                    <ProductItem key={list.id * Math.random()} list={list} />
+                  );
                 })}
             </div>
             <div
