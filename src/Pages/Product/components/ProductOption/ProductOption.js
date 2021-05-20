@@ -19,6 +19,7 @@ class ProductOption extends React.Component {
       handleQuantityInput,
       quantity,
       isLiked,
+      onClickAddCartBtn,
     } = this.props;
     // const randomRelativeOption =
     return (
@@ -116,7 +117,7 @@ class ProductOption extends React.Component {
                     <button
                       type="button"
                       className="cartButton bottomBtn"
-                      onClick={this.goToCart}
+                      onClick={onClickAddCartBtn}
                       disabled={productInformation.is_soldout ? true : false}
                     >
                       <span>장바구니</span>

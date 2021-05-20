@@ -12,20 +12,31 @@ class Cart extends React.Component {
     super();
     this.state = {
       cartProductData: [],
-      isChecked: [],
+      // isChecked: [],
+      totalPrice: 0,
     };
   }
 
   componentDidMount() {
-    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART')
+    fetch('http://api.kokoafriendsmart.com/orders?orderType=IN_CART', {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(res => res.json())
       .then(cartProductData => {
-        this.setState({
-          cartProductData: cartProductData.data.order_list,
-        });
-        this.setState(previousState => ({
-          isChecked: Array(previousState.cartProductData.length).fill(true),
-        }));
+        if (
+          cartProductData.status !== 'UNAUTHORIZED_ERROR' ||
+          cartProductData.status === 'SUCCESS'
+        ) {
+          this.setState({
+            cartProductData: cartProductData.data.product_list,
+          });
+        } else {
+          this.setState({
+            cartProductData: [],
+          });
+        }
       });
   }
 
@@ -59,49 +70,6 @@ class Cart extends React.Component {
     this.setState({ cartProductData: [...emptyList] });
   };
 
-  toggleCheckBox = index => {
-    const isChecked = this.state.isChecked;
-    isChecked[index] = !isChecked[index];
-    this.setState({
-      isChecked: isChecked,
-    });
-  };
-
-  checkedProductTotalPrice = isChecked => {
-    const checkedProductIndexArr = [];
-    for (let i = 0; i < isChecked.length; i++) {
-      if (isChecked[i]) {
-        checkedProductIndexArr.push(i);
-      }
-    }
-    const checkedProductPriceArr = checkedProductIndexArr.map(
-      (checkindex, index) => {
-        return (
-          this.state.cartProductData[checkindex] &&
-          this.state.cartProductData[checkindex].origin_price *
-            this.state.cartProductData[checkindex].quantity
-        );
-      }
-    );
-    const checkedProductTotalPrice = checkedProductPriceArr.reduce(
-      (acc, cur) => {
-        return acc + cur;
-      },
-      0
-    );
-    return checkedProductTotalPrice;
-  };
-
-  checkedNum = isChecked => {
-    const checkedProductIndexArr = [];
-    for (let i = 0; i < isChecked.length; i++) {
-      if (isChecked[i]) {
-        checkedProductIndexArr.push(i);
-      }
-    }
-    return checkedProductIndexArr.length;
-  };
-
   //카트에서 주문하기 버튼
   onClickOderBtn = () => {
     fetch('http://api.kokoafriendsmart.com/orders', {
@@ -111,14 +79,25 @@ class Cart extends React.Component {
       },
       body: JSON.stringify({
         order_list: this.state.cartProductData.map((el, i) => el.order_id),
-        // order_id_list: [3, 4],
+        order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+      }),
+    });
+    fetch('http://api.kokoafriendsmart.com/orders', {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        order_list: this.state.cartProductData.map((el, i) => el.order_id),
         order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
       }),
     });
   };
 
+  //
+
   render() {
-    const { cartProductData, isChecked, allChecked } = this.state;
+    const { cartProductData, isChecked, allChecked, totalPrice } = this.state;
     return (
       <div className="cart">
         <Nav />
@@ -137,13 +116,13 @@ class Cart extends React.Component {
           </section>
 
           <section className="checkBox">
-            <CheckBoxHeader
-              cartProductData={cartProductData}
-              deleteAll={this.deleteAll}
-              allChecked={allChecked}
-              isChecked={isChecked}
-              checkedNum={this.checkedNum}
-            />
+            {/* <CheckBoxHeader
+              cartProductData={cartProductData && cartProductData}
+              // deleteAll={this.deleteAll}
+              // allChecked={allChecked}
+              // isChecked={isChecked}
+              // checkedNum={this.checkedNum}
+            /> */}
             {cartProductData.map((cartProduct, index) => {
               return (
                 <ProductInCart
@@ -161,10 +140,15 @@ class Cart extends React.Component {
               );
             })}
           </section>
+
           <TotalPriceBox
             cartProductData={cartProductData}
-            isChecked={isChecked}
-            checkedProductTotalPrice={this.checkedProductTotalPrice}
+            totalPrice={
+              cartProductData.price &&
+              cartProductData.reduce((pre, cur) => {
+                return pre + cur.price;
+              }, 0)
+            }
           />
           <button
             tupe="button"
@@ -172,7 +156,7 @@ class Cart extends React.Component {
             onClick={this.onClickOderBtn}
           >
             <span>
-              {this.checkedProductTotalPrice(isChecked).toLocaleString()}
+              {/* {this.checkedProductTotalPrice(isChecked).toLocaleString()} */}
             </span>
             원 주문하기
           </button>

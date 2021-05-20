@@ -14,16 +14,15 @@ class ProductInCart extends React.Component {
       isChecked,
       toggleCheckBox,
     } = this.props;
-    console.log(isChecked);
 
     return (
       <div className="productInCart">
         <div className="cartProductBox">
-          <input
+          {/* <input
             type="checkBox"
-            checked={isChecked[index]}
-            onClick={() => toggleCheckBox(index)}
-          />
+            // checked={isChecked[index]}
+            // onClick={() => toggleCheckBox(index)}
+          /> */}
           <img
             alt={`장바구니 상품 ${cartProduct.order_id}`}
             src={cartProduct.thumbnail_url}
