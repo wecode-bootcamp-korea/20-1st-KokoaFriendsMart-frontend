@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import ProductOption from './components/ProductOption/ProductOption';
 import ProductReview from './components/ProductReview/ProductReview';
@@ -19,8 +20,9 @@ export class Product extends Component {
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    console.log(productId);
-    fetch(`http://api.kokoafriendsmart.com/products/${productId}`)
+    fetch(
+      `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`
+    )
       .then(res => res.json())
       .then(productInfoData => {
         this.setState({
@@ -61,6 +63,7 @@ export class Product extends Component {
   render() {
     const { productInformation, productReviewData, quantity, moreView } =
       this.state;
+    console.log(productInformation);
     return (
       <div className="product">
         <Nav />
@@ -106,4 +109,4 @@ export class Product extends Component {
   }
 }
 
-export default Product;
+export default withRouter(Product);

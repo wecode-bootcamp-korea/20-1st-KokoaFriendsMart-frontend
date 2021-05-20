@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import BestProductItem from './BestProductItem';
 import './BestItem.scss';
 
@@ -67,4 +68,4 @@ class BestItem extends Component {
   }
 }
 
-export default BestItem;
+export default withRouter(BestItem);

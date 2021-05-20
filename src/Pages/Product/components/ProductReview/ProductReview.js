@@ -51,15 +51,15 @@ class ProductReview extends React.Component {
                         <div className="reviewPicture">
                           <img
                             alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
-                            src={`/images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                            src="https://i.ibb.co/pbPjH20/Electronics-Phone-Chunsam-0.png"
                           />
                           <img
                             alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
-                            src={`/images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                            src="https://i.ibb.co/N6mNnv1/Electronics-Phone-Chunsam-3.png"
                           />
                           <img
                             alt={`리뷰 ${reviewData.reviewImg.imgAlt}`}
-                            src={`/images/productDetail/${reviewData.reviewImg.imgSrc}`}
+                            src="https://i.ibb.co/5903SVW/Electronics-Phone-Concon-0.png"
                           />
                         </div>
                       </div>

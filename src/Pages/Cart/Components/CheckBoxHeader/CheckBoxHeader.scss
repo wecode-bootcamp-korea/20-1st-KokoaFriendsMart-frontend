@@ -4,30 +4,32 @@
   display: flex;
   align-items: center;
   padding: 50px 0;
-
+  margin-top: 50px;
   font-size: 16px;
+  border-top: 1px solid grey;
 
   .check {
     margin-right: 10px;
   }
 
   .choiceNum {
-    margin-right: 30%;
+    margin-right: 200px;
   }
 
   .choiceOption {
-    margin-right: 15%;
+    margin-right: 250px;
   }
 
   .choiceQuantity {
-    margin-right: 15%;
+    margin-right: 130px;
   }
 
   .productTotal {
-    margin-right: 5%;
+    margin-right: 70px;
   }
 
-  span {
+  span,
+  .deleteAll {
     font-size: 16px;
   }
 }
