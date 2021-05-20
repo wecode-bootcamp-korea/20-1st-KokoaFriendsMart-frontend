@@ -85,33 +85,9 @@ export class Product extends Component {
     }
   };
 
-  // //상세페이지 바로 구매 버튼
-  // onClickPurchaseInstantBtn = e => {
-  //   if (window.confirm('구매페이지로 이동하시겠습니까?')) {
-  //     fetch(http://api.kokoafriendsmart.com/orders, {
-  //       method: 'POST',
-  //       headers: {
-  //         Authorization: localStorage.getItem('accessToken'),
-  //       },
-  //       body: JSON.stringify({
-  //         order_list: [
-  //           {
-  //             product_id: 123,
-  //             quantity: 2,
-  //           },
-  //         ],
-  //         order_type: 'PURCHASE_INSTANT', //세페이지 바로 구매 버튼
-  //       }),
-  //     });
-  //   } else {
-  //     e.preventDefault();
-  //   }
-  // };
-
   render() {
     const { productInformation, productReviewData, quantity, moreView } =
       this.state;
-    console.log(productInformation);
     return (
       <div className="product">
         <Nav />

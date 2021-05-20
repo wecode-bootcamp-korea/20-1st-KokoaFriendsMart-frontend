@@ -25,7 +25,10 @@ class Cart extends React.Component {
     })
       .then(res => res.json())
       .then(cartProductData => {
-        if (!cartProductData.status === 'UNAUTHORIZED_ERROR') {
+        if (
+          cartProductData.status !== 'UNAUTHORIZED_ERROR' ||
+          cartProductData.status === 'SUCCESS'
+        ) {
           this.setState({
             cartProductData: cartProductData.data.product_list,
           });
@@ -67,77 +70,6 @@ class Cart extends React.Component {
     this.setState({ cartProductData: [...emptyList] });
   };
 
-  // totalprice = this.state.cartProductData.reduce((pre, cur) => {
-  //   return pre + cur.price;
-  // }, 0);
-
-  // toggleCheckBox = index => {
-  //   const isChecked = this.state.isChecked;
-  //   isChecked[index] = !isChecked[index];
-  //   this.setState({
-  //     isChecked: isChecked,
-  //   });
-  //   this.setState(prevState => ({
-  //     cartProductData: this.checkedProductTotalPrice(prevState.isChecked),
-  //   }));
-
-  // this.setState(previousState => ({
-  //   isChecked: Array(previousState.cartProductData.length).fill(true),
-  // }));
-  // };
-  // checkedProductTotalPrice = isChecked => {
-  //   const checkedProductIndexArr = [];
-  //   for (let i = 0; i < isChecked.length; i++) {
-  //     if (isChecked[i]) {
-  //       checkedProductIndexArr.push(i);
-  //     }
-  //   }
-  //   const s = [];
-  //   const checkedProductPriceArr = checkedProductIndexArr.map(
-  //     (checkindex, index) => {
-  //       s.push(cartProductData1[index]);
-  //     }
-  //   );
-
-  //   return s;
-  // };
-
-  // 총가격 구하기 (체크된)
-  // checkedProductTotalPrice = isChecked => {
-  //   const checkedProductIndexArr = [];
-  //   for (let i = 0; i < isChecked.length; i++) {
-  //     if (isChecked[i]) {
-  //       checkedProductIndexArr.push(i);
-  //     }
-  //   }
-  //   const checkedProductPriceArr = checkedProductIndexArr.map(
-  //     (checkindex, index) => {
-  //       return (
-  //         this.state.cartProductData[checkindex] &&
-  //         this.state.cartProductData[checkindex].origin_price *
-  //           this.state.cartProductData[checkindex].quantity
-  //       );
-  //     }
-  //   );
-  //   const checkedProductTotalPrice = checkedProductPriceArr.reduce(
-  //     (acc, cur) => {
-  //       return acc + cur;
-  //     },
-  //     0
-  //   );
-  //   return checkedProductTotalPrice;
-  // };
-
-  // checkedNum = isChecked => {
-  //   const checkedProductIndexArr = [];
-  //   for (let i = 0; i < isChecked.length; i++) {
-  //     if (isChecked[i]) {
-  //       checkedProductIndexArr.push(i);
-  //     }
-  //   }
-  //   return checkedProductIndexArr.length;
-  // };
-
   //카트에서 주문하기 버튼
   onClickOderBtn = () => {
     fetch('http://api.kokoafriendsmart.com/orders', {
@@ -166,7 +98,6 @@ class Cart extends React.Component {
 
   render() {
     const { cartProductData, isChecked, allChecked, totalPrice } = this.state;
-    // console.log(cartProductData);
     return (
       <div className="cart">
         <Nav />
@@ -218,8 +149,6 @@ class Cart extends React.Component {
                 return pre + cur.price;
               }, 0)
             }
-            // isChecked={isChecked}
-            // checkedProductTotalPrice={this.checkedProductTotalPrice}
           />
           <button
             tupe="button"

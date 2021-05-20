@@ -22,7 +22,6 @@ class Orderlist extends Component {
 
   render() {
     const { orderData } = this.state;
-    console.log(orderData.data && orderData.data.order_list[0].date);
     return (
       <div className="orderlist">
         <div className="wraper header">
