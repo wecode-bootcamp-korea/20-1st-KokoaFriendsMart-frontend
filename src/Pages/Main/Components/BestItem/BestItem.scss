@@ -42,6 +42,7 @@
         background: url('./sprite.png') -735px -265px no-repeat;
       }
     }
+
     .active {
       position: relative;
       font-weight: bold;
@@ -52,7 +53,7 @@
         position: absolute;
         bottom: -7px;
         display: block;
-        width: 50px;
+        width: 45px;
         height: 3px;
         background-color: $yellow;
       }

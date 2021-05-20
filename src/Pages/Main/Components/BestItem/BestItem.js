@@ -19,12 +19,14 @@ class BestItem extends Component {
   onClickBtn = e => {
     this.setState({
       period: e.target.textContent,
+      if(period = e.target.textContent) {
+        className = 'active';
+      },
     });
   };
 
   render() {
     const { productData, period } = this.state;
-    console.log(`productData`, productData);
     return (
       <div className="BestItem">
         <div className="sectionInfo">
@@ -50,7 +52,7 @@ class BestItem extends Component {
                   key={list.id}
                   list={list}
                   link="/"
-                  // bestCount={list.bestCount}
+                  bestCount={list.bestCount}
                 />
               );
             })}
