@@ -258,10 +258,6 @@ class Category extends Component {
             </ul>
           </div>
           <div className="productLnb">
-            <div className="productNum">
-              총 <span>{this.state.productCount}</span>개의 상품이 조회
-              되었습니다.
-            </div>
             <button>
               <div className="listSort" onClick={this.onClickSortToggle}>
                 {this.state.sortName}
