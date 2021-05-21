@@ -15,6 +15,7 @@ export class Product extends Component {
       productReviewData: [],
       quantity: 1,
       moreView: false,
+      is_liked: true,
     };
   }
 
@@ -44,6 +45,9 @@ export class Product extends Component {
       });
 
     window.scrollTo(0, 0);
+    this.setState({
+      is_liked: this.state.productInformation.is_liked,
+    });
   }
 
   plusQuantity = () => {
@@ -88,6 +92,39 @@ export class Product extends Component {
     } else {
       e.preventDefault();
     }
+  };
+
+  toggleLike = id => {
+    fetch(
+      `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          Authorization: localStorage.getItem('accessToken'),
+        },
+      }
+    )
+      .then(result => result.json())
+      .then(result => {
+        if (result.status === 'SUCCESS') {
+          fetch(
+            `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`,
+            {
+              method: 'GET',
+              headers: {
+                Authorization: localStorage.getItem('accessToken'),
+              },
+            }
+          )
+            .then(result => result.json())
+            .then(result => {
+              console.log(result);
+              this.setState({
+                is_liked: result.data && result.data.product.is_liked,
+              });
+            });
+        }
+      });
   };
 
   //상세페이지 구매 버튼
@@ -153,6 +190,7 @@ export class Product extends Component {
                   handleQuantityInput={this.handleQuantityInput}
                   onClickAddCartBtn={this.onClickAddCartBtn}
                   purchaseInstantBtn={this.purchaseInstantBtn}
+                  toggleLike={this.toggleLike}
                 />
               </div>
             </div>

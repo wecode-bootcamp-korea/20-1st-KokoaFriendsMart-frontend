@@ -21,8 +21,9 @@ class ProductOption extends React.Component {
       isLiked,
       onClickAddCartBtn,
       purchaseInstantBtn,
+      toggleLike,
     } = this.props;
-    // const randomRelativeOption =
+    console.log(productInformation);
     return (
       <div className="productOption">
         <aside className="FloatingOptionOutbox">
@@ -107,6 +108,7 @@ class ProductOption extends React.Component {
                   <div>
                     <button type="button" className="likeButton bottomBtn">
                       <i
+                        onClick={() => toggleLike(productInformation.id)}
                         className={`fa-heart ${
                           productInformation.is_liked ? 'fas yellow' : 'far'
                         }`}
