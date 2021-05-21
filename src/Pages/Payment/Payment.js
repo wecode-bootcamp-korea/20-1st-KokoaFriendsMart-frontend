@@ -30,18 +30,7 @@ class Payment extends Component {
           console.log(this.state.cartData);
         }
       });
-    // fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASE_INSTANT', {
-    //   headers: {
-    //     Authorization: localStorage.getItem('accessToken'),
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       cartData: [...this.state.cartData, data],
-    //     });
-    //     console.log(this.state.data);
-    //   });
+    window.scrollTo(0, 0);
   }
 
   postToken = () => {

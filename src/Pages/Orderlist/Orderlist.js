@@ -22,6 +22,7 @@ class Orderlist extends Component {
           orderData: data,
         });
       });
+    window.scrollTo(0, 0);
   }
 
   render() {
