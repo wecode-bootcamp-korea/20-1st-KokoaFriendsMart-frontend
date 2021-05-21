@@ -140,7 +140,11 @@ class Category extends Component {
         ? `${productApi}?limit=16&offset=0`
         : `${productApi}?cname=${categoryName}&limit=16&offset=0`;
 
-    fetch(fetchDestination)
+    fetch(fetchDestination, {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(result => result.json())
       .then(categoryData => {
         this.setState({

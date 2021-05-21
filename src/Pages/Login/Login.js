@@ -17,7 +17,6 @@ class Login extends Component {
 
     const { email, password } = this.state;
     fetch(`${loginSignupApi}/users/signin`, {
-      // fetch(`http://10.58.3.88:8000/users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -71,15 +70,13 @@ class Login extends Component {
                 name="password"
                 onChange={this.inputHandler}
               />
-              <Link to="/main">
-                <button
-                  className="loginBtn"
-                  type="button"
-                  disabled={!(emailValid && passwordValid)}
-                >
-                  로그인
-                </button>
-              </Link>
+              <button
+                className="loginBtn"
+                type="submit"
+                disabled={!(emailValid && passwordValid)}
+              >
+                로그인
+              </button>
             </form>
             <div className="orWrap">
               <span className="or">또는</span>
