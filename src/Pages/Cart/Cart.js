@@ -25,7 +25,7 @@ class Cart extends React.Component {
       .then(res => res.json())
       .then(cartProductData => {
         if (
-          !cartProductData.status == 'UNAUTHORIZED_ERROR' ||
+          !cartProductData.status === 'UNAUTHORIZED_ERROR' ||
           cartProductData.status === 'SUCCESS'
         ) {
           this.setState({

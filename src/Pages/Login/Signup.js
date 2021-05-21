@@ -29,8 +29,13 @@ class Signup extends Component {
     })
       .then(response => response.json())
       .then(result => {
+        console.log(`result`, result);
         if (result.status === 'SUCCESS') {
           this.props.history.push('./login');
+        } else if (result.status === 'DUPLICATED_ENTRY_ERROR') {
+          alert('중복된 전화번호입니다.');
+        } else {
+          alert('error');
         }
       });
   };
@@ -43,7 +48,7 @@ class Signup extends Component {
   render() {
     const { email, password, passwordReCheck, name, phoneNumber } = this.state;
     const isEmailValid = email.includes('@') && email.includes('.');
-    const isPasswordValid = password.length > 8;
+    const isPasswordValid = password.length >= 8;
     const isPasswordReCheckValid =
       passwordReCheck.length > 1 && passwordReCheck === password;
     return (
@@ -110,18 +115,11 @@ class Signup extends Component {
             </div>
             <button className="numBtn">인증번호 발송</button>
             <button
-              disabled={
-                !(
-                  isEmailValid &&
-                  isPasswordValid &&
-                  isPasswordReCheckValid &&
-                  name.length > 1 &&
-                  phoneNumber.length > 6
-                )
-              }
               className="nextBtn"
+              disabled={!(isEmailValid && isPasswordValid)}
+              onClick={this.requestSignin}
             >
-              다음
+              로그인
             </button>
           </form>
         </div>
