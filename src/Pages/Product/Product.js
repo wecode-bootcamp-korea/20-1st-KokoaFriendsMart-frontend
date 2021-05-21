@@ -107,8 +107,13 @@ export class Product extends Component {
           ],
           order_type: 'PURCHASE_INSTANT', //상세페이지 구매 버튼
         }),
-      });
-      this.props.history.push('/payment');
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.status === 'SUCCESS') {
+            this.props.history.push('/payment?orderType=PURCHASE_INSTANT');
+          }
+        });
     } else {
       e.preventDefault();
     }

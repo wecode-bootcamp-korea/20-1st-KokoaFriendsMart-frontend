@@ -80,17 +80,50 @@ class Cart extends React.Component {
 
   //카트에서 주문하기 버튼
   onClickOderBtn = () => {
+    console.log(this.state.cartProductData);
+    const currentCart = [];
+    this.state.cartProductData.forEach(el => {
+      const newObj = {};
+      newObj['product_id'] = el.product_id;
+      newObj['quantity'] = el.quantity;
+      currentCart.push(newObj);
+    });
+    console.log(currentCart);
+    const orderData = this.state.cartProductData.map((el, i) => el.order_id);
+    console.log(currentCart);
     fetch('http://api.kokoafriendsmart.com/orders', {
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         Authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
-        order_list: this.state.cartProductData.map((el, i) => el.order_id),
-        order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+        order_list: currentCart,
+        order_type: 'IN_CART', //카트에서 수정데이터
       }),
-    });
-    this.props.history.push('/payment');
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'SUCCESS') {
+          fetch('http://api.kokoafriendsmart.com/orders', {
+            method: 'PATCH',
+            headers: {
+              Authorization: localStorage.getItem('accessToken'),
+            },
+            body: JSON.stringify({
+              order_id_list: orderData,
+              order_type: 'PURCHASE_CART', //카트에서 주문하기 버튼
+            }),
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.status === 'SUCCESS') {
+                this.props.history.push('/payment?orderType=PURCHASE_CART');
+              }
+            });
+        }
+      });
+
+    console.log(orderData);
   };
 
   render() {

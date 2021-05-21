@@ -12,17 +12,36 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASE_CART', {
-      headers: {
-        Authorization: localStorage.getItem('accessToken'),
-      },
-    })
+    console.log(this.props.location.search);
+    fetch(
+      `http://api.kokoafriendsmart.com/orders${this.props.location.search}`,
+      {
+        headers: {
+          Authorization: localStorage.getItem('accessToken'),
+        },
+      }
+    )
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          cartData: data,
-        });
+        if (data) {
+          this.setState({
+            cartData: data,
+          });
+          console.log(this.state.cartData);
+        }
       });
+    // fetch('http://api.kokoafriendsmart.com/orders?orderType=PURCHASE_INSTANT', {
+    //   headers: {
+    //     Authorization: localStorage.getItem('accessToken'),
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       cartData: [...this.state.cartData, data],
+    //     });
+    //     console.log(this.state.data);
+    //   });
   }
 
   postToken = () => {
