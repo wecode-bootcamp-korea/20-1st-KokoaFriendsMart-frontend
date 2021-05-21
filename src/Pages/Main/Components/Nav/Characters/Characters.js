@@ -10,15 +10,10 @@ class Characters extends Component {
       <div className="friendsContainer">
         <img
           onClick={() => history.push(`category/${name}`)}
-          onClick={() => onClickLikePick(name)}
           src={img}
           alt="characters"
         />
-        <div
-          onClick={() => history.push(`category/${name}`)}
-          onClick={() => onClickLikePick(name)}
-          className="characterNames"
-        >
+        <div onClick={() => onClickLikePick(name)} className="characterNames">
           {name}
         </div>
       </div>
