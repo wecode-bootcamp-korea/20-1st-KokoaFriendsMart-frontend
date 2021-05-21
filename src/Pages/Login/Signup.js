@@ -29,6 +29,7 @@ class Signup extends Component {
     })
       .then(response => response.json())
       .then(result => {
+        console.log(`result`, result);
         if (result.status === 'SUCCESS') {
           this.props.history.push('./login');
         } else if (result.status === 'DUPLICATED_ENTRY_ERROR') {
@@ -116,6 +117,7 @@ class Signup extends Component {
             <button
               className="nextBtn"
               disabled={!(isEmailValid && isPasswordValid)}
+              onClick={this.requestSignin}
             >
               로그인
             </button>

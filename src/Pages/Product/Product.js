@@ -21,7 +21,12 @@ export class Product extends Component {
   componentDidMount() {
     const productId = this.props.match.params.id;
     fetch(
-      `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`
+      `http://api.kokoafriendsmart.com/products/${this.props.match.params.id}`,
+      {
+        headers: {
+          Authorization: localStorage.getItem('accessToken'),
+        },
+      }
     )
       .then(res => res.json())
       .then(productInfoData => {
@@ -85,6 +90,30 @@ export class Product extends Component {
     }
   };
 
+  //상세페이지 구매 버튼
+  purchaseInstantBtn = e => {
+    if (window.confirm('이 상품을 구매하시겠습니까?')) {
+      fetch('http://api.kokoafriendsmart.com/orders', {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('accessToken'),
+        },
+        body: JSON.stringify({
+          order_list: [
+            {
+              product_id: this.props.match.params.id,
+              quantity: this.state.quantity,
+            },
+          ],
+          order_type: 'PURCHASE_INSTANT', //상세페이지 구매 버튼
+        }),
+      });
+      this.props.history.push('/payment');
+    } else {
+      e.preventDefault();
+    }
+  };
+
   render() {
     const { productInformation, productReviewData, quantity, moreView } =
       this.state;
@@ -118,6 +147,7 @@ export class Product extends Component {
                   minusQuantity={this.minusQuantity}
                   handleQuantityInput={this.handleQuantityInput}
                   onClickAddCartBtn={this.onClickAddCartBtn}
+                  purchaseInstantBtn={this.purchaseInstantBtn}
                 />
               </div>
             </div>

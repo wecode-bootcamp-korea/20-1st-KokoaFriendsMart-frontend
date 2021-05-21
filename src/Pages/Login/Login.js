@@ -40,7 +40,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     const emailValid = email.includes('@') && email.includes('.');
-    const passwordValid = password.length > 6;
+    const passwordValid = password.length >= 8;
     return (
       <div className="login">
         <main>
@@ -74,6 +74,7 @@ class Login extends Component {
                 className="loginBtn"
                 type="submit"
                 disabled={!(emailValid && passwordValid)}
+                onClick={this.requestLogin}
               >
                 로그인
               </button>

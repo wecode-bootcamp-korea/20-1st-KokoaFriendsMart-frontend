@@ -20,6 +20,7 @@ class ProductOption extends React.Component {
       quantity,
       isLiked,
       onClickAddCartBtn,
+      purchaseInstantBtn,
     } = this.props;
     // const randomRelativeOption =
     return (
@@ -107,7 +108,7 @@ class ProductOption extends React.Component {
                     <button type="button" className="likeButton bottomBtn">
                       <i
                         className={`fa-heart ${
-                          productInformation.isLiked ? 'fas yellow' : 'far'
+                          productInformation.is_liked ? 'fas yellow' : 'far'
                         }`}
                       ></i>
                       <span>좋아요</span>
@@ -128,7 +129,7 @@ class ProductOption extends React.Component {
                   <button
                     type="button"
                     className="buyButton bottomBtn"
-                    onClick={this.goToPayment}
+                    onClick={purchaseInstantBtn}
                     disabled={productInformation.is_soldout ? true : false}
                   >
                     구매하기
