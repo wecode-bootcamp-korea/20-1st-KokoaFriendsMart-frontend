@@ -11,8 +11,6 @@ class ProductInCart extends React.Component {
       handleInputQuantity,
       deleteProduct,
       cartProductData,
-      isChecked,
-      toggleCheckBox,
     } = this.props;
 
     return (
