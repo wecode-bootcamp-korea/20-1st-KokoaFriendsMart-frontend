@@ -37,6 +37,7 @@ class Cart extends React.Component {
           });
         }
       });
+    window.scrollTo(0, 0);
   }
 
   handleInputQuantity = e => {

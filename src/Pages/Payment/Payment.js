@@ -23,6 +23,7 @@ class Payment extends Component {
           cartData: data,
         });
       });
+    window.scrollTo(0, 0);
   }
 
   postToken = () => {
