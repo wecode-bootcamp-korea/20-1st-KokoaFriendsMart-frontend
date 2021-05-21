@@ -235,7 +235,7 @@ class Payment extends Component {
               </div>
             </div>
             <div>
-              <Link to="../Orderlist/Orderlist.js">
+              <Link to="../Orderlist">
                 <button
                   onClick={this.postToken}
                   type="button"
